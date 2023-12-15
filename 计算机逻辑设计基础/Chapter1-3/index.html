@@ -1,0 +1,916 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../Chapter4-P1/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+    
+    
+      
+        <title>Chapter 1 Logic and Digital System - zju-learning</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-1-logic-and-digital-system" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="zju-learning" class="md-header__button md-logo" aria-label="zju-learning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            zju-learning
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 1 Logic and Digital System
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="zju-learning" class="md-nav__button md-logo" aria-label="zju-learning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    zju-learning
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome to MkDocs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    计算机逻辑设计基础
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            计算机逻辑设计基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chapter 1 Logic and Digital System
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1 Logic and Digital System
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-digital-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types of Digital Systems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#information-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Information representation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chapter4-P1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 4  Part 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chapter4-P2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 4  Part 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chapter5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 5 Digital Hardware Implementation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chapter6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Registers & Register Transfers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-digital-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types of Digital Systems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#information-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Information representation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="chapter-1-logic-and-digital-system">Chapter 1 Logic and Digital System</h1>
+<ol>
+<li>Discrete information processing systems</li>
+</ol>
+<h2 id="types-of-digital-systems">Types of Digital Systems</h2>
+<ol>
+<li>
+<p>No state present:combinational logic system, output=Function(input)</p>
+</li>
+<li>
+<p>State present:</p>
+</li>
+<li>
+<p>state updated at discrete times -&gt; synchronous sequential system</p>
+</li>
+<li>
+<p>state updated at any time -&gt; asynchronous（异步） sequential systeam</p>
+</li>
+<li>
+<p>state = Function(state,input)</p>
+</li>
+<li>
+<p>output = Function(state) or Function(state,input)</p>
+</li>
+<li>
+<p><code>e.g</code>：digital computer: synchronous,组频  </p>
+</li>
+<li><code>beyond</code>：embedded systems（嵌入式系统）：analog signal，need A-to-D(digital) and D-to-A<ul>
+<li>analog signal- continuous voltage- sample（采样）- digital voltage - DAC - discrete voltage - signal conditioning - continuous voltage</li>
+</ul>
+</li>
+</ol>
+<h2 id="information-representation">Information representation</h2>
+<ol>
+<li>
+<ul>
+<li>analog: continuous in value and time</li>
+</ul>
+</li>
+<li>
+<p>digital: asynchronous: discrete in value,continuous in time; synchronous:discrete in value and time</p>
+</li>
+<li>
+<p>二进制抗干扰能力强</p>
+</li>
+<li>
+<p>dynamic RAM: capacitor charge (电容)</p>
+</li>
+<li>K(2^10)-M-G-T 每个相差2^10</li>
+<li>non-numeric binary codes: e.g.：color</li>
+<li>'one hot' code : you can represent 4 elements in radix r=2 with n=4 digits:<code>0001,0010,0100,1000</code>,each digit represents specific element</li>
+<li>
+<p>以下两种表示0-9时对称数字互为反码</p>
+<ul>
+<li>
+<p>Excess3 Code:余3码</p>
+</li>
+<li>
+<p>8，4，-2，-1 Code：后两位分别代表-2，-1</p>
+</li>
+<li>Binary Coded Decimal（BCD）：use 8，4，2，1 code，but only represent 0-9</li>
+<li>
+<p>example: 13 -&gt; 0001 | 0011</p>
+</li>
+<li>
+<p>application: good for direct interaction to people,like elevator,air conditioner</p>
+</li>
+<li>to correct the digit,subtract 10 by adding 6 modulo 16 </li>
+<li><code>eg</code>:13-&gt; 1101 +6 -&gt; 10011 -&gt; 0001 | 0011</li>
+<li>ASCII: 0 30,A 41,a 61 (in 16进制)</li>
+<li><code>PARITY BIT Error-Detection Codes</code>(奇偶检错码)：添加一位（n+1）：odd/even parity：使n+1位加起来一共有奇/偶个1</li>
+<li>Gray Code：相邻状态只有一位码不一样，渐变过程时不会出现突然变化</li>
+<li>
+<p>Application: Optical Shaft Encoder，dark represents 0，white represents 1</p>
+</li>
+<li>
+<p>如果传感器位置出现偏移，不在同一直线，用Gray Code 不会出现错误
+<img src="image.png" alt="Alt text" style="zoom:50%;" /></p>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="chapter-2-combinational-logic-circuits">Chapter 2 Combinational Logic Circuits</h1>
+<ol>
+<li>上侧<img alt="Alt text" src="../image-2.png" /> 为PMOS管，常闭开关；下侧<img alt="Alt text" src="../image-3.png" />为NMOS管，常开开关 </li>
+</ol>
+<p><img src="image-1.png" alt="Alt text" style="zoom:50%;" /></p>
+<ol>
+<li><img alt="Alt text" src="../image-4.png" /></li>
+<li>Gate Delay:<ul>
+<li>When input changes,the output change doesn't occur instantaneously.</li>
+<li>the delay between an input changes and the resulting output change is the gate delay denoted by  $$ t_G $$ s</li>
+</ul>
+</li>
+<li>Logic Diagrams and Expressions: Truth Table,Equation(逻辑函数),Diagram,波形图</li>
+<li>Boolean Algebra:</li>
+<li>$$ X(Y+Z)=XY+XZ $$</li>
+<li>$X+YZ=(X+Y)(X+Z)$</li>
+<li>Prf:
+$$
+A=A\cdot A=A\cdot (A+C)  \
+A+BC=A(A+B+C)+BC=(A+B)(A+C)
+$$</li>
+<li>$\overline{X·Y}=\overline{X}+\overline{Y}$</li>
+<li>Absorption Theorem: $A+A·B=A,A+\overline{A}B=A+B$</li>
+<li>Consensus Law:</li>
+<li>$(A+B)(\overline{A}+C)(B+C)=(A+B)(\overline{A}+C)$ </li>
+<li>$AB+\overline{A}C+BC=AB+\overline{A}C$<br />
+    Hint： $BC=BC(A+\overline{A})$</li>
+<li>$\overline{X}Z+X=(X+\overline{X})(Z+X)=Z+X$<br />
+    Hint: $X+YZ=(X+Y)(X+Z)$ </li>
+<li>
+<p>Precedence:</p>
+<ul>
+<li>Parentheses</li>
+<li>NOT</li>
+<li>AND</li>
+<li>OR</li>
+</ul>
+</li>
+<li>
+<p>Examples:</p>
+</li>
+<li><img src="image-5.png" alt="Alt text" style="zoom:50%;" /></li>
+<li>$$
+F=\overline{\overline{AC+\overline{A}BC}+\overline{B}C+AB\overline{C}} \
+=(AC+\overline{A}BC)\overline{\overline{B}C}\cdot \overline{AB\overline{C}}\
+=C(A+\overline{A}B)(B+\overline{C})(\overline{A}+\overline{B}+C) \
+=C(A+\overline{A}B)(\overline{A}B+BC+\overline{A}\cdot\overline{C}+\overline{B}\cdot\overline{C}) \
+=C(A+\overline{A}B)(\overline{A}B+BC) \
+=ABC+\overline{A}BC=BC
+$$</li>
+</ol>
+<h2 id="canonical-forms">Canonical Forms</h2>
+<ol>
+<li>minterm &amp; maxterms:maxterm is complemented(取反) with minterm;
+<img src="image-6.png" alt="Alt text" style="zoom:50%;" />
+<img src="image-10.png" alt="Alt text" style="zoom:50%;" /></li>
+<li>$\overline{m}_i=M_i,\overline{M}_i=m_i$</li>
+<li>$F=\sum{m_i}=\overline{\prod{M_i}},i=0,1,2,3,\dots,2^n-1$</li>
+<li>usage:turn logic function into numbers by minterm</li>
+</ol>
+<h2 id="standard-forms">Standard Forms</h2>
+<ol>
+<li>SOP: an OR of AND terms,POS: an AND of OR terms</li>
+</ol>
+<h2 id="gate-input-cost">Gate Input Cost</h2>
+<ol>
+<li>the number of inputs to the gates in the implementation corresponding exactly to the given equation or equations. </li>
+<li>G - inverters not counted</li>
+<li>GN - inverters counted</li>
+<li>For SOP and POS equations, it can be found from the equation(s) by finding the sum of:</li>
+<li>all literal appearances（Literal cost,L:公式中一共出现的变量个数，可重复）</li>
+<li>the number of terms excluding single literal terms,(G) and</li>
+<li>optionally, the number of distinct complemented single literals (GN) 计算非门.</li>
+</ol>
+<h2 id="karnaugh-maps">Karnaugh Maps</h2>
+<p>相邻的只有一位不同，Gray码顺序
+<img src="image-7.png" alt="Alt text" style="zoom:50%;" />
+三变量图可以理解为圈，即最左侧和最右侧相邻
+<img src="image-8.png" alt="Alt text" style="zoom:33%;" /></p>
+<ol>
+<li>消除：Karnaugh图中有两个相邻小格子则可以删除一个变量</li>
+<li>四变量：<img src="image-9.png" alt="Alt text" style="zoom:50%;" /></li>
+</ol>
+<h2 id="buffer">Buffer</h2>
+<ol>
+<li>A buffer is a gate with the function F=X :<img src="C:\Users\13461\AppData\Roaming\Typora\typora-user-images\image-20231019100622590.png" alt="image-20231019100622590" style="zoom:50%;" /></li>
+<li>the same as a connection</li>
+<li>used to improve circuit voltage levels and increase the speed of circuit operation</li>
+</ol>
+<h2 id="nand-gates">NAND Gates</h2>
+<p><img src="image-20231019100918951.png" alt="image-20231019100918951" style="zoom:50%;" /></p>
+<p><img src="image-20231019100932651.png" alt="image-20231019100932651" style="zoom:50%;" /></p>
+<ol>
+<li>This NAND symbol is called Invert-OR, since inputs are inverted and then ORed together. </li>
+<li>AND-Invert and Invert-OR both represent the NAND gate. Having both makes visualization of circuit function easier.</li>
+</ol>
+<h2 id="exclusive-or-exclusive-nor">Exclusive OR/ Exclusive NOR</h2>
+<ol>
+<li>The XOR function is:  $X⊕Y=X\overline{Y}+\overline{X}Y$</li>
+<li>The eXclusive NOR (XNOR) function, otherwise known as equivalence is: $\overline{X⊕Y}=XY+\overline{XY} $ </li>
+<li>$X⊕\overline{Y}= \overline{X⊕Y}$</li>
+<li>$X⊕Y⊕Z=X⊕(Y⊕Z)$</li>
+</ol>
+<h2 id="odd-and-even-functions">Odd and Even Functions</h2>
+<ol>
+<li>The 1s of an odd function correspond to minterms having an index with an odd number of 1s.</li>
+<li>The 1s of an even function correspond to minterms having an index with an even number of 1s.</li>
+<li>奇函数取非即为偶函数</li>
+</ol>
+<h2 id="parity-generators-and-checkers">Parity Generators and Checkers</h2>
+<ol>
+<li>偶校验码生成器与检验器</li>
+</ol>
+<p><img src="image-20231019103309385.png" alt="image-20231019103309385" style="zoom:50%;" /></p>
+<h2 id="the-3-state-buffer">The 3-State Buffer</h2>
+<ol>
+<li>For the symbol and truth table, IN is the data input, and EN, the control input.
+   For EN = 0, regardless of the value on IN (denoted by X), the output value is Hi-Z.
+   For EN = 1, the output value follows the input value.</li>
+</ol>
+<p><img src="image-20231019104054827.png" alt="image-20231019104054827" style="zoom:50%;" /></p>
+<h2 id="3-state-logic-circuit">3-State Logic Circuit</h2>
+<ol>
+<li>
+<p>Data Selection Function: If s = 0, OL = IN0, else OL = IN1</p>
+</li>
+<li>
+<p>Performing data selection with 3-state buffers:</p>
+</li>
+<li>
+<p>Since EN0 = S and EN1 = S, one of the two buffer outputs is always Hi-Z plus the last row of the table never occurs.</p>
+</li>
+</ol>
+<p><img src="image-20231019104244785.png" alt="image-20231019104244785" style="zoom:50%;" /></p>
+<h1 id="chapter-3-combinational-logic-design">Chapter 3 Combinational Logic Design</h1>
+<h2 id="part-1-implementation-technology-and-logic-design">Part 1 Implementation Technology and Logic Design</h2>
+<h3 id="_1">工艺映射</h3>
+<h4 id="nand-mapping-algorithm">NAND Mapping Algorithm</h4>
+<ol>
+<li>
+<p>Replace ANDs and ORs:<img src="image-20231026102656501.png" alt="image-20231026102656501" style="zoom:50%;" /></p>
+</li>
+<li>
+<p>Repeat the following pair of actions until there is at most one inverter between :</p>
+</li>
+<li>
+<p>A circuit input or driving NAND gate output, and-</p>
+</li>
+<li>
+<p>The attached NAND gate inputs.</p>
+<p><img src="image-20231026102745203.png" alt="image-20231026102745203" style="zoom:50%;" /> </p>
+</li>
+</ol>
+<h4 id="nor-mapping-algorithm">NOR Mapping Algorithm</h4>
+<p>​   Similar to the NAND,first Replace ANDs and ORs</p>
+<p><img src="image-20231026103035484.png" alt="image-20231026103035484" style="zoom:50%;" /></p>
+<h2 id="part-2-combinational-logic">Part 2 Combinational Logic</h2>
+<h3 id="decoding">Decoding</h3>
+<ol>
+<li>Decoding - the conversion of an n-bit input code to an m-bit output code with$n\leqslant m\leqslant2n$ such that each valid code word produces a unique output code</li>
+<li>Circuits that perform decoding are called decoders</li>
+<li>Here, functional blocks for decoding are called n-to-m line decoders, where $m\leqslant2n$, and
+   generate 2n (or fewer) minterms for the n input variables</li>
+</ol>
+<h3 id="decoder-with-enable">Decoder with Enable</h3>
+<p><img src="image-20231019113911085.png" alt="image-20231019113911085" style="zoom:50%;" /></p>
+<p>由于2-4译码器只有一个输出为1，只有该门可以输出内容，因此可以将$A_1,A_0$组成的译码器当成EN，EN当成输入信号</p>
+<h3 id="bcd-to-segment-decoder">BCD-to-Segment Decoder</h3>
+<ol>
+<li>共阳极与共阴极接法：</li>
+</ol>
+<p><img src="image-20231026105126666.png" alt="image-20231026105126666" style="zoom:50%;" /><img src="image-20231026105140813.png" alt="image-20231026105140813" style="zoom:50%;" /></p>
+<h3 id="encoding">Encoding</h3>
+<ol>
+<li>
+<p>Encoding - the opposite of decoding - the conversion of an m-bit input code to a $n$-bit output code with $n &lt; m&lt;  2^n$  such that each valid code word produces a unique output code</p>
+</li>
+<li>
+<p>An encoder has $2^n$ (or fewer) input lines and $n$ output lines which generate the binary code corresponding to the input values</p>
+</li>
+<li>
+<p>传统编码器问题：如以下输出方程式对应编码器，若$D_6,D_7$同时为1，不能判断是$A_2$还是$A_1$，即有不确定性</p>
+</li>
+</ol>
+<p><img src="image-20231026110959409.png" alt="image-20231026110959409" style="zoom:50%;" /></p>
+<ol>
+<li>优先编码器（Priority Encoder）</li>
+<li>One encoder that can accept all possible combinations of input values and produce a meaningful result is a priority encoder.</li>
+<li>Among the 1s that appear, it selects the most significant input position (or the least significant input position) containing a 1 and responds with  the corresponding binary code for that position.</li>
+<li>example:<ul>
+<li>Priority encoder with 5 inputs (D4, D3, D2, D1, D0) - highest priority to most significant 1 present - Code outputs A2, A1, A0 and V where V indicates at least one 1 present.</li>
+<li><img src="image-20231026111647111.png" alt="image-20231026111647111" style="zoom:50%;" /></li>
+</ul>
+</li>
+<li>Xs in input part of table represent 0 or 1; thus table entries correspond to product terms instead of minterms. The column on the left shows that all 32 minterms are present in the product terms in the table</li>
+<li>Xs 在输出列表示无关情况不同</li>
+</ol>
+<h3 id="selecting">Selecting</h3>
+<ol>
+<li>Selecting of data or information is a critical function in digital systems and computers</li>
+<li>Logic circuits that perform selecting are called multiplexers</li>
+<li>Selecting can also be done by three-state logic or transmission gates</li>
+</ol>
+<h3 id="multiplexer">Multiplexer</h3>
+<ol>
+<li>A multiplexer selects information from an input line and directs the information to an output line</li>
+<li>typical multiplexer has n control inputs ($S_{n-1}, … S_0$) called selection inputs, $2^n$ information inputs ($I_{2^n - 1}, … I_0$), and one output $Y$</li>
+<li>A multiplexer can be designed to have m information inputs with $m &lt; 2^n$ as well as n selection inputs </li>
+</ol>
+<p><img src="image-20231026112822339.png" alt="image-20231026112822339" style="zoom:50%;" /></p>
+<h3 id="2-to-1-line-multiplexer">2-to-1-Line Multiplexer</h3>
+<ol>
+<li>The single selection variable S has two values:</li>
+<li>S = 0 selects input $I_0$</li>
+<li>
+<p>S = 1 selects input $I_1$</p>
+</li>
+<li>
+<p>The equation:$Y =\overline{S}I_0 + SI_1$</p>
+</li>
+<li>
+<p>The circuit:<img src="image-20231026113027457.png" alt="image-20231026113027457" style="zoom:50%;" /></p>
+</li>
+</ol>
+<h3 id="multiplexer-width-expansion">Multiplexer Width Expansion(选择多位)</h3>
+<h4 id="example4-to-1-line-quad-multiplexer">example:4-to-1-line quad multiplexer</h4>
+<p><img src="image-20231026113421292.png" alt="image-20231026113421292" style="zoom:50%;" /></p>
+<h3 id="other-selection-implementations">Other Selection Implementations</h3>
+<ol>
+<li>Three-state logic in place of AND-OR。 Gate input cost = 18</li>
+</ol>
+<p><img src="image-20231026113745079.png" alt="image-20231026113745079" style="zoom:50%;" /></p>
+<ol>
+<li>Distributing the decoding across the three-state drivers（分层选择） Gate input cost = 14</li>
+</ol>
+<p><img src="image-20231026113912226.png" alt="image-20231026113912226" style="zoom:50%;" /></p>
+<h3 id="combinational-logic-implementation-multiplexer-approach-1">Combinational Logic Implementation- Multiplexer Approach 1</h3>
+<p><img src="image-20231026115822488.png" alt="image-20231026115822488" style="zoom:50%;" /></p>
+<p>查找表</p>
+<h3 id="combinational-logic-implementation-multiplexer-approach-2">Combinational Logic Implementation - Multiplexer Approach 2</h3>
+<p><img src="image-20231026115909267.png" alt="image-20231026115909267" style="zoom:50%;" /></p>
+<p><img src="image-20231026115932766.png" alt="image-20231026115932766" style="zoom:50%;" /></p>
+<h2 id="part-3-arithmetic-functions">Part 3 Arithmetic functions</h2>
+<h3 id="function-block">Function Block</h3>
+<h4 id="half-adder">Half-Adder</h4>
+<p>两输入两输出</p>
+<p><img src="image-20231102101146092.png" alt="image-20231102101146092" style="zoom:50%;" /></p>
+<ol>
+<li>$S$为$X\oplus Y,$$C$为$XY$</li>
+</ol>
+<p><img src="image-20231102101429954.png" alt="image-20231102101429954" style="zoom:50%;" /></p>
+<ol>
+<li>常见两种电路实现</li>
+</ol>
+<p><img src="image-20231102101516420.png" alt="image-20231102101516420" style="zoom:50%;" /></p>
+<h4 id="full-adder">Full-Adder</h4>
+<p>全加器即考虑上一位的进位，即$Z$or$C_i$</p>
+<p>S=$\overline{C_i}(A\oplus B)+C_i(\overline{A\oplus B})$</p>
+<p><img src="image-20231102102118553.png" alt="image-20231102102118553" style="zoom:50%;" /></p>
+<p>The term $X\cdot Y$  is carry generate,$X\oplus Y$ is carry propagate</p>
+<p><img src="image-20231102102411386.png" alt="image-20231102102411386" style="zoom:50%;" /></p>
+<ol>
+<li>Ripple-Carry Binary Adder:需要延时  行波进位加法器</li>
+</ol>
+<p><img src="image-20231102103300958.png" alt="image-20231102103300958" style="zoom:50%;" /></p>
+<ol>
+<li>Group Carry Lookahead Logic</li>
+</ol>
+<p><img src="image-20231112102256642.png" alt="image-20231112102256642" style="zoom: 33%;" /></p>
+<p><img src="image-20231102110407750.png" alt="image-20231102110407750" style="zoom: 33%;" /></p>
+<p><img src="image-20231102111619915.png" alt="image-20231102111619915" style="zoom:50%;" /></p>
+<p><img src="image-20231102111655394.png" alt="image-20231102111655394" style="zoom:50%;" /></p>
+<h3 id="unsigned-subtraction">Unsigned Subtraction</h3>
+<p><img src="image-20231102112342150.png" alt="image-20231102112342150" style="zoom:33%;" /></p>
+<h4 id="complements">Complements 补码</h4>
+<ol>
+<li>Diminished Radix Complement of N: defined as $(r^n-1)-N$ ,known as 反码 $1's$ complement</li>
+<li>Radix Complement: defined as $r^n-N$  $2's$ complement</li>
+<li>补码：对n位二进制数，相当于第一位$a_{n-1}$代表$-2^{n-1}$,后续每位都代表$2^k$</li>
+<li><img src="image-20231102113242675.png" alt="image-20231102113242675" style="zoom:50%;" /></li>
+</ol>
+<p>即M-N时，减数N先求补码$2^n-N$，然后$M+(2^n-N)$,若产生进位1，说明够减，对应值即为答案；若进位为0，说明不够减，则对结果取补码并加负号</p>
+<h3 id="_2">有符号减法</h3>
+<ol>
+<li>设加法为0，减法为1，正数第一位0，负数第一位1，那么对减数第一位，符号，被减数第一位构成的序列，若有偶数个0，在没有溢出情况下则可以转化为同号相加</li>
+<li>若被加数与被减数为负，则取对应补码（不改变符号位），之后若是加法则正常进行，减法则类似地对减数取补</li>
+</ol>
+<p><img src="image-20231102114904166.png" alt="image-20231102114904166" style="zoom:50%;" /></p>
+<h3 id="_3">溢出</h3>
+<p>同号相加、异号相减时可能会出现溢出</p>
+<ol>
+<li>判断溢出：$V=C_n\oplus C_{n-1}$,即$C_n$与$C_{n-1}$符号一致则不溢出，否则溢出</li>
+</ol>
+<p>两个正数相加，$C_n$一定是0，溢出只可能是$C_{n-1}$为1</p>
+<p>两个负数相加，$C_n$一定是1，若不溢出$C_{n-1}$需要为1</p>
+<ol>
+<li>
+<p>无符号数溢出：两个首位都是1</p>
+</li>
+<li>
+<p>有符号数：同号时有可能溢出</p>
+</li>
+</ol>
+<h3 id="_4">常数除法、乘法</h3>
+<p>对于2的幂次可以通过移位得到结果，对于非2幂次可以常数加法和2的幂次乘除相结合得到结果。</p>
+<p>如$3x=2^1x+2^0x$,即$x[31:0]={x[30:0],1'b0}+x[31:0]$.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>
