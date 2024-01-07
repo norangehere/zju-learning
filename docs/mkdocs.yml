@@ -6,5 +6,7 @@ theme:
   highlightjs: true
   hljs_languages:
     - yaml
-
 use_directory_urls: false
+markdown_extensions:
+  - pymdownx.arithmatex:
+    generic: true
