@@ -41,7 +41,7 @@
 *.yaml
 
 # Ignore the generated Markdown files
-*.md
+# *.md
 
 # Ignore the generated CSV files
 *.csv
@@ -56,8 +56,8 @@
 *.pptx
 
 # Ignore the generated image files
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.svg
+# *.png
+# *.jpg
+# *.jpeg
+# *.gif
+# *.svg
