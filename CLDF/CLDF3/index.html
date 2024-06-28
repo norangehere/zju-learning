@@ -1621,7 +1621,7 @@
 <h4 id="nand-mapping-algorithm">NAND Mapping Algorithm 与非门成本更低，延迟更低<a class="headerlink" href="#nand-mapping-algorithm" title="Permanent link">&para;</a></h4>
 <ol>
 <li>
-<p>Replace ANDs and ORs:<img src="D:\Learning\LCDF\note\image-20231026102656501.png" alt="image-20231026102656501" style="zoom:50%;" /></p>
+<p>Replace ANDs and ORs:<img src="image-20231026102656501.png" alt="image-20231026102656501" style="zoom:50%;" /></p>
 </li>
 <li>
 <p>消除所有反相器对</p>
@@ -1634,12 +1634,12 @@
 </li>
 <li>
 <p>The attached NAND gate inputs.</p>
-<p><img src="D:\Learning\LCDF\note\image-20231026102745203.png" alt="image-20231026102745203" style="zoom:50%;" /> </p>
+<p><img src="image-20231026102745203.png" alt="image-20231026102745203" style="zoom:50%;" /> </p>
 </li>
 </ol>
 <h4 id="nor-mapping-algorithm">NOR Mapping Algorithm<a class="headerlink" href="#nor-mapping-algorithm" title="Permanent link">&para;</a></h4>
 <p>​   Similar to the NAND,first Replace ANDs and ORs</p>
-<p><img src="D:\Learning\LCDF\note\image-20231026103035484.png" alt="image-20231026103035484" style="zoom:50%;" /></p>
+<p><img src="image-20231026103035484.png" alt="image-20231026103035484" style="zoom:50%;" /></p>
 <h3 id="en">EN 使能<a class="headerlink" href="#en" title="Permanent link">&para;</a></h3>
 <p>EN为0输出始终为0，EN为1时为对应表达式值</p>
 <h2 id="part-2-combinational-logic">Part 2 Combinational Logic<a class="headerlink" href="#part-2-combinational-logic" title="Permanent link">&para;</a></h2>
@@ -1651,11 +1651,11 @@
    generate <span class="arithmatex">\(2^n\)</span> (or fewer) minterms for the n input variables</li>
 </ol>
 <h3 id="3-8">3-8 译码器<a class="headerlink" href="#3-8" title="Permanent link">&para;</a></h3>
-<p><img src="D:\Learning\LCDF\note\image-20240103211144335.png" alt="image-20240103211144335" style="zoom:50%;" /></p>
+<p><img src="image-20240103211144335.png" alt="image-20240103211144335" style="zoom:50%;" /></p>
 <p>设计n输入译码器，不断二分，除不尽就剩下一个单独的，如上图3除2余1，因此我们使用1个4-2译码器和一个1-2-Line Decoder</p>
 <p>通过译码器和OR可以组成任何组合逻辑电路</p>
 <h3 id="decoder-with-enable">Decoder with Enable<a class="headerlink" href="#decoder-with-enable" title="Permanent link">&para;</a></h3>
-<p><img src="D:\Learning\LCDF\note\image-20231019113911085.png" alt="image-20231019113911085" style="zoom:50%;" /></p>
+<p><img src="image-20231019113911085.png" alt="image-20231019113911085" style="zoom:50%;" /></p>
 <p>由于2-4译码器只有一个输出为1，只有该门可以输出内容，因此可以将<span class="arithmatex">\(A_1,A_0\)</span>组成的译码器当成EN，EN当成输入信号</p>
 <p>带使能输入的译码器又被称为多路分配器</p>
 <h3 id="_5">基于译码器的组合电路<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
@@ -1664,7 +1664,7 @@
 <ol>
 <li>共阳极与共阴极接法：</li>
 </ol>
-<p><img src="D:\Learning\LCDF\note\image-20231026105126666.png" alt="image-20231026105126666" style="zoom:50%;" /><img src="D:\Learning\LCDF\note\image-20231026105140813.png" alt="image-20231026105140813" style="zoom:50%;" /></p>
+<p><img src="image-20231026105126666.png" alt="image-20231026105126666" style="zoom:50%;" /><img src="image-20231026105140813.png" alt="image-20231026105140813" style="zoom:50%;" /></p>
 <h3 id="encoding">Encoding<a class="headerlink" href="#encoding" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
@@ -1677,7 +1677,7 @@
 <p>传统编码器问题：如以下输出方程式对应编码器，若<span class="arithmatex">\(D_6,D_7\)</span>同时为1，不能判断是<span class="arithmatex">\(A_2\)</span>还是<span class="arithmatex">\(A_1\)</span>，即有不确定性</p>
 </li>
 </ol>
-<p><img src="D:\Learning\LCDF\note\image-20231026110959409.png" alt="image-20231026110959409" style="zoom:50%;" /></p>
+<p><img src="image-20231026110959409.png" alt="image-20231026110959409" style="zoom:50%;" /></p>
 <ol start="4">
 <li>优先编码器（Priority Encoder）</li>
 </ol>
@@ -1687,7 +1687,7 @@
 <li>Among the 1s that appear, it selects the most significant input position (or the least significant input position) containing a 1 and responds with  the corresponding binary code for that position.</li>
 <li>example:<ul>
 <li>Priority encoder with 5 inputs (D4, D3, D2, D1, D0) - highest priority to most significant 1 present - Code outputs A2, A1, A0 and V where V indicates at least one 1 present.</li>
-<li><img src="D:\Learning\LCDF\note\image-20231026111647111.png" alt="image-20231026111647111" style="zoom:50%;" /></li>
+<li><img src="image-20231026111647111.png" alt="image-20231026111647111" style="zoom:50%;" /></li>
 </ul>
 </li>
 <li>Xs in input part of table represent 0 or 1; thus table entries correspond to product terms instead of minterms. The column on the left shows that all 32 minterms are present in the product terms in the table</li>
@@ -1705,7 +1705,7 @@
 <li>typical multiplexer has n control inputs (<span class="arithmatex">\(S_{n-1}, … S_0\)</span>) called selection inputs, <span class="arithmatex">\(2^n\)</span> information inputs (<span class="arithmatex">\(I_{2^n - 1}, … I_0\)</span>), and one output <span class="arithmatex">\(Y\)</span></li>
 <li>A multiplexer can be designed to have m information inputs with <span class="arithmatex">\(m &lt; 2^n\)</span> as well as n selection inputs </li>
 </ol>
-<p><img src="D:\Learning\LCDF\note\image-20231026112822339.png" alt="image-20231026112822339" style="zoom:50%;" /></p>
+<p><img src="image-20231026112822339.png" alt="image-20231026112822339" style="zoom:50%;" /></p>
 <h3 id="2-to-1-line-multiplexer">2-to-1-Line Multiplexer<a class="headerlink" href="#2-to-1-line-multiplexer" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
@@ -1717,70 +1717,70 @@
 <p>The equation:<span class="arithmatex">\(Y =\overline{S}I_0 + SI_1\)</span></p>
 </li>
 <li>
-<p>The circuit:<img src="D:\Learning\LCDF\note\image-20231026113027457.png" alt="image-20231026113027457" style="zoom:50%;" /></p>
+<p>The circuit:<img src="image-20231026113027457.png" alt="image-20231026113027457" style="zoom:50%;" /></p>
 </li>
 </ol>
 <h3 id="multiplexer-width-expansion">Multiplexer Width Expansion(选择多位)<a class="headerlink" href="#multiplexer-width-expansion" title="Permanent link">&para;</a></h3>
 <h4 id="example4-to-1-line-quad-multiplexer">example:4-to-1-line quad multiplexer<a class="headerlink" href="#example4-to-1-line-quad-multiplexer" title="Permanent link">&para;</a></h4>
-<p><img src="D:\Learning\LCDF\note\image-20231026113421292.png" alt="image-20231026113421292" style="zoom:50%;" /></p>
+<p><img src="image-20231026113421292.png" alt="image-20231026113421292" style="zoom:50%;" /></p>
 <h3 id="other-selection-implementations">Other Selection Implementations<a class="headerlink" href="#other-selection-implementations" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Three-state logic in place of AND-OR。 Gate input cost = 18</li>
 </ol>
-<p><img src="D:\Learning\LCDF\note\image-20231026113745079.png" alt="image-20231026113745079" style="zoom:50%;" /></p>
+<p><img src="image-20231026113745079.png" alt="image-20231026113745079" style="zoom:50%;" /></p>
 <ol start="2">
 <li>Distributing the decoding across the three-state drivers（分层选择） Gate input cost = 14</li>
 </ol>
-<p><img src="D:\Learning\LCDF\note\image-20231026113912226.png" alt="image-20231026113912226" style="zoom:50%;" /></p>
+<p><img src="image-20231026113912226.png" alt="image-20231026113912226" style="zoom:50%;" /></p>
 <ol start="3">
 <li>基于传输门的</li>
 </ol>
-<p><img src="D:\Learning\LCDF\note\image-20240103211517108.png" alt="image-20240103211517108" style="zoom:50%;" /></p>
+<p><img src="image-20240103211517108.png" alt="image-20240103211517108" style="zoom:50%;" /></p>
 <h3 id="combinational-logic-implementation-multiplexer-approach-1">Combinational Logic Implementation- Multiplexer Approach 1<a class="headerlink" href="#combinational-logic-implementation-multiplexer-approach-1" title="Permanent link">&para;</a></h3>
-<p><img src="D:\Learning\LCDF\note\image-20231026115822488.png" alt="image-20231026115822488" style="zoom:50%;" /></p>
+<p><img src="image-20231026115822488.png" alt="image-20231026115822488" style="zoom:50%;" /></p>
 <p>查找表</p>
 <h3 id="combinational-logic-implementation-multiplexer-approach-2">Combinational Logic Implementation - Multiplexer Approach 2<a class="headerlink" href="#combinational-logic-implementation-multiplexer-approach-2" title="Permanent link">&para;</a></h3>
-<p><img src="D:\Learning\LCDF\note\image-20231026115909267.png" alt="image-20231026115909267" style="zoom:50%;" /></p>
-<p><img src="D:\Learning\LCDF\note\image-20231026115932766.png" alt="image-20231026115932766" style="zoom:50%;" /></p>
+<p><img src="image-20231026115909267.png" alt="image-20231026115909267" style="zoom:50%;" /></p>
+<p><img src="image-20231026115932766.png" alt="image-20231026115932766" style="zoom:50%;" /></p>
 <h2 id="part-3-arithmetic-functions">Part 3 Arithmetic functions<a class="headerlink" href="#part-3-arithmetic-functions" title="Permanent link">&para;</a></h2>
 <h3 id="function-block">Function Block<a class="headerlink" href="#function-block" title="Permanent link">&para;</a></h3>
 <h4 id="half-adder">Half-Adder<a class="headerlink" href="#half-adder" title="Permanent link">&para;</a></h4>
 <p>两输入两输出</p>
-<p><img src="D:\Learning\LCDF\note\image-20231102101146092.png" alt="image-20231102101146092" style="zoom:50%;" /></p>
+<p><img src="image-20231102101146092.png" alt="image-20231102101146092" style="zoom:50%;" /></p>
 <ol>
 <li><span class="arithmatex">\(S\)</span>为<span class="arithmatex">\(X\oplus Y,\)</span><span class="arithmatex">\(C\)</span>为<span class="arithmatex">\(XY\)</span></li>
 </ol>
-<p><img src="D:\Learning\LCDF\note\image-20231102101429954.png" alt="image-20231102101429954" style="zoom:50%;" /></p>
+<p><img src="image-20231102101429954.png" alt="image-20231102101429954" style="zoom:50%;" /></p>
 <ol start="2">
 <li>常见两种电路实现</li>
 </ol>
-<p><img src="D:\Learning\LCDF\note\image-20231102101516420.png" alt="image-20231102101516420" style="zoom:50%;" /></p>
+<p><img src="image-20231102101516420.png" alt="image-20231102101516420" style="zoom:50%;" /></p>
 <h4 id="full-adder">Full-Adder<a class="headerlink" href="#full-adder" title="Permanent link">&para;</a></h4>
 <p>全加器即考虑上一位的进位，即<span class="arithmatex">\(Z\)</span>or<span class="arithmatex">\(C_i\)</span></p>
 <p>S=<span class="arithmatex">\(\overline{C_i}(A\oplus B)+C_i(\overline{A\oplus B})\)</span></p>
-<p><img src="D:\Learning\LCDF\note\image-20231102102118553.png" alt="image-20231102102118553" style="zoom:50%;" /></p>
+<p><img src="image-20231102102118553.png" alt="image-20231102102118553" style="zoom:50%;" /></p>
 <p>The term <span class="arithmatex">\(X\cdot Y\)</span>  is carry generate,<span class="arithmatex">\(X\oplus Y\)</span> is carry propagate</p>
-<p><img src="D:\Learning\LCDF\note\image-20231102102411386.png" alt="image-20231102102411386" style="zoom:50%;" /></p>
+<p><img src="image-20231102102411386.png" alt="image-20231102102411386" style="zoom:50%;" /></p>
 <ol>
 <li>Ripple-Carry Binary Adder:需要延时  行波进位加法器</li>
 </ol>
-<p><img src="D:\Learning\LCDF\note\image-20231102103300958.png" alt="image-20231102103300958" style="zoom:50%;" /></p>
+<p><img src="image-20231102103300958.png" alt="image-20231102103300958" style="zoom:50%;" /></p>
 <ol start="2">
 <li>Group Carry Lookahead Logic 超前进位加法器</li>
 </ol>
-<p><img src="D:\Learning\LCDF\note\image-20231112102256642.png" alt="image-20231112102256642" style="zoom: 33%;" /></p>
-<p><img src="D:\Learning\LCDF\note\image-20231102110407750.png" alt="image-20231102110407750" style="zoom: 33%;" /></p>
-<p><img src="D:\Learning\LCDF\note\image-20231102111619915.png" alt="image-20231102111619915" style="zoom:50%;" /></p>
-<p><img src="D:\Learning\LCDF\note\image-20231102111655394.png" alt="image-20231102111655394" style="zoom:50%;" /></p>
+<p><img src="image-20231112102256642.png" alt="image-20231112102256642" style="zoom: 33%;" /></p>
+<p><img src="image-20231102110407750.png" alt="image-20231102110407750" style="zoom: 33%;" /></p>
+<p><img src="image-20231102111619915.png" alt="image-20231102111619915" style="zoom:50%;" /></p>
+<p><img src="image-20231102111655394.png" alt="image-20231102111655394" style="zoom:50%;" /></p>
 <p>每次使用上一块的进位结果，每一次进位结果延迟为3</p>
 <h3 id="unsigned-subtraction">Unsigned Subtraction<a class="headerlink" href="#unsigned-subtraction" title="Permanent link">&para;</a></h3>
-<p><img src="D:\Learning\LCDF\note\image-20231102112342150.png" alt="image-20231102112342150" style="zoom:33%;" /></p>
+<p><img src="image-20231102112342150.png" alt="image-20231102112342150" style="zoom:33%;" /></p>
 <h4 id="complements">Complements 补码<a class="headerlink" href="#complements" title="Permanent link">&para;</a></h4>
 <ol>
 <li>Diminished Radix Complement of N: defined as <span class="arithmatex">\((r^n-1)-N\)</span> ,known as 反码 <span class="arithmatex">\(1's\)</span> complement</li>
 <li>Radix Complement: defined as <span class="arithmatex">\(r^n-N\)</span>  <span class="arithmatex">\(2's\)</span> complement</li>
 <li>补码：对n位二进制数，相当于第一位<span class="arithmatex">\(a_{n-1}\)</span>代表<span class="arithmatex">\(-2^{n-1}\)</span>,后续每位都代表<span class="arithmatex">\(2^k\)</span></li>
-<li><img src="D:\Learning\LCDF\note\image-20231102113242675.png" alt="image-20231102113242675" style="zoom:50%;" /></li>
+<li><img src="image-20231102113242675.png" alt="image-20231102113242675" style="zoom:50%;" /></li>
 </ol>
 <p>即M-N时，减数N先求补码<span class="arithmatex">\(2^n-N\)</span>，然后<span class="arithmatex">\(M+(2^n-N)\)</span>,若产生进位1，说明够减，对应值即为答案；若进位为0，说明不够减，则对结果取补码并加负号</p>
 <h3 id="_6">有符号减法<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
@@ -1788,7 +1788,7 @@
 <li>设加法为0，减法为1，正数第一位0，负数第一位1，那么对减数第一位，符号，被减数第一位构成的序列，若有偶数个0，在没有溢出情况下则可以转化为同号相加</li>
 <li>若被加数与被减数为负，则取对应补码（不改变符号位），之后若是加法则正常进行，减法则类似地对减数取补</li>
 </ol>
-<p><img src="D:\Learning\LCDF\note\image-20231102114904166.png" alt="image-20231102114904166" style="zoom:50%;" /></p>
+<p><img src="image-20231102114904166.png" alt="image-20231102114904166" style="zoom:50%;" /></p>
 <p>S=1为减法器，S=0为加法器</p>
 <h3 id="_7">溢出<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>同号相加、异号相减时可能会出现溢出</p>
@@ -1812,7 +1812,7 @@
 <ol>
 <li>压缩：针对特定应用时简化已有模块，如递增递减等</li>
 </ol>
-<p><img src="D:\Learning\LCDF\note\image-20240103210618090.png" alt="image-20240103210618090" style="zoom:50%;" /></p>
+<p><img src="image-20240103210618090.png" alt="image-20240103210618090" style="zoom:50%;" /></p>
 <h3 id="_10">零填充与符号扩展<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <ol>
 <li>增加输入位数：在高位添加或在低位添加，前者适用于加减，后者适用于低精度乘法</li>

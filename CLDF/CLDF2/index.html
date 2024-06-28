@@ -1110,15 +1110,15 @@
 
 <h1 id="chapter-2-combinational-logic-circuits">Chapter 2 Combinational Logic Circuits<a class="headerlink" href="#chapter-2-combinational-logic-circuits" title="Permanent link">&para;</a></h1>
 <ol>
-<li>上侧<img alt="Alt text" src="D:\Learning\LCDF\note\image-2.png" /> 为PMOS管，常闭开关；下侧<img alt="Alt text" src="D:\Learning\LCDF\note\image-3.png" />为NMOS管，常开开关 </li>
+<li>上侧<img alt="Alt text" src="../image-2.png" /> 为PMOS管，常闭开关；下侧<img alt="Alt text" src="../image-3.png" />为NMOS管，常开开关 </li>
 </ol>
 <p>CMOS：抗噪声性质好，低静态能耗，但生产过程复杂</p>
-<p>组成：<img src="D:\Learning\LCDF\note\image-20240102204328389.png" alt="image-20240102204328389" style="zoom:50%;" /></p>
+<p>组成：<img src="image-20240102204328389.png" alt="image-20240102204328389" style="zoom:50%;" /></p>
 <p>特点：gs间电压高于阈值关闭，低于时打开</p>
-<p><img src="D:\Learning\LCDF\note\image-1.png" alt="Alt text" style="zoom:50%;" /></p>
+<p><img src="image-1.png" alt="Alt text" style="zoom:50%;" /></p>
 <ol start="2">
 <li>一种可以独自实现所有布尔函数的门类型叫做通用门，与非门和或非门都是通用门</li>
-<li><img alt="Alt text" src="D:\Learning\LCDF\note\image-4.png" /></li>
+<li><img alt="Alt text" src="../image-4.png" /></li>
 <li>Gate Delay:
    - When input changes,the output change doesn't occur instantaneously.
    - the delay between an input changes and the resulting output change is the gate delay denoted by  $$ t_G $$ s</li>
@@ -1150,7 +1150,6 @@ A+BC=A(A+B+C)+BC=(A+B)(A+C)
 <li><strong>对偶（duality）</strong>式：把一个布尔等式中的所有与变或，或变与；若有0，1出现，则把1变0，0变1；等式两端同时进行对偶操作，等式仍然成立。
    - 应用：求反函数时，可以先求对偶式，再将每一个字符求反
    - 除非一个表达式是<strong>自对偶</strong>，否则求对偶后都会变化</li>
-<li></li>
 <li>Precedence:</li>
 </ol>
 <ul>
@@ -1159,10 +1158,10 @@ A+BC=A(A+B+C)+BC=(A+B)(A+C)
 <li>AND</li>
 <li>OR</li>
 </ul>
-<ol start="10">
+<ol start="9">
 <li>Examples:</li>
 </ol>
-<h2 id="-">- <img src="D:\Learning\LCDF\note\image-5.png" alt="Alt text" style="zoom:50%;" /><a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
+<h2 id="-">- <img src="image-5.png" alt="Alt text" style="zoom:50%;" /><a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
 <div class="arithmatex">\[
 F=\overline{\overline{AC+\overline{A}BC}+\overline{B}C+AB\overline{C}} \\
 =(AC+\overline{A}BC)\overline{\overline{B}C}\cdot \overline{AB\overline{C}}\\
@@ -1172,13 +1171,13 @@ F=\overline{\overline{AC+\overline{A}BC}+\overline{B}C+AB\overline{C}} \\
 =ABC+\overline{A}BC=BC
 \]</div>
 <ol start="11">
-<li><img alt="image-20240102202534656" src="D:\Learning\LCDF\note\image-20240102202534656.png" /></li>
+<li><img alt="image-20240102202534656" src="../image-20240102202534656.png" /></li>
 </ol>
 <h2 id="canonical-forms">Canonical Forms<a class="headerlink" href="#canonical-forms" title="Permanent link">&para;</a></h2>
 <ol>
 <li>minterm &amp; maxterms: maxterm is complemented(取反) with minterm;
-   <img src="D:\Learning\LCDF\note\image-6.png" alt="Alt text" style="zoom:50%;" />
-   <img src="D:\Learning\LCDF\note\image-10.png" alt="Alt text" style="zoom:50%;" /></li>
+   <img src="image-6.png" alt="Alt text" style="zoom:50%;" />
+   <img src="image-10.png" alt="Alt text" style="zoom:50%;" /></li>
 <li><span class="arithmatex">\(\overline{m}_i=M_i,\overline{M}_i=m_i\)</span></li>
 <li><span class="arithmatex">\(F=\sum{m_i}=\overline{\prod{M_i}},i=0,1,2,3,\dots,2^n-1\)</span></li>
 <li>usage:turn logic function into numbers by minterm</li>
@@ -1202,21 +1201,28 @@ F=\overline{\overline{AC+\overline{A}BC}+\overline{B}C+AB\overline{C}} \\
 </ul>
 <h2 id="karnaugh-maps">Karnaugh Maps<a class="headerlink" href="#karnaugh-maps" title="Permanent link">&para;</a></h2>
 <p>相邻的只有一位不同，Gray码顺序
-<img src="D:\Learning\LCDF\note\image-7.png" alt="Alt text" style="zoom:50%;" />
+<img src="image-7.png" alt="Alt text" style="zoom:50%;" />
 三变量图可以理解为圈，即最左侧和最右侧相邻
-<img src="D:\Learning\LCDF\note\image-8.png" alt="Alt text" style="zoom:33%;" /></p>
+<img src="image-8.png" alt="Alt text" style="zoom:33%;" /></p>
 <ol>
-<li>消除：Karnaugh图中有两个相邻小格子则可以删除一个变量</li>
 <li>
-<p>四变量：<img src="D:\Learning\LCDF\note\image-9.png" alt="Alt text" style="zoom:50%;" /></p>
+<p>消除：Karnaugh图中有两个相邻小格子则可以删除一个变量</p>
 </li>
+<li>
+<p>四变量：</p>
+</li>
+</ol>
+<p><img src="image-9.png" alt="Alt text" style="zoom:50%;" /></p>
+<ol start="4">
 <li>
 <p>蕴含项 Implicant: map中的每⼀个格⼦, ⼀共<span class="arithmatex">\(2^n\)</span>个.
    质蕴含项 Prime Implicant: map中相邻的质蕴含项组成的长宽均为2的幂次的最⼤矩阵(⽐如1<span class="arithmatex">\(\times\)</span>2, 2<span class="arithmatex">\(\times\)</span>2, 1<span class="arithmatex">\(\times\)</span>4).
    质主蕴含项 Essential Prime Implicant: 包含仅包含在他之中的蕴含项的质蕴含项.(就是少了这个质蕴含项, 其他的
    质蕴含项全⽤上也少了格⼦).</p>
 </li>
-<li>无关项<span class="arithmatex">\(\times\)</span>：仅作为圈选矩阵时的桥梁，不需要考虑是否有遗漏 </li>
+<li>
+<p>无关项<span class="arithmatex">\(\times\)</span>：仅作为圈选矩阵时的桥梁，不需要考虑是否有遗漏 </p>
+</li>
 </ol>
 <h2 id="buffer">Buffer<a class="headerlink" href="#buffer" title="Permanent link">&para;</a></h2>
 <p>仅作为放大器，放大输入信号后输出，同时可以提高电路运行速度，但有cost</p>
@@ -1226,15 +1232,15 @@ F=\overline{\overline{AC+\overline{A}BC}+\overline{B}C+AB\overline{C}} \\
 <li>used to improve circuit voltage levels and increase the speed of circuit operation</li>
 <li>例题：以下哪种情况需要buffer</li>
 </ol>
-<p><img src="D:\Learning\LCDF\note\image-20240102210205863.png" alt="image-20240102210205863" style="zoom: 67%;" /></p>
+<p><img src="image-20240102210205863.png" alt="image-20240102210205863" style="zoom: 67%;" /></p>
 <p>ans：1不需要，否则cost超；2需要；3不相关，不能同时满足delay和cost的约束</p>
 <ol start="5">
 <li>Constraints on cost and performance have a major role in making tradeoffs</li>
 </ol>
 <h2 id="nand-gates">NAND Gates<a class="headerlink" href="#nand-gates" title="Permanent link">&para;</a></h2>
 <p>自然搭建速度最快的门</p>
-<p><img src="D:\Learning\LCDF\note\image-20231019100918951.png" alt="image-20231019100918951" style="zoom:50%;" /></p>
-<p><img src="D:\Learning\LCDF\note\image-20231019100932651.png" alt="image-20231019100932651" style="zoom:50%;" /></p>
+<p><img src="image-20231019100918951.png" alt="image-20231019100918951" style="zoom:50%;" /></p>
+<p><img src="image-20231019100932651.png" alt="image-20231019100932651" style="zoom:50%;" /></p>
 <ol>
 <li>This NAND symbol is called Invert-OR, since inputs are inverted and then ORed together. </li>
 <li>AND-Invert and Invert-OR both represent the NAND gate. Having both makes visualization of circuit function easier.</li>
@@ -1259,11 +1265,11 @@ F=\overline{\overline{AC+\overline{A}BC}+\overline{B}C+AB\overline{C}} \\
 <li>由此我们可以得到奇偶发生器和检验器</li>
 <li>三变量偶校验码生成器（上）与检验器（下）</li>
 </ol>
-<p><img src="D:\Learning\LCDF\note\image-20231019103309385.png" alt="image-20231019103309385" style="zoom:50%;" /></p>
+<p><img src="image-20231019103309385.png" alt="image-20231019103309385" style="zoom:50%;" /></p>
 <ol start="4">
 <li>异或搭建：</li>
 </ol>
-<p><img src="D:\Learning\LCDF\note\image-20240102210846195.png" alt="image-20240102210846195" style="zoom:50%;" /></p>
+<p><img src="image-20240102210846195.png" alt="image-20240102210846195" style="zoom:50%;" /></p>
 <p><img src="D:\Learning\LCDF\note\image-20240102210852805.png" alt="image-20240102210852805" style="zoom:50%;" /></p>
 <h2 id="_2">同或与偶函数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>多变量同或被称为偶函数</p>
@@ -1275,15 +1281,15 @@ F=\overline{\overline{AC+\overline{A}BC}+\overline{B}C+AB\overline{C}} \\
    For EN = 0, regardless of the value on IN (denoted by X), the output value is Hi-Z.
    For EN = 1, the output value follows the input value.</li>
 </ol>
-<p><img src="D:\Learning\LCDF\note\image-20231019104054827.png" alt="image-20231019104054827" style="zoom:50%;" /></p>
+<p><img src="image-20231019104054827.png" alt="image-20231019104054827" style="zoom:50%;" /></p>
 <ol start="2">
 <li>两个三态门输出相连时：当两边EN不同时, 输出为EN为1 的输出值; 当两边EN都是0时输出⾼阻, 当两边EN都是1时, 不被允许.</li>
 </ol>
-<p><img src="D:\Learning\LCDF\note\image-20240102204035210.png" alt="image-20240102204035210" style="zoom:67%;" /></p>
+<p><img src="image-20240102204035210.png" alt="image-20240102204035210" style="zoom:67%;" /></p>
 <ol start="3">
 <li>至少有一个buffer输出为高阻态，否则会导致high currents，破坏电路。因此只有以下五种输入允许。</li>
 </ol>
-<p><img src="D:\Learning\LCDF\note\image-20240102211153277.png" alt="image-20240102211153277" style="zoom:50%;" /></p>
+<p><img src="image-20240102211153277.png" alt="image-20240102211153277" style="zoom:50%;" /></p>
 <p>对n个三态门，至少n-1个输出应为高阻态，此时有效输入一共有<span class="arithmatex">\(2n+1\)</span>种</p>
 <h2 id="3-state-logic-circuit">3-State Logic Circuit<a class="headerlink" href="#3-state-logic-circuit" title="Permanent link">&para;</a></h2>
 <ol>
@@ -1297,19 +1303,19 @@ F=\overline{\overline{AC+\overline{A}BC}+\overline{B}C+AB\overline{C}} \\
 <p>Since EN0 = S and EN1 = S, one of the two buffer outputs is always Hi-Z plus the last row of the table never occurs.</p>
 </li>
 </ol>
-<p><img src="D:\Learning\LCDF\note\image-20231019104244785.png" alt="image-20231019104244785" style="zoom:50%;" /></p>
+<p><img src="image-20231019104244785.png" alt="image-20231019104244785" style="zoom:50%;" /></p>
 <h2 id="transmission-gates">Transmission Gates<a class="headerlink" href="#transmission-gates" title="Permanent link">&para;</a></h2>
 <p>用来连接和断开电路中两点的门</p>
-<p><img src="D:\Learning\LCDF\note\image-20240103192836245.png" alt="image-20240103192836245" style="zoom: 67%;" /></p>
-<p><img src="D:\Learning\LCDF\note\image-20240103193100234.png" alt="image-20240103193100234" style="zoom: 43%;" /></p>
+<p><img src="image-20240103192836245.png" alt="image-20240103192836245" style="zoom: 67%;" /></p>
+<p><img src="image-20240103193100234.png" alt="image-20240103193100234" style="zoom: 43%;" /></p>
 <h2 id="_3">门传输延迟<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ol>
 <li><span class="arithmatex">\(t_{pd},t_{PHL},t_{PLH}\)</span></li>
 <li>惯性延迟：当输入使得输出在低于拒绝时间的间隔内发生两次变化，那么输出将不发生变化</li>
 <li>门有求反操作时，HL输入电压变化导致输出产生LH变化，不求反时输出也为HL变化</li>
 </ol>
-<p><img src="D:\Learning\LCDF\note\image-20240102205456337.png" alt="image-20240102205456337" style="zoom:50%;" /></p>
-<p><img src="D:\Learning\LCDF\note\image-20240102205520446.png" alt="image-20240102205520446" style="zoom:50%;" /></p>
+<p><img src="image-20240102205456337.png" alt="image-20240102205456337" style="zoom:50%;" /></p>
+<p><img src="image-20240102205520446.png" alt="image-20240102205520446" style="zoom:50%;" /></p>
 
 
 
