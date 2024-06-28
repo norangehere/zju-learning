@@ -897,7 +897,8 @@
 <ol>
 <li>通过一系列离散输入和离散中间信息（如：门），生成一系列离散输出</li>
 </ol>
-<p><img src="image-20240102190721247.png" alt="image-20240102190721247" style="zoom:50%;" /></p>
+<figure><img src="image-20240102190721247.png" alt="image-20240102190721247" style="zoom:50%;" /></figure>
+
 <ol start="2">
 <li>数字电路：输出在限定范围内可取连续值</li>
 </ol>
@@ -928,7 +929,7 @@
 </ol>
 <ul>
 <li>
-<p><code>e.g</code>：digital computer: synchronous,组频  </p>
+<p><code>e.g</code>：digital computer: synchronous,组频</p>
 </li>
 <li>
 <p><code>beyond</code>：embedded systems（嵌入式系统）：计算机作为一种内部器件包含在其他产品之中</p>
@@ -950,7 +951,7 @@
 </ol>
 <p><img src="image-20240102191540320.png" alt="image-20240102191540320" style="zoom:33%;" /></p>
 <ul>
-<li>digital: asynchronous异步: discrete in value,continuous in time; synchronous同步: discrete in value and time</li>
+<li>digital: asynchronous 异步: discrete in value,continuous in time; synchronous 同步: discrete in value and time</li>
 </ul>
 <ol start="2">
 <li>高低电平</li>
@@ -958,7 +959,7 @@
 <p><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/1.png" alt="img" style="zoom: 33%;" /></p>
 <ul>
 <li>值得注意的是，在输入和输出中，高低电位接受范围不同，可以发现输入判定范围更大，即<strong>宽进严出</strong>，其目的是为了提高电路在噪音影响下正常表现的能力</li>
-<li>同时，图中HIGH接受范围和LOW接受范围之间存在一段区域称为<strong>未定义</strong>的，或<strong>浮动的</strong>，若输出电平在该区间，那么其认定值将是随机的</li>
+<li>同时，图中 HIGH 接受范围和 LOW 接受范围之间存在一段区域称为<strong>未定义</strong>的，或<strong>浮动的</strong>，若输出电平在该区间，那么其认定值将是随机的</li>
 </ul>
 <p><img src="image-20240104113944978.png" alt="image-20240104113944978" style="zoom:50%;" /></p>
 <ul>
@@ -990,18 +991,18 @@
 <li>
 <ul>
 <li><code>'one hot' code 独热码</code> : you can represent 4 elements in radix r=2 with n=4 digits:<code>0001,0010,0100,1000</code>,each digit represents specific element。 只有一位非零</li>
-<li><code>one cold code 独冷码</code> 与one hot对应</li>
+<li><code>one cold code 独冷码</code> 与 one hot 对应</li>
 <li>好处：决定或改变状态机目前状态成本相对较低，易设计与检测非法行为</li>
 <li>缺点：信息表示率较低，非法状态多有效状态少</li>
 </ul>
 </li>
 <li>
-<p>以下两种表示0-9时对称数字互为反码</p>
+<p>以下两种表示 0-9 时对称数字互为反码</p>
 </li>
 </ol>
 <ul>
-<li>Excess3 Code:余3码，即编码为数字加3，0011表示0，0100表示1 <span class="arithmatex">\(\cdots\)</span><ul>
-<li>3来自<span class="arithmatex">\(\frac{16-10}{2}\)</span>，也就是8421码容量减去需要表示的数量（即0-9）再除2，因此这样十进制下能进位两个数在余三码下相加也能进位</li>
+<li>Excess3 Code:余 3 码，即编码为数字加 3，0011 表示 0，0100 表示 1 <span class="arithmatex">\(\cdots\)</span><ul>
+<li>3 来自<span class="arithmatex">\(\frac{16-10}{2}\)</span>，也就是 8421 码容量减去需要表示的数量（即 0-9）再除 2，因此这样十进制下能进位两个数在余三码下相加也能进位</li>
 <li>但实际上，编码做运算多数情况下没有意义</li>
 </ul>
 </li>
@@ -1013,22 +1014,22 @@
 <ul>
 <li>example: 13 -&gt; 0001 | 0011</li>
 <li>application: good for direct interaction to people,like elevator,air conditioner</li>
-<li>to correct the digit,subtract 10 by adding 6 modulo 16 </li>
+<li>to correct the digit,subtract 10 by adding 6 modulo 16</li>
 <li><code>eg</code>:13-&gt; 1101 +6 -&gt; 10011 -&gt; 0001 | 0011</li>
 </ul>
 <ol start="10">
-<li>用二进制为非数字元素编码（如字符串）,此时可能有编码未被用到，如下图的100</li>
+<li>用二进制为非数字元素编码（如字符串）,此时可能有编码未被用到，如下图的 100</li>
 </ol>
 <p><img src="image-20240102193213213.png" alt="image-20240102193213213" style="zoom:50%;" /></p>
 <ol start="10">
 <li>
-<p>ASCII: 0 30,A 41,a 61 (in 16进制)</p>
+<p>ASCII: 0 30,A 41,a 61 (in 16 进制)</p>
 </li>
 <li>
-<p><code>PARITY BIT Error-Detection Codes</code>(奇偶检错码)：添加一位（n+1）：odd/even parity：使n+1位加起来一共有奇/偶个1，加在最左侧</p>
+<p><code>PARITY BIT Error-Detection Codes</code>(奇偶检错码)：添加一位（n+1）：odd/even parity：使 n+1 位加起来一共有奇/偶个 1，加在最左侧</p>
 </li>
 <li>
-<p>ASCII码的传输差错检测与校正：接收方测到一个校验错误就立刻回送NAK（否认）控制字符；若没检测到错误，就回送ACK（承认）控制字符。发送端收到NAK就立刻重复发送</p>
+<p>ASCII 码的传输差错检测与校正：接收方测到一个校验错误就立刻回送 NAK（否认）控制字符；若没检测到错误，就回送 ACK（承认）控制字符。发送端收到 NAK 就立刻重复发送</p>
 </li>
 <li>
 <p>Gray Code：相邻状态只有一位码不一样，渐变过程时不会出现突然变化</p>
@@ -1039,7 +1040,7 @@
 <p>Application: Optical Shaft Encoder，dark represents 0，white represents 1</p>
 </li>
 <li>
-<p>如果传感器位置出现偏移，不在同一直线，用Gray Code 不会出现错误
+<p>如果传感器位置出现偏移，不在同一直线，用 Gray Code 不会出现错误
   <img src="image.png" alt="Alt text" style="zoom:50%;" /></p>
 </li>
 </ul>
