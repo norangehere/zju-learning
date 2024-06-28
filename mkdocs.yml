@@ -9,7 +9,7 @@ copyright: Copyright &copy; 2022 <a href="https://github.com/HobbitQia"  target=
 theme:
   name: material
   language: zh
-  logo: log.ico
+  # logo: log.ico
   favicon: log.ico
   custom_dir: overrides
   features:
@@ -24,8 +24,8 @@ theme:
   palette: #切换昼夜模式的颜色，审美差就用默认，专业点就自定义
     - media: "(prefers-color-scheme: light)"
       scheme: default #配色方案：浅色模式
-      primary: brown #原色，默认蓝，用于标题、侧边栏、文本链接和其他几个组件
-      accent: brown #强调色，默认蓝，可以交互的元素如悬停链接、按钮和滚动条
+      primary: light-blue #原色，默认蓝，用于标题、侧边栏、文本链接和其他几个组件
+      accent: light-blue #强调色，默认蓝，可以交互的元素如悬停链接、按钮和滚动条
       toggle:
         icon: material/weather-sunny #图标，太阳
         name: Switch to dark mode
@@ -57,8 +57,8 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.smartsymbols #智能符号
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:
@@ -76,7 +76,7 @@ extra_css:
   - css/card.css
   - css/tasklist.css
   - css/flink.css
-  - css/more_changelog.css
+  # - css/more_changelog.css
 
 extra_javascript:
   - js/baidu-tongji.js
@@ -92,19 +92,15 @@ extra:
       link: https://github.com/norangehere/
 
 plugins:
-  - changelog
+  # - changelog
   - search
-  - git-revision-date-localized:
-      type: datetime
-      timezone: Asia/Shanghai
-      locale: zh
-      enable_creation_date: true
-      exclude:
-        - index.md
-        - comming.md
-        - link.md
-        - tech_accu/index.md
-        - cour_note/index.md
+  # - git-revision-date-localized:
+  #     type: datetime
+  #     timezone: Asia/Beijing
+  #     locale: zh
+  #     enable_creation_date: true
+  #     exclude:
+  #       - index.md
 
 nav:
   - Home:
