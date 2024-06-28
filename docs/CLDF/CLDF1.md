@@ -4,7 +4,7 @@
 
 1. 通过一系列离散输入和离散中间信息（如：门），生成一系列离散输出
 
-<figure><img src="image-20240102190721247.png" alt="image-20240102190721247" style="zoom:50%;" /></figure>
+<figure><img src="./image-20240102190721247.png" alt="image-20240102190721247" style="zoom:50%;" /></figure>
 
 2. 数字电路：输出在限定范围内可取连续值
 
