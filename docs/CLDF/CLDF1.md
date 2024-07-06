@@ -4,7 +4,7 @@
 
 1. 通过一系列离散输入和离散中间信息（如：门），生成一系列离散输出
 
-<figure><img src="./image-20240102190721247.png" alt="image-20240102190721247" style="zoom:50%;" /></figure>
+<img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240102190721247.png" alt="image-20240102190721247" style="zoom:50%;" />
 
 2. 数字电路：输出在限定范围内可取连续值
 
@@ -28,7 +28,7 @@
   - analog signal，need A-to-D(digital) and D-to-A
   - analog signal- continuous voltage- sample（采样）- digital voltage - DAC - discrete voltage - signal conditioning - continuous voltage
 
-  <img src="image-20240102191102098.png" alt="image-20240102191102098" style="zoom:50%;" />
+  <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240102191102098.png" alt="image-20240102191102098" style="zoom:50%;" />
 
 ## Information representation
 
@@ -36,7 +36,7 @@
 
 1. - analog: continuous in value and time
 
-   <img src="image-20240102191540320.png" alt="image-20240102191540320" style="zoom:33%;" />
+   <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240102191540320.png" alt="image-20240102191540320" style="zoom:33%;" />
 
    - digital: asynchronous 异步: discrete in value,continuous in time; synchronous 同步: discrete in value and time
 
@@ -47,7 +47,7 @@
    - 值得注意的是，在输入和输出中，高低电位接受范围不同，可以发现输入判定范围更大，即**宽进严出**，其目的是为了提高电路在噪音影响下正常表现的能力
    - 同时，图中 HIGH 接受范围和 LOW 接受范围之间存在一段区域称为**未定义**的，或**浮动的**，若输出电平在该区间，那么其认定值将是随机的
 
-   <img src="image-20240104113944978.png" alt="image-20240104113944978" style="zoom:50%;" />
+   <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240104113944978.png" alt="image-20240104113944978" style="zoom:50%;" />
 
    - 噪音容限是指加到正常输入值上、且不会在电路的输出产生不可预料变化的最大外部噪音电压。
      - **关门电平$V_{OFF}$ **指使输出电压刚好达到输出转折至额定电平值时的最高输入低电平电压
@@ -86,7 +86,7 @@
 
 10. 用二进制为非数字元素编码（如字符串）,此时可能有编码未被用到，如下图的 100
 
-<img src="image-20240102193213213.png" alt="image-20240102193213213" style="zoom:50%;" />
+<img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240102193213213.png" alt="image-20240102193213213" style="zoom:50%;" />
 
 10. ASCII: 0 30,A 41,a 61 (in 16 进制)
 
@@ -99,4 +99,4 @@
 - Application: Optical Shaft Encoder，dark represents 0，white represents 1
 
 - 如果传感器位置出现偏移，不在同一直线，用 Gray Code 不会出现错误
-  <img src="image.png" alt="Alt text" style="zoom:50%;" />
+  <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image.png" alt="Alt text" style="zoom:50%;" />
