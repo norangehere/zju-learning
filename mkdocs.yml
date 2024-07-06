@@ -37,6 +37,8 @@ theme:
         name: Switch to light mode
 
 markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
   - toc:
       permalink: true
       toc_depth: 4
@@ -65,8 +67,6 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.highlight:
       anchor_linenums: true
-  - pymdownx.arithmatex:
-      generic: true
 
 extra_css:
   - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css
@@ -94,6 +94,7 @@ extra:
 plugins:
   # - changelog
   - search
+  # - mathjax
   # - git-revision-date-localized:
   #     type: datetime
   #     timezone: Asia/Beijing
