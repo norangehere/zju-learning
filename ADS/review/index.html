@@ -1266,9 +1266,13 @@
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span><span class="w"> </span><span class="p">;</span>
 </code></pre></div>
 <ol start="4">
-<li>摊还：
-   - 插入时一次 cost 为 c 的操作造成森林多了 2-c 棵树，因为 1 次操作把<span class="arithmatex">\(B_0\)</span>添加到当前森林，多一棵；其余 c-1 次操作都在 merge，每次减少一棵树
-   - 势函数：<span class="arithmatex">\(\phi_i\)</span>为第 i 次操作后树棵数</li>
+<li>摊还：</li>
+</ol>
+<ul>
+<li>插入时一次 cost 为 c 的操作造成森林多了 2-c 棵树，因为 1 次操作把<span class="arithmatex">\(B_0\)</span>添加到当前森林，多一棵；其余 c-1 次操作都在 merge，每次减少一棵树</li>
+<li>势函数：<span class="arithmatex">\(\phi_i\)</span>为第 i 次操作后树棵数</li>
+</ul>
+<ol start="5">
 <li>斐波那契堆势函数:<span class="arithmatex">\(t(H)+2m(H)\)</span></li>
 <li>conclusion:<img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240624094700172.png" alt="image-20240624094700172" style="zoom:67%;" /></li>
 </ol>
@@ -1313,11 +1317,14 @@
 <p>图灵机的构型<span class="arithmatex">\(c=t_mt_{m-1}…t_2t_1\underline{q_i}s_1s_2…s_k\)</span>,<span class="arithmatex">\(s_i\)</span>和<span class="arithmatex">\(t_i\)</span>分别是一直到最右侧和最左侧的非空格子上的内容，当然，如果没有则可以写个 □，图灵计算就指图灵机的一列构型<span class="arithmatex">\(c_0,c_1,\cdots,c_n\)</span></p>
 </li>
 <li>
-<p>P 类问题：确定性图灵机可以在多项式时间内求解</p>
+<p>一些概念</p>
 </li>
 </ol>
-<p>NP 类问题：非确定性图灵机可以在多项式时间内求解</p>
-<p>显然<span class="arithmatex">\(P\subset NP\)</span></p>
+<ul>
+<li>P 类问题：确定性图灵机可以在多项式时间内求解</li>
+<li>NP 类问题：非确定性图灵机可以在多项式时间内求解</li>
+<li>显然<span class="arithmatex">\(P\subset NP\)</span></li>
+</ul>
 <ol start="3">
 <li>补类：<span class="arithmatex">\(co-C\)</span>为<span class="arithmatex">\(C\)</span>的补类，<span class="arithmatex">\(co-C=\{L|\overline{L}\in C\}\)</span></li>
 </ol>
@@ -1412,17 +1419,19 @@
 <li>最多经历<span class="arithmatex">\(\sum\limits_{e\in E}|w_e|\)</span>次翻转后停止，但考虑到每条边长度输入的二进制编码，这实际上是一个指数级别的时间复杂度，当边权比较大时</li>
 </ul>
 <ol start="2">
-<li>最大割：Hopfield 中边权都是正的特殊情况
-   - 局部搜索可以得到一个超过最优解一半的局部最优解
-   - 存在一个 1.1382-近似算法
-   - 除非 P=NP，否则没有 1.0625(<span class="arithmatex">\(\dfrac{17}{16}\)</span>)-近似算法
-   - Big Improvement Flip<ul>
+<li>最大割：Hopfield 中边权都是正的特殊情况</li>
+</ol>
+<ul>
+<li>局部搜索可以得到一个超过最优解一半的局部最优解</li>
+<li>存在一个 1.1382-近似算法</li>
+<li>除非 P=NP，否则没有 1.0625(<span class="arithmatex">\(\dfrac{17}{16}\)</span>)-近似算法</li>
+<li>Big Improvement Flip<ul>
 <li>近似比为<span class="arithmatex">\(2+\epsilon\)</span>，会得到<span class="arithmatex">\((2+\epsilon)w(A,B)\geq w(A^*,B^*)\)</span>的解</li>
 <li>选取增长超过<span class="arithmatex">\(\dfrac{2\epsilon}{|V|}w(A,B)\)</span>的 flip</li>
 <li>最终会在<span class="arithmatex">\(O(\dfrac{n}{\epsilon}\log W)\)</span>flip 后停下</li>
 </ul>
 </li>
-</ol>
+</ul>
 <h2 id="13-randomized-algorithms">13 Randomized Algorithms<a class="headerlink" href="#13-randomized-algorithms" title="Permanent link">&para;</a></h2>
 <p>略</p>
 <h2 id="14-parallel-algorithms">14 Parallel Algorithms<a class="headerlink" href="#14-parallel-algorithms" title="Permanent link">&para;</a></h2>
