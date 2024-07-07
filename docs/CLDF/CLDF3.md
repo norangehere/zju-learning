@@ -40,11 +40,11 @@
   - rise time 等于栅极输出从 $V_{CC}$ 的 10% 升高到 90% 所需要的时间；
   - fall time 等于栅极输出从 $V_{CC}$的 90% 降低到 10% 所需要的时间；
 
-<img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/31.png" alt="img" style="zoom: 67%;" />
+<div align="center"><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/31.png" alt="img" style="zoom: 67%;" /></div>
 
 - 随着负载增加，转换时间也会增加（给电容充电的时间增加），而扇出定义中提到的“最大负载”，就是指它的转换时间不超过它预定的最大转换时间。
 
-![img](https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/32.png)
+<div align="center"><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/32.png" alt="img" style="zoom:67%;" /></div>
 
 - 从左到右表示负载不断增加时，rise time 的变化趋势。
 - 实际上，类似的，超出扇入后，门对输入的反应就太慢了。
@@ -55,7 +55,7 @@
 
 #### NAND Mapping Algorithm 与非门成本更低，延迟更低 
 
-1. Replace ANDs and ORs:<img src="image-20231026102656501.png" alt="image-20231026102656501" style="zoom:50%;" />
+1. Replace ANDs and ORs:<img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231026102656501.png" alt="image-20231026102656501" style="zoom:50%;" />
 
 2. 消除所有反相器对
 
@@ -65,13 +65,13 @@
 
    2. The attached NAND gate inputs.
 
-     <img src="image-20231026102745203.png" alt="image-20231026102745203" style="zoom:50%;" /> 
+   <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231026102745203.png" alt="image-20231026102745203" style="zoom:50%;" /> </div>
 
 #### NOR Mapping Algorithm
 
 ​	Similar to the NAND,first Replace ANDs and ORs
 
- <img src="image-20231026103035484.png" alt="image-20231026103035484" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231026103035484.png" alt="image-20231026103035484" style="zoom:50%;" /></div>
 
 ### EN 使能
 
@@ -88,7 +88,7 @@ EN为0输出始终为0，EN为1时为对应表达式值
 
 ### 3-8 译码器
 
-<img src="image-20240103211144335.png" alt="image-20240103211144335" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240103211144335.png" alt="image-20240103211144335" style="zoom:50%;" /></div>
 
 设计n输入译码器，不断二分，除不尽就剩下一个单独的，如上图3除2余1，因此我们使用1个4-2译码器和一个1-2-Line Decoder
 
@@ -96,7 +96,7 @@ EN为0输出始终为0，EN为1时为对应表达式值
 
 ### Decoder with Enable
 
-<img src="image-20231019113911085.png" alt="image-20231019113911085" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231019113911085.png" alt="image-20231019113911085" style="zoom: 43%;" /></div>
 
 由于2-4译码器只有一个输出为1，只有该门可以输出内容，因此可以将$A_1,A_0$组成的译码器当成EN，EN当成输入信号
 
@@ -110,7 +110,7 @@ EN为0输出始终为0，EN为1时为对应表达式值
 
 1. 共阳极与共阴极接法：
 
-   <img src="image-20231026105126666.png" alt="image-20231026105126666" style="zoom:50%;" /><img src="image-20231026105140813.png" alt="image-20231026105140813" style="zoom:50%;" />
+   <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231026105126666.png" alt="image-20231026105126666" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231026105140813.png" alt="image-20231026105140813" style="zoom:50%;" /></div>
 
 ### Encoding
 
@@ -120,7 +120,7 @@ EN为0输出始终为0，EN为1时为对应表达式值
 
 3. 传统编码器问题：如以下输出方程式对应编码器，若$D_6,D_7$同时为1，不能判断是$A_2$还是$A_1$，即有不确定性
 
-   <img src="image-20231026110959409.png" alt="image-20231026110959409" style="zoom:50%;" />
+   <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231026110959409.png" alt="image-20231026110959409" style="zoom:50%;" /></div>
 
 4. 优先编码器（Priority Encoder）
 
@@ -130,7 +130,7 @@ EN为0输出始终为0，EN为1时为对应表达式值
    - Among the 1s that appear, it selects the most significant input position (or the least significant input position) containing a 1 and responds with  the corresponding binary code for that position.
    - example:
      - Priority encoder with 5 inputs (D4, D3, D2, D1, D0) - highest priority to most significant 1 present - Code outputs A2, A1, A0 and V where V indicates at least one 1 present.
-     - <img src="image-20231026111647111.png" alt="image-20231026111647111" style="zoom:50%;" />
+     - <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231026111647111.png" alt="image-20231026111647111" style="zoom:50%;" /></div>
    - Xs in input part of table represent 0 or 1; thus table entries correspond to product terms instead of minterms. The column on the left shows that all 32 minterms are present in the product terms in the table
    - Xs 在输出列表示无关情况不同
 
@@ -146,7 +146,7 @@ EN为0输出始终为0，EN为1时为对应表达式值
 2. typical multiplexer has n control inputs ($S_{n-1}, … S_0$) called selection inputs, $2^n$ information inputs ($I_{2^n - 1}, … I_0$), and one output $Y$
 3. A multiplexer can be designed to have m information inputs with $m < 2^n$ as well as n selection inputs 
 
-<img src="image-20231026112822339.png" alt="image-20231026112822339" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231026112822339.png" alt="image-20231026112822339" style="zoom:50%;" /></div>
 
 ### 2-to-1-Line Multiplexer
 
@@ -156,39 +156,37 @@ EN为0输出始终为0，EN为1时为对应表达式值
 
 2. The equation:$Y =\overline{S}I_0 + SI_1$
 
-3. The circuit:<img src="image-20231026113027457.png" alt="image-20231026113027457" style="zoom:50%;" />
+3. The circuit:<img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231026113027457.png" alt="image-20231026113027457" style="zoom:50%;" />
 
 ### Multiplexer Width Expansion(选择多位)
 
 #### example:4-to-1-line quad multiplexer
 
-<img src="image-20231026113421292.png" alt="image-20231026113421292" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231026113421292.png" alt="image-20231026113421292" style="zoom:50%;" /></div>
 
 ### Other Selection Implementations 
 
 1. Three-state logic in place of AND-OR。 Gate input cost = 18
 
-   <img src="image-20231026113745079.png" alt="image-20231026113745079" style="zoom:50%;" />
+   <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231026113745079.png" alt="image-20231026113745079" style="zoom:45%;" /></div>
 
 2. Distributing the decoding across the three-state drivers（分层选择） Gate input cost = 14
 
-<img src="image-20231026113912226.png" alt="image-20231026113912226" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231026113912226.png" alt="image-20231026113912226" style="zoom:50%;" /></div>
 
 3. 基于传输门的
 
-<img src="image-20240103211517108.png" alt="image-20240103211517108" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240103211517108.png" alt="image-20240103211517108" style="zoom:50%;" /></div>
 
 ### Combinational Logic Implementation- Multiplexer Approach 1
 
-<img src="image-20231026115822488.png" alt="image-20231026115822488" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231026115822488.png" alt="image-20231026115822488" style="zoom: 33%;" /></div>
 
 查找表
 
 ### Combinational Logic Implementation - Multiplexer Approach 2
 
-<img src="image-20231026115909267.png" alt="image-20231026115909267" style="zoom:50%;" />
-
-<img src="image-20231026115932766.png" alt="image-20231026115932766" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231026115909267.png" alt="image-20231026115909267" style="zoom:40%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231026115932766.png" alt="image-20231026115932766" style="zoom:40%;" /></div>
 
 ## Part 3 Arithmetic functions
 
@@ -198,15 +196,15 @@ EN为0输出始终为0，EN为1时为对应表达式值
 
 两输入两输出
 
-<img src="image-20231102101146092.png" alt="image-20231102101146092" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231102101146092.png" alt="image-20231102101146092" style="zoom:40%;" /></div>
 
 1. $S$为$X\oplus Y,$$C$为$XY$
 
-<img src="image-20231102101429954.png" alt="image-20231102101429954" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231102101429954.png" alt="image-20231102101429954" style="zoom:50%;" /></div>
 
 2. 常见两种电路实现
 
-   <img src="image-20231102101516420.png" alt="image-20231102101516420" style="zoom:50%;" />
+   <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231102101516420.png" alt="image-20231102101516420" style="zoom:35%;" /></div>
 
 #### Full-Adder
 
@@ -214,38 +212,32 @@ EN为0输出始终为0，EN为1时为对应表达式值
 
 S=$\overline{C_i}(A\oplus B)+C_i(\overline{A\oplus B})$
 
-<img src="image-20231102102118553.png" alt="image-20231102102118553" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231102102118553.png" alt="image-20231102102118553" style="zoom:35%;" /></div>
 
 The term $X\cdot Y$  is carry generate,$X\oplus Y$ is carry propagate
 
-<img src="image-20231102102411386.png" alt="image-20231102102411386" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231102102411386.png" alt="image-20231102102411386" style="zoom:35%;" /></div>
 
 1. Ripple-Carry Binary Adder:需要延时  行波进位加法器
 
-   <img src="image-20231102103300958.png" alt="image-20231102103300958" style="zoom:50%;" />
+   <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231102103300958.png" alt="image-20231102103300958" style="zoom:50%;" /></div>
 
 2. Group Carry Lookahead Logic 超前进位加法器
 
-   <img src="image-20231112102256642.png" alt="image-20231112102256642" style="zoom: 33%;" />
-
-   <img src="image-20231102110407750.png" alt="image-20231102110407750" style="zoom: 33%;" />
-
-<img src="image-20231102111619915.png" alt="image-20231102111619915" style="zoom:50%;" />
-
-<img src="image-20231102111655394.png" alt="image-20231102111655394" style="zoom:50%;" />
+   <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231112102256642.png" alt="image-20231112102256642" style="zoom: 33%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231102110407750.png" alt="image-20231102110407750" style="zoom: 33%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231102111619915.png" alt="image-20231102111619915" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231102111655394.png" alt="image-20231102111655394" style="zoom:50%;" /></div>
 
 每次使用上一块的进位结果，每一次进位结果延迟为3
 
 ### Unsigned Subtraction
 
-<img src="image-20231102112342150.png" alt="image-20231102112342150" style="zoom:33%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231102112342150.png" alt="image-20231102112342150" style="zoom:33%;" /></div>
 
 #### Complements 补码
 
 1. Diminished Radix Complement of N: defined as $(r^n-1)-N$ ,known as 反码 $1's$ complement
 2. Radix Complement: defined as $r^n-N$  $2's$ complement
 3. 补码：对n位二进制数，相当于第一位$a_{n-1}$代表$-2^{n-1}$,后续每位都代表$2^k$
-4. <img src="image-20231102113242675.png" alt="image-20231102113242675" style="zoom:50%;" />
+4. <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231102113242675.png" alt="image-20231102113242675" style="zoom:50%;" />
 
 即M-N时，减数N先求补码$2^n-N$，然后$M+(2^n-N)$,若产生进位1，说明够减，对应值即为答案；若进位为0，说明不够减，则对结果取补码并加负号
 
@@ -254,7 +246,7 @@ The term $X\cdot Y$  is carry generate,$X\oplus Y$ is carry propagate
 1. 设加法为0，减法为1，正数第一位0，负数第一位1，那么对减数第一位，符号，被减数第一位构成的序列，若有偶数个0，在没有溢出情况下则可以转化为同号相加
 2. 若被加数与被减数为负，则取对应补码（不改变符号位），之后若是加法则正常进行，减法则类似地对减数取补
 
-<img src="image-20231102114904166.png" alt="image-20231102114904166" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231102114904166.png" alt="image-20231102114904166" style="zoom:50%;" /></div>
 
 S=1为减法器，S=0为加法器
 
@@ -282,7 +274,7 @@ S=1为减法器，S=0为加法器
 
 1. 压缩：针对特定应用时简化已有模块，如递增递减等
 
-<img src="image-20240103210618090.png" alt="image-20240103210618090" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240103210618090.png" alt="image-20240103210618090" style="zoom:50%;" /></div>
 
 ### 零填充与符号扩展
 

@@ -4,7 +4,7 @@
 
 CMOS基础是MOS（金属氧化物半导体）晶体管
 
-<img src="image-20240105140847177.png" alt="image-20240105140847177" style="zoom:50%;" />
+<div align="center"><img src="image-20240105140847177.png" alt="image-20240105140847177" style="zoom:50%;" /></div>
 
 漏极电压比源极电压足够大，处于导通状态（ON）；小于阈值，沟道消失，处于截止状态（OFF）
 
@@ -64,7 +64,7 @@ CMOS基础是MOS（金属氧化物半导体）晶体管
 
 ### Characteristic
 
-<img src="image-20231130122022914.png" alt="image-20231130122022914" style="zoom:50%;" />
+<div align="center"><img src="image-20231130122022914.png" alt="image-20231130122022914" style="zoom:50%;" /></div>
 
 ### Configuration
 
@@ -72,19 +72,15 @@ CMOS基础是MOS（金属氧化物半导体）晶体管
 
 - 非易失性
 
-<img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/58.png" alt="img" style="zoom:50%;" />
-
-<img src="image-20240105154549689.png" alt="image-20240105154549689" style="zoom: 33%;" />
+<div align="center"><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/58.png" alt="img" style="zoom:50%;" /><img src="image-20240105154549689.png" alt="image-20240105154549689" style="zoom: 33%;" /></div>
 
 - ROM size=address width × word width = $2^2 ×4$= 16 bit
 
-    <img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/57.png" alt="img" style="zoom:50%;" />
+    <div align="center"><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/57.png" alt="img" style="zoom:50%;" /></div>
 
 2. **Programmable Array Logic (PAL)** - a programmable array of AND gates feeding a fixed array of OR gates.
 
-<img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/60.png" alt="img" style="zoom:50%;" />
-
-<img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/59.png" alt="img" style="zoom:67%;" />
+<div align="center"><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/60.png" alt="img" style="zoom:50%;" /><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/59.png" alt="img" style="zoom:67%;" /></div>
 
 输出侧或门阵列固定，输入侧与门阵列可编程
 
@@ -94,7 +90,7 @@ CMOS基础是MOS（金属氧化物半导体）晶体管
 
 3. **Programmable Logic Array (PLA)** - a programmable array of AND gates feeding a programmable array of OR gates.
 
-<img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/61.png" alt="img" style="zoom: 67%;" />
+<div align="center"><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/61.png" alt="img" style="zoom: 67%;" /></div>
 
 1. - 可编程与阵列输入，可编程或阵列输出
    - 与 PAL 的区别在于，在输出的时候也能对输出组合进行重编程。
@@ -105,7 +101,7 @@ CMOS基础是MOS（金属氧化物半导体）晶体管
 2. 对一个n输入，k乘积项，m输出PLA
    - 在输入和与门阵列之间有$2n\times k$个可编程连接点，与门与或门之间有$k\times m$个，或门与异或门之间有m个
 
-<img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/62.png" alt="img" style="zoom: 67%;" />
+<div align="center"><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/62.png" alt="img" style="zoom: 47%;" /></div>
 
 ## FPGA
 
@@ -113,4 +109,4 @@ CMOS基础是MOS（金属氧化物半导体）晶体管
 2. FPGA可以配置组合逻辑和触发器，大多使用SRAM进行配置
 3. 可编程逻辑块包括组合和时序逻辑，基于查找表（Look-Up List），一个查找表是一个$2^k\times1$存储器
 
-<img src="image-20240105161033848.png" alt="image-20240105161033848" style="zoom:50%;" />
+<div align="center"><img src="image-20240105161033848.png" alt="image-20240105161033848" style="zoom:50%;" /></div>

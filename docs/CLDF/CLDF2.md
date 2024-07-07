@@ -14,7 +14,7 @@
 3. <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-4.png" alt="Alt text" style="zoom:67%;" /></div>
 4. Gate Delay:
    - When input changes,the output change doesn't occur instantaneously.
-   - the delay between an input changes and the resulting output change is the gate delay denoted by $$ t_G $$ s
+   - the delay between an input changes and the resulting output change is the gate delay denoted by $$ t_G $$ 
 5. Logic Diagrams and Expressions: Truth Table,Equation(逻辑函数),Diagram,波形图
 6. Boolean Algebra:
 
@@ -51,11 +51,18 @@ $$
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-5.png" alt="Alt text" style="zoom:50%;" /></div>
 
 $$ F=\overline{\overline{AC+\overline{A}BC}+\overline{B}C+AB\overline{C}} $$
+
 $$=(AC+\overline{A}BC)\overline{\overline{B}C}\cdot \overline{AB\overline{C}}$$
+
 $$=C(A+\overline{A}B)(B+\overline{C})(\overline{A}+\overline{B}+C) $$
+
 $$ =C(A+\overline{A}B) (\overline{A}B+BC+\overline{A}\cdot\overline{C}+\overline{B}\cdot\overline{C}) $$
+
 $$ =C(A+\overline{A}B)(\overline{A}B+BC) $$
+
 $$=ABC+\overline{A}BC=BC $$
+
+
 
 10. <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240102202534656.png" alt="image-20240102202534656" style="zoom:50%;" /></div>
 
@@ -89,11 +96,11 @@ $$=ABC+\overline{A}BC=BC $$
 
 相邻的只有一位不同，Gray 码顺序
 
-<div align="center"><img src="images/image-7-17202888238661.png" alt="Alt text" style="zoom: 33%;" /></div>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-7-17202888238661.png" alt="Alt text" style="zoom: 33%;" /></div>
 
 三变量图可以理解为圈，即最左侧和最右侧相邻
 
-<div align="center"><img src="images/image-8-17202888454873.png" alt="Alt text" style="zoom:33%;" /></div>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-8-17202888454873.png" alt="Alt text" style="zoom:33%;" /></div>
 
 1. 消除：Karnaugh 图中有两个相邻小格子则可以删除一个变量
 

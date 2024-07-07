@@ -10,13 +10,13 @@
 
 1. 方式一：直接加或门
 
-<img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/96.png" alt="img"  />
+<div align="center"><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/96.png" alt="img"  /></div>
 
 然而，在门控时钟技术中，由于添加了一个额外的逻辑门，时钟脉冲到达 Control 的时候会出现额外的传播延时，即时钟偏移(clock skew)。而这微小的延时会导致在整个同步系统中，不同组件得到的时钟脉冲有偏差，而这是我们所不希望看到的。所以在实际设计中，我们应当避免或尽可能缩小时钟偏移。
 
 2. 另外一个做法是，在不希望它修改的时候，不断将它的输入载入，也就是保持不变。我们可以通过一个二选一多路复用器实现。
 
-<img src="image-20231207112040627.png" alt="image-20231207112040627" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231207112040627.png" alt="image-20231207112040627" style="zoom:50%;" /></div>
 
 ## Register Cell Design
 
@@ -37,7 +37,7 @@ Assume that a register consists of identical cells.(每个位执行相同操作)
 
 ## Register Transfer Operations
 
-<img src="image-20240106130821221.png" alt="image-20240106130821221" style="zoom: 67%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240106130821221.png" alt="image-20240106130821221" style="zoom: 67%;" /></div>
 
  The movement and processing of data stored in registers
 
@@ -54,15 +54,13 @@ Assume that a register consists of identical cells.(每个位执行相同操作)
 
 RTL:**寄存器传输语言(Register Transfer Language)**
 
-![img](https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/100.png)
-
-![img](https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/98.png)
+<div align="center"><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/100.png" alt="img" style="zoom: 67%;" /><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/98.png" alt="img" style="zoom:67%;" /></div>
 
 1. $sl,sr$例子： R2<-sl R1 ，R1左移一位传给R2
 
 2. example:如果 K1=1 那么将 R1 的信号传给 R2, 我们可以写为 K1:(R2←R1), 其中 R1 是一个控制变量，表明条件执行的发生是否发生。K1控制的是R2是否接收R1的信号，而非R1是否发送
 
-<img src="http://cdn.hobbitqia.cc/202211301556875.png" alt="img" style="zoom:50%;" />
+<div align="center"><img src="http://cdn.hobbitqia.cc/202211301556875.png" alt="img" style="zoom:50%;" /></div>
 
 ### Register Transfer Structures
 
@@ -70,9 +68,7 @@ RTL:**寄存器传输语言(Register Transfer Language)**
 
 $K1:R0\leftarrow R1,K2\overline{K1}:R0\leftarrow R2 $,也就是$K1+K2$为真时R0会被更新
 
-<img src="http://cdn.hobbitqia.cc/202211301635371.png" alt="img" style="zoom:50%;" />
-
-<img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/105.png" alt="img" style="zoom: 33%;" />
+<div align="center"><img src="http://cdn.hobbitqia.cc/202211301635371.png" alt="img" style="zoom:50%;" /><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/105.png" alt="img" style="zoom: 33%;" /></div>
 
 通过一系列one-hot编码决定选择哪个，其中 `MUX` 的 *k*∼(*n*−1) 实现了**[转移](https://note.isshikih.top/cour_note/D2QD_DigitalDesign/Chap06/#转移)**操作。
 
@@ -80,11 +76,11 @@ $K1:R0\leftarrow R1,K2\overline{K1}:R0\leftarrow R2 $,也就是$K1+K2$为真时R
 
 ### 	基于专用多路复用器的传输
 
-<img src="image-20240106135325693.png" alt="image-20240106135325693" style="zoom: 33%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240106135325693.png" alt="image-20240106135325693" style="zoom: 33%;" /></div>
 
 ### 	基于共用多路复用器的传输
 
-<img src="image-20231214102355598.png" alt="image-20231214102355598" style="zoom: 67%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214102355598.png" alt="image-20231214102355598" style="zoom: 67%;" /></div>
 
 ​	通过总线bus实现n选1多路复用器完成寄存器之间值的交换。门输入成本9/bit，多路复用器8个输入+1个输出
 
@@ -100,7 +96,7 @@ The 3-input MUX can be replaced by a 3-state node (bus) and 3-state buffers. Cos
 
 门输入成本：9（$3\times3$个三态门）
 
-<img src="image-20231214102654219.png" alt="image-20231214102654219" style="zoom:67%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214102654219.png" alt="image-20231214102654219" style="zoom:67%;" /></div>
 
 ### Shift Registers
 
@@ -108,15 +104,13 @@ The 3-input MUX can be replaced by a 3-state node (bus) and 3-state buffers. Cos
 
 1. 右移
 
-<img src="image-20231214104642254.png" alt="image-20231214104642254" style="zoom:67%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214104642254.png" alt="image-20231214104642254" style="zoom:67%;" /></div>
 
 2. 右移+并行输入 Parallel Load Shift Registers
    - shift=0 并行输入
    - shift=1 移位
 
-<img src="image-20231214104741844.png" alt="image-20231214104741844" style="zoom:67%;" />
-
-![image-20231214105012908](image-20231214105012908.png)
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214104741844.png" alt="image-20231214104741844" style="zoom:67%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214105012908.png" alt="image-20231214105012908" style="zoom: 50%;" /></div>
 
 - Shift为1，移位
 - Shift为0，Load0，保持
@@ -124,7 +118,7 @@ The 3-input MUX can be replaced by a 3-state node (bus) and 3-state buffers. Cos
 
 ### 双向位移寄存器（通过加入一个多路选择器实现）
 
-<img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/112.png" alt="img" style="zoom: 50%;" />
+<div align="center"><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/112.png" alt="img" style="zoom: 35%;" /></div>
 
 对$S_1S_0$,00保持，01左移，10右移，11并行输入
 
@@ -134,7 +128,7 @@ The 3-input MUX can be replaced by a 3-state node (bus) and 3-state buffers. Cos
 
 ### Ripple Counter
 
-<img src="image-20231214105919157.png" alt="image-20231214105919157" style="zoom:50%;" /><img src="image-20240106135857005.png" alt="image-20240106135857005" style="zoom:33%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214105919157.png" alt="image-20231214105919157" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240106135857005.png" alt="image-20240106135857005" style="zoom:33%;" /></div>
 
 1. B频率是A一半。A输出取反作为B的时钟信号。 可以用做时钟分频。
 
@@ -144,7 +138,7 @@ The 3-input MUX can be replaced by a 3-state node (bus) and 3-state buffers. Cos
 
 理论上，111之后应该变成000，但实际上：$111->110->100->000$
 
-<img src="http://cdn.hobbitqia.cc/202212071112469.png" alt="img" style="zoom:50%;" />
+<div align="center"><img src="http://cdn.hobbitqia.cc/202212071112469.png" alt="img" style="zoom:50%;" /></div>
 
 此外对于n bits, 最坏时间延迟是 $n\cdot t_{PHL}$ 速度会非常慢.
 
@@ -152,7 +146,7 @@ The 3-input MUX can be replaced by a 3-state node (bus) and 3-state buffers. Cos
 
 ### **Synchronous Counters** 同步计数器
 
-<img src="image-20231214111002009.png" alt="image-20231214111002009" style="zoom:67%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214111002009.png" alt="image-20231214111002009" style="zoom:67%;" /></div>
 
 每次通过自增器+1
 
@@ -160,17 +154,17 @@ The 3-input MUX can be replaced by a 3-state node (bus) and 3-state buffers. Cos
 
 使能为0相当于保持。 CO输出进位用于下一部分电路
 
-<img src="image-20231214111437435.png" alt="image-20231214111437435" style="zoom:67%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214111437435.png" alt="image-20231214111437435" style="zoom:67%;" /></div>
 
 问题：同样存在延迟。 
 
 解决方法：look ahead 用一个与门把所有低位接起来
 
-<img src="image-20231214111602443.png" alt="image-20231214111602443" style="zoom:67%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214111602443.png" alt="image-20231214111602443" style="zoom:67%;" /></div>
 
 symbol：
 
-<img src="image-20231214112709898.png" alt="image-20231214112709898" style="zoom:80%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214112709898.png" alt="image-20231214112709898" style="zoom:80%;" /></div>
 
 ### Other Counters
 
@@ -183,23 +177,21 @@ symbol：
 
 实现并行输入
 
-<img src="image-20231214113256312.png" alt="image-20231214113256312" style="zoom: 67%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214113256312.png" alt="image-20231214113256312" style="zoom: 67%;" /></div>
 
 ### **Design Example: Synchronous BCD**
 
 1. 状态表：
 
-<img src="image-20231214113446423.png" alt="image-20231214113446423" style="zoom:67%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214113446423.png" alt="image-20231214113446423" style="zoom:67%;" /></div>
 
 2. 卡诺图化简
 
-<img src="image-20231214113505537.png" alt="image-20231214113505537" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214113505537.png" alt="image-20231214113505537" style="zoom:50%;" /></div>
 
 3. 验证无用状态情况，发现不会死锁
 
-<img src="image-20231214113537985.png" alt="image-20231214113537985" style="zoom:50%;" />
-
-<img src="image-20231214113545336.png" alt="image-20231214113545336" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214113537985.png" alt="image-20231214113537985" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214113545336.png" alt="image-20231214113545336" style="zoom:50%;" /></div>
 
 ### Counting Modulo N
 
@@ -207,11 +199,11 @@ symbol：
 
 - 异步，通过clear（异步复位脚），计数达到N实时清零即可
 
-<img src="image-20231214114143431.png" alt="image-20231214114143431" style="zoom:67%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214114143431.png" alt="image-20231214114143431" style="zoom:67%;" /></div>
 
 - 同步，N-1时reset为1，在下一个上升沿清零 `better choice`
 
-<img src="image-20231214114241739.png" alt="image-20231214114241739" style="zoom:67%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214114241739.png" alt="image-20231214114241739" style="zoom:67%;" /></div>
 
 2. 多位寄存器，分开设计，如设计时间，低位为模 10 计数器，高位为模 6 计时器，低位的 `Carry Output` 既作为低位的同步清零信号，又是高位的 `Enable` 信号.
 
@@ -225,7 +217,7 @@ symbol：
 
 串行加法器：仅使用一位全加器与一个用于进位的触发器。The result is stored in the A register and the final carry in the flip-flop
 
-<img src="image-20231214115743980.png" alt="image-20231214115743980" style="zoom: 67%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214115743980.png" alt="image-20231214115743980" style="zoom: 67%;" /></div>
 
 Serial addition is a low cost way to add large numbers of operands, since a “tree” of full adder cells can be made to any depth, and each new level doubles the number of operands.
 

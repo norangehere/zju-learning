@@ -1,10 +1,10 @@
-## Chapter 4 Part 1 Sequential Circuits Introduction
+# Chapter 4 Sequential Circuits
 
 ## 时序电路介绍
 
 1. 组成：
 
-   <img src="image-20231116101846007.png" alt="image-20231116101846007" style="zoom:33%;" />
+   <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231116101846007.png" alt="image-20231116101846007" style="zoom:33%;" /></div>
 
    - 现代复杂电路设计大多使用同步
    - Storage elements: Latches or Flip-Flops
@@ -44,23 +44,23 @@ end
 - output 结果和 input 之间有固定延时
 - output 改变的一瞬间，output 驱动的所有输入都改变，即忽略传输时间
 
-<img src="image-20231116102538008.png" alt="image-20231116102538008" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231116102538008.png" alt="image-20231116102538008" style="zoom:50%;" /></div>
 
 ## Latch
 
-<img src="image-20231116102644648.png" alt="image-20231116102644648" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231116102644648.png" alt="image-20231116102644648" style="zoom:50%;" /></div>
 
 - 错误由于$S$变化传到反相器输出有延迟，因此出现$S$由 1 变 0 后，$\overline{S}$并未立即由 0 变 1，使得两者都是 0，输出也变成了 0
 
 ### 将 A 与 Y 相连，从而得到一个时序电路
 
-<img src="image-20231116103524286.png" alt="image-20231116103524286" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231116103524286.png" alt="image-20231116103524286" style="zoom:50%;" /></div>
 
 - S 为 1 时，$Y=B$，S 为 0 时，B 不改变 Y，因此 Y 可以储存 B 的值
 
 ### 再加一个非门
 
-<img src="image-20231116104213200.png" alt="image-20231116104213200" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231116104213200.png" alt="image-20231116104213200" style="zoom:50%;" /></div>
 
 - 优点：电路简单
 - 缺点：频率不精确 ，即使如此之后仍然会出现上上上图中的 glitch
@@ -69,7 +69,7 @@ end
 
 低电平有效
 
-<img src="image-20231116104915091.png" alt="image-20231116104915091" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231116104915091.png" alt="image-20231116104915091" style="zoom:50%;" /></div>
 
 - 输入 00 是禁止的
 
@@ -77,23 +77,21 @@ end
 
 高电平有效，因此两个都高时无效处于未定义
 
-<img src="image-20231116105805699.png" alt="image-20231116105805699" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231116105805699.png" alt="image-20231116105805699" style="zoom:50%;" /></div>
 
 ### Clocked S-R Latch
 
-<img src="image-20231116110106519.png" alt="image-20231116110106519" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231116110106519.png" alt="image-20231116110106519" style="zoom:50%;" /></div>
 
 - C 为 0，锁存器两个输入都为 1，不改变值；C 为 1，输入相当于$\overline{S},\overline{R}$.
 
 ### 改进：使得没有非法情况——D Latch
 
-<img src="image-20231116110422211.png" alt="image-20231116110422211" style="zoom:50%;" /><img src="image-20231116110545086.png" alt="image-20231116110545086" style="zoom: 50%;" />
-
-<img src="image-20231116110824888.png" alt="image-20231116110824888" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231116110422211.png" alt="image-20231116110422211" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231116110545086.png" alt="image-20231116110545086" style="zoom: 50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231116110824888.png" alt="image-20231116110824888" style="zoom:50%;" /></div>
 
 - 利用传输门的 D 锁存器
 
-  <img src="image-20240104203116323.png" alt="image-20240104203116323" style="zoom: 33%;" />
+  <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240104203116323.png" alt="image-20240104203116323" style="zoom: 33%;" /></div>
 
   传输门：既可以传送数字信号又可以传输模拟信号的可控开关电路
 
@@ -101,11 +99,11 @@ end
 
 ### **The Latch Timing Problem**
 
-<img src="image-20231116112417346.png" alt="image-20231116112417346" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231116112417346.png" alt="image-20231116112417346" style="zoom:50%;" /></div>
 
 - 只要 C = 1，Y 的值就会继续变化！即空翻现象
 
-<img src="image-20240104203212056.png" alt="image-20240104203212056" style="zoom:33%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240104203212056.png" alt="image-20240104203212056" style="zoom:33%;" /></div>
 
 - 所需行为：Y 在每个时钟脉冲中仅更改一次
 - 解决方案是断开存储元件内从 Y 到 Y 的闭合路径，使用触发器（flip-flop）
@@ -114,7 +112,7 @@ end
 
 ### S-R Master-Slave Flip-Flop
 
-<img src="image-20231116112630386.png" alt="image-20231116112630386" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231116112630386.png" alt="image-20231116112630386" style="zoom:50%;" /></div>
 
 - 左主(master),右从(slave)
 - C=1 观测输入，C=0 输出改变
@@ -129,44 +127,42 @@ end
 
 ### Edge-Triggered Flip-Flop 边沿触发器
 
-<img src="image-20231116115953446.png" alt="下降沿触发的触发器" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231116115953446.png" alt="下降沿触发的触发器" style="zoom:50%;" /></div>
 
 - 主锁存器变为 D 锁存器
 - 只看边沿情况输入决定输出，其他时候输入不影响
 - D 触发器解决 SR 触发器的一次性采样问题是因为 D 触发器没有保持功能
 
-<img src="image-20231116120653203.png" alt="上升沿触发器" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231116120653203.png" alt="上升沿触发器" style="zoom:50%;" /></div>
 
  上升沿触发器（Positive-Triggered Flip-Flop）
 
 ### Standard Symbols for Storage Elements
 
-<img src="image-20231116121235712.png" alt="image-20231116121235712" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231116121235712.png" alt="image-20231116121235712" style="zoom:50%;" /></div>
 
-- 主从触发器输出侧的<img src="image-20231116121334780.png" alt="image-20231116121334780" style="zoom:50%;" />表示不允许输入改变。
+- 主从触发器输出侧的<img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231116121334780.png" alt="image-20231116121334780" style="zoom:50%;" />表示不允许输入改变。
 - 若电路中存在不同边沿触发器，若想同步触发，正确方式应该是采用主时钟产生器，使其产生同步正向和负向脉冲，否则会有延迟
 - 通过门控时钟使得时钟脉冲失效会导致延迟，这种延迟称为时钟偏移（clock skew）
 
 ### **Actual Circuit of Edge-Triggered D Flip-Flop**
 
-<img src="image-20231123101003513.png" alt="image-20231123101003513" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231123101003513.png" alt="image-20231123101003513" style="zoom:50%;" /></div>
 
 6 个与非门，成本较低
 
 ### Direct Input
 
-<img src="image-20231116121555284.png" alt="image-20231116121555284" style="zoom:50%;" />
-
-<img src="image-20240104203745657.png" alt="image-20240104203745657" style="zoom:33%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231116121555284.png" alt="image-20231116121555284" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240104203745657.png" alt="image-20240104203745657" style="zoom:33%;" /></div>
 
 - 实现触发器的异步置位的输入称为直接置位(direct set)或预置(preset)，实现异步复位的输入称为直接复位或清零(clear)
 - 若使用同步赋初值：设置 D
 - 低电平有效
-- ![image-20240104191801069](image-20240104191801069.png)
+- <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240104191801069.png" alt="image-20240104191801069" style="zoom: 50%;" />
 
 ## Filp-Flop Timing Parameters
 
-![image-20231123112257304](image-20231123112257304.png)
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231123112257304.png" alt="image-20231123112257304" style="zoom: 50%;" /></div>
 
 1. $t_s$：setup time，建立时间
 
@@ -192,7 +188,7 @@ end
 
 2. Implementation by D Flip-Flop（以正边沿触发器为核心避免一次性采样）：
 
-<img src="image-20231130112539395.png" alt="image-20231130112539395" style="zoom:67%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231130112539395.png" alt="image-20231130112539395" style="zoom:67%;" /></div>
 
 - J=0，K=0，Q 输出送给 D，保持
 - J=0，K=1，上下全 disable，D 置 0，reset
@@ -205,26 +201,26 @@ end
 
 Reset (asynchronous or synchronous) essential 需要异步控制赋初值
 
-<img src="image-20231130113240277.png" alt="image-20231130113240277" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231130113240277.png" alt="image-20231130113240277" style="zoom:50%;" /></div>
 
 ## Analysis
 
-<img src="image-20231123101750013.png" alt="image-20231123101750013" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231123101750013.png" alt="image-20231123101750013" style="zoom:50%;" /></div>
 
 1. 输入:$x(t)$,输出:$y(t)$,状态:$A(t),B(t)$
-2. ![image-20231123101927787](image-20231123101927787.png)
+2. <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231123101927787.png" alt="image-20231123101927787" style="zoom: 50%;" />
 
 a important equation:$Q=D$
 
 ### Stable Table
 
-![image-20231123102751300](image-20231123102751300.png)
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231123102751300.png" alt="image-20231123102751300" style="zoom:50%;" /></div>
 
 有限状态机
 
 4. Alternate State Table 二维表：
 
-![image-20231123103333380](image-20231123103333380.png)
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231123103333380.png" alt="image-20231123103333380" style="zoom:67%;" /></div>
 
 ### State Diagrams
 
@@ -241,7 +237,7 @@ The sequential circuit function can be represented in graphical form as a state 
    Mealy type output depends on state and input(输出画在有向弧上) 输出与输入有关
 2. Example：/左侧输入，右侧输出，由现态指向次态，下例为 Mealy 型
 
-<img src="image-20231123104017550.png" alt="image-20231123104017550" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231123104017550.png" alt="image-20231123104017550" style="zoom:50%;" /></div>
 
 ### **Equivalent State Definitions**
 
@@ -249,15 +245,15 @@ The sequential circuit function can be represented in graphical form as a state 
 
 1. 例：下图中 S2 与 S3
 
-   <img src="image-20231123104617073.png" alt="image-20231123104617073" style="zoom: 50%;" />
+   <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231123104617073.png" alt="image-20231123104617073" style="zoom: 50%;" /></div>
 
 因此可以改写
 
-<img src="image-20231123104809492.png" alt="image-20231123104809492" style="zoom: 50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231123104809492.png" alt="image-20231123104809492" style="zoom: 50%;" /></div>
 
 然后发现 S1 与 S2 等效
 
-<img src="image-20231123104833916.png" alt="image-20231123104833916" style="zoom: 50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231123104833916.png" alt="image-20231123104833916" style="zoom: 50%;" /></div>
 
 此时不再有可以合并的
 
@@ -269,35 +265,33 @@ Sequential Circuits or Sequential Machines are also called Finite State Machines
 
 1. Outputs are a function ONLY of states.Usually specified on the states.
 
-<img src="image-20231123105259208.png" alt="image-20231123105259208" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231123105259208.png" alt="image-20231123105259208" style="zoom:50%;" /></div>
 
 2. State Table
 
-<img src="image-20231123105512825.png" alt="image-20231123105512825" style="zoom:67%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231123105512825.png" alt="image-20231123105512825" style="zoom:67%;" /></div>
 
 ### Mealy Model
 
 1. Outputs are a function of inputs AND states.Usually specified on the state transition arcs.
 
-<img src="image-20231123105437038.png" alt="image-20231123105437038" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231123105437038.png" alt="image-20231123105437038" style="zoom:50%;" /></div>
 
 2. State Table
 
-<img src="image-20231123105527342.png" alt="image-20231123105527342" style="zoom:67%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231123105527342.png" alt="image-20231123105527342" style="zoom:67%;" /></div>
 
 ### 混合型写法
 
 指向同一个次态的输出相同时把输出放进圈
 
-<img src="image-20231123105620730.png" alt="image-20231123105620730" style="zoom: 67%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231123105620730.png" alt="image-20231123105620730" style="zoom: 67%;" /></div>
 
 ### One more example
 
 模 5 计数器，若从 0 开始，则会 0~4 循环变化，但若外部干扰产生 5-7，下次仍会切换回 0-4，从而不会出现死锁与错误。
 
-<img src="image-20231123111144007.png" alt="image-20231123111144007" style="zoom:67%;" />
-
-<img src="image-20231123111302396.png" alt="image-20231123111302396" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231123111144007.png" alt="image-20231123111144007" style="zoom:47%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231123111302396.png" alt="image-20231123111302396" style="zoom:47%;" /></div>
 
 Only states reachable from the reset state 000 are used: 000, 001, 010, 011, and 100.
 The circuit produces a 1 on Z after four clock periods and every five clock periods thereafter:
@@ -319,7 +313,7 @@ The circuit produces a 1 on Z after four clock periods and every five clock peri
      可以是正数，也可以是负数 所有路径上的必须大于或等于零才能正确操作
      Must be greater than or equal to zero on all paths for correct operation
 
-![image-20231123114223146](image-20231123114223146.png)
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231123114223146.png" alt="image-20231123114223146" style="zoom: 50%;" /></div>
 
 2. Timing Equations：
 
@@ -337,13 +331,9 @@ The circuit produces a 1 on Z after four clock periods and every five clock peri
 
 3. Calculation of Allowable $t_{pd,COMB}$
 
-![image-20231123114847350](image-20231123114847350.png)
-
-![image-20231123114859972](image-20231123114859972.png)
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231123114847350.png" alt="image-20231123114847350" style="zoom:40%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231123114859972.png" alt="image-20231123114859972" style="zoom:40%;" /></div><div align="center">
 
 因此更多使用边沿触发器
-
-## Chapter 4 Part 2 Sequential Circuit Design
 
 ## Formulation: Finding a State Diagram
 
@@ -366,7 +356,7 @@ A state is an abstraction of the history of the past applied inputs to the circu
 - Add state transition arcs which specify what happens when a symbol not in the proper sequence has occurred.
 - Add other arcs on non-sequence inputs which transition to states that represent the input subsequence that has occurred.
 
-![image-20231130100623709](image-20231130100623709.png)
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231130100623709.png" alt="image-20231130100623709" style="zoom: 67%;" /></div>
 
 ### 状态等效
 
@@ -375,9 +365,7 @@ A state is an abstraction of the history of the past applied inputs to the circu
 
 3. 状态等效的三种情况：首先输出相同，其次或次态相同，或次态交错，或次态循环
 
-<img src="image-20231130101131053.png" alt="image-20231130101131053" style="zoom: 33%;" />
-
-<img src="image-20231130101231381.png" alt="image-20231130101231381" style="zoom:33%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231130101131053.png" alt="image-20231130101131053" style="zoom: 15%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231130101231381.png" alt="image-20231130101231381" style="zoom:15%;" /></div>
 
 $S_i$与$S_j$等效，$S_k$与$S_l$等效
 
@@ -389,11 +377,11 @@ $S_i$与$S_j$等效，$S_k$与$S_l$等效
      - 状态对不等效，打“×”；
      - 状态对是否等效需进一步检查，则标记次态对。 进一步检查指输出相同但不能判断次态是否相同
 
-   <img src="image-20231130101638517.png" alt="image-20231130101638517" style="zoom:50%;" /><img src="image-20231130101801189.png" alt="image-20231130101801189" style="zoom:50%;" />
+   <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231130101638517.png" alt="image-20231130101638517" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231130101801189.png" alt="image-20231130101801189" style="zoom:50%;" /></div>
 
    - 进行关联比较，确定等效状态对
      - 由于 CD、DE 不等效，所以 DG 不等效，画斜线标志
-     - <img src="image-20231130101949997.png" alt="image-20231130101949997" style="zoom:33%;" />处于循环链中的每一个状态都是等效状态对
+     - <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231130101949997.png" alt="image-20231130101949997" style="zoom:33%;" />处于循环链中的每一个状态都是等效状态对
 
 ### 状态分配
 
@@ -404,7 +392,7 @@ $S_i$与$S_j$等效，$S_k$与$S_l$等效
 - 输出完全相同的现态应尽可能分配相邻的二进制代码
 - 最小化状态表中出现次数最多的状态或初始状态应分配逻辑 0
 
-<img src="image-20231130104325316.png" alt="image-20231130104325316" style="zoom:50%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231130104325316.png" alt="image-20231130104325316" style="zoom:50%;" /></div>
 
 注：（4）中 4 个状态出现次数都一样多，随意选择一个分配为逻辑 0 即可
 
