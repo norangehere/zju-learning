@@ -1266,7 +1266,7 @@
    - 插入时一次cost为c的操作造成森林多了2-c棵树，因为1次操作把<span class="arithmatex">\(B_0\)</span>添加到当前森林，多一棵；其余c-1次操作都在merge，每次减少一棵树
    - 势函数：<span class="arithmatex">\(\phi_i\)</span>为第i次操作后树棵数</li>
 <li>斐波那契堆势函数:<span class="arithmatex">\(t(H)+2m(H)\)</span></li>
-<li>conclusion:<img src="images/image-20240624094700172.png" alt="image-20240624094700172" style="zoom:67%;" /></li>
+<li>conclusion:<img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240624094700172.png" alt="image-20240624094700172" style="zoom:67%;" /></li>
 </ol>
 <h2 id="6-backtracking">6 Backtracking<a class="headerlink" href="#6-backtracking" title="Permanent link">&para;</a></h2>
 <ol>
@@ -1277,17 +1277,19 @@
 <li><span class="arithmatex">\(T(n)=2T(\lfloor\sqrt(n)\rfloor)+\log n\)</span>,令<span class="arithmatex">\(m=\log n\)</span></li>
 <li><span class="arithmatex">\(T(n)=T(\lfloor n/2\rfloor)+T(\lceil n/2\rceil)+1\)</span>,猜测<span class="arithmatex">\(T(n)=O(n)\)</span>，设<span class="arithmatex">\(T(n)\leq cn\)</span>但归纳失败，但设<span class="arithmatex">\(T(n)\leq cn-d\)</span>归纳成立，<strong>有时候减去一个项会有用</strong></li>
 </ol>
-<p><img alt="image-20240623195959037" src="../images/image-20240623195959037.png" /></p>
-<p><img src="images/image-20240623195844463.png" alt="image-20240623195844463" style="zoom: 80%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240623195959037.png" alt="image-20240623195959037" style="zoom:50%;" /></div>
+
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240623195844463.png" alt="image-20240623195844463" style="zoom: 80%;" /></div>
+
 <ol start="3">
 <li>分治法处理逆序对计数时，类似逆序对分成三类，全在左半边，全在右半边，跨越中点。但跨越中点的逆序对个数似乎最多有<span class="arithmatex">\(n^2/4\)</span>个，这样分治就失去了时间优势。因此我们基于归并排序，每次计算逆序后也对序列进行排序，因为这并不会影响跨越中点的逆序对。之后在合并过程我们很容易基于RANK就可以求出逆序对数目</li>
 <li>整数乘法改进，<span class="arithmatex">\(ab=10^n a_1b_1+10^{n/2}(a_1b_2+a_2b_1)+a_2b_2\)</span>,同时注意到<span class="arithmatex">\(a_1b_2+a_2b_1=(a_1+a_2)(b_1+b_2)-a_1b_1-a_2b_2\)</span>，因此我们只需要计算<span class="arithmatex">\((a_1+a_2)(b_1+b_2),a_1b_1,a_2b_2\)</span>这三个，因此递推式为<span class="arithmatex">\(T(n)=3T(n/2)+O(n)\)</span>，复杂度变成了<span class="arithmatex">\(O(n^{\log_23})\)</span></li>
 <li>矩阵乘法，使用分块矩阵</li>
 </ol>
-<div align="center"><img src="images/image-20240623201325416.png" alt="image-20240623201325416" style="zoom: 80%;" /> <img src="images/image-20240623201341782.png" alt="image-20240623201341782" style="zoom:100%;" /></div>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240623201325416.png" alt="image-20240623201325416" style="zoom: 80%;" /> <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240623201341782.png" alt="image-20240623201341782" style="zoom:100%;" /></div>
 
 <p>但此时需要计算八个n/2规模的矩阵，复杂度仍然是<span class="arithmatex">\(O(n^3)\)</span>，但Strassen给出了一个天才的构造</p>
-<div align="center"><img src="images/image-20240623201622130.png" alt="image-20240623201622130" style="zoom:80%;" /><img src="images/image-20240623201638390.png" alt="image-20240623201638390" style="zoom:80%;" /></div>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240623201622130.png" alt="image-20240623201622130" style="zoom:80%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240623201638390.png" alt="image-20240623201638390" style="zoom:80%;" /></div>
 
 <p>因此<span class="arithmatex">\(T(n)=7T(n/2)+O(n^2)\)</span>,复杂度为<span class="arithmatex">\(O(n^{\log_27})\)</span></p>
 <h2 id="8-dynamic-programming">8 Dynamic Programming<a class="headerlink" href="#8-dynamic-programming" title="Permanent link">&para;</a></h2>
@@ -1448,19 +1450,19 @@
 <ul>
 <li>workload过大，因此首先考虑partition</li>
 </ul>
-<p><img src="images/image-20240624003931241.png" alt="image-20240624003931241" style="zoom: 43%;" /></p>
-<p><img src="images/image-20240624003951821.png" alt="image-20240624003951821" style="zoom:43%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240624003931241.png" alt="image-20240624003931241" style="zoom: 40%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240624003951821.png" alt="image-20240624003951821" style="zoom:43%;" /></div>
+
 <ul>
 <li>
 <p>但有以下Random Sampling，可以使得<span class="arithmatex">\(T=O(1),W=O(n)\)</span></p>
 <ul>
 <li>取<span class="arithmatex">\(n^{7/8}\)</span>个出来</li>
 </ul>
-<p><img src="images/image-20240624004104118.png" alt="image-20240624004104118" style="zoom:50%;" /></p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240624004104118.png" alt="image-20240624004104118" style="zoom:50%;" /></div></p>
 <ul>
 <li>但这样最大值有可能不在其中，于是继续再取<span class="arithmatex">\(n^{7/8}\)</span>个作为数组B，下面步骤中若找到一个最大值，随机丢回B中的一个位置，因此是有可能把最大值覆盖掉的。但综合来看在上述时间内不能得到最大值的概率为<span class="arithmatex">\(O(\dfrac{1}{n^c})\)</span>,注意c是正常数</li>
 </ul>
-<p><img src="images/image-20240624004258889.png" alt="image-20240624004258889" style="zoom:50%;" /></p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240624004258889.png" alt="image-20240624004258889" style="zoom:50%;" /></div></p>
 </li>
 </ul>
 <h2 id="15-external-sorting">15 External Sorting<a class="headerlink" href="#15-external-sorting" title="Permanent link">&para;</a></h2>
