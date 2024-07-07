@@ -2217,11 +2217,9 @@
 <ol start="2">
 <li>最大后验估计 MAP</li>
 </ol>
-<div class="arithmatex">\[
-\theta_{MAP}=\arg\max\limits_{\theta}p_{model}(x;\theta)*p(\theta) \\
-=\arg\max\limits_{\theta}\prod\limits_{i=1}^Np_{model}(x^i;\theta)*p(\theta)\\
-=\arg\max\limits_{\theta}\sum\limits_{i=1}^N\log p_{model}(x^i;\theta)+\log p(\theta)
-\]</div>
+<div class="arithmatex">\[ \theta*{MAP}=\arg\max\limits*{\theta}p\_{model}(x;\theta)\*p(\theta) \]</div>
+<div class="arithmatex">\[ =\arg\max\limits*{\theta}\prod\limits*{i=1}^Np\_{model}(x^i;\theta)\*p(\theta) \]</div>
+<div class="arithmatex">\[ =\arg\max\limits*{\theta}\sum\limits*{i=1}^N\log p\_{model}(x^i;\theta)+\log p(\theta) \]</div>
 <h2 id="lec-5-testing">Lec 5 Testing<a class="headerlink" href="#lec-5-testing" title="Permanent link">&para;</a></h2>
 <p>数据科学家需要帮助确保数据分析的结果不是错误的发现，即没有意义或可重复性</p>
 <h3 id="_1">两个假设<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
@@ -2307,10 +2305,8 @@
 <ul>
 <li>选择<span class="arithmatex">\(H_1\)</span>若</li>
 </ul>
-<div class="arithmatex">\[
-L(x)=\frac{P(X=x;H_1)}{P(X=x;H_0)}&gt;\xi \ (discrete\ case) \\
-L(x)=\frac{f_X(x;H_1)}{f_X(x;H_0)}&gt;\xi \ (continuous\ case)
-\]</div>
+<div class="arithmatex">\[ L(x)=\frac{P(X=x;H_1)}{P(X=x;H_0)}&gt;\xi \ (discrete\ case) \]</div>
+<div class="arithmatex">\[ L(x)=\frac{f_X(x;H_1)}{f_X(x;H_0)}&gt;\xi \ (continuous\ case) \]</div>
 <ul>
 <li>阈值<span class="arithmatex">\(\xi\)</span> 权衡两种错误，选择<span class="arithmatex">\(\xi\)</span>使得<span class="arithmatex">\(P(reject\ H_0;H_0)=\alpha\)</span></li>
 </ul>
