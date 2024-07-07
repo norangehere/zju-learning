@@ -119,6 +119,6 @@ nav:
           - Registers & Register Transfers: CLDF/CLDF6.md
           - Memory Basics: CLDF/CLDF7.md
       - Advanced Data Structures and Algorithm Analysis:
-          # - ADS/index.md
+          - ADS/index.md
           - Review: ADS/review.md
           - 错题: ADS/collection.md
