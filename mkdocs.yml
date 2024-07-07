@@ -122,3 +122,6 @@ nav:
           - ADS/index.md
           - Review: ADS/review.md
           - 错题: ADS/collection.md
+      - Machine Learning and Data Analysis:
+          - MLDA/index.md
+          - Note: MLDA/review.md
