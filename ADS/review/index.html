@@ -1205,17 +1205,21 @@
 <h1 id="ads-brief-review">ADS Brief Review<a class="headerlink" href="#ads-brief-review" title="Permanent link">&para;</a></h1>
 <h2 id="1-avl-tree-splay-tree">1 AVL Tree, Splay Tree<a class="headerlink" href="#1-avl-tree-splay-tree" title="Permanent link">&para;</a></h2>
 <ol>
-<li>AVL插入删除的时间复杂度都是<span class="arithmatex">\(O(\log n)\)</span></li>
+<li>AVL 插入删除的时间复杂度都是<span class="arithmatex">\(O(\log n)\)</span></li>
 <li><span class="arithmatex">\(n_h=F_{n+2}-1\)</span></li>
-<li>Splay: 把所有结点的后代取对数然后求和的方式定义势函数 <span class="arithmatex">\(\sum\limits_{i\in T}\log S(i)\)</span>
-   - 则均摊代价<span class="arithmatex">\(\sum\hat{c_i}\leq1+3(R_2(x)-R_1(x))\)</span></li>
-<li>Splay搜索插入删除都是<span class="arithmatex">\(O(\log n)\)</span></li>
+<li>Splay: 把所有结点的后代取对数然后求和的方式定义势函数 <span class="arithmatex">\(\sum\limits_{i\in T}\log S(i)\)</span></li>
+</ol>
+<ul>
+<li>则均摊代价<span class="arithmatex">\(\sum\hat{c_i}\leq1+3(R_2(x)-R_1(x))\)</span></li>
+</ul>
+<ol start="4">
+<li>Splay 搜索插入删除都是<span class="arithmatex">\(O(\log n)\)</span></li>
 </ol>
 <h2 id="2-red-black-tree-and-b-tree">2 Red-Black Tree and B+ Tree<a class="headerlink" href="#2-red-black-tree-and-b-tree" title="Permanent link">&para;</a></h2>
 <h3 id="red-black">Red-Black<a class="headerlink" href="#red-black" title="Permanent link">&para;</a></h3>
 <ol>
-<li>n个内部结点的红黑树高度至多<span class="arithmatex">\(2\log(n+1)\)</span></li>
-<li>以X为子节点的子树至少有<span class="arithmatex">\(2^{bh(x)}-1\)</span>个内部结点</li>
+<li>n 个内部结点的红黑树高度至多<span class="arithmatex">\(2\log(n+1)\)</span></li>
+<li>以 X 为子节点的子树至少有<span class="arithmatex">\(2^{bh(x)}-1\)</span>个内部结点</li>
 <li>插入：<span class="arithmatex">\(O(\log n)\)</span>,其中至多旋转 2 次，染色$O(\log n) $</li>
 <li>删除也是<span class="arithmatex">\(O(\log n)\)</span>,其中至多旋转 3 次，染色$O(\log n) $</li>
 </ol>
@@ -1232,45 +1236,45 @@
 <h3 id="leftist-heap">Leftist Heap<a class="headerlink" href="#leftist-heap" title="Permanent link">&para;</a></h3>
 <ol>
 <li><span class="arithmatex">\(Npl(null)=-1\)</span></li>
-<li>merge时间复杂度<span class="arithmatex">\(O(\log n)\)</span></li>
+<li>merge 时间复杂度<span class="arithmatex">\(O(\log n)\)</span></li>
 </ol>
 <ul>
 <li><span class="arithmatex">\(O(\log N_1+\log N_2)=O(\log N_1N_2)=O(\log \sqrt{N_1N_2})=O(\log(N_1+N_2))\)</span></li>
 </ul>
 <h3 id="skew-heap">Skew Heap<a class="headerlink" href="#skew-heap" title="Permanent link">&para;</a></h3>
 <ol>
-<li>base case: 处理H与null连接的情况时,左式堆直接返回H即可，但斜堆必须看H的右路径，我们要求H右路径上除了最大结点之外都必须交换其左右孩子。</li>
-<li>heavy: 如果P的右子树结点个数至少是P的所有后代的一半（后代包括P自身）</li>
-<li><span class="arithmatex">\(\hat{c_i}\leq2(l_1+l_2)\)</span> merge摊还时间复杂度<span class="arithmatex">\(O(\log n)\)</span></li>
+<li>base case: 处理 H 与 null 连接的情况时,左式堆直接返回 H 即可，但斜堆必须看 H 的右路径，我们要求 H 右路径上除了最大结点之外都必须交换其左右孩子。</li>
+<li>heavy: 如果 P 的右子树结点个数至少是 P 的所有后代的一半（后代包括 P 自身）</li>
+<li><span class="arithmatex">\(\hat{c_i}\leq2(l_1+l_2)\)</span> merge 摊还时间复杂度<span class="arithmatex">\(O(\log n)\)</span></li>
 </ol>
 <h2 id="5-binomial-queue">5 Binomial Queue<a class="headerlink" href="#5-binomial-queue" title="Permanent link">&para;</a></h2>
 <ol>
-<li><span class="arithmatex">\(B_k\)</span>在深度d处节点数为<span class="arithmatex">\(C_k^d\)</span></li>
-<li>FirstChild, NextSibling 同一层高度由左往右递减，使得merge进来的树可以直接放在最左侧</li>
-<li><span class="arithmatex">\(!!T\)</span>表示将非零的变成1</li>
+<li><span class="arithmatex">\(B_k\)</span>在深度 d 处节点数为<span class="arithmatex">\(C_k^d\)</span></li>
+<li>FirstChild, NextSibling 同一层高度由左往右递减，使得 merge 进来的树可以直接放在最左侧</li>
+<li><span class="arithmatex">\(!!T\)</span>表示将非零的变成 1</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">BinNode</span><span class="w"> </span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span><span class="w"> </span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">BinNode</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">ElementType</span><span class="w">     </span><span class="n">Element</span><span class="p">;</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">Position</span><span class="w">        </span><span class="n">LeftChild</span><span class="p">;</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">Position</span><span class="w">        </span><span class="n">NextSibling</span><span class="p">;</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span><span class="w"> </span><span class="p">;</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Collection</span><span class="w"> </span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">{</span><span class="w"> </span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Collection</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">{</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="kt">int</span><span class="w">         </span><span class="n">CurrentSize</span><span class="p">;</span><span class="w">  </span><span class="cm">/* total number of nodes */</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="n">BinTree</span><span class="w"> </span><span class="n">TheTrees</span><span class="p">[</span><span class="w"> </span><span class="n">MaxTrees</span><span class="w"> </span><span class="p">];</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span><span class="w"> </span><span class="p">;</span>
 </code></pre></div>
 <ol start="4">
 <li>摊还：
-   - 插入时一次cost为c的操作造成森林多了2-c棵树，因为1次操作把<span class="arithmatex">\(B_0\)</span>添加到当前森林，多一棵；其余c-1次操作都在merge，每次减少一棵树
-   - 势函数：<span class="arithmatex">\(\phi_i\)</span>为第i次操作后树棵数</li>
+   - 插入时一次 cost 为 c 的操作造成森林多了 2-c 棵树，因为 1 次操作把<span class="arithmatex">\(B_0\)</span>添加到当前森林，多一棵；其余 c-1 次操作都在 merge，每次减少一棵树
+   - 势函数：<span class="arithmatex">\(\phi_i\)</span>为第 i 次操作后树棵数</li>
 <li>斐波那契堆势函数:<span class="arithmatex">\(t(H)+2m(H)\)</span></li>
 <li>conclusion:<img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240624094700172.png" alt="image-20240624094700172" style="zoom:67%;" /></li>
 </ol>
 <h2 id="6-backtracking">6 Backtracking<a class="headerlink" href="#6-backtracking" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Turnpike Reconstruction Problem:使用AVL树，一次操作<span class="arithmatex">\(O(n\log n)\)</span></li>
+<li>Turnpike Reconstruction Problem:使用 AVL 树，一次操作<span class="arithmatex">\(O(n\log n)\)</span></li>
 </ol>
 <h2 id="7-divide-and-conquer">7 Divide and Conquer<a class="headerlink" href="#7-divide-and-conquer" title="Permanent link">&para;</a></h2>
 <ol>
@@ -1282,75 +1286,75 @@
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240623195844463.png" alt="image-20240623195844463" style="zoom: 80%;" /></div>
 
 <ol start="3">
-<li>分治法处理逆序对计数时，类似逆序对分成三类，全在左半边，全在右半边，跨越中点。但跨越中点的逆序对个数似乎最多有<span class="arithmatex">\(n^2/4\)</span>个，这样分治就失去了时间优势。因此我们基于归并排序，每次计算逆序后也对序列进行排序，因为这并不会影响跨越中点的逆序对。之后在合并过程我们很容易基于RANK就可以求出逆序对数目</li>
+<li>分治法处理逆序对计数时，类似逆序对分成三类，全在左半边，全在右半边，跨越中点。但跨越中点的逆序对个数似乎最多有<span class="arithmatex">\(n^2/4\)</span>个，这样分治就失去了时间优势。因此我们基于归并排序，每次计算逆序后也对序列进行排序，因为这并不会影响跨越中点的逆序对。之后在合并过程我们很容易基于 RANK 就可以求出逆序对数目</li>
 <li>整数乘法改进，<span class="arithmatex">\(ab=10^n a_1b_1+10^{n/2}(a_1b_2+a_2b_1)+a_2b_2\)</span>,同时注意到<span class="arithmatex">\(a_1b_2+a_2b_1=(a_1+a_2)(b_1+b_2)-a_1b_1-a_2b_2\)</span>，因此我们只需要计算<span class="arithmatex">\((a_1+a_2)(b_1+b_2),a_1b_1,a_2b_2\)</span>这三个，因此递推式为<span class="arithmatex">\(T(n)=3T(n/2)+O(n)\)</span>，复杂度变成了<span class="arithmatex">\(O(n^{\log_23})\)</span></li>
 <li>矩阵乘法，使用分块矩阵</li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240623201325416.png" alt="image-20240623201325416" style="zoom: 80%;" /> <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240623201341782.png" alt="image-20240623201341782" style="zoom:100%;" /></div>
 
-<p>但此时需要计算八个n/2规模的矩阵，复杂度仍然是<span class="arithmatex">\(O(n^3)\)</span>，但Strassen给出了一个天才的构造</p>
+<p>但此时需要计算八个 n/2 规模的矩阵，复杂度仍然是<span class="arithmatex">\(O(n^3)\)</span>，但 Strassen 给出了一个天才的构造</p>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240623201622130.png" alt="image-20240623201622130" style="zoom:80%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240623201638390.png" alt="image-20240623201638390" style="zoom:80%;" /></div>
 
 <p>因此<span class="arithmatex">\(T(n)=7T(n/2)+O(n^2)\)</span>,复杂度为<span class="arithmatex">\(O(n^{\log_27})\)</span></p>
 <h2 id="8-dynamic-programming">8 Dynamic Programming<a class="headerlink" href="#8-dynamic-programming" title="Permanent link">&para;</a></h2>
 <ol>
 <li>All-Pairs Shortest Path: <span class="arithmatex">\(D^k[i][j]=\min\{length\ of\ path\ i\rightarrow\{l\leq k\}\rightarrow j\}\)</span>
-   - 表示用前k个节点从i走到j</li>
+   - 表示用前 k 个节点从 i 走到 j</li>
 </ol>
 <h2 id="9-greedy-algorithms">9 Greedy Algorithms<a class="headerlink" href="#9-greedy-algorithms" title="Permanent link">&para;</a></h2>
 <ol>
-<li>调度问题：计算任务i的<span class="arithmatex">\(w_i/l_i\)</span>，从大到小降序调度任务</li>
-<li>变体：最小化最大延时，直接按ddl从小到大排序</li>
-<li>Huffman每次贪心取两个频率最低的符合最优子结构，证明使用反证，若k-1规模的<span class="arithmatex">\(T'\)</span>是最优解，那加上(x,y)后k规模的<span class="arithmatex">\(T\)</span>也是最优解，否则存在<span class="arithmatex">\(T^*\)</span>，但此时<span class="arithmatex">\(T^*\)</span>删去(x,y)会比<span class="arithmatex">\(T'\)</span>cost更小，矛盾，因此最优。</li>
+<li>调度问题：计算任务 i 的<span class="arithmatex">\(w_i/l_i\)</span>，从大到小降序调度任务</li>
+<li>变体：最小化最大延时，直接按 ddl 从小到大排序</li>
+<li>Huffman 每次贪心取两个频率最低的符合最优子结构，证明使用反证，若 k-1 规模的<span class="arithmatex">\(T'\)</span>是最优解，那加上(x,y)后 k 规模的<span class="arithmatex">\(T\)</span>也是最优解，否则存在<span class="arithmatex">\(T^*\)</span>，但此时<span class="arithmatex">\(T^*\)</span>删去(x,y)会比<span class="arithmatex">\(T'\)</span>cost 更小，矛盾，因此最优。</li>
 </ol>
 <h2 id="10-np-completeness">10 NP-Completeness<a class="headerlink" href="#10-np-completeness" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>图灵机的构型<span class="arithmatex">\(c=t_mt_{m-1}…t_2t_1\underline{q_i}s_1s_2…s_k\)</span>,<span class="arithmatex">\(s_i\)</span>和<span class="arithmatex">\(t_i\)</span>分别是一直到最右侧和最左侧的非空格子上的内容，当然，如果没有则可以写个□，图灵计算就指图灵机的一列构型<span class="arithmatex">\(c_0,c_1,\cdots,c_n\)</span></p>
+<p>图灵机的构型<span class="arithmatex">\(c=t_mt_{m-1}…t_2t_1\underline{q_i}s_1s_2…s_k\)</span>,<span class="arithmatex">\(s_i\)</span>和<span class="arithmatex">\(t_i\)</span>分别是一直到最右侧和最左侧的非空格子上的内容，当然，如果没有则可以写个 □，图灵计算就指图灵机的一列构型<span class="arithmatex">\(c_0,c_1,\cdots,c_n\)</span></p>
 </li>
 <li>
-<p>P类问题：确定性图灵机可以在多项式时间内求解</p>
+<p>P 类问题：确定性图灵机可以在多项式时间内求解</p>
 </li>
 </ol>
-<p>NP类问题：非确定性图灵机可以在多项式时间内求解</p>
+<p>NP 类问题：非确定性图灵机可以在多项式时间内求解</p>
 <p>显然<span class="arithmatex">\(P\subset NP\)</span></p>
 <ol start="3">
 <li>补类：<span class="arithmatex">\(co-C\)</span>为<span class="arithmatex">\(C\)</span>的补类，<span class="arithmatex">\(co-C=\{L|\overline{L}\in C\}\)</span></li>
 </ol>
 <ul>
 <li>P=co-P 直接把问题的是变成否即可，对于确定性图灵机而言是这样的</li>
-<li>若P=NP，则NP=co-NP</li>
+<li>若 P=NP，则 NP=co-NP</li>
 </ul>
 <ol start="4">
 <li>
-<p>Karp归约：<span class="arithmatex">\(x\in A\Leftrightarrow f(x)\in B\)</span>，记作<span class="arithmatex">\(A\leq_pB\)</span>，则B比A难</p>
+<p>Karp 归约：<span class="arithmatex">\(x\in A\Leftrightarrow f(x)\in B\)</span>，记作<span class="arithmatex">\(A\leq_pB\)</span>，则 B 比 A 难</p>
 </li>
 <li>
-<p>若复杂类C中任意问题都能多项式规约到P，则称P是C-hard的，若同时P也在C中，则P是C-complete的</p>
+<p>若复杂类 C 中任意问题都能多项式规约到 P，则称 P 是 C-hard 的，若同时 P 也在 C 中，则 P 是 C-complete 的</p>
 </li>
 <li>
-<p>证明P=NP，即首先找到一个NP-complete的问题，再证明这个问题是P的</p>
+<p>证明 P=NP，即首先找到一个 NP-complete 的问题，再证明这个问题是 P 的</p>
 </li>
 <li>
-<p>SAT问题是NP-complete的，<span class="arithmatex">\(SAT\leq_p3-SAT\)</span>,3-SAT也是NP-complete的</p>
+<p>SAT 问题是 NP-complete 的，<span class="arithmatex">\(SAT\leq_p3-SAT\)</span>,3-SAT 也是 NP-complete 的</p>
 </li>
 <li>
-<p>哈密顿回路，旅行商问题(TSP)，clique problem，Vertex cover problem是NP-complete的</p>
+<p>哈密顿回路，旅行商问题(TSP)，clique problem，Vertex cover problem 是 NP-complete 的</p>
 </li>
 </ol>
-<p>给定若干个物品，判断是否可由两个箱子装下是NP-complete的</p>
-<p>dominating set是NP-complete的</p>
-<p>最大割，halting是NP-hard的</p>
+<p>给定若干个物品，判断是否可由两个箱子装下是 NP-complete 的</p>
+<p>dominating set 是 NP-complete 的</p>
+<p>最大割，halting 是 NP-hard 的</p>
 <ul>
 <li><span class="arithmatex">\(clique\leq_pvertex\ cover\)</span></li>
 <li>Clique problem: Given an undirected graph G = (V, E) and an integer K, does G contain a complete subgraph (clique) of (at least) K vertices?</li>
 <li>Vertex Cover: 存在顶点的一个子集，每一条边都有一个顶点在其中</li>
-<li>dominating set:给定一个图G=(V,E)和一个整数k，我们需要判断是否存在一个大小为k的集合<span class="arithmatex">\(S\subset V\)</span>，使得每个点要么在S中，要么与S中的某个点相邻。</li>
+<li>dominating set:给定一个图 G=(V,E)和一个整数 k，我们需要判断是否存在一个大小为 k 的集合<span class="arithmatex">\(S\subset V\)</span>，使得每个点要么在 S 中，要么与 S 中的某个点相邻。</li>
 </ul>
 <h2 id="11-approximation">11 Approximation<a class="headerlink" href="#11-approximation" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>最小工时调度问题，m台机器，不排序基础上近似比为<span class="arithmatex">\(2-\dfrac{1}{m}\)</span>，先排序后调用算法则有<span class="arithmatex">\(\dfrac{4}{3}-\dfrac{1}{3m}\)</span></p>
+<p>最小工时调度问题，m 台机器，不排序基础上近似比为<span class="arithmatex">\(2-\dfrac{1}{m}\)</span>，先排序后调用算法则有<span class="arithmatex">\(\dfrac{4}{3}-\dfrac{1}{3m}\)</span></p>
 </li>
 <li>
 <p>装箱</p>
@@ -1358,7 +1362,7 @@
 </ol>
 <ul>
 <li>
-<p>Next Fit(NF):近似比2</p>
+<p>Next Fit(NF):近似比 2</p>
 </li>
 <li>
 <p>Any Fit(AF):</p>
@@ -1369,10 +1373,10 @@
 </ul>
 </li>
 <li>以上都是在线的，在线算法的最理想近似比是<span class="arithmatex">\(\dfrac{5}{3}\)</span></li>
-<li>Almost Any Fit(AAF): 那么除非当前物品无法装进前k-1个箱子里，否则它不会装进第k个箱子里<ul>
-<li>FF和BF都是</li>
-<li>为了使WF是，我们对它进行如下修正，修正后的为AWF(Almost Worst Fit) 将当前物品放入能装下它的剩余空间第二大的箱子中；若这样的箱子不存在，便将其放入能装它的剩余空间最大的箱子中，它属于AAF</li>
-<li>AAF的近似比都是1.7</li>
+<li>Almost Any Fit(AAF): 那么除非当前物品无法装进前 k-1 个箱子里，否则它不会装进第 k 个箱子里<ul>
+<li>FF 和 BF 都是</li>
+<li>为了使 WF 是，我们对它进行如下修正，修正后的为 AWF(Almost Worst Fit) 将当前物品放入能装下它的剩余空间第二大的箱子中；若这样的箱子不存在，便将其放入能装它的剩余空间最大的箱子中，它属于 AAF</li>
+<li>AAF 的近似比都是 1.7</li>
 </ul>
 </li>
 <li>离线算法：允许先排序后再调用对应算法<ul>
@@ -1383,35 +1387,39 @@
 </li>
 </ul>
 <ol start="3">
-<li>k-中心问题：要求选择k个中心，使得每个点到最近的中心的距离最大值r(C)最小化
-   - 在给定最优解是情况下有2-近似算法<ul>
-<li>solution 1:每次随机从剩余中取一个，并删去所有距离小于等于2r的，r为最优解</li>
-<li>solution 2:每次取离当前center集合最远的点 <strong>smarter</strong></li>
-<li>除非P=NP，否则K-center问题不存在ρ-近似算法(ρ&lt;2)</li>
+<li>k-中心问题：要求选择 k 个中心，使得每个点到最近的中心的距离最大值 r(C)最小化</li>
+</ol>
+<ul>
+<li>在给定最优解是情况下有 2-近似算法<ul>
+<li>solution 1:每次随机从剩余中取一个，并删去所有距离小于等于 2r 的，r 为最优解</li>
+<li>solution 2:每次取离当前 center 集合最远的点 <strong>smarter</strong></li>
 </ul>
 </li>
-<li>The Knapsack Problem — 0-1 version 近似比为2</li>
-<li>vertex cover的贪心算法：任意一条边(u,v)，然后将u和v同时加入到C中，然后把u和v所在的所有边全部移除，是2-近似算法</li>
+<li>除非 P=NP，否则 K-center 问题不存在 ρ-近似算法(ρ&lt;2)</li>
+</ul>
+<ol start="4">
+<li>The Knapsack Problem — 0-1 version 近似比为 2</li>
+<li>vertex cover 的贪心算法：任意一条边(u,v)，然后将 u 和 v 同时加入到 C 中，然后把 u 和 v 所在的所有边全部移除，是 2-近似算法</li>
 </ol>
 <h2 id="12-local-search">12 Local Search<a class="headerlink" href="#12-local-search" title="Permanent link">&para;</a></h2>
 <ol>
-<li>
-<p>Hopfield神经网络 
-   - <span class="arithmatex">\(w_es_us_v&lt;0\)</span>的边为好的，否则为坏的
-   - <span class="arithmatex">\(\sum\limits_{v:e=(u,v)\in E}w_es_us_v\leq0\)</span>为满意的顶点，否则不满意
-   - state_flipping每次翻转一个不满意的点，好边权重和都上升，但这有上限，因此必然停止
-   - 最多经历<span class="arithmatex">\(\sum\limits_{e\in E}|w_e|\)</span>次翻转后停止，但考虑到每条边长度输入的二进制编码，这实际上是一个指数级别的时间复杂度，当边权比较大时</p>
-</li>
-<li>
-<p>最大割：Hopfield中边权都是正的特殊情况
-   - 局部搜索可以得到一个超过最优解一半的局部最优解
-   - 存在一个1.1382-近似算法
-   - 除非P=NP，否则没有1.0625(<span class="arithmatex">\(\dfrac{17}{16}\)</span>)-近似算法
-   - Big Improvement Flip</p>
+<li>Hopfield 神经网络</li>
+</ol>
 <ul>
+<li><span class="arithmatex">\(w_es_us_v&lt;0\)</span>的边为好的，否则为坏的</li>
+<li><span class="arithmatex">\(\sum\limits_{v:e=(u,v)\in E}w_es_us_v\leq0\)</span>为满意的顶点，否则不满意</li>
+<li>state_flipping 每次翻转一个不满意的点，好边权重和都上升，但这有上限，因此必然停止</li>
+<li>最多经历<span class="arithmatex">\(\sum\limits_{e\in E}|w_e|\)</span>次翻转后停止，但考虑到每条边长度输入的二进制编码，这实际上是一个指数级别的时间复杂度，当边权比较大时</li>
+</ul>
+<ol start="2">
+<li>最大割：Hopfield 中边权都是正的特殊情况
+   - 局部搜索可以得到一个超过最优解一半的局部最优解
+   - 存在一个 1.1382-近似算法
+   - 除非 P=NP，否则没有 1.0625(<span class="arithmatex">\(\dfrac{17}{16}\)</span>)-近似算法
+   - Big Improvement Flip<ul>
 <li>近似比为<span class="arithmatex">\(2+\epsilon\)</span>，会得到<span class="arithmatex">\((2+\epsilon)w(A,B)\geq w(A^*,B^*)\)</span>的解</li>
-<li>选取增长超过<span class="arithmatex">\(\dfrac{2\epsilon}{|V|}w(A,B)\)</span>的flip</li>
-<li>最终会在<span class="arithmatex">\(O(\dfrac{n}{\epsilon}\log W)\)</span>flip后停下</li>
+<li>选取增长超过<span class="arithmatex">\(\dfrac{2\epsilon}{|V|}w(A,B)\)</span>的 flip</li>
+<li>最终会在<span class="arithmatex">\(O(\dfrac{n}{\epsilon}\log W)\)</span>flip 后停下</li>
 </ul>
 </li>
 </ol>
@@ -1427,8 +1435,8 @@
 </li>
 </ol>
 <ul>
-<li>每隔<span class="arithmatex">\(\log n\)</span>取一个计算rank，这一步<span class="arithmatex">\(T=O(\log n),W=O(p\log n)=O(n)\)</span></li>
-<li>根据这些取出来的划分出2p个子问题，规模为<span class="arithmatex">\(O(n/p)\)</span>,总时间复杂度<span class="arithmatex">\(O(\log n),\)</span>总工作量<span class="arithmatex">\(2p\cdot O(\dfrac{n}{p})=O(n)\)</span></li>
+<li>每隔<span class="arithmatex">\(\log n\)</span>取一个计算 rank，这一步<span class="arithmatex">\(T=O(\log n),W=O(p\log n)=O(n)\)</span></li>
+<li>根据这些取出来的划分出 2p 个子问题，规模为<span class="arithmatex">\(O(n/p)\)</span>,总时间复杂度<span class="arithmatex">\(O(\log n),\)</span>总工作量<span class="arithmatex">\(2p\cdot O(\dfrac{n}{p})=O(n)\)</span></li>
 <li>因此总<span class="arithmatex">\(T=O(\log n),W=O(n)\)</span></li>
 </ul>
 <ol start="3">
@@ -1448,19 +1456,19 @@
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">       </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">A</span>
 </code></pre></div>
 <ul>
-<li>workload过大，因此首先考虑partition</li>
+<li>workload 过大，因此首先考虑 partition</li>
 </ul>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240624003931241.png" alt="image-20240624003931241" style="zoom: 40%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240624003951821.png" alt="image-20240624003951821" style="zoom:43%;" /></div>
 
 <ul>
 <li>
-<p>但有以下Random Sampling，可以使得<span class="arithmatex">\(T=O(1),W=O(n)\)</span></p>
+<p>但有以下 Random Sampling，可以使得<span class="arithmatex">\(T=O(1),W=O(n)\)</span></p>
 <ul>
 <li>取<span class="arithmatex">\(n^{7/8}\)</span>个出来</li>
 </ul>
 <p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240624004104118.png" alt="image-20240624004104118" style="zoom:50%;" /></div></p>
 <ul>
-<li>但这样最大值有可能不在其中，于是继续再取<span class="arithmatex">\(n^{7/8}\)</span>个作为数组B，下面步骤中若找到一个最大值，随机丢回B中的一个位置，因此是有可能把最大值覆盖掉的。但综合来看在上述时间内不能得到最大值的概率为<span class="arithmatex">\(O(\dfrac{1}{n^c})\)</span>,注意c是正常数</li>
+<li>但这样最大值有可能不在其中，于是继续再取<span class="arithmatex">\(n^{7/8}\)</span>个作为数组 B，下面步骤中若找到一个最大值，随机丢回 B 中的一个位置，因此是有可能把最大值覆盖掉的。但综合来看在上述时间内不能得到最大值的概率为<span class="arithmatex">\(O(\dfrac{1}{n^c})\)</span>,注意 c 是正常数</li>
 </ul>
 <p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240624004258889.png" alt="image-20240624004258889" style="zoom:50%;" /></div></p>
 </li>
@@ -1471,10 +1479,10 @@
 <p>把每组排好序的记录叫做一个顺串(run)</p>
 </li>
 <li>
-<p>一个pass表示一轮从输入磁盘到输入磁盘的工作，即所有元素都被移动（？</p>
+<p>一个 pass 表示一轮从输入磁盘到输入磁盘的工作，即所有元素都被移动（？</p>
 </li>
-<li>k路合并需要<span class="arithmatex">\(1+\lceil\log_k\dfrac{N}{M}\rceil\)</span>次的pass，这个1是最初从disk读进来的</li>
-<li>多相(Polyphase)合并:k路合并只需要k+1的tape，按k阶斐波那契数列 <span class="arithmatex">\(F^{(k)}(n)=F^{(k)}(n-1)+\cdots+F^{(k)}(n-k)\)</span>分配</li>
+<li>k 路合并需要<span class="arithmatex">\(1+\lceil\log_k\dfrac{N}{M}\rceil\)</span>次的 pass，这个 1 是最初从 disk 读进来的</li>
+<li>多相(Polyphase)合并:k 路合并只需要 k+1 的 tape，按 k 阶斐波那契数列 <span class="arithmatex">\(F^{(k)}(n)=F^{(k)}(n-1)+\cdots+F^{(k)}(n-k)\)</span>分配</li>
 </ol>
 
 
