@@ -1,0 +1,1731 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Ran9E的笔记本">
+      
+      
+      
+        <link rel="canonical" href="https://norangehere.github.io/zju-learning/MLDA/review/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+      
+      <link rel="icon" href="../../log.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+    
+    
+      
+        <title>Note - Ran9E的笔记本</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=LXGW+WenKai+Screen:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"LXGW WenKai Screen";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+      <link rel="stylesheet" href="../../css/card.css">
+    
+      <link rel="stylesheet" href="../../css/tasklist.css">
+    
+      <link rel="stylesheet" href="../../css/flink.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lec-2-data" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Ran9E的笔记本" class="md-header__button md-logo" aria-label="Ran9E的笔记本" data-md-component="logo">
+      
+  <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/logo.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ran9E的笔记本
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Note
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/norangehere/zju-learning/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    PiXe1Ran9E/notebook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../CLDF/" class="md-tabs__link">
+          
+  
+    
+  
+  Course
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Ran9E的笔记本" class="md-nav__button md-logo" aria-label="Ran9E的笔记本" data-md-component="logo">
+      
+  <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/logo.ico" alt="logo">
+
+    </a>
+    Ran9E的笔记本
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/norangehere/zju-learning/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    PiXe1Ran9E/notebook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Course
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Course
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../CLDF/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Computer Logic Design Fundamentals
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Computer Logic Design Fundamentals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CLDF/CLDF1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Logic and Digital System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CLDF/CLDF2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Combinational Logic Circuits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CLDF/CLDF3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Combinational Logic Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CLDF/CLDF4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sequential Circuits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CLDF/CLDF5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Digital Hardware Implementation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CLDF/CLDF6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Registers & Register Transfers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CLDF/CLDF7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Memory Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ADS/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Advanced Data Structures and Algorithm Analysis
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced Data Structures and Algorithm Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ADS/review/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Review
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ADS/collection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    错题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Machine Learning and Data Analysis
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Machine Learning and Data Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Note
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Note
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types of Attributes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jaccard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jaccard 系数
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types of Attributes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jaccard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jaccard 系数
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                 
+                  
+
+  
+  
+
+
+<h1 id="lec-2-data">Lec 2 Data<a class="headerlink" href="#lec-2-data" title="Permanent link">&para;</a></h1>
+<h2 id="types-of-attributes">Types of Attributes<a class="headerlink" href="#types-of-attributes" title="Permanent link">&para;</a></h2>
+<p><strong>标称属性(nominal data)</strong>：代表某种类别、编码或者状态。比如头发颜色如黑色、棕色、黄色等。<strong>标称属性值不具有有意义的序且并不是定量的</strong>。<strong>众数</strong>是该属性的人中心趋势度量。均值和中位数都无意义。</p>
+<ul>
+<li>不定量且无序，反应类别</li>
+</ul>
+<p><strong>序数属性(ordinal data)</strong>：值之间具有有意义的序(ranking)。相继值之间的差未知。比如标称属性size中的大、中、小，具有有意义的先后次序，但是无法描述大和中、中和小之间相差具体多少。序数属性也可以数值量的值域划分成有限有序类别，将数值属性离散化得到。序数属性的中心趋势度量可用众数和中位数表示，均值意义不大。</p>
+<ul>
+<li>ranking</li>
+</ul>
+<p><strong>interval data</strong>: 用数字定量地描述变量程度上的差异。比如温度，20℃比10℃高10℃，和30℃与20℃之间的温差是一样的。这种情况下二者的差（interval）有意义的，而计数零点的选择是无关紧要的。选择不同的参考温度作为0℃，那么同一温度会有不同的示数。但不影响两个温度之间的差。</p>
+<p><strong>ratio data</strong>:计数零点是有意义的，或者说不光变量之间的差有意义，而且变量本身就具有意义。比如长度，质量，在物理上有明确的定义：一米有多长，一千克有多少量。这样如果我们说0.5米我们就知道有多长。计数零点0米也是明确的，而不是可以任意选择的。</p>
+<blockquote>
+<p><strong>Example</strong></p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240412211047203.png" alt="image-20240412211047203" style="zoom:50%;" /></div></p>
+</blockquote>
+<h2 id="jaccard">Jaccard 系数<a class="headerlink" href="#jaccard" title="Permanent link">&para;</a></h2>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240412211524835.png" alt="image-20240412211524835" style="zoom: 67%;" /></div>
+
+<h1 id="lec-3-frequentist-data-analysis">Lec 3 Frequentist Data Analysis<a class="headerlink" href="#lec-3-frequentist-data-analysis" title="Permanent link">&para;</a></h1>
+<ol>
+<li>
+<p>Maximum Likelihood Estimation: <span class="arithmatex">\(\hat{\theta}_{MLE}=\arg \max\limits_{\theta}P(D|\theta)\)</span></p>
+</li>
+<li>
+<p>对二项分布：</p>
+</li>
+</ol>
+<p>$$ \hat{p}=\arg\max\limits_{p}\mathbb{P}(X_1,\cdots,X_n;p) $$</p>
+<p>$$ =\arg \max\limits_p {p^{n_h}(1-p)^{n-n_h} } $$</p>
+<p>$$ =\arg\max\limits_p{n_h\log p+(n-n_h)\log(1-p)} $$</p>
+<p>$$=&gt; \frac{n_h}{\hat{p}}-\frac{n-n_h}{1-\hat{p}}=0 $$</p>
+<p>$$ =&gt; \hat{p}=\frac{n_h}{n} $$</p>
+<ol start="3">
+<li>
+<p>无偏性：多次重复后，频率趋近实际概率</p>
+</li>
+<li>
+<p>指数分布
+   $$
+   f_X(x;\theta)= \theta e^{-\theta x},x\geq 0 \
+   \max\limits_{\theta}\prod\limits_{i=1}^n \theta e^{-\theta x_i}=\max\limits_\theta (n\log\theta-\theta\sum\limits_{i=1}^nx_i) \
+   \hat{\theta}_{ML}=\frac{n}{X_1+\cdots+X_n}=\frac{1}{\overline{X}}
+   $$</p>
+</li>
+<li>
+<p>正态分布：<span class="arithmatex">\(\mu = \overline{x},\sigma^2=\frac{1}{n}\sum\limits_{i=1}^n(x_i-\mu)^2\)</span></p>
+</li>
+<li>
+<p>均匀分布：<span class="arithmatex">\(\hat{\theta}=x_{(n)}=\max\{x_1,x_2,\cdots,x_n \}\)</span></p>
+</li>
+<li>
+<p>Poisson分布：</p>
+</li>
+</ol>
+<div class="arithmatex">\[
+P(X=x)=\frac{\lambda^xe^{-\lambda}}{x!} \\
+\lambda = \frac{1}{n}\sum\limits_{j=1}^nx_j
+\]</div>
+<h1 id="lec-4-bayesian-data-analysis">Lec 4 Bayesian Data Analysis<a class="headerlink" href="#lec-4-bayesian-data-analysis" title="Permanent link">&para;</a></h1>
+<ol>
+<li>
+<p>review： 
+   $$
+   P(\theta| \mathcal{D})=\frac{P(\mathcal{D}|\theta)P(\theta)}{P(\mathcal{D})} \propto P(\mathcal{D}|\theta)P(\theta)
+   $$
+ <br />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240414100429003.png" alt="image-20240414100429003" style="zoom:50%;" /></div>
+</p>
+</li>
+<li>
+<p>最大后验估计MAP</p>
+</li>
+</ol>
+<div class="arithmatex">\[
+\theta_{MAP}=\arg\max\limits_{\theta}p_{model}(x;\theta)*p(\theta) \\
+=\arg\max\limits_{\theta}\prod\limits_{i=1}^Np_{model}(x^i;\theta)*p(\theta)\\
+=\arg\max\limits_{\theta}\sum\limits_{i=1}^N\log p_{model}(x^i;\theta)+\log p(\theta)
+\]</div>
+<h1 id="lec-5-testing">Lec 5 Testing<a class="headerlink" href="#lec-5-testing" title="Permanent link">&para;</a></h1>
+<p>数据科学家需要帮助确保数据分析的结果不是错误的发现，即没有意义或可重复性</p>
+<h3 id="_1">两个假设<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>我们想要反驳的陈述称为原假设或零假设(null hypothesis,<span class="arithmatex">\(H_0\)</span>),原假设通常是结果仅由随机变化引起的陈述</li>
+<li>一个随机变量<span class="arithmatex">\(R\)</span>，称为检验统计量(test statistic)
+   - <span class="arithmatex">\(R\)</span>在<span class="arithmatex">\(H_0\)</span>下的分布称为null distribution
+   - <span class="arithmatex">\(R\)</span>的值从结果中得到，通常是数字</li>
+</ol>
+<h3 id="_2">显著性检验<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>计算<span class="arithmatex">\(R\)</span>为当前值或更极端情况的概率，此概率被称为检验统计量的<em>p-value</em></p>
+</li>
+<li>
+<p>如果 p 值足够小，则表示结果具有统计显著性</p>
+</li>
+<li>p值的阈值被称为显著性水平(significance level,<span class="arithmatex">\(\alpha\)</span>)，通常取0.01或0.05</li>
+<li>如果 p 值不够小，我们说我们无法拒绝原假设</li>
+<li><span class="arithmatex">\(p-value = P(R|H_0)\)</span></li>
+</ul>
+<h3 id="neyman-pearson">Neyman-Pearson 假设检验<a class="headerlink" href="#neyman-pearson" title="Permanent link">&para;</a></h3>
+<ul>
+<li>明确指定备择假设(alternative hypothesis) <span class="arithmatex">\(H_1\)</span></li>
+<li>显著性检验无法量化观察到的结果如何支持 <span class="arithmatex">\(H_1\)</span></li>
+<li>定义一个替代分布，即当<span class="arithmatex">\(H_1\)</span>为真时检验统计量的分布</li>
+<li>我们为检验统计量<span class="arithmatex">\(R\)</span>定义一个临界区域(critical region)，如果<span class="arithmatex">\(R\)</span>落在此区域中，我们拒绝<span class="arithmatex">\(H_0\)</span>。</li>
+<li>若<span class="arithmatex">\(H_0\)</span>被拒绝，我们可能会也可能不会接受<span class="arithmatex">\(H_1\)</span></li>
+<li>
+<p>显著性水平<span class="arithmatex">\(\alpha\)</span>是在<span class="arithmatex">\(H_0\)</span>下临界区域概率</p>
+</li>
+<li>
+<p><strong>Type Ⅰ Error (<span class="arithmatex">\(\alpha\)</span>)</strong></p>
+</li>
+<li>
+<p>等于<span class="arithmatex">\(H_0\)</span>下临界区域概率，即显著性水平</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\alpha=P(R\in Crtical\ Region | H_0)\)</span></p>
+</li>
+<li>
+<p><strong>Type Ⅱ Error (<span class="arithmatex">\(\beta\)</span>)</strong></p>
+</li>
+<li>
+<p>当备择假设为真时，错误地将结果称为不显著</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\beta=P(R\notin Critical\ Region| H_1)\)</span></p>
+</li>
+<li>
+<p><strong>Power</strong>(功效)：即 <span class="arithmatex">\(H_1\)</span> 下临界区域的概率，即 <span class="arithmatex">\(1−β\)</span>。</p>
+</li>
+<li>
+<p>Power表明一个测试正确拒绝原假设的正确性</p>
+</li>
+<li>低功耗意味着许多实际显示所需模式或现象的结果将不被视为重要结果，因此会被遗漏</li>
+<li>因此，如果测试的功效较低，那么忽略临界区域之外的结果可能不合适。</li>
+</ul>
+<h3 id="binary-hypothesis-testing">Binary Hypothesis Testing<a class="headerlink" href="#binary-hypothesis-testing" title="Permanent link">&para;</a></h3>
+<ul>
+<li>null hypothesis <span class="arithmatex">\(H_0:X~ p_X(x;H_0)\)</span></li>
+<li>alternative hypothesis <span class="arithmatex">\(H_1: X~p_X(x;H_1)\)</span></li>
+</ul>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240413091323581.png" alt="image-20240413091323581" style="zoom: 80%;" /></div>
+
+<ul>
+<li><strong>Type Ⅰ Error</strong>：错误的拒绝，错误的预警 <span class="arithmatex">\(\alpha(R)=P(X\in R;H_0)\)</span></li>
+<li><strong>Type Ⅱ Error</strong>：错误的接受，遗漏，<span class="arithmatex">\(H_0\)</span> false, but accepted</li>
+</ul>
+<h3 id="bayesian-hypothesis-testing">Bayesian Hypothesis Testing<a class="headerlink" href="#bayesian-hypothesis-testing" title="Permanent link">&para;</a></h3>
+<ul>
+<li><span class="arithmatex">\(\Theta\)</span>在<span class="arithmatex">\(\{\theta_1,\cdots,\theta_m \}\)</span>m个值中选一个</li>
+<li>
+<p><span class="arithmatex">\(H_i\equiv event\{\Theta = \theta_i \}\)</span></p>
+</li>
+<li>
+<p>假设检验：给定观测值<span class="arithmatex">\(x\)</span>，从<span class="arithmatex">\(H_1\cdots H_m\)</span>中选一个假设</p>
+</li>
+<li>MAP Rule：选择后验概率最大的假设，即选择<span class="arithmatex">\(H_i\)</span>若<span class="arithmatex">\(P(\Theta=\theta_i|X=x)=p_{\Theta|X}(\theta_i|x)\)</span>最大</li>
+<li>即<span class="arithmatex">\(p_{\Theta}(\theta_i)p_{X|\Theta}(x|\theta_i)\)</span>(<span class="arithmatex">\(X\)</span>离散)或<span class="arithmatex">\(p_{\Theta}(\theta_i)f_{X|\Theta}(x|\theta_i)\)</span>(<span class="arithmatex">\(X\)</span>连续)最大</li>
+</ul>
+<h3 id="likelihood-ratio-test-lrt">Likelihood Ratio Test (LRT)<a class="headerlink" href="#likelihood-ratio-test-lrt" title="Permanent link">&para;</a></h3>
+<ul>
+<li>选择<span class="arithmatex">\(H_1\)</span>若</li>
+</ul>
+<div class="arithmatex">\[
+L(x)=\frac{P(X=x;H_1)}{P(X=x;H_0)}&gt;\xi \ (discrete\ case) \\
+L(x)=\frac{f_X(x;H_1)}{f_X(x;H_0)}&gt;\xi \ (continuous\ case)
+\]</div>
+<ul>
+<li>阈值<span class="arithmatex">\(\xi\)</span> 权衡两种错误，选择<span class="arithmatex">\(\xi\)</span>使得<span class="arithmatex">\(P(reject\ H_0;H_0)=\alpha\)</span></li>
+</ul>
+<blockquote>
+<p><strong>Example</strong></p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240413093759976.png" alt="image-20240413093759976" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240413093816726.png" alt="image-20240413093816726" style="zoom:50%;" /></div></p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240413093830073.png" alt="image-20240413093830073" style="zoom:50%;" /></div></p>
+</blockquote>
+<ul>
+<li>Summary</li>
+<li>Start with a target value a for the false rejection probability</li>
+<li>选择<span class="arithmatex">\(\xi\)</span>，使得<span class="arithmatex">\(P(L(X)&gt;\xi;H_0)=\alpha\)</span></li>
+<li>拒绝<span class="arithmatex">\(H_0\)</span>，若<span class="arithmatex">\(L(x)&gt;\xi\)</span></li>
+</ul>
+<blockquote>
+<p><strong>Example</strong></p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240413094408829.png" alt="image-20240413094408829" style="zoom:67%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240413094443093.png" alt="image-20240413094443093" style="zoom:80%;" /></div></p>
+</blockquote>
+<h3 id="multiple-hypothesis-testing">Multiple Hypothesis Testing<a class="headerlink" href="#multiple-hypothesis-testing" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>We assume the results fall into two classes, <code>+</code> and <code>-</code>, which, follow the alternative and null hypotheses, respectively</p>
+</li>
+<li>
+<p>重点通常放在误报 （FP） 的数量上，即属于 null 分布 (<code>-</code> 类) 但声明为显著性 (<code>+</code> 类)的结果。</p>
+</li>
+</ul>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240413095413429.png" alt="image-20240413095413429" style="zoom:50%;" /></div>
+
+<h3 id="family-wise-error-rate">Family-wise Error Rate<a class="headerlink" href="#family-wise-error-rate" title="Permanent link">&para;</a></h3>
+<ul>
+<li><span class="arithmatex">\(FWER = P(FP &gt; 0)\)</span></li>
+<li>假设显著性水平是0.05</li>
+<li>则一次测试没有错误的概率是1-0.05=0.95</li>
+<li>m次测试没有错误是<span class="arithmatex">\(0.95^m\)</span></li>
+<li>则<span class="arithmatex">\(FWER=P(FP&gt;0)=1-0.95^m\)</span></li>
+<li>若<span class="arithmatex">\(m=10,FWER=0.60\)</span></li>
+</ul>
+<h3 id="bonferroni-procedure">Bonferroni Procedure<a class="headerlink" href="#bonferroni-procedure" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>FWER的目标是确保<span class="arithmatex">\(FWER&lt;\alpha\)</span>，其中<span class="arithmatex">\(\alpha\)</span>通常取0.05</p>
+</li>
+<li>
+<p>Bonferroni Procedure</p>
+</li>
+<li><span class="arithmatex">\(m\)</span> results are to be tested</li>
+<li>Require <span class="arithmatex">\(FWER &lt; α\)</span></li>
+<li>set the significance level, <span class="arithmatex">\(\alpha^*\)</span> for every test to be <span class="arithmatex">\(\alpha^*=\alpha/m\)</span></li>
+<li>
+<p>If <span class="arithmatex">\(m = 10\)</span> and <span class="arithmatex">\(\alpha= 0.05\)</span> then <span class="arithmatex">\(\alpha^* = 0.05/10=0.005\)</span></p>
+</li>
+<li>
+<p>Example: Bonferroni versus Naïve approach</p>
+</li>
+<li>
+<p>朴素的方法是在不调整显著性水平的情况下评估每个结果的统计显著性。</p>
+</li>
+</ul>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240413100909736.png" alt="image-20240413100909736" style="zoom:67%;" /></div>
+
+<h1 id="lec-6-unsupervised-learning">Lec 6 Unsupervised Learning<a class="headerlink" href="#lec-6-unsupervised-learning" title="Permanent link">&para;</a></h1>
+<h2 id="background">Background<a class="headerlink" href="#background" title="Permanent link">&para;</a></h2>
+<h3 id="_3">关于相似性<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>相似性的真正含义是一个哲学问题。我们将采取一种更务实的方法——从向量之间的距离（而不是相似性）或随机变量之间的相关性的角度来思考。</p>
+<h3 id="_4">距离指标<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>given <span class="arithmatex">\(x=(x_1,x_2,\cdots,x_p), y=(y_1,y_2,\cdots,y_p)\)</span></p>
+<p>Euclidean距离:  <span class="arithmatex">\(d(x,y)=\sqrt{\sum\limits_{i=1}^p|x_i-y_i|^2}\)</span></p>
+<p>Manhattan距离: <span class="arithmatex">\(d(x,y)=\sum\limits_{i=1}^p|x_i-y_i|\)</span></p>
+<p>Sup-distance: <span class="arithmatex">\(d(x,y)=\max\limits_{1\leq i\leq p}|x_i-y_i|\)</span></p>
+<p>Pearson相关系数:
+$$
+\rho(x,y)=\frac{\sum\limits_{i=1}^p(x_i-\overline{x})(y_i-\overline{y})}{\sqrt{\sum\limits_{i=1}^p(x_i-\overline{x})^2\times\sum\limits_{i=1}^p(y_i-\overline{y})^2}}
+$$</p>
+<h2 id="clustering-algorithms">Clustering Algorithms<a class="headerlink" href="#clustering-algorithms" title="Permanent link">&para;</a></h2>
+<h3 id="hierarchical-algorithms">Hierarchical algorithms 分层<a class="headerlink" href="#hierarchical-algorithms" title="Permanent link">&para;</a></h3>
+<blockquote>
+<ul>
+<li>single-linkage</li>
+<li>average-linkage</li>
+<li>complete-linkage</li>
+<li>centroid-based</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>Bottom-Up Agglomerative Clustering</strong></li>
+<li>Starts with each object in a separate cluster, and repeat:<ul>
+<li>Joins the most similar pair of clusters,</li>
+<li>Update the similarity of the new cluster to others until there is only one cluster.</li>
+</ul>
+</li>
+<li>Greedy – less accurate but simple to implement</li>
+<li><strong>Top-Down divisive</strong></li>
+<li>Starts with all the data in a single cluster, and repeat:<ul>
+<li>Split each cluster into two using a partition algorithm until each object is a separate cluster.</li>
+</ul>
+</li>
+<li>
+<p>More accurate but complex to implement</p>
+</li>
+<li>
+<p>对于Agglomerative Clustering：basic算法直接明了</p>
+</li>
+</ul>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240420092941626.png" alt="image-20240420092941626" style="zoom:50%;" /></div>
+
+<ul>
+<li>关键在于计算两个类之间的邻近矩阵</li>
+</ul>
+<h3 id="cluster-similarity">Cluster Similarity<a class="headerlink" href="#cluster-similarity" title="Permanent link">&para;</a></h3>
+<ul>
+<li>MIN(single link): 两个聚类的相似性基于不同聚类中两个最相似（最接近）的点，也就是由一对点决定</li>
+<li>优势：可以处理非椭圆形(non-eliptical shapes)，对噪声和异常值敏感</li>
+<li>MAX(complete link): 两个聚类的相似性基于不同聚类中两个最不相似（最远）的点，由两个聚类中的所有点对确定</li>
+<li>优势：不易受到噪点和异常值的影响</li>
+<li>局限性：倾向于break大型聚类</li>
+</ul>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240420093620904.png" alt="image-20240420093620904" style="zoom:50%;" /></div>
+
+<ul>
+<li>Group Average: 两个聚类的邻近性是两个聚类中点之间成对接近的平均值。</li>
+</ul>
+<div class="arithmatex">\[
+proximity(Cluster_i,Cluster_j)=\frac{\sum\limits_{p_i\in Cluster_i,p_j\in Cluster_j}proximity(p_i,p_j)}{|Cluster_i|\times|Cluster_j|}
+\]</div>
+<ul>
+<li>需要使用平均连接来实现可扩展性，因为总邻近性有利于大型集群</li>
+<li>
+<p>single link和complete link之间的折中</p>
+</li>
+<li>
+<p><strong>Single vs. Complete Linkage</strong></p>
+</li>
+<li>single-linkage:允许各向异性和非凸形</li>
+<li>complete-linkage:假定各向同性凸形</li>
+</ul>
+<h3 id="_5">计算复杂度<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>All hierarchical clustering methods need to compute similarity of all pairs of <span class="arithmatex">\(n\)</span> individual instances which is <span class="arithmatex">\(O(n^2)\)</span></p>
+</li>
+<li>
+<p>At each iteration,</p>
+</li>
+<li>Find largest of the set of similarities     <span class="arithmatex">\(O(n^2)\)</span></li>
+<li>Update similarity between merged cluster and other clusters   <span class="arithmatex">\(O(n)\)</span></li>
+<li>Maximum no. of iterations    <span class="arithmatex">\(O(n)\)</span></li>
+<li>So we get time complexity of <span class="arithmatex">\(O(n^3)\)</span></li>
+<li>could be reduced with more complicated data structures such as heaps which however come with greater storage complexity</li>
+</ul>
+<h2 id="partitioning-algorithms">Partitioning Algorithms<a class="headerlink" href="#partitioning-algorithms" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Given: a set of <span class="arithmatex">\(n\)</span> objects and number <span class="arithmatex">\(K\)</span>, construct a partition of <span class="arithmatex">\(n\)</span> objects into a set of <span class="arithmatex">\(K\)</span> clusters</li>
+</ul>
+<h3 id="k-means">K-Means<a class="headerlink" href="#k-means" title="Permanent link">&para;</a></h3>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240420095519817.png" alt="image-20240420095519817" style="zoom:50%;" /></div>
+
+<ul>
+<li>每个聚类都与一个质心（中心点）相关联</li>
+<li>每个点都分配给具有最接近质心的聚类</li>
+</ul>
+<h3 id="_6">计算复杂度<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>At each iteration,</li>
+<li>Computing distance between each of the <span class="arithmatex">\(n\)</span> objects and the <span class="arithmatex">\(K\)</span> cluster centers is <span class="arithmatex">\(O(Kn)\)</span>.</li>
+<li>Computing cluster centers: Each object gets added once to some cluster: <span class="arithmatex">\(O(n)\)</span>.</li>
+<li>Assume these two steps are each done once for l iterations: <span class="arithmatex">\(O(lKn)\)</span>.</li>
+</ul>
+<h3 id="seed-choice">Seed Choice<a class="headerlink" href="#seed-choice" title="Permanent link">&para;</a></h3>
+<ul>
+<li>聚类结果对初始种子选择很敏感</li>
+<li>一些种子可能导致收敛率差，或收敛到次优聚类</li>
+<li>使用启发式方法选择好的种子（例如，与任何现有均值最不相似的对象）</li>
+<li>k-means ++ algorithm of Arthur and Vassilvitskii</li>
+<li>key idea: 选择相距较远的中心</li>
+<li>选择一个点作为聚类中心的概率与到目前为止选择的与最近中心的距离成正比</li>
+<li>尝试多个起点非常重要</li>
+<li>使用其他方法的结果进行初始化</li>
+</ul>
+<h3 id="other-issues">Other Issues<a class="headerlink" href="#other-issues" title="Permanent link">&para;</a></h3>
+<ul>
+<li>簇的形状：假设各向同性、等方差、凸聚类</li>
+<li>对异常值敏感 ：使用 K-medoids</li>
+<li>聚类数目</li>
+<li>目标函数: <span class="arithmatex">\(\sum\limits_{j=1}^m ||\mu_C(j)-x_j||^2\)</span></li>
+<li>找目标函数中的knee</li>
+</ul>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240420100110399.png" alt="image-20240420100110399" style="zoom:50%;" /></div>
+
+<h1 id="lec-71-unsupervised-learning-contd">Lec 7.1 Unsupervised Learning Contd.<a class="headerlink" href="#lec-71-unsupervised-learning-contd" title="Permanent link">&para;</a></h1>
+<h2 id="graph-based-clustering">Graph-based Clustering<a class="headerlink" href="#graph-based-clustering" title="Permanent link">&para;</a></h2>
+<p>Graph-Based clustering uses the proximity graph</p>
+<p>Problem: too many edges</p>
+<h3 id="sparsification">Sparsification(稀疏化)<a class="headerlink" href="#sparsification" title="Permanent link">&para;</a></h3>
+<ul>
+<li>数据量需要被大量减少</li>
+<li>稀疏化可以去邻接矩阵中99%以上的条目</li>
+<li>耗时减少了</li>
+<li>
+<p>可处理问题规模上升了</p>
+</li>
+<li>
+<p>稀疏化后聚类效果可能更好</p>
+</li>
+<li>稀疏化使得点与其最近似点保持连接而断开和其他less similar点的连接</li>
+<li>The nearest neighbors of a point tend to belong to the same class as the point itself.</li>
+<li>降低了噪声和异常值的影响</li>
+</ul>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240427085651109.png" alt="image-20240427085651109" style="zoom:50%;" /></div>
+
+<h3 id="snn-clustering">SNN Clustering<a class="headerlink" href="#snn-clustering" title="Permanent link">&para;</a></h3>
+<ol>
+<li>计算相似度矩阵：这对应于具有节点和边的数据点的相似性图，其权重是数据点之间的相似性</li>
+<li>通过仅保留 k 个最相似的邻居来稀疏化相似度矩阵 这相当于只保留相似性图的 k 个最强链接</li>
+<li>
+<p>Construct the shared nearest neighbor graph from the sparsified similarity matrix.
+   - 此时，我们可以应用相似性阈值并找到connected components来获得聚类</p>
+</li>
+<li>
+<p>求每个点的 SNN 密度
+   - 使用用户指定的参数 Eps 查找与每个点的 SNN 相似度为 Eps 或更大的数点。这是该点的SNN密度</p>
+</li>
+</ol>
+<h1 id="lec-72-anomaly-detection">Lec 7.2 Anomaly Detection 异常检测<a class="headerlink" href="#lec-72-anomaly-detection" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Chanllenges</li>
+<li>异常值数量</li>
+<li>方法是无监督的，validation将会很困难</li>
+<li>Finding needle in a haystack</li>
+<li>Working assumption: 正常值比异常值多</li>
+</ul>
+<h2 id="general-steps"><strong>General Steps</strong><a class="headerlink" href="#general-steps" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Build a profile of the normal behavior</li>
+<li>Profile can be patterns or summary statistics for the overall population</li>
+<li>Use the normal profile to detect anomalies</li>
+<li>Anomalies are observations whose characteristics differ significantly from the normal profile</li>
+</ul>
+<h2 id="distance-based-approaches"><strong>Distance-based Approaches</strong><a class="headerlink" href="#distance-based-approaches" title="Permanent link">&para;</a></h2>
+<ul>
+<li>数据用特征向量表示</li>
+<li>三个主要方法：Nearest-neighbor based, density based, clustering based</li>
+</ul>
+<h3 id="nearest-neighbor-based-approach"><strong>Nearest-Neighbor Based Approach</strong><a class="headerlink" href="#nearest-neighbor-based-approach" title="Permanent link">&para;</a></h3>
+<p>define异常值方法：</p>
+<ul>
+<li>距离<span class="arithmatex">\(D\)</span>内少于<span class="arithmatex">\(p\)</span>个点</li>
+<li>到第<span class="arithmatex">\(k\)</span>个最近点的距离最大的前<span class="arithmatex">\(n\)</span>个点</li>
+<li>与前<span class="arithmatex">\(k\)</span>个最近点距离的平均值最大的前<span class="arithmatex">\(n\)</span>个点</li>
+</ul>
+<h3 id="clustering-based">Clustering-Based<a class="headerlink" href="#clustering-based" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Basic idea:</li>
+<li>Cluster the data into groups of different density</li>
+<li>Choose points in small cluster as candidate outliers</li>
+<li>Compute the distance between candidate points and non-candidate clusters.<ul>
+<li>If candidate points are far from all other non-candidate points, they are outliers</li>
+</ul>
+</li>
+</ul>
+<h1 id="lec-73-svdpca-symbols-to-meaning">Lec 7.3 SVD/PCA, Symbols to Meaning<a class="headerlink" href="#lec-73-svdpca-symbols-to-meaning" title="Permanent link">&para;</a></h1>
+<h2 id="symbols-to-meaning">Symbols to Meaning<a class="headerlink" href="#symbols-to-meaning" title="Permanent link">&para;</a></h2>
+<p>An important goal in AI is to go from these low-level features/symbols, which we observe, to meaning, which we do not see/observe</p>
+<ul>
+<li>我们观察到的：构成数据的“原始”特征和符号（例如文本文档中的单词）</li>
+<li>我们所说的“意义”是指原始特征背后的概念</li>
+<li>这些概念可以用来“解释”数据（例如，如果你在字典里看，任何单词的含义都是用概念来解释的）</li>
+<li>这些概念从未被直接观察到</li>
+</ul>
+<h2 id="document-data">Document Data<a class="headerlink" href="#document-data" title="Permanent link">&para;</a></h2>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240427092034777.png" alt="image-20240427092034777" style="zoom:50%;" /></div>
+
+<ul>
+<li>
+<p>对一组文档，我们可以将其收集为如图所示的数据矩阵，其中行表示words(features), 列表示documents(samples)</p>
+</li>
+<li>
+<p><span class="arithmatex">\(A_{ji}=t_{ji}\times g_j\times s_i\)</span></p>
+</li>
+<li><span class="arithmatex">\(t_{ji}\)</span>: word <span class="arithmatex">\(j\)</span> 在文档 <span class="arithmatex">\(i\)</span> 中出现次数</li>
+<li><span class="arithmatex">\(g_j\)</span>: 在整个文档集合中word <span class="arithmatex">\(j\)</span> 的重要性<ul>
+<li>例如： <span class="arithmatex">\(\log\frac{d}{d_j}\)</span>， <span class="arithmatex">\(d_j\)</span>是出现word <span class="arithmatex">\(j\)</span> 的文档数量</li>
+</ul>
+</li>
+<li><span class="arithmatex">\(s_i\)</span>: 用于归一化，<span class="arithmatex">\(s_i=\frac{1}{\sqrt{\sum_{j=1}^w(t_{ji}g_j)^2}}\)</span></li>
+<li>通过以上步骤，A的列被归一化了，也就是<span class="arithmatex">\(||a_i||_2=1\)</span></li>
+</ul>
+<h3 id="which-document-is-most-similar">Which document is most similar?<a class="headerlink" href="#which-document-is-most-similar" title="Permanent link">&para;</a></h3>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240427092855763.png" alt="image-20240427092855763" style="zoom: 50%;" /></div>
+
+<ul>
+<li><span class="arithmatex">\(q\)</span> 表示 query</li>
+<li>如果一个文档不包含要找的单词，相似度就是0</li>
+</ul>
+<h3 id="syntax">仅使用syntax的注意事项<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h3>
+<ul>
+<li>computational：即使对特征进行剪枝后，单词数量也会是数万级别</li>
+<li>Not as intelligent</li>
+<li>不能判断同义词，e.g. searching for MRI would miss “Magnetic Resonance Imaging”</li>
+<li>
+<p>不能判断多义词，e.g. “mining” could refer to “data mining” or “coal mining”</p>
+</li>
+<li>
+<p>为了提取文档的概念，我们可以使用潜在语义分析 Latent Semantic Analysis (LSA) </p>
+</li>
+</ul>
+<h2 id="latent-semantic-analysis">Latent Semantic Analysis<a class="headerlink" href="#latent-semantic-analysis" title="Permanent link">&para;</a></h2>
+<h3 id="pca">PCA<a class="headerlink" href="#pca" title="Permanent link">&para;</a></h3>
+<ol>
+<li>SVD 奇异值分解</li>
+</ol>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240427093757817.png" alt="image-20240427093757817" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240427093804266.png" alt="image-20240427093804266" style="zoom:50%;" /></div>
+
+<ol start="2">
+<li>PCA：use only the top k columns of U and V</li>
+</ol>
+<h3 id="lsa">LSA<a class="headerlink" href="#lsa" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Obtain PCA approximation of document data matrix</li>
+<li>Use principal components as “concepts”</li>
+<li>Many singular vectors i.e. concepts are required to approximate document data matrix well (k ~ 1000)</li>
+<li>Does not work well to capture concepts from short documents e.g. queries (and hence no search
+  engine uses this)</li>
+</ul>
+<h3 id="beyond-lsa">Beyond LSA<a class="headerlink" href="#beyond-lsa" title="Permanent link">&para;</a></h3>
+<p>非负矩阵分解 （NMF）：将权重约束为非负</p>
+<ul>
+<li>假设我们约束：</li>
+<li>概念是单词的（多项式）分布</li>
+<li>文档是概念的（多项式）分布</li>
+<li>Probabilistic latent semantic analysis<ul>
+<li>Latent Dirichlet Allocation (LDA) (Blei et al, 2003); also known as a “topic model” very closely related</li>
+</ul>
+</li>
+</ul>
+<h1 id="lec-8-supervised-learning">Lec 8 Supervised Learning<a class="headerlink" href="#lec-8-supervised-learning" title="Permanent link">&para;</a></h1>
+<h2 id="optimal-classification">Optimal Classification<a class="headerlink" href="#optimal-classification" title="Permanent link">&para;</a></h2>
+<ul>
+<li>贝叶斯分类器: <span class="arithmatex">\(f^*=\arg\min\limits_f P(f(X)\neq Y)\)</span></li>
+</ul>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240504092405027.png" alt="image-20240504092405027" style="zoom:67%;" /></div>
+
+<ul>
+<li>Even the optimal classifier makes mistakes</li>
+<li>最佳分类器取决于未知分布</li>
+</ul>
+<div class="arithmatex">\[
+f^*(x)=\arg\max\limits_{Y=y}P(Y=y|X=x) \\
+=\arg\max\limits_{Y=y}P(X=x|Y=y)P(Y=y)
+\]</div>
+<ul>
+<li>对贝叶斯分类器，若各类之间独立 <span class="arithmatex">\(P(X_1\dots X_d|Y)=\prod\limits_{i=1}^d P(X_i|Y)\)</span></li>
+</ul>
+<p>则 <span class="arithmatex">\(f_{NB}(x)=\arg\max\limits_y P(x_1,\dots,x_d|y)P(y)=\arg\max\limits_y\prod\limits_{i=1}^d P(x_i|y)P(y)\)</span></p>
+<ul>
+<li>
+<p>有条件的独立性</p>
+</li>
+<li>
+<p>X is conditionally independent of Y given Z:
+    probability distribution governing X is independent of the value of Y, given the value of Z</p>
+<p><span class="arithmatex">\((\forall x,y,z)P(X=x|Y=y,Z=z)=P(X=x|Z=z)\)</span></p>
+<p>即<span class="arithmatex">\(P(X,Y|Z)=P(X|Z)P(Y|Z)\)</span></p>
+</li>
+</ul>
+<h2 id="logistic-regression">Logistic Regression<a class="headerlink" href="#logistic-regression" title="Permanent link">&para;</a></h2>
+<p><span class="arithmatex">\(P(Y=1|X)=\frac{1}{1+\exp(w_0+\sum_i w_iX_I)}\)</span></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240504100838638.png" alt="image-20240504100838638" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240504100854676.png" alt="image-20240504100854676" style="zoom:67%;" /></div>
+
+<p>线性分类器</p>
+<h1 id="lec-9-supervised-learning-ii">Lec 9 Supervised Learning II<a class="headerlink" href="#lec-9-supervised-learning-ii" title="Permanent link">&para;</a></h1>
+<p>TODO</p>
+<h1 id="lec-10-supervised-learning-iii">Lec 10 Supervised Learning III<a class="headerlink" href="#lec-10-supervised-learning-iii" title="Permanent link">&para;</a></h1>
+<h1 id="classification">Classification<a class="headerlink" href="#classification" title="Permanent link">&para;</a></h1>
+<h2 id="decision-tree">Decision Tree<a class="headerlink" href="#decision-tree" title="Permanent link">&para;</a></h2>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240518090351278.png" alt="image-20240518090351278" style="zoom: 50%;" /></div>
+
+<h3 id="hunts-algorithm">Hunt's Algorithm<a class="headerlink" href="#hunts-algorithm" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\(D_t\)</span>为训练记录集合，<span class="arithmatex">\(t\)</span>为节点</p>
+<ul>
+<li><span class="arithmatex">\(D_t\)</span>所有记录属于类<span class="arithmatex">\(y_t\)</span>，t为叶节点，类型即为<span class="arithmatex">\(y_t\)</span></li>
+<li><span class="arithmatex">\(D_t\)</span>为空，t类型为默认类型<span class="arithmatex">\(y_d\)</span>(default)</li>
+<li><span class="arithmatex">\(D_t\)</span>中的记录属于不止一类，则使用attribute test将数据分成更小的子集</li>
+</ul>
+<p>递归调用以上过程</p>
+<h3 id="test-condition">test condition<a class="headerlink" href="#test-condition" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Greedy strategy</strong>: split the record based on an attribute test that optimizes certain criterion</p>
+</li>
+<li>
+<p>How to specify test condition</p>
+</li>
+<li>depends on attribute types: nominal, ordinal, continuous</li>
+<li>
+<p>depends on number of ways to split: </p>
+<ul>
+<li>2-way split: divides values into two subsets, need to find optimal partitioning</li>
+<li>multi-way split: use as many  partitions as distinct values</li>
+</ul>
+</li>
+<li>
+<p>For continuous attributes</p>
+</li>
+<li>
+<p>Binary decision: <span class="arithmatex">\(A&lt;v\)</span> or <span class="arithmatex">\(A\geq v\)</span></p>
+</li>
+<li>
+<p>How to determine best split</p>
+</li>
+<li>
+<p>Greedy: 优先考虑具有均匀类分布的节点</p>
+</li>
+<li>node impurity: </li>
+</ul>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240518091505110.png" alt="image-20240518091505110" style="zoom:50%;" /></div></p>
+<ul>
+<li><span class="arithmatex">\(GINI(t)=1-\sum\limits_j[p(j|t)]^2\)</span>，其中<span class="arithmatex">\(p(j|t)\)</span>是节点t处类j的相对频率<ul>
+<li>最大值为<span class="arithmatex">\(1-1/n_c\)</span>当所有记录均匀分布时取到</li>
+<li>最小值为0，当所有记录都属于同一类</li>
+<li>分裂成k个部分时，<span class="arithmatex">\(GINI_{split}=\sum\limits_{i=1}^k\frac{n_i}{n}GINI(i)\)</span></li>
+</ul>
+</li>
+<li><span class="arithmatex">\(Entropy(t)=-\sum\limits_jp(j|t)\log p(j|t)\)</span><ul>
+<li>类似最大值<span class="arithmatex">\(\log n_c\)</span>均匀分布取到，最小值0同一类取到</li>
+<li>信息增益: <span class="arithmatex">\(GAIN_{split}=Entropy(p)-(\sum\limits_{i=1}^k\frac{n_i}{n}Entropy(i))\)</span></li>
+<li>更进一步，<span class="arithmatex">\(GainRATIO_{split}=\frac{GAIN_{split}}{SplitINFO}\)</span>，其中<span class="arithmatex">\(SplitINFO=-\sum\limits_{i=1}^k\frac{n_i}{n}\log \frac{n_i}{n}\)</span></li>
+</ul>
+</li>
+<li>Classification error: <span class="arithmatex">\(Error(t)=1-\max\limits_i P(i|t)\)</span><ul>
+<li>最大值为<span class="arithmatex">\(1-1/n_c\)</span>当所有记录均匀分布时取到</li>
+<li>最小值为0，当所有记录都属于同一类</li>
+</ul>
+</li>
+</ul>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240518092501138.png" alt="image-20240518092501138" style="zoom: 50%;" /></div>
+
+<h3 id="stopping-criteria-for-tree-induction">Stopping Criteria for Tree Induction<a class="headerlink" href="#stopping-criteria-for-tree-induction" title="Permanent link">&para;</a></h3>
+<ul>
+<li>当所有记录都属于同一个类时停止展开节点</li>
+<li>当所有记录具有相似的属性值时停止展开节点</li>
+<li>提前终止</li>
+</ul>
+<h3 id="decision-tree-based-classification">Decision Tree Based Classification<a class="headerlink" href="#decision-tree-based-classification" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Advantages</li>
+<li>构建成本低</li>
+<li>分类未知数据速度快</li>
+<li>易于对小规模树进行解释</li>
+<li>对许多简单数据集，准确率可以与其他分类方式相当</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                 
+<!-- Giscus -->
+<h2 id="__comments">评论</h2>
+
+<!-- 这里改成你的Giscus代码 -->
+<script
+  src="https://giscus.app/client.js"
+  data-repo="norangehere/zju-learning"
+  data-repo-id="R_kgDOK6ACmw"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOK6ACm84CgcwG"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  crossorigin="anonymous"
+  async
+></script>
+
+<!-- Reload on palette change -->
+<script>
+  var palette = __md_get("__palette");
+  if (palette && typeof palette.color === "object")
+    if (palette.color.scheme === "slate") {
+      var giscus = document.querySelector("script[src*=giscus]");
+      giscus.setAttribute("data-theme", "dark");
+    }
+
+  /* Register event handlers after documented loaded */
+  document.addEventListener("DOMContentLoaded", function () {
+    var ref = document.querySelector("[data-md-component=palette]");
+    ref.addEventListener("change", function () {
+      var palette = __md_get("__palette");
+      if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light";
+
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame");
+        frame.contentWindow.postMessage(
+          { giscus: { setConfig: { theme } } },
+          "https://giscus.app"
+        );
+      }
+    });
+  });
+</script>
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 <a href="https://github.com/HobbitQia"  target="_blank" rel="noopener">HobbitQia</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/norangehere/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+        <script src="../../js/baidu-tongji.js"></script>
+      
+        <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+      
+        <script src="../../js/katex.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
