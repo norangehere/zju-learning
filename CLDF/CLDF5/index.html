@@ -1043,7 +1043,8 @@
 <h1 id="chapter-5-digital-hardware-implementation">Chapter 5 Digital Hardware Implementation<a class="headerlink" href="#chapter-5-digital-hardware-implementation" title="Permanent link">&para;</a></h1>
 <h2 id="cmos">CMOS<a class="headerlink" href="#cmos" title="Permanent link">&para;</a></h2>
 <p>CMOS基础是MOS（金属氧化物半导体）晶体管</p>
-<p><img src="image-20240105140847177.png" alt="image-20240105140847177" style="zoom:50%;" /></p>
+<div align="center"><img src="image-20240105140847177.png" alt="image-20240105140847177" style="zoom:50%;" /></div>
+
 <p>漏极电压比源极电压足够大，处于导通状态（ON）；小于阈值，沟道消失，处于截止状态（OFF）</p>
 <h2 id="why-programmable-logic">Why Programmable Logic?<a class="headerlink" href="#why-programmable-logic" title="Permanent link">&para;</a></h2>
 <ol>
@@ -1110,7 +1111,8 @@
 </ul>
 <p>Storage elements(as in a memory)</p>
 <h3 id="characteristic">Characteristic<a class="headerlink" href="#characteristic" title="Permanent link">&para;</a></h3>
-<p><img src="image-20231130122022914.png" alt="image-20231130122022914" style="zoom:50%;" /></p>
+<div align="center"><img src="image-20231130122022914.png" alt="image-20231130122022914" style="zoom:50%;" /></div>
+
 <h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>ROM(Read Only Memory)</strong>：a fixed array of AND gates and a programmable array of OR gates 固定与阵列，可编程或阵列</li>
@@ -1118,26 +1120,27 @@
 <ul>
 <li>非易失性</li>
 </ul>
-<p><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/58.png" alt="img" style="zoom:50%;" /></p>
-<p><img src="image-20240105154549689.png" alt="image-20240105154549689" style="zoom: 33%;" /></p>
+<div align="center"><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/58.png" alt="img" style="zoom:50%;" /><img src="image-20240105154549689.png" alt="image-20240105154549689" style="zoom: 33%;" /></div>
+
 <ul>
 <li>
 <p>ROM size=address width × word width = <span class="arithmatex">\(2^2 ×4\)</span>= 16 bit</p>
-<p><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/57.png" alt="img" style="zoom:50%;" /></p>
+<p><div align="center"><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/57.png" alt="img" style="zoom:50%;" /></div></p>
 </li>
 </ul>
 <ol start="2">
 <li><strong>Programmable Array Logic (PAL)</strong> - a programmable array of AND gates feeding a fixed array of OR gates.</li>
 </ol>
-<p><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/60.png" alt="img" style="zoom:50%;" /></p>
-<p><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/59.png" alt="img" style="zoom:67%;" /></p>
+<div align="center"><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/60.png" alt="img" style="zoom:50%;" /><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/59.png" alt="img" style="zoom:67%;" /></div>
+
 <p>输出侧或门阵列固定，输入侧与门阵列可编程</p>
 <p>缺点：输入数量有限，不一定能够完备表达函数</p>
 <p>改进：通过将一个既有的 PAL 输出当作输入，输入到另外一个函数中，来弥补项不足的问题。</p>
 <ol start="3">
 <li><strong>Programmable Logic Array (PLA)</strong> - a programmable array of AND gates feeding a programmable array of OR gates.</li>
 </ol>
-<p><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/61.png" alt="img" style="zoom: 67%;" /></p>
+<div align="center"><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/61.png" alt="img" style="zoom: 67%;" /></div>
+
 <ol>
 <li>
 <ul>
@@ -1153,14 +1156,15 @@
    - 在输入和与门阵列之间有<span class="arithmatex">\(2n\times k\)</span>个可编程连接点，与门与或门之间有<span class="arithmatex">\(k\times m\)</span>个，或门与异或门之间有m个</p>
 </li>
 </ol>
-<p><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/62.png" alt="img" style="zoom: 67%;" /></p>
+<div align="center"><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/62.png" alt="img" style="zoom: 47%;" /></div>
+
 <h2 id="fpga">FPGA<a class="headerlink" href="#fpga" title="Permanent link">&para;</a></h2>
 <ol>
 <li>包括可编程逻辑块、可编程互联和可编程输入/输出引脚。</li>
 <li>FPGA可以配置组合逻辑和触发器，大多使用SRAM进行配置</li>
 <li>可编程逻辑块包括组合和时序逻辑，基于查找表（Look-Up List），一个查找表是一个<span class="arithmatex">\(2^k\times1\)</span>存储器</li>
 </ol>
-<p><img src="image-20240105161033848.png" alt="image-20240105161033848" style="zoom:50%;" /></p>
+<div align="center"><img src="image-20240105161033848.png" alt="image-20240105161033848" style="zoom:50%;" /></div>
 
 
 

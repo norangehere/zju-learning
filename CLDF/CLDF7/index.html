@@ -1030,20 +1030,24 @@
 <li>each word is <span class="arithmatex">\(n\)</span> bits</li>
 <li>Read and Write are single control lines by 1 bit.</li>
 </ul>
-<p><img src="image-20231228101450676.png" alt="image-20231228101450676" style="zoom:50%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231228101450676.png" alt="image-20231228101450676" style="zoom:50%;" /></div>
+
 <h3 id="memory-organization-example">Memory Organization Example<a class="headerlink" href="#memory-organization-example" title="Permanent link">&para;</a></h3>
-<p><img src="image-20231228101554670.png" alt="image-20231228101554670" style="zoom:50%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231228101554670.png" alt="image-20231228101554670" style="zoom:50%;" /></div>
+
 <p>地址0-7，每个地址存8位数据</p>
 <h2 id="memory-operation-timing">Memory Operation Timing<a class="headerlink" href="#memory-operation-timing" title="Permanent link">&para;</a></h2>
 <p>通常是异步的</p>
 <ol>
 <li>读</li>
 </ol>
-<p><img src="image-20231228101926873.png" alt="image-20231228101926873" style="zoom: 80%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231228101926873.png" alt="image-20231228101926873" style="zoom: 80%;" /></div>
+
 <ol start="2">
 <li>写</li>
 </ol>
-<p><img src="image-20231228101949839.png" alt="image-20231228101949839" style="zoom:80%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231228101949839.png" alt="image-20231228101949839" style="zoom:80%;" /></div>
+
 <ul>
 <li>Critical times measured with respect to edges of write pulse (1-0-1):</li>
 <li>Address must be established at least a specified time before 1-0 and held for at least a specified time after 0-1 to avoid disturbing stored contents of other addresses 地址应该在读写开始前和结束后都保持一定时间的稳定</li>
@@ -1068,7 +1072,8 @@
 <ol>
 <li>Storage Cell</li>
 </ol>
-<p><img src="image-20231228102612363.png" alt="image-20231228102612363" style="zoom:50%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231228102612363.png" alt="image-20231228102612363" style="zoom:50%;" /></div>
+
 <ul>
 <li>select为0，输入被disable全0，SR保持状态，输出也被disable，对输出结果不造成影响</li>
 <li>select为1，有条件修改SR中值并输出</li>
@@ -1076,7 +1081,8 @@
 <ol start="2">
 <li>Bit Slice位片: Represents all circuitry that is required for <span class="arithmatex">\(2^n\)</span> 1-bit words</li>
 </ol>
-<p><img src="image-20231228103227246.png" alt="image-20231228103227246" style="zoom: 67%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231228103227246.png" alt="image-20231228103227246" style="zoom: 67%;" /></div>
+
 <p>内存操作基本要求：每次只对一位进行操作，因此每次word select使能一位，然后将最后得到结果取或</p>
 <ol start="3">
 <li><span class="arithmatex">\(2^n\)</span>-Word <span class="arithmatex">\(\times\)</span> 1-Bit RAM IC:</li>
@@ -1090,23 +1096,28 @@
    - Word select becomes Row select
    - Bit select becomes Column select</li>
 </ol>
-<p><img src="image-20231228104238052.png" alt="image-20231228104238052" style="zoom: 67%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231228104238052.png" alt="image-20231228104238052" style="zoom: 67%;" /></div>
+
 <p>如1001，10使能row 2，01使能column 1</p>
 <ul>
 <li><span class="arithmatex">\(8\times2\)</span>RAM,一次操作两位</li>
 </ul>
-<p><img src="image-20231228104959883.png" alt="image-20231228104959883" style="zoom: 67%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231228104959883.png" alt="image-20231228104959883" style="zoom: 67%;" /></div>
+
 <ol start="5">
 <li>Making Larger Memories：把<span class="arithmatex">\(4\times n\)</span>变成<span class="arithmatex">\(16\times n\)</span>
    - 自扩展，即输出的字宽没变。高位选择RAM芯片，其余三态门输出为高阻态</li>
 </ol>
-<p><img src="image-20231228105322136.png" alt="image-20231228105322136" style="zoom:50%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231228105322136.png" alt="image-20231228105322136" style="zoom:50%;" /></div>
+
 <ol start="6">
 <li>Making Wider Memories：增加位宽，每块 RAM 芯片就代表最后输出的某一位，将地址线和控制线并行连接。</li>
 </ol>
-<p><img src="image-20231228110317508.png" alt="image-20231228110317508" style="zoom: 50%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231228110317508.png" alt="image-20231228110317508" style="zoom: 50%;" /></div>
+
 <h3 id="dynamic-ram">Dynamic RAM 同步<a class="headerlink" href="#dynamic-ram" title="Permanent link">&para;</a></h3>
-<p><img alt="image-20231228110938936" src="../image-20231228110938936.png" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231228110938936.png" alt="image-20231228110938936" style="zoom: 50%;" /></div>
+
 <ul>
 <li>Read:大容器初始置为已知中间水位。若小容器1，大容器由于水位比小容器低，会微微上升，可以认为读了1；若小容器0，大容器水位比小容器高，会微微下降，认为是读了0</li>
 <li>在这个操作中，外部容器变化不会很大，但足以检测到，但是小容器中原本存储的数据被破坏，因此要进行恢复</li>
@@ -1118,20 +1129,24 @@
 <ol>
 <li>Bit Slice:检测放大器用于将 C 上的微小电压变化更改为 H 或 L，连接B、C和检测放大器输出，使破坏性读取转换为非破坏性读取</li>
 </ol>
-<p><img src="image-20231228111424362.png" alt="image-20231228111424362" style="zoom:67%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231228111424362.png" alt="image-20231228111424362" style="zoom:67%;" /></div>
+
 <ol start="2">
 <li>需要做定时刷新（电容会自己放电） - Refresh Controller and Refresh Counter</li>
 <li>分别输入行地址、列地址（实际上是一组引脚，只是被 DRAM 分开输入），对应 <span class="arithmatex">\(\overline{RAS},\overline{CAS}\)</span>（控制引脚，告诉芯片现在输入的是行/列地址）</li>
 </ol>
-<p><img src="image-20231228111608107.png" alt="image-20231228111608107" style="zoom:67%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231228111608107.png" alt="image-20231228111608107" style="zoom:67%;" /></div>
+
 <ol start="4">
 <li>read时序：行地址寄存器读入，列地址计数器读入，地址分两次输入。所选行所有位都被重新存储了一遍</li>
 </ol>
-<p><img src="image-20231228111645897.png" alt="image-20231228111645897" style="zoom:67%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231228111645897.png" alt="image-20231228111645897" style="zoom:67%;" /></div>
+
 <ol start="5">
 <li>write：在写操作，所选行其他没有被选中的单元将原来存储值又存储了一次；read变0后，数据在列地址选择时间相同的时间间隔内有效</li>
 </ol>
-<p><img src="image-20231228112804592.png" alt="image-20231228112804592" style="zoom:67%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231228112804592.png" alt="image-20231228112804592" style="zoom:67%;" /></div>
+
 <ol start="6">
 <li>types</li>
 </ol>
@@ -1143,11 +1158,11 @@
 <li>一次可以读出多个数据 beginning with the column address counts up to column address + burst size – 1</li>
 <li><strong>burst size=4</strong> 极速读长度：输出字节的数量</li>
 </ul>
-<p><img src="image-20240106201248447.png" alt="image-20240106201248447" style="zoom:50%;" /></p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240106201248447.png" alt="image-20240106201248447" style="zoom:50%;" /></div></p>
 <ul>
 <li>计算例子</li>
 </ul>
-<p><img alt="image-20240106201422901" src="../image-20240106201422901.png" /></p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240106201422901.png" alt="image-20240106201422901" style="zoom: 50%;" /></div></p>
 </li>
 <li>
 <p>Double Data Rate SDRAM (DDR SDRAM) 上升沿和下降沿都可以进行一次操作，提升一倍吞吐量</p>

@@ -806,12 +806,14 @@
 <ol>
 <li>方式一：直接加或门</li>
 </ol>
-<p><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/96.png" alt="img"  /></p>
+<div align="center"><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/96.png" alt="img"  /></div>
+
 <p>然而，在门控时钟技术中，由于添加了一个额外的逻辑门，时钟脉冲到达 Control 的时候会出现额外的传播延时，即时钟偏移(clock skew)。而这微小的延时会导致在整个同步系统中，不同组件得到的时钟脉冲有偏差，而这是我们所不希望看到的。所以在实际设计中，我们应当避免或尽可能缩小时钟偏移。</p>
 <ol start="2">
 <li>另外一个做法是，在不希望它修改的时候，不断将它的输入载入，也就是保持不变。我们可以通过一个二选一多路复用器实现。</li>
 </ol>
-<p><img src="image-20231207112040627.png" alt="image-20231207112040627" style="zoom:50%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231207112040627.png" alt="image-20231207112040627" style="zoom:50%;" /></div>
+
 <h2 id="register-cell-design">Register Cell Design<a class="headerlink" href="#register-cell-design" title="Permanent link">&para;</a></h2>
 <p>Assume that a register consists of identical cells.(每个位执行相同操作)</p>
 <ul>
@@ -829,7 +831,8 @@
 <li>A hold state specification(<em>e.g.</em> If all control inputs are 0, hold the current register state)</li>
 </ul>
 <h2 id="register-transfer-operations">Register Transfer Operations<a class="headerlink" href="#register-transfer-operations" title="Permanent link">&para;</a></h2>
-<p><img src="image-20240106130821221.png" alt="image-20240106130821221" style="zoom: 67%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240106130821221.png" alt="image-20240106130821221" style="zoom: 67%;" /></div>
+
 <p>The movement and processing of data stored in registers</p>
 <ul>
 <li>Three basic components:</li>
@@ -842,8 +845,8 @@
 <p>其中，最基础的那部分操作被称为微操作(micro-operation)，它们是实现复杂操作的基础，例如将 R1 的数据载入 R2，将 R1 和 R2 相加，或是自增 R1 等。它们通常以比特向量为载体并行实现的。</p>
 <h3 id="register-notation">Register Notation<a class="headerlink" href="#register-notation" title="Permanent link">&para;</a></h3>
 <p>RTL:<strong>寄存器传输语言(Register Transfer Language)</strong></p>
-<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/100.png" /></p>
-<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/98.png" /></p>
+<div align="center"><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/100.png" alt="img" style="zoom: 67%;" /><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/98.png" alt="img" style="zoom:67%;" /></div>
+
 <ol>
 <li>
 <p><span class="arithmatex">\(sl,sr\)</span>例子： R2&lt;-sl R1 ，R1左移一位传给R2</p>
@@ -852,18 +855,21 @@
 <p>example:如果 K1=1 那么将 R1 的信号传给 R2, 我们可以写为 K1:(R2←R1), 其中 R1 是一个控制变量，表明条件执行的发生是否发生。K1控制的是R2是否接收R1的信号，而非R1是否发送</p>
 </li>
 </ol>
-<p><img src="http://cdn.hobbitqia.cc/202211301556875.png" alt="img" style="zoom:50%;" /></p>
+<div align="center"><img src="http://cdn.hobbitqia.cc/202211301556875.png" alt="img" style="zoom:50%;" /></div>
+
 <h3 id="register-transfer-structures">Register Transfer Structures<a class="headerlink" href="#register-transfer-structures" title="Permanent link">&para;</a></h3>
 <h3 id="1-multiplexer-based-transfers">1. Multiplexer-Based Transfers：基于多路复用器的传输<a class="headerlink" href="#1-multiplexer-based-transfers" title="Permanent link">&para;</a></h3>
 <p><span class="arithmatex">\(K1:R0\leftarrow R1,K2\overline{K1}:R0\leftarrow R2 <span class="arithmatex">\(,也就是\)</span>K1+K2\)</span>为真时R0会被更新</p>
-<p><img src="http://cdn.hobbitqia.cc/202211301635371.png" alt="img" style="zoom:50%;" /></p>
-<p><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/105.png" alt="img" style="zoom: 33%;" /></p>
+<div align="center"><img src="http://cdn.hobbitqia.cc/202211301635371.png" alt="img" style="zoom:50%;" /><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/105.png" alt="img" style="zoom: 33%;" /></div>
+
 <p>通过一系列one-hot编码决定选择哪个，其中 <code>MUX</code> 的 <em>k</em>∼(<em>n</em>−1) 实现了<strong><a href="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/Chap06/#转移">转移</a></strong>操作。</p>
 <h3 id="2-multiplexer-bus">2. Multiplexer Bus<a class="headerlink" href="#2-multiplexer-bus" title="Permanent link">&para;</a></h3>
 <h3 id="_2">基于专用多路复用器的传输<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p><img src="image-20240106135325693.png" alt="image-20240106135325693" style="zoom: 33%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240106135325693.png" alt="image-20240106135325693" style="zoom: 33%;" /></div>
+
 <h3 id="_3">基于共用多路复用器的传输<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p><img src="image-20231214102355598.png" alt="image-20231214102355598" style="zoom: 67%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214102355598.png" alt="image-20231214102355598" style="zoom: 67%;" /></div>
+
 <p>​   通过总线bus实现n选1多路复用器完成寄存器之间值的交换。门输入成本9/bit，多路复用器8个输入+1个输出</p>
 <h3 id="3-three-state-bus">3. Three-State Bus 三态总线<a class="headerlink" href="#3-three-state-bus" title="Permanent link">&para;</a></h3>
 <p>The 3-input MUX can be replaced by a 3-state node (bus) and 3-state buffers. Cost is further reduced, but transfers are limited.</p>
@@ -871,32 +877,36 @@
 <p>减少接线，降低布线难度。</p>
 <p>将寄存器和三态门封装在一起考虑，那么我们只需要一个外部引脚(n bits), 但多路复用器的方法需要两根位宽是 n 的引脚（因为三态门的外部引脚是可以双向传输数据的）</p>
 <p>门输入成本：9（<span class="arithmatex">\(3\times3\)</span>个三态门）</p>
-<p><img src="image-20231214102654219.png" alt="image-20231214102654219" style="zoom:67%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214102654219.png" alt="image-20231214102654219" style="zoom:67%;" /></div>
+
 <h3 id="shift-registers">Shift Registers<a class="headerlink" href="#shift-registers" title="Permanent link">&para;</a></h3>
 <p>使用触发器而不能使用锁存器（除极少特例）</p>
 <ol>
 <li>右移</li>
 </ol>
-<p><img src="image-20231214104642254.png" alt="image-20231214104642254" style="zoom:67%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214104642254.png" alt="image-20231214104642254" style="zoom:67%;" /></div>
+
 <ol start="2">
 <li>右移+并行输入 Parallel Load Shift Registers
    - shift=0 并行输入
    - shift=1 移位</li>
 </ol>
-<p><img src="image-20231214104741844.png" alt="image-20231214104741844" style="zoom:67%;" /></p>
-<p><img alt="image-20231214105012908" src="../image-20231214105012908.png" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214104741844.png" alt="image-20231214104741844" style="zoom:67%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214105012908.png" alt="image-20231214105012908" style="zoom: 50%;" /></div>
+
 <ul>
 <li>Shift为1，移位</li>
 <li>Shift为0，Load0，保持</li>
 <li>Shift为0，Load1，并行加载</li>
 </ul>
 <h3 id="_4">双向位移寄存器（通过加入一个多路选择器实现）<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/112.png" alt="img" style="zoom: 50%;" /></p>
+<div align="center"><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/112.png" alt="img" style="zoom: 35%;" /></div>
+
 <p>对<span class="arithmatex">\(S_1S_0\)</span>,00保持，01左移，10右移，11并行输入</p>
 <p>其本质上就是添加了一个 MUX 来选择下一个时钟是继承 <span class="arithmatex">\((i+1)、(i-1)、D_i\)</span>还是<span class="arithmatex">\(Q\)</span></p>
 <h2 id="counters">Counters<a class="headerlink" href="#counters" title="Permanent link">&para;</a></h2>
 <h3 id="ripple-counter">Ripple Counter<a class="headerlink" href="#ripple-counter" title="Permanent link">&para;</a></h3>
-<p><img src="image-20231214105919157.png" alt="image-20231214105919157" style="zoom:50%;" /><img src="image-20240106135857005.png" alt="image-20240106135857005" style="zoom:33%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214105919157.png" alt="image-20231214105919157" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240106135857005.png" alt="image-20240106135857005" style="zoom:33%;" /></div>
+
 <ol>
 <li>
 <p>B频率是A一半。A输出取反作为B的时钟信号。 可以用做时钟分频。</p>
@@ -908,22 +918,27 @@
 <li>缺点：每一个时钟信号传递都有延时，同时不能作为同步计数器。简单但不安全。</li>
 </ol>
 <p>理论上，111之后应该变成000，但实际上：<span class="arithmatex">\(111-&gt;110-&gt;100-&gt;000\)</span></p>
-<p><img src="http://cdn.hobbitqia.cc/202212071112469.png" alt="img" style="zoom:50%;" /></p>
+<div align="center"><img src="http://cdn.hobbitqia.cc/202212071112469.png" alt="img" style="zoom:50%;" /></div>
+
 <p>此外对于n bits, 最坏时间延迟是 <span class="arithmatex">\(n\cdot t_{PHL}\)</span> 速度会非常慢.</p>
 <ol start="4">
 <li>使用：越高级的触发器越不容易被触发，功耗低，可用于脉冲计数等场景。</li>
 </ol>
 <h3 id="synchronous-counters"><strong>Synchronous Counters</strong> 同步计数器<a class="headerlink" href="#synchronous-counters" title="Permanent link">&para;</a></h3>
-<p><img src="image-20231214111002009.png" alt="image-20231214111002009" style="zoom:67%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214111002009.png" alt="image-20231214111002009" style="zoom:67%;" /></div>
+
 <p>每次通过自增器+1</p>
 <p>观察发现，位数增加时不利于化简，但<span class="arithmatex">\(Q_n\)</span>取反当且仅当0~n-1均为1，因此可以采取以下与门链作为控制信号</p>
 <p>使能为0相当于保持。 CO输出进位用于下一部分电路</p>
-<p><img src="image-20231214111437435.png" alt="image-20231214111437435" style="zoom:67%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214111437435.png" alt="image-20231214111437435" style="zoom:67%;" /></div>
+
 <p>问题：同样存在延迟。 </p>
 <p>解决方法：look ahead 用一个与门把所有低位接起来</p>
-<p><img src="image-20231214111602443.png" alt="image-20231214111602443" style="zoom:67%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214111602443.png" alt="image-20231214111602443" style="zoom:67%;" /></div>
+
 <p>symbol：</p>
-<p><img src="image-20231214112709898.png" alt="image-20231214112709898" style="zoom:80%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214112709898.png" alt="image-20231214112709898" style="zoom:80%;" /></div>
+
 <h3 id="other-counters">Other Counters<a class="headerlink" href="#other-counters" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Down Counter</li>
@@ -933,21 +948,24 @@
 </ol>
 <h3 id="counter-with-parallel-load">Counter with Parallel Load<a class="headerlink" href="#counter-with-parallel-load" title="Permanent link">&para;</a></h3>
 <p>实现并行输入</p>
-<p><img src="image-20231214113256312.png" alt="image-20231214113256312" style="zoom: 67%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214113256312.png" alt="image-20231214113256312" style="zoom: 67%;" /></div>
+
 <h3 id="design-example-synchronous-bcd"><strong>Design Example: Synchronous BCD</strong><a class="headerlink" href="#design-example-synchronous-bcd" title="Permanent link">&para;</a></h3>
 <ol>
 <li>状态表：</li>
 </ol>
-<p><img src="image-20231214113446423.png" alt="image-20231214113446423" style="zoom:67%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214113446423.png" alt="image-20231214113446423" style="zoom:67%;" /></div>
+
 <ol start="2">
 <li>卡诺图化简</li>
 </ol>
-<p><img src="image-20231214113505537.png" alt="image-20231214113505537" style="zoom:50%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214113505537.png" alt="image-20231214113505537" style="zoom:50%;" /></div>
+
 <ol start="3">
 <li>验证无用状态情况，发现不会死锁</li>
 </ol>
-<p><img src="image-20231214113537985.png" alt="image-20231214113537985" style="zoom:50%;" /></p>
-<p><img src="image-20231214113545336.png" alt="image-20231214113545336" style="zoom:50%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214113537985.png" alt="image-20231214113537985" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214113545336.png" alt="image-20231214113545336" style="zoom:50%;" /></div>
+
 <h3 id="counting-modulo-n">Counting Modulo N<a class="headerlink" href="#counting-modulo-n" title="Permanent link">&para;</a></h3>
 <ol>
 <li>二进制计数器基础上，采取同步/异步清零</li>
@@ -955,11 +973,13 @@
 <ul>
 <li>异步，通过clear（异步复位脚），计数达到N实时清零即可</li>
 </ul>
-<p><img src="image-20231214114143431.png" alt="image-20231214114143431" style="zoom:67%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214114143431.png" alt="image-20231214114143431" style="zoom:67%;" /></div>
+
 <ul>
 <li>同步，N-1时reset为1，在下一个上升沿清零 <code>better choice</code></li>
 </ul>
-<p><img src="image-20231214114241739.png" alt="image-20231214114241739" style="zoom:67%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214114241739.png" alt="image-20231214114241739" style="zoom:67%;" /></div>
+
 <ol start="2">
 <li>多位寄存器，分开设计，如设计时间，低位为模 10 计数器，高位为模 6 计时器，低位的 <code>Carry Output</code> 既作为低位的同步清零信号，又是高位的 <code>Enable</code> 信号.</li>
 </ol>
@@ -968,7 +988,8 @@
 <p>需要的引线数量少，两个设备之间只需要一条线和一条地线就可以了。而且因为引线少，我们可以让其时钟频率达到非常高</p>
 <p>当今高速传输如USB，以太网线等都使用串行</p>
 <p>串行加法器：仅使用一位全加器与一个用于进位的触发器。The result is stored in the A register and the final carry in the flip-flop</p>
-<p><img src="image-20231214115743980.png" alt="image-20231214115743980" style="zoom: 67%;" /></p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214115743980.png" alt="image-20231214115743980" style="zoom: 67%;" /></div>
+
 <p>Serial addition is a low cost way to add large numbers of operands, since a “tree” of full adder cells can be made to any depth, and each new level doubles the number of operands.</p>
 <p>Other operations can be performed serially as well, such as parity generation/checking or more complex error-check codes.</p>
 <p>Shifting a binary number left is equivalent to multiplying by 2.  Shifting a binary number right is equivalent to dividing by 2.</p>
