@@ -9,7 +9,7 @@ copyright: Copyright &copy; 2022 <a href="https://github.com/HobbitQia"  target=
 theme:
   name: material
   language: zh
-  logo: log.ico
+  logo: https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/logo.ico
   favicon: log.ico
   custom_dir: overrides
   features:

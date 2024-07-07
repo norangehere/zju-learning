@@ -65,7 +65,7 @@ struct Collection
    - 插入时一次cost为c的操作造成森林多了2-c棵树，因为1次操作把$B_0$添加到当前森林，多一棵；其余c-1次操作都在merge，每次减少一棵树
    - 势函数：$\phi_i$为第i次操作后树棵数
 5. 斐波那契堆势函数:$t(H)+2m(H)$
-6. conclusion:<img src="images/image-20240624094700172.png" alt="image-20240624094700172" style="zoom:67%;" />
+6. conclusion:<img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240624094700172.png" alt="image-20240624094700172" style="zoom:67%;" />
 
 ## 6 Backtracking
 
@@ -76,19 +76,19 @@ struct Collection
 1. $T(n)=2T(\lfloor\sqrt(n)\rfloor)+\log n$,令$m=\log n$
 2. $T(n)=T(\lfloor n/2\rfloor)+T(\lceil n/2\rceil)+1$,猜测$T(n)=O(n)$，设$T(n)\leq cn$但归纳失败，但设$T(n)\leq cn-d$归纳成立，**有时候减去一个项会有用**
 
-![image-20240623195959037](images/image-20240623195959037.png)
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240623195959037.png" alt="image-20240623195959037" style="zoom:50%;" /></div>
 
-<img src="images/image-20240623195844463.png" alt="image-20240623195844463" style="zoom: 80%;" />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240623195844463.png" alt="image-20240623195844463" style="zoom: 80%;" /></div>
 
 3. 分治法处理逆序对计数时，类似逆序对分成三类，全在左半边，全在右半边，跨越中点。但跨越中点的逆序对个数似乎最多有$n^2/4$个，这样分治就失去了时间优势。因此我们基于归并排序，每次计算逆序后也对序列进行排序，因为这并不会影响跨越中点的逆序对。之后在合并过程我们很容易基于RANK就可以求出逆序对数目
 4. 整数乘法改进，$ab=10^n a_1b_1+10^{n/2}(a_1b_2+a_2b_1)+a_2b_2$,同时注意到$a_1b_2+a_2b_1=(a_1+a_2)(b_1+b_2)-a_1b_1-a_2b_2$，因此我们只需要计算$(a_1+a_2)(b_1+b_2),a_1b_1,a_2b_2$这三个，因此递推式为$T(n)=3T(n/2)+O(n)$，复杂度变成了$O(n^{\log_23})$
 5. 矩阵乘法，使用分块矩阵
 
-<div align="center"><img src="images/image-20240623201325416.png" alt="image-20240623201325416" style="zoom: 80%;" /> <img src="images/image-20240623201341782.png" alt="image-20240623201341782" style="zoom:100%;" /></div>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240623201325416.png" alt="image-20240623201325416" style="zoom: 80%;" /> <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240623201341782.png" alt="image-20240623201341782" style="zoom:100%;" /></div>
 
 但此时需要计算八个n/2规模的矩阵，复杂度仍然是$O(n^3)$，但Strassen给出了一个天才的构造
 
-<div align="center"><img src="images/image-20240623201622130.png" alt="image-20240623201622130" style="zoom:80%;" /><img src="images/image-20240623201638390.png" alt="image-20240623201638390" style="zoom:80%;" /></div>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240623201622130.png" alt="image-20240623201622130" style="zoom:80%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240623201638390.png" alt="image-20240623201638390" style="zoom:80%;" /></div>
 
 因此$T(n)=7T(n/2)+O(n^2)$,复杂度为$O(n^{\log_27})$
 
@@ -218,19 +218,17 @@ struct Collection
 
    - workload过大，因此首先考虑partition
 
-   <img src="images/image-20240624003931241.png" alt="image-20240624003931241" style="zoom: 43%;" />
-
-   <img src="images/image-20240624003951821.png" alt="image-20240624003951821" style="zoom:43%;" />
+   <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240624003931241.png" alt="image-20240624003931241" style="zoom: 40%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240624003951821.png" alt="image-20240624003951821" style="zoom:43%;" /></div>
 
    - 但有以下Random Sampling，可以使得$T=O(1),W=O(n)$
 
      - 取$n^{7/8}$个出来
 
-     <img src="images/image-20240624004104118.png" alt="image-20240624004104118" style="zoom:50%;" />
+     <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240624004104118.png" alt="image-20240624004104118" style="zoom:50%;" /></div>
 
      - 但这样最大值有可能不在其中，于是继续再取$n^{7/8}$个作为数组B，下面步骤中若找到一个最大值，随机丢回B中的一个位置，因此是有可能把最大值覆盖掉的。但综合来看在上述时间内不能得到最大值的概率为$O(\dfrac{1}{n^c})$,注意c是正常数
 
-     <img src="images/image-20240624004258889.png" alt="image-20240624004258889" style="zoom:50%;" />
+     <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240624004258889.png" alt="image-20240624004258889" style="zoom:50%;" /></div>
 
 ## 15 External Sorting
 
