@@ -43,7 +43,7 @@
 4. 指数分布
    $$ f_X(x;\theta)= \theta e^{-\theta x},x\geq 0 $$
 
-   $$ \max\limits*{\theta}\prod\limits*{i=1}^n \theta e^{-\theta x*i}=\max\limits*\theta (n\log\theta-\theta\sum\limits\_{i=1}^nx_i) $$
+   $$ \max\limits_{\theta}\prod\limits_{i=1}^n \theta e^{-\theta x_i}=\max\limits_\theta (n\log\theta-\theta\sum\limits_{i=1}^nx_i) $$
 
    $$ \hat{\theta}\_{ML}=\frac{n}{X_1+\cdots+X_n}=\frac{1}{\overline{X}} $$
 
@@ -69,11 +69,11 @@ $$ \lambda = \frac{1}{n}\sum\limits\_{j=1}^nx_j $$
 
 2. 最大后验估计 MAP
 
-$$ \theta*{MAP}=\arg\max\limits*{\theta}p\_{model}(x;\theta)\*p(\theta) $$
+$$ \theta_{MAP}=\arg\max\limits_{\theta}p_{model}(x;\theta)*p(\theta) $$
 
-$$ =\arg\max\limits*{\theta}\prod\limits*{i=1}^Np\_{model}(x^i;\theta)\*p(\theta) $$
+$$ =\arg\max\limits_{\theta}\prod\limits_{i=1}^Np_{model}(x^i;\theta)*p(\theta) $$
 
-$$ =\arg\max\limits*{\theta}\sum\limits*{i=1}^N\log p\_{model}(x^i;\theta)+\log p(\theta) $$
+$$ =\arg\max\limits_{\theta}\sum\limits_{i=1}^N\log p_{model}(x^i;\theta)+\log p(\theta) $$
 
 ## Lec 5 Testing
 
