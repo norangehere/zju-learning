@@ -90,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#3-introduction-to-deep-learning" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -971,8 +971,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -1000,8 +998,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
-  
-    
   
   
     <label class="md-nav__title" for="__toc">
@@ -1207,8 +1203,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1285,7 +1279,9 @@
   
 
 
-<h1 id="3-introduction-to-deep-learning">3 Introduction to Deep Learning<a class="headerlink" href="#3-introduction-to-deep-learning" title="Permanent link">&para;</a></h1>
+  <h1>3 Introduction to Deep Learning</h1>
+
+<p>3 Introduction to Deep Learning</p>
 <h2 id="_1">神经网络相关概念<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ol>
 <li>激活函数：阶跃函数, sigmoid, tanh, softmax, 恒等函数, ReLU</li>
@@ -1293,20 +1289,14 @@
 <ul>
 <li>LeakyReLU:</li>
 </ul>
-<p>$$
-   f(x)=\left{<br />
-                \begin{array}{<strong>lr</strong>}<br />
-                0.01x, &amp; x\leq 0 \
-                x, &amp; x&gt;0
-                \end{array}<br />
-   \right.<br />
-   $$</p>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240712231819397.png" alt="image-20240712231819397" style="zoom:67%;" /></div>
+
 <ul>
 <li>GELU:</li>
 </ul>
 <p>$$
-   f(x)=x\Phi(x)=\dfrac{1}{2}x(1+\erf(\dfrac{x}{\sqrt2})) \
-   \erf(x)=\dfrac{2}{\sqrt\pi}\int_0^xe^{-y^2}dy
+   f(x)=x\Phi(x)=\dfrac{1}{2}x(1+erf(\dfrac{x}{\sqrt2})) \
+   erf(x)=\dfrac{2}{\sqrt\pi}\int_0^xe^{-y^2}dy
    $$</p>
 <ol start="2">
 <li>损失函数</li>

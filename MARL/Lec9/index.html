@@ -1273,10 +1273,10 @@
 </ol>
 <ul>
 <li>
-<p>针对智能体i的策略梯度公式
-     $$
-     \nabla_{\theta_i}J(\theta_i)=\mathbb{E}<em>{s\sim p^\pi,a\sim\pi</em>\theta}[\nabla_{\theta_i}log\pi_i(a_i|o_i)Q_i^\pi(x,a_1,...a_N)]
-     $$</p>
+<p>针对智能体i的策略梯度公式</p>
+<p>$$
+ \nabla_{\theta_i}J(\theta_i)=\mathbb{E}<em>{s\sim p^\pi,a\sim\pi</em>\theta}[\nabla_{\theta_i}log\pi_i(a_i|o_i)Q_i^\pi(x,a_1,...a_N)]
+ $$</p>
 </li>
 <li>
 <p><span class="arithmatex">\(Q^\pi_i(x,a_1,\dots,a_N)\)</span>是一个集中的动作价值函数，输入为所有智能体的动作和一些状态信息，输出每个智能体的动作价值</p>
@@ -1309,20 +1309,26 @@
 <li>经验回放缓存，交互数据存入<span class="arithmatex">\(\mathcal{D}\)</span>，如下训练</li>
 </ul>
 <p>$$
+   \begin{gathered}
    \nabla_{\theta_i}J(\mu_i)=\mathbb{E}<em _theta_i="\theta_i">{x,a\sim D}[\nabla</em>\mu_i(a_i|o_i)\nabla_{a_i}Q_i^\mu(x,a_1,...a_N)| a_i=\mu_i(o_i)]
+   \end{gathered}
    $$</p>
 <ul>
 <li>其中全局中心化的<span class="arithmatex">\(Q_i^\mu\)</span>如下更新：</li>
 </ul>
 <p>$$
+   \begin{gathered}
    L(\theta_{i})=\mathbb{E}<em i="i">{x,a,r,x^{\prime}}[(Q</em>^{\mu}(x,a_{1},...,a_{N})-y)^{2}]\y=r_{i}+\gamma Q_{i}^{\mu^{\prime}}(x^{\prime},a_{1}^{\prime},...a_{N}^{\prime})|a_{j}^{\prime}=\mu_{j}^{\prime}(o_{j})
+   \end{gathered}
    $$</p>
 <ul>
 <li>
-<p>每个智能体i维护一个对智能体j策略的近似<span class="arithmatex">\(\hat{\mu}_{\phi_i^j}\)</span>​的对手网络智能体𝑗的真实策略为<span class="arithmatex">\(\mu_j\)</span>，该策略可以通过智能体𝑗行为对数概率以及熵正则的方式进行学习
-     $$
-     L(\phi_{i}^{j})=-\mathbb{E}<em j="j">{o</em>,a_{j}}[log\hat{\mu}<em j="j">{i}^{j}(a</em>|o_{j})+\lambda H(\hat{\mu}<em i="i">{i}^{j})]\\hat{y}=r</em>+\gamma Q_{i}^{\mu^{\prime}}(x^{\prime},\hat{\mu}<em 1="1">{i}^{\prime1}(o</em>),...,\hat{\mu}<em N="N">{i}^{\prime N}(o</em>))
-     $$</p>
+<p>每个智能体i维护一个对智能体j策略的近似<span class="arithmatex">\(\hat{\mu}_{\phi_i^j}\)</span>​的对手网络智能体𝑗的真实策略为<span class="arithmatex">\(\mu_j\)</span>，该策略可以通过智能体𝑗行为对数概率以及熵正则的方式进行学习</p>
+<p>$$
+ \begin{gathered}
+ L(\phi_{i}^{j})=-\mathbb{E}<em j="j">{o</em>,a_{j}}[log\hat{\mu}<em j="j">{i}^{j}(a</em>|o_{j})+\lambda H(\hat{\mu}<em i="i">{i}^{j})]\\hat{y}=r</em>+\gamma Q_{i}^{\mu^{\prime}}(x^{\prime},\hat{\mu}<em 1="1">{i}^{\prime1}(o</em>),...,\hat{\mu}<em N="N">{i}^{\prime N}(o</em>))
+ \end{gathered}
+ $$</p>
 </li>
 <li>
 <p>其中H为熵，<span class="arithmatex">\(\hat{\mu}_i^{'j}\)</span>为目标网络</p>
@@ -1344,7 +1350,8 @@
 </li>
 </ol>
 <div class="arithmatex">\[
-Q(s,c_{i})=\sum_{a_{i}'}\pi_{i}(a_{i}'|\tau_{i})Q(s,(a_{-i},a_{i}'))\\A_{i}(s,a)=Q(s,a)-\sum_{a_{i}'}\pi_{i}(a_{i}'|\tau_{i})Q(s,(a_{-i},a_{i}'))
+\begin{gathered}Q(s,c_{i})=\sum_{a_{i}'}\pi_{i}(a_{i}'|\tau_{i})Q(s,(a_{-i},a_{i}'))\\A_{i}(s,a)=Q(s,a)-\sum_{a_{i}'}\pi_{i}(a_{i}'|\tau_{i})Q(s,(a_{-i},a_{i}'))
+\end{gathered}
 \]</div>
 <ol start="5">
 <li>维度诅咒：<span class="arithmatex">\(A^N\)</span>计算消耗太大</li>
@@ -1383,7 +1390,9 @@ Q(s,c_{i})=\sum_{a_{i}'}\pi_{i}(a_{i}'|\tau_{i})Q(s,(a_{-i},a_{i}'))\\A_{i}(s,a)
 <li>对于Critic部分，LICA采用了GAE和<span class="arithmatex">\(TD(\lambda)\)</span>的变体，其更新为：</li>
 </ol>
 <div class="arithmatex">\[
+\begin{gathered}
 \mathcal{L}(\phi)=\min_{\phi}\mathbb{E}_{\tau\sim\pi_{\theta}(\tau)}\left[\left(y_{t}^{(\lambda)}-Q_{\phi}^{\pi}(s_{t},u_{t})\right)^{2}\right]\\y_{t}^{(\lambda)}=r_{t}+\gamma(\lambda y_{t+1}^{(\lambda)}+(1-\lambda)Q_{\phi}^{\pi}(s_{t+1},u_{t+1}))
+\end{gathered}
 \]</div>
 <ol start="4">
 <li>更新Actor引入了熵项</li>
@@ -1399,7 +1408,10 @@ J(\theta)=\mathbb{E}_{\tau\sim\pi_{\theta}(\tau)}\left[Q_{\phi}^{\pi}(s_{t},u_{t
 <li>
 <p>引入超参数<span class="arithmatex">\(\beta\)</span>，假设智能体a的某个动作概率为p，对熵求导
    $$
-   p^a=\pi^a(.|z^a)\d\mathcal{H}=\left[\frac{\partial\mathcal{H}}{\partial p_1^a},...,\frac{\partial\mathcal{H}}{\partial p_k^a}\right]=[-\beta(logp_1^a+1),...,-\beta(logp_k^a+1)]
+   \begin{gathered}
+   p^a=\pi^a(.|z^a)\
+   d\mathcal{H}=\left[\frac{\partial\mathcal{H}}{\partial p_1^a},...,\frac{\partial\mathcal{H}}{\partial p_k^a}\right]=[-\beta(logp_1^a+1),...,-\beta(logp_k^a+1)]
+   \end{gathered}
    $$</p>
 </li>
 <li>
