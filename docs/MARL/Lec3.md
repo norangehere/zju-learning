@@ -1,4 +1,4 @@
-# 3 Introduction to Deep Learning
+3 Introduction to Deep Learning
 
 ## 神经网络相关概念
 
@@ -6,20 +6,13 @@
 
    - LeakyReLU:
 
-   $$
-   f(x)=\left\{  
-                \begin{array}{**lr**}  
-                0.01x, & x\leq 0 \\
-                x, & x>0
-                \end{array}  
-   \right.  
-   $$
+   <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240712231819397.png" alt="image-20240712231819397" style="zoom:67%;" /></div>
 
    - GELU:
 
    $$
-   f(x)=x\Phi(x)=\dfrac{1}{2}x(1+\erf(\dfrac{x}{\sqrt2})) \\
-   \erf(x)=\dfrac{2}{\sqrt\pi}\int_0^xe^{-y^2}dy
+   f(x)=x\Phi(x)=\dfrac{1}{2}x(1+erf(\dfrac{x}{\sqrt2})) \\
+   erf(x)=\dfrac{2}{\sqrt\pi}\int_0^xe^{-y^2}dy
    $$
 
 2. 损失函数

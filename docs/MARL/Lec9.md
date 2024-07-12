@@ -13,6 +13,7 @@
 3. MAAC架构
 
    - 针对智能体i的策略梯度公式
+
      $$
      \nabla_{\theta_i}J(\theta_i)=\mathbb{E}_{s\sim p^\pi,a\sim\pi_\theta}[\nabla_{\theta_i}log\pi_i(a_i|o_i)Q_i^\pi(x,a_1,...a_N)]
      $$
@@ -37,20 +38,27 @@
    - 经验回放缓存，交互数据存入$\mathcal{D}$，如下训练
 
    $$
+   \begin{gathered}
    \nabla_{\theta_i}J(\mu_i)=\mathbb{E}_{x,a\sim D}[\nabla_{\theta_i}\mu_i(a_i|o_i)\nabla_{a_i}Q_i^\mu(x,a_1,...a_N)| a_i=\mu_i(o_i)]
+   \end{gathered}
    $$
 
    - 其中全局中心化的$Q_i^\mu$如下更新：
 
    $$
+   \begin{gathered}
    L(\theta_{i})=\mathbb{E}_{x,a,r,x^{\prime}}[(Q_{i}^{\mu}(x,a_{1},...,a_{N})-y)^{2}]\\y=r_{i}+\gamma Q_{i}^{\mu^{\prime}}(x^{\prime},a_{1}^{\prime},...a_{N}^{\prime})|a_{j}^{\prime}=\mu_{j}^{\prime}(o_{j})
+   \end{gathered}
    $$
 
    - 每个智能体i维护一个对智能体j策略的近似$\hat{\mu}_{\phi_i^j}$​的对手网络智能体𝑗的真实策略为$\mu_j$，该策略可以通过智能体𝑗行为对数概率以及熵正则的方式进行学习
-     $$
-     L(\phi_{i}^{j})=-\mathbb{E}_{o_{j},a_{j}}[log\hat{\mu}_{i}^{j}(a_{j}|o_{j})+\lambda H(\hat{\mu}_{i}^{j})]\\\hat{y}=r_{i}+\gamma Q_{i}^{\mu^{\prime}}(x^{\prime},\hat{\mu}_{i}^{\prime1}(o_{1}),...,\hat{\mu}_{i}^{\prime N}(o_{N}))
-     $$
 
+     $$
+     \begin{gathered}
+     L(\phi_{i}^{j})=-\mathbb{E}_{o_{j},a_{j}}[log\hat{\mu}_{i}^{j}(a_{j}|o_{j})+\lambda H(\hat{\mu}_{i}^{j})]\\\hat{y}=r_{i}+\gamma Q_{i}^{\mu^{\prime}}(x^{\prime},\hat{\mu}_{i}^{\prime1}(o_{1}),...,\hat{\mu}_{i}^{\prime N}(o_{N}))
+     \end{gathered}
+     $$
+     
    - 其中H为熵，$\hat{\mu}_i^{'j}$为目标网络
 
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240711100007662.png" alt="image-20240711100007662" style="zoom: 43%;" /></div>
@@ -65,7 +73,8 @@
 4. 使用Critic网络计算$D_i$的值，取所有行为的均值作为默认行为的效用值
 
 $$
-Q(s,c_{i})=\sum_{a_{i}'}\pi_{i}(a_{i}'|\tau_{i})Q(s,(a_{-i},a_{i}'))\\A_{i}(s,a)=Q(s,a)-\sum_{a_{i}'}\pi_{i}(a_{i}'|\tau_{i})Q(s,(a_{-i},a_{i}'))
+\begin{gathered}Q(s,c_{i})=\sum_{a_{i}'}\pi_{i}(a_{i}'|\tau_{i})Q(s,(a_{-i},a_{i}'))\\A_{i}(s,a)=Q(s,a)-\sum_{a_{i}'}\pi_{i}(a_{i}'|\tau_{i})Q(s,(a_{-i},a_{i}'))
+\end{gathered}
 $$
 
 5. 维度诅咒：$A^N$计算消耗太大
@@ -100,7 +109,9 @@ $$
 3. 对于Critic部分，LICA采用了GAE和$TD(\lambda)$的变体，其更新为：
 
 $$
+\begin{gathered}
 \mathcal{L}(\phi)=\min_{\phi}\mathbb{E}_{\tau\sim\pi_{\theta}(\tau)}\left[\left(y_{t}^{(\lambda)}-Q_{\phi}^{\pi}(s_{t},u_{t})\right)^{2}\right]\\y_{t}^{(\lambda)}=r_{t}+\gamma(\lambda y_{t+1}^{(\lambda)}+(1-\lambda)Q_{\phi}^{\pi}(s_{t+1},u_{t+1}))
+\end{gathered}
 $$
 
 4. 更新Actor引入了熵项
@@ -115,9 +126,12 @@ $$
 
 5. 引入超参数$\beta$，假设智能体a的某个动作概率为p，对熵求导
    $$
-   p^a=\pi^a(.|z^a)\\d\mathcal{H}=\left[\frac{\partial\mathcal{H}}{\partial p_1^a},...,\frac{\partial\mathcal{H}}{\partial p_k^a}\right]=[-\beta(logp_1^a+1),...,-\beta(logp_k^a+1)]
+   \begin{gathered}
+   p^a=\pi^a(.|z^a)\\
+   d\mathcal{H}=\left[\frac{\partial\mathcal{H}}{\partial p_1^a},...,\frac{\partial\mathcal{H}}{\partial p_k^a}\right]=[-\beta(logp_1^a+1),...,-\beta(logp_k^a+1)]
+   \end{gathered}
    $$
-
+   
 6. 当选择某个动作概率较大时，熵项的约束较小；而当选择某个动作概率较小时，熵项的约束反而较大。
 
 $$
