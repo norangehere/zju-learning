@@ -125,3 +125,13 @@ nav:
       - Machine Learning and Data Analysis:
           - MLDA/index.md
           - Note: MLDA/review.md
+      - Multi-Agent Reinforcement Learning:
+          - MARL/index.md
+          - 1 Dynamic Programming: MARL/Lec1.md
+          - 2 Value Estimation: MARL/Lec2.md
+          - 3 Introduction to Deep Learning: MARL/Lec3.md
+          - 4 Deep Q Network: MARL/Lec4.md
+          - 5 Policy Gradient: MARL/Lec5.md
+          - 6 策略学习高级技巧与连续控制: MARL/Lec6.md
+          - 7 MARL with Factored Value Functions: MARL/Lec7.md
+          - 9 MARL with A-C: MARL/Lec9.md

@@ -1,4 +1,4 @@
-# Lec 7 MARL with Factored Value Functions
+# 7 MARL with Factored Value Functions
 
 ## 博弈论概念
 

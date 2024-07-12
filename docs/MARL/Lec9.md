@@ -1,4 +1,4 @@
-# Lec 9.1 MARL with A-C
+# 9 MARL with A-C
 
 ## MADDPG
 
