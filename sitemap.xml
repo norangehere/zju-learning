@@ -2,72 +2,117 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://norangehere.github.io/zju-learning/</loc>
-         <lastmod>2024-07-08</lastmod>
+         <lastmod>2024-07-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://norangehere.github.io/zju-learning/ADS/</loc>
-         <lastmod>2024-07-08</lastmod>
+         <lastmod>2024-07-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://norangehere.github.io/zju-learning/ADS/collection/</loc>
-         <lastmod>2024-07-08</lastmod>
+         <lastmod>2024-07-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://norangehere.github.io/zju-learning/ADS/review/</loc>
-         <lastmod>2024-07-08</lastmod>
+         <lastmod>2024-07-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://norangehere.github.io/zju-learning/CLDF/</loc>
-         <lastmod>2024-07-08</lastmod>
+         <lastmod>2024-07-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://norangehere.github.io/zju-learning/CLDF/CLDF1/</loc>
-         <lastmod>2024-07-08</lastmod>
+         <lastmod>2024-07-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://norangehere.github.io/zju-learning/CLDF/CLDF2/</loc>
-         <lastmod>2024-07-08</lastmod>
+         <lastmod>2024-07-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://norangehere.github.io/zju-learning/CLDF/CLDF3/</loc>
-         <lastmod>2024-07-08</lastmod>
+         <lastmod>2024-07-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://norangehere.github.io/zju-learning/CLDF/CLDF4/</loc>
-         <lastmod>2024-07-08</lastmod>
+         <lastmod>2024-07-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://norangehere.github.io/zju-learning/CLDF/CLDF5/</loc>
-         <lastmod>2024-07-08</lastmod>
+         <lastmod>2024-07-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://norangehere.github.io/zju-learning/CLDF/CLDF6/</loc>
-         <lastmod>2024-07-08</lastmod>
+         <lastmod>2024-07-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://norangehere.github.io/zju-learning/CLDF/CLDF7/</loc>
-         <lastmod>2024-07-08</lastmod>
+         <lastmod>2024-07-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://norangehere.github.io/zju-learning/MARL/</loc>
+         <lastmod>2024-07-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://norangehere.github.io/zju-learning/MARL/Lec1/</loc>
+         <lastmod>2024-07-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://norangehere.github.io/zju-learning/MARL/Lec2/</loc>
+         <lastmod>2024-07-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://norangehere.github.io/zju-learning/MARL/Lec3/</loc>
+         <lastmod>2024-07-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://norangehere.github.io/zju-learning/MARL/Lec4/</loc>
+         <lastmod>2024-07-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://norangehere.github.io/zju-learning/MARL/Lec5/</loc>
+         <lastmod>2024-07-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://norangehere.github.io/zju-learning/MARL/Lec6/</loc>
+         <lastmod>2024-07-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://norangehere.github.io/zju-learning/MARL/Lec7/</loc>
+         <lastmod>2024-07-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://norangehere.github.io/zju-learning/MARL/Lec9/</loc>
+         <lastmod>2024-07-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://norangehere.github.io/zju-learning/MLDA/</loc>
-         <lastmod>2024-07-08</lastmod>
+         <lastmod>2024-07-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://norangehere.github.io/zju-learning/MLDA/review/</loc>
-         <lastmod>2024-07-08</lastmod>
+         <lastmod>2024-07-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
