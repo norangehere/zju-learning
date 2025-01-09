@@ -1,0 +1,3284 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Ran9E的笔记本">
+      
+      
+      
+        <link rel="canonical" href="https://norangehere.github.io/zju-learning/OS/os8%20Main%20Memory/">
+      
+      
+        <link rel="prev" href="../os7%20Deadlock/">
+      
+      
+        <link rel="next" href="../os9%20Virtual%20Memory/">
+      
+      
+      <link rel="icon" href="../../log.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+    
+    
+      
+        <title>Main Memory - Ran9E的笔记本</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=LXGW+WenKai+Screen:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"LXGW WenKai Screen";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+      <link rel="stylesheet" href="../../css/card.css">
+    
+      <link rel="stylesheet" href="../../css/tasklist.css">
+    
+      <link rel="stylesheet" href="../../css/flink.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#main-memory" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Ran9E的笔记本" class="md-header__button md-logo" aria-label="Ran9E的笔记本" data-md-component="logo">
+      
+  <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/logo.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ran9E的笔记本
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Main Memory
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/norangehere/zju-learning/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    PiXe1Ran9E/notebook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../CLDF/" class="md-tabs__link">
+          
+  
+    
+  
+  System
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ADS/" class="md-tabs__link">
+          
+  
+    
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../MLDA/" class="md-tabs__link">
+          
+  
+    
+  
+  AI
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../杂项：" class="md-tabs__link">
+        
+  
+    
+  
+  None
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Ran9E的笔记本" class="md-nav__button md-logo" aria-label="Ran9E的笔记本" data-md-component="logo">
+      
+  <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/logo.ico" alt="logo">
+
+    </a>
+    Ran9E的笔记本
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/norangehere/zju-learning/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    PiXe1Ran9E/notebook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    System
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            System
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../CLDF/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    计算机逻辑设计基础
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            计算机逻辑设计基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CLDF/CLDF1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Logic and Digital System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CLDF/CLDF2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Combinational Logic Circuits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CLDF/CLDF3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Combinational Logic Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CLDF/CLDF4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sequential Circuits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CLDF/CLDF5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Digital Hardware Implementation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CLDF/CLDF6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Registers & Register Transfers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CLDF/CLDF7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Memory Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    操作系统原理与实践
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            操作系统原理与实践
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../os0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../os1%20OS%20Structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OS Structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../os2%20Processes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Processes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../os3%20Scheduling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../os4%20Inter-Process%20Communication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inter-Process Communication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../os5%20Threads/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Threads
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../os6%20Synchronization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Synchronization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../os7%20Deadlock/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deadlock
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Main Memory
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Main Memory
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    <span class="md-ellipsis">
+      Background
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Partition
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simplest-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simplest Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memory-allocation-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Allocation Strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Memory Allocation Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed-partitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed partitions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-partitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable partitions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#segmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Segmentation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#address-binding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Address Binding
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Address Binding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logical-vs-physical-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logical vs. Physical Address
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memory-management-unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory-Management Unit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paging
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#page-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Page Table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#address-translation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Address Translation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paging-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paging Hardware
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlbtranslation-look-aside-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      TLB(Translation look-aside buffer)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#effective-access-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Effective Access Time
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Protection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#page-sharing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Page Sharing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structure-of-page-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structure of Page Table
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Structure of Page Table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#two-level-paging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two-Level Paging
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Two-Level Paging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#64-bit-logical-address-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      64-bit Logical Address Space
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hashed-page-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hashed Page Tables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inverted-page-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inverted Page Table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Swapping
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Swapping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#swapping-with-paging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Swapping with Paging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swapping-on-mobile-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Swapping on Mobile Systems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual-address-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virtual address format
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../os9%20Virtual%20Memory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Virtual Memory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../os10%20Mass-Storage%20Structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mass-Storage Structure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../os11%20IO%20Systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IO Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../os12%20File%20System%20Interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File System Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../os13%20File%20System%20Implementation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File System Implementation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../os14%20Security%20and%20Protection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security and Protection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Computer Science
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Computer Science
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ADS/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    高级数据结构与算法分析
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            高级数据结构与算法分析
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ADS/review/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Review
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ADS/collection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    错题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../TCS/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    理论计算机设计基础
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            理论计算机设计基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../CG/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    计算机图形学
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            计算机图形学
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    AI
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            AI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../MLDA/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    机器学习与数据分析
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            机器学习与数据分析
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MLDA/review/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Note
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../MARL/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    多智能体强化学习
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            多智能体强化学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MARL/Lec1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1 Dynamic Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MARL/Lec2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2 Value Estimation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MARL/Lec3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3 Introduction to Deep Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MARL/Lec4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4 Deep Q Network
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MARL/Lec5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5 Policy Gradient
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MARL/Lec6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6 策略学习高级技巧与连续控制
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MARL/Lec7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7 MARL with Factored Value Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MARL/Lec9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9 MARL with A-C
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ML/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    机器学习
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            机器学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../CV/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    计算机视觉导论
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            计算机视觉导论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../杂项：" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    <span class="md-ellipsis">
+      Background
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Partition
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simplest-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simplest Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memory-allocation-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Allocation Strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Memory Allocation Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed-partitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed partitions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-partitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable partitions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#segmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Segmentation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#address-binding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Address Binding
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Address Binding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logical-vs-physical-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logical vs. Physical Address
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memory-management-unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory-Management Unit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paging
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#page-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Page Table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#address-translation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Address Translation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paging-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paging Hardware
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlbtranslation-look-aside-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      TLB(Translation look-aside buffer)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#effective-access-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Effective Access Time
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Protection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#page-sharing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Page Sharing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structure-of-page-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structure of Page Table
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Structure of Page Table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#two-level-paging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two-Level Paging
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Two-Level Paging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#64-bit-logical-address-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      64-bit Logical Address Space
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hashed-page-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hashed Page Tables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inverted-page-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inverted Page Table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Swapping
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Swapping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#swapping-with-paging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Swapping with Paging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swapping-on-mobile-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Swapping on Mobile Systems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual-address-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virtual address format
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                 
+                  
+
+  
+  
+
+
+<h1 id="main-memory">Main Memory<a class="headerlink" href="#main-memory" title="Permanent link">&para;</a></h1>
+<h2 id="background">Background<a class="headerlink" href="#background" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Program must be brought (from disk) into memory and placed within a process for it to be run</li>
+<li>Main memory and registers are only storage that CPU can access directly</li>
+<li>Register access is done in one CPU clock or less</li>
+<li>Main memory can take many cycles, causing a stall</li>
+<li>如果job比physical memory大</li>
+<li>分治</li>
+<li>同时间运行多个process</li>
+<li>fast switching</li>
+<li>划分物理内存——partitioning</li>
+<li>partition requirements</li>
+<li>protection: keep processes from smashing each other</li>
+<li>Fast execution: memory accesses can’t be slowed by protection mechanisms</li>
+<li>
+<p>Fast context switch: can’t take forever to setup mapping of addresses</p>
+</li>
+<li>
+<p>加载一个进程</p>
+</li>
+<li>relocate all addresses relative to start of partition</li>
+<li>一旦进程开启，由于内存内有很多指针，移动内存是不现实的</li>
+</ul>
+<div align="center">
+    <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241231170541503.png" alt="image-20241231170541503" style="zoom: 50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241231170611785.png" alt="image-20241231170611785" style="zoom:50%;" /></div>
+
+<ul>
+<li>problem: 当上述情况后有一个进程4进入，但需要的空间大于单个empty部分，但小于所有empty的和</li>
+<li>solution: use logical address instead of physical address, define it as the offset within the partition</li>
+<li>这样就可以move process了</li>
+</ul>
+<h2 id="partition">Partition<a class="headerlink" href="#partition" title="Permanent link">&para;</a></h2>
+<h3 id="simplest-implementation">Simplest Implementation<a class="headerlink" href="#simplest-implementation" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Base and Limit registers</p>
+</li>
+<li>
+<p>每个进程都有自己的base和limit，每次进程切换时，OS 都会将 base 和 limit 寄存器的值更新为当前进程的值。若输入地址不超过limit，则会加上base后访问，否则segment fault</p>
+</li>
+</ul>
+<div align="center"><img src="https://cdn.hobbitqia.cc/20231116210139.png" alt="img" style="zoom:43%;" /></div>
+
+<ul>
+<li>Hardware Address Protection</li>
+</ul>
+<div align="center"><img src="https://cdn.hobbitqia.cc/20231116210520.png" alt="img" style="zoom: 33%;" /></div>
+
+<ul>
+<li>
+<p>Advantages</p>
+</li>
+<li>
+<p>Built-in protection provided by Limit</p>
+<ul>
+<li>No physical protection per page or block</li>
+</ul>
+</li>
+<li>
+<p>Fast execution</p>
+<ul>
+<li>Addition and limit check at hardware speeds within each instruction</li>
+</ul>
+</li>
+<li>
+<p>Fast context switch</p>
+<ul>
+<li>Need only change base and limit registers</li>
+</ul>
+</li>
+<li>
+<p>No relocation of program addresses at load time</p>
+<ul>
+<li>All addresses relative to zero</li>
+</ul>
+</li>
+<li>
+<p>Partition can be suspended and moved at any time</p>
+<ul>
+<li>Process is unaware of change</li>
+</ul>
+<p>修改 base 即可移动进程，进程是意识不到的。</p>
+<ul>
+<li>Expensive for large processes</li>
+</ul>
+<p>移动进程需要改 base，还要把旧的内容全部改到新的位置，耗时。</p>
+</li>
+</ul>
+<h2 id="memory-allocation-strategies">Memory Allocation Strategies<a class="headerlink" href="#memory-allocation-strategies" title="Permanent link">&para;</a></h2>
+<ul>
+<li>fixed partitions or variable partitions</li>
+<li>取决于长度是否会发生变化</li>
+</ul>
+<h3 id="fixed-partitions">Fixed partitions<a class="headerlink" href="#fixed-partitions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>divide memory into equal sized pieces</li>
+<li>degree of multiprogramming = number of partitions</li>
+<li>每一个partition可以且只可以放一个进程，剩下的空间就会被浪费 Big waste of memory</li>
+<li>如果单个process超过partition大小，只能采取分治拆成更小的process</li>
+<li>size 要切多大？如果切的太小，可能有大进程无法加载进来；如果切的太大，会有内部碎片</li>
+</ul>
+<div align="center"><img src="https://cdn.hobbitqia.cc/20231116212120.png" alt="img" style="zoom: 23%;" /></div>
+
+<h3 id="variable-partitions">Variable partitions<a class="headerlink" href="#variable-partitions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Hole: block of available memory, holes of various size scattered throughout memory</p>
+</li>
+<li>
+<p>长度不一致，按需划分。即要给一个进程分配空间时，我们找到比他大的最小的 partition (best fit)，然后把他放进去。</p>
+</li>
+<li>first-fit: allocate from the first block that is big enough</li>
+<li>best-fit: allocate from the smallest block that is big enough</li>
+<li>
+<p>worst-fit: allocate from the largest hole</p>
+</li>
+<li>
+<p>Memory is dynamically divided into partitions based on process needs</p>
+</li>
+<li>
+<p>More complex management problem</p>
+<ul>
+<li>Need data structures to track free and used memory</li>
+<li>New process allocated memory from hole large enough to fit it</li>
+</ul>
+</li>
+<li>
+<p>Problem – External Fragmentation</p>
+</li>
+<li>
+<p>Unused memory between partitions too small to be used by any processes</p>
+<p>在 partition 之外的空闲空间太小，无法被任何进程使用。</p>
+</li>
+<li>
+<p>the request cannot be fulfilled because the free memory is not contiguous.</p>
+</li>
+<li>
+<p>can be reduced by compaction </p>
+<ul>
+<li>将所有free memory连续放置</li>
+<li>program needs to be relocatable at runtime</li>
+<li>performance overhead, timing to do this operation</li>
+</ul>
+</li>
+</ul>
+<div align="center"><img src="https://cdn.hobbitqia.cc/20231116213226.png" alt="img" style="zoom: 25%;" /></div>
+
+<h2 id="segmentation">Segmentation<a class="headerlink" href="#segmentation" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><code>readelf</code>可以打印所有的section header</p>
+<p>一个elf至少需要5个partition，.text, .data, .bss, heap, stack</p>
+</blockquote>
+<ul>
+<li>利用partition的概念实现了segmentation的机制</li>
+<li>
+<p>认为 text、data、stack 是多个区域，每个区域就可以用一个 partition 来代表它</p>
+</li>
+<li>
+<p><strong>Logical address</strong> consists of a pair:</p>
+</li>
+<li>
+<p><code>&lt;segment-number, offset&gt;</code></p>
+<p>segment-number 表示属于第几组。</p>
+</li>
+<li>
+<p>Offset is the address offset within the segment.</p>
+</li>
+<li>
+<p>现在硬件可以support八千多个segment</p>
+</li>
+<li>
+<p>Segment table where each entry has:</p>
+<ul>
+<li><strong>Base</strong>: starting physical address</li>
+<li><strong>Limit</strong>: length of segment</li>
+</ul>
+</li>
+<li>
+<p>一个segment只能有一种权限</p>
+</li>
+<li>
+<p>Segment Lookup</p>
+</li>
+</ul>
+<div align="center"><img src="https://cdn.hobbitqia.cc/20231116214418.png" alt="img" style="zoom: 38%;" /></div>
+
+<ul>
+<li>仍然存在external fragmentation</li>
+<li>早期Intel在x86实现了segmentation，一直保留到现在</li>
+</ul>
+<h2 id="address-binding">Address Binding<a class="headerlink" href="#address-binding" title="Permanent link">&para;</a></h2>
+<p>Address binding of instructions and data to memory addresses can happen at three different stages.</p>
+<ul>
+<li><strong>Compile time</strong>: If memory location known a priori, absolute code can be generated; must recompile code if starting location changes.</li>
+<li><strong>Load time</strong>: Must generate relocatable code if memory location is not known at compile time.</li>
+<li><strong>Execution time</strong>: Binding delayed until run time if the process can be moved during its execution from one memory segment to another.</li>
+<li>Need <strong>hardware support</strong></li>
+</ul>
+<div align="center"><img src="https://cdn.hobbitqia.cc/20231116215124.png" alt="img" style="zoom:43%;" /></div>
+
+<h3 id="logical-vs-physical-address">Logical vs. Physical Address<a class="headerlink" href="#logical-vs-physical-address" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>直接使用物理地址无法进行内存管理，因此需要使用逻辑地址</p>
+</li>
+<li>
+<p>逻辑地址由CPU生成，也被叫做virtual address</p>
+</li>
+<li>逻辑地址需要映射到物理地址来存储，逻辑地址只存在地址，而没有实际存储的space</li>
+<li>逻辑地址对应逻辑地址空间（Logical Address Space），物理地址对应物理地址空间（Physical Address Space）</li>
+</ul>
+<h2 id="memory-management-unit">Memory-Management Unit<a class="headerlink" href="#memory-management-unit" title="Permanent link">&para;</a></h2>
+<ul>
+<li>map logical address to physical address</li>
+<li>CPU uses logical addresses</li>
+<li>Memory unit uses physical address</li>
+<li>Like speaking “different languages”, MMU does the translation</li>
+</ul>
+<p>做地址的transition</p>
+<div align="center"><img src="https://cdn.hobbitqia.cc/20231116215910.png" alt="img" style="zoom: 33%;" /></div>
+
+<p>The base register now called <strong>relocation register</strong></p>
+<h2 id="paging">Paging<a class="headerlink" href="#paging" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Basic idea: contiguous -&gt; noncontiguous</li>
+<li>
+<p>Physical address space of a process can be <strong>noncontiguous</strong>; process is allocated physical memory whenever the latter is available.
+    Fixed 和 Variable 划分都是物理连续的分配，Paging 是把所有内存都变成不连续的，这样空闲的内存不管在哪，都可以分配给进程，避免了外部碎片。</p>
+</li>
+<li>
+<p>Basic methods</p>
+</li>
+<li>
+<p>divide <strong>physical</strong> address into fixed-sized blocks called <strong>frames</strong> (帧)</p>
+<ul>
+<li>Size is power of 2, usually 4KB.</li>
+</ul>
+</li>
+<li>
+<p>Divide <strong>logical</strong> address into blocks of same size called <strong>pages</strong>（页）</p>
+</li>
+<li>
+<p>注意以上两个名词的对应关系</p>
+</li>
+<li>
+<p>need to keep track of all free frames</p>
+</li>
+<li>
+<p>To run a program of size N pages, need to find N free frames and load program.</p>
+<p>把 N 个帧映射到 N 个页。（页和帧是一样大的）</p>
+</li>
+<li>
+<p>Set up a mapping to translate logical to physical addresses.</p>
+<ul>
+<li>This mapping is called <strong>page table</strong>.</li>
+</ul>
+<p>存储帧到页的映射，这个数据结构叫页表。</p>
+</li>
+<li>
+<p>Paging由于使用fixed，因此没有external fragmentation，只有<strong>internal fragmentation</strong></p>
+</li>
+<li>
+<p>只可能在最后一页存在fragmentation，因为前面的页都填满了才可能用到下一页</p>
+</li>
+<li>
+<p>因此：平均internal fragmentation是&frac12;的frame size</p>
+</li>
+<li>
+<p>页小，碎片少，但分的更碎，page table更大；页大，碎片更大但映射更少，页表更小。现在页逐渐更大，因为内存不值钱了，mac已经64KB了</p>
+</li>
+</ul>
+<h3 id="page-table">Page Table<a class="headerlink" href="#page-table" title="Permanent link">&para;</a></h3>
+<ul>
+<li>frame table: 一个bitmap，记录哪些frame空闲</li>
+</ul>
+<div align="center"><img src="https://cdn.hobbitqia.cc/20231117152200.png" alt="img" style="zoom: 33%;" /></div>
+
+<ul>
+<li>page table存的是物理地址的帧号，页号就是index</li>
+</ul>
+<h3 id="address-translation">Address Translation<a class="headerlink" href="#address-translation" title="Permanent link">&para;</a></h3>
+<p>A logical address is divided into:</p>
+<ul>
+<li>page number (p)</li>
+<li>used as an index into a page table</li>
+<li>page table entry contains the corresponding physical frame number</li>
+<li>page offset (d)</li>
+<li>offset within the page/frame</li>
+<li>combined with frame number to get the physical address</li>
+<li>把p对应到page table找到对应物理帧号，加上offset得到物理地址</li>
+</ul>
+<div align="center"><img src="https://cdn.hobbitqia.cc/20231117152534.png" alt="img" style="zoom: 33%;" />
+<img src="https://cdn.hobbitqia.cc/20231117152643.png" alt="img" style="zoom: 33%;" /></div>
+<h3 id="paging-hardware">Paging Hardware<a class="headerlink" href="#paging-hardware" title="Permanent link">&para;</a></h3>
+<p>Simplest Case: 使用register储存，速度快，但缺点是register数量有限，table size会很小，上下文切换需要存储和重新加载这些寄存器</p>
+<p>One big page table maps logical address to physical address</p>
+<ul>
+<li>
+<p>the page table should be kept in main memory</p>
+</li>
+<li>
+<p><strong>page-table base register (PTBR)</strong> points to the page table</p>
+</li>
+</ul>
+<p>PTBR 指向页表的起始地址。（RISC-V 上叫 SATP，ARM 上叫 TTBR，x86 上叫 CR3）</p>
+<ul>
+<li><strong>page-table length register (PTLR)</strong> indicates the size of the page table</li>
+</ul>
+<p>这样之后每次取数据/指令都需要两次memory access，第一次把页表读出来，第二次再根据页表去读数据</p>
+<ul>
+<li>Solution: 加一层cache  </li>
+</ul>
+<p>CPU can cache the translation to avoid one memory access </p>
+<h3 id="tlbtranslation-look-aside-buffer">TLB(Translation look-aside buffer)<a class="headerlink" href="#tlbtranslation-look-aside-buffer" title="Permanent link">&para;</a></h3>
+<ul>
+<li>TLB hit: if page number is in the TLB, no need to access the page table.</li>
+<li>TLB miss: if page number is not in the TLB, need to replace one TLB entry.</li>
+<li>TLB usually use a fast-lookup hardware cache called <strong>associative memory</strong></li>
+<li>TLB is usually small, 64 to 1024 entries</li>
+</ul>
+<p>每个进程有自己的页表，所以我们 context switch 时也要切换页表，要把 TLB 清空。</p>
+<p>TLB must be consistent with page table</p>
+<ul>
+<li>
+<p>Option I: Flush TLB at every context switch, or,</p>
+</li>
+<li>
+<p>Option II: Tag TLB entries with <strong>address-space identifier (ASID)</strong> that uniquely identifies a process.</p>
+</li>
+</ul>
+<p>通用的全局 entries 不刷掉，把进程独有的 entries 刷掉。</p>
+<ul>
+<li>TLB and OS</li>
+<li>MIPS: 操作系统层面处理TLB miss</li>
+<li>X86：硬件处理</li>
+</ul>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241106163658579.png" alt="image-20241106163658579" style="zoom: 33%;" /></div>
+
+<ul>
+<li>
+<p>A TLB entry match occurs when the following conditions are met:</p>
+</li>
+<li>
+<p>Its VA, moderated by the page size such as the VA bits[47:12], matches that of the requested address</p>
+</li>
+<li>
+<p>The memory space matches the memory space state of the requests</p>
+</li>
+<li>
+<p>The ASID matches the current ASID held in the CONTEXTIDR, TTBR0, or TTBR1 register or the entry is marked global</p>
+</li>
+<li>
+<p>The VMID matches the current VMID held in the VTTBR register</p>
+</li>
+</ul>
+<h3 id="effective-access-time">Effective Access Time<a class="headerlink" href="#effective-access-time" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Hit ratio</strong> – percentage of times that a page number is found in the TLB</p>
+</li>
+<li>
+<p>Effective Access Time (EAT)</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Example</strong></p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241106163844762.png" alt="image-20241106163844762" style="zoom:50%;" /></div></p>
+</blockquote>
+<h3 id="memory-protection">Memory Protection<a class="headerlink" href="#memory-protection" title="Permanent link">&para;</a></h3>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241106164648347.png" alt="image-20241106164648347" style="zoom: 33%;" /></div>
+
+<ul>
+<li>Each page table entry has a <strong>present</strong> (aka. valid) bit </li>
+<li>
+<p>present: the page has a valid physical frame, thus can be accessed</p>
+</li>
+<li>
+<p>Each page table entry contains some protection bits</p>
+</li>
+<li>
+<p><strong>kernel/user</strong>, <strong>read/write</strong>, <strong>execution</strong>?, <strong>kernel-execution</strong>?</p>
+</li>
+<li>
+<p>Any violations of memory protection result in a trap to the kernel</p>
+</li>
+<li>
+<p>XN: protecting code</p>
+</li>
+<li>
+<p>Segregate areas of memory for use by either storage of processor instructions (code) or for storage of data.</p>
+<p>代码无论在 user 还是 kernel 状态下都不能执行。</p>
+<p>e.g. Intel: XD(execute disable), AMD: EVP (enhanced virus protection), ARM: XN (execute never)</p>
+</li>
+<li>
+<p>PXN: Privileged Execute Never</p>
+</li>
+<li>
+<p>A Permission fault is generated if the processor is executing at EL1(kernel) and attempts to execute an instruction fetched from the corresponding memory region when this PXN bit is 1 (usually user space memory)</p>
+<p>在特权模式下不能执行。</p>
+</li>
+</ul>
+<h3 id="page-sharing">Page Sharing<a class="headerlink" href="#page-sharing" title="Permanent link">&para;</a></h3>
+<p>Paging allows to share memory between processes</p>
+<ul>
+<li>shared memory can be used for <em>inter-process communication</em></li>
+<li>
+<p>shared libraries</p>
+</li>
+<li>
+<p>Reentrant code: non-self-modifying code: never changes between execution</p>
+</li>
+</ul>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241106165347245.png" alt="image-20241106165347245" style="zoom: 37%;" /></div>
+
+<h2 id="structure-of-page-table">Structure of Page Table<a class="headerlink" href="#structure-of-page-table" title="Permanent link">&para;</a></h2>
+<p>Page table must be <strong>physically contiguous</strong>.</p>
+<p>如果只有一级的页表，那么页表所占用的内存很大。e.g. 32-bit logical address space and 4KB page size. page table would have 1 million entries (<span class="arithmatex">\(2^{32}\)</span> / <span class="arithmatex">\(2^{12}\)</span>). If each entry is 4 bytes -&gt; 4 MB of memory for page table alone.</p>
+<p>我们需要有方法压缩页表。</p>
+<ul>
+<li>Break up the logical address space into multiple-level of page tables. e.g. two-level page table</li>
+<li>First-level page table contains the frame# for second-level page tables.</li>
+</ul>
+<h3 id="two-level-paging">Two-Level Paging<a class="headerlink" href="#two-level-paging" title="Permanent link">&para;</a></h3>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241106171833632.png" alt="image-20241106171833632" style="zoom: 33%;" /></div>
+
+<p>最坏情况下，如果只访问第一个页和最后一页，那么只用一级页表需要 1K 个页用来放页表（这个页表有 <span class="arithmatex">\(2^{20}\)</span> 个条目），但是对于二级页表就只需要 3 个页表（1 个一级和 2 个二级页表），即 3 个页来放页表。 4MB -&gt; 12KB</p>
+<p>多级页表只有当需要时才会创建页表，从而做到省空间 hold</p>
+<p>A logical address is divided into:</p>
+<ul>
+<li>a <strong>page directory number</strong> (first level page table)</li>
+<li>a <strong>page table number</strong> (<span class="arithmatex">\(2^{nd}\)</span> level page table)</li>
+<li>a <strong>page offset</strong></li>
+</ul>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241106171934988.png" alt="image-20241106171934988" style="zoom: 33%;" /></div>
+
+<blockquote>
+<p>Example: 2-level paging in 32-bit Intel CPUs</p>
+<p>• 32-bit address space, 4KB page size</p>
+<p>• 10-bit page directory number, 10-bit page table number</p>
+<p>• each page table entry is 4 bytes, one frame contains 1024 entries (<span class="arithmatex">\(2^{10}\)</span>)</p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241106172044543.png" alt="image-20241106172044543" style="zoom: 50%;" /></div></p>
+<p>Page Table in Linux</p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241106173419199.png" alt="image-20241106173419199" style="zoom:60%;" /></div></p>
+</blockquote>
+<p>页表里存的都是物理地址（物理页号）</p>
+<h4 id="64-bit-logical-address-space">64-bit Logical Address Space<a class="headerlink" href="#64-bit-logical-address-space" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>页表仍然4KB，entry变成8B，因此page table每个可以存储512个entry，即<span class="arithmatex">\(2^9\)</span></p>
+</li>
+<li>
+<p>由于这时候离用完64位还差很多，因此我们可以不断添加level</p>
+</li>
+<li>
+<p>usually <strong>not support full 64-bit virtual address space</strong></p>
+</li>
+</ul>
+<p>• AMD-64 supports 48-bit</p>
+<p>• ARM64 supports 39-bit, 48-bit</p>
+<blockquote>
+<p>Implementation</p>
+<p>ARM64: 39=9+9+9+12</p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241106174221905.png" alt="image-20241106174221905" style="zoom:67%;" />
+<img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241106174414250.png" alt="image-20241106174414250" style="zoom: 60%;" /></div></p>
+</blockquote>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241106174705082.png" alt="image-20241106174705082" style="zoom:50%;" /></div>
+
+<ul>
+<li>PTE: 页表项（page table entry）</li>
+<li>PGD(Page Global Directory)</li>
+<li>P4D 没名字起了</li>
+<li>PUD(Page Upper Directory)</li>
+<li>PMD(Page Middle Directory)</li>
+</ul>
+<p>页表为什么可以省内存，如果次级页表对应的页都没有被使用，就不需要分配这个页表。</p>
+<h3 id="hashed-page-tables">Hashed Page Tables<a class="headerlink" href="#hashed-page-tables" title="Permanent link">&para;</a></h3>
+<p>In hashed page table, virtual page# is hashed into a frame#.</p>
+<ul>
+<li>
+<p>the page table contains a chain of elements hashing to the same location</p>
+</li>
+<li>
+<p>Each element contains: <strong>page#</strong>, <strong>frame#</strong>, and <strong>a pointer to the next element</strong> (resolving conflict)</p>
+</li>
+</ul>
+<p>哈希页表的每一个条目除了 page number 和 frame number 以外，还有一个指向有同一哈希值的下一个页表项的指针。这个结构与一般的哈希表是一致的。</p>
+<p>用链表处理冲突</p>
+<ul>
+<li>
+<p>Hashed page table can be used in address spaces &gt; 32 bits</p>
+</li>
+<li>
+<p><strong>Clustered page tables</strong></p>
+</li>
+<li>
+<p>Each entry refers to several pages</p>
+</li>
+</ul>
+<h3 id="inverted-page-table">Inverted Page Table<a class="headerlink" href="#inverted-page-table" title="Permanent link">&para;</a></h3>
+<ul>
+<li>tracks allocation of physical frame to a process</li>
+<li>page table的每个entry存process id和page#</li>
+</ul>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241112143538768.png" alt="image-20241112143538768" style="zoom: 33%;" /></div>
+
+<ul>
+<li>整个系统只有一个页表，并且每个物理内存的 frame 只有一条相应的条目 （对应的index）</li>
+<li>每次要遍历整个页表，效率低下</li>
+<li>how to implement shared memory?</li>
+<li>a physical frame can only be mapped into one process! </li>
+<li>Because one physical memory page cannot have multiple virtual page entry!</li>
+</ul>
+<h3 id="swapping">Swapping<a class="headerlink" href="#swapping" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Swapping</strong> extends physical memory with backing disks</li>
+<li>A process can be swapped temporarily out of memory to a backing store</li>
+<li>Backing store is usually a (fast) disk</li>
+<li>The process will be brought back into memory for continued execution</li>
+<li>Context switch time can become very high due to swapping</li>
+<li>If the next process to be run is not in memory, need to swap it in</li>
+<li>Disk I/O has high latency</li>
+</ul>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241112144321441.png" alt="image-20241112144321441" style="zoom: 33%;" /></div>
+
+<h4 id="swapping-with-paging">Swapping with Paging<a class="headerlink" href="#swapping-with-paging" title="Permanent link">&para;</a></h4>
+<ul>
+<li>swap pages instead of entire process</li>
+</ul>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241112144443058.png" alt="image-20241112144443058" style="zoom: 36%;" /></div>
+
+<h4 id="swapping-on-mobile-systems"><strong>Swapping on Mobile Systems</strong><a class="headerlink" href="#swapping-on-mobile-systems" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>一般不支持，比如U盘swapping有次数限制</p>
+</li>
+<li>
+<p>Instead use other methods to free memory if low</p>
+</li>
+<li>iOS <strong>asks</strong> apps to voluntarily relinquish allocated memory<ul>
+<li>Read-only data thrown out and reloaded from flash if needed</li>
+<li>Failure to free can result in termination</li>
+</ul>
+</li>
+<li>Android terminates apps if low free memory, but first writes <strong>application</strong> <strong>state</strong> to flash for fast restart</li>
+</ul>
+<h2 id="virtual-address-format">Virtual address format<a class="headerlink" href="#virtual-address-format" title="Permanent link">&para;</a></h2>
+<ul>
+<li>48-bit VA with 4KB page</li>
+</ul>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241112154410172.png" alt="image-20241112154410172" style="zoom:30%;" /></div>
+
+<ul>
+<li>48-bit VA with 64KB page</li>
+</ul>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241112154643739.png" alt="image-20241112154643739" style="zoom:50%;" /></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                 
+<!-- Giscus -->
+<h2 id="__comments">评论</h2>
+
+<!-- 这里改成你的Giscus代码 -->
+<script
+  src="https://giscus.app/client.js"
+  data-repo="norangehere/zju-learning"
+  data-repo-id="R_kgDOK6ACmw"
+  data-category="General"
+  data-category-id="DIC_kwDOK6ACm84CgcwH"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  crossorigin="anonymous"
+  async
+></script>
+
+<!-- Reload on palette change -->
+<script>
+  var palette = __md_get("__palette");
+  if (palette && typeof palette.color === "object")
+    if (palette.color.scheme === "slate") {
+      var giscus = document.querySelector("script[src*=giscus]");
+      giscus.setAttribute("data-theme", "dark");
+    }
+
+  /* Register event handlers after documented loaded */
+  document.addEventListener("DOMContentLoaded", function () {
+    var ref = document.querySelector("[data-md-component=palette]");
+    ref.addEventListener("change", function () {
+      var palette = __md_get("__palette");
+      if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light";
+
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame");
+        frame.contentWindow.postMessage(
+          { giscus: { setConfig: { theme } } },
+          "https://giscus.app"
+        );
+      }
+    });
+  });
+</script>
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 <a href="https://github.com/norangehere/zju-learning/"  target="_blank" rel="noopener">HobbitQia</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/norangehere/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+        <script src="../../js/baidu-tongji.js"></script>
+      
+        <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+      
+        <script src="../../js/katex.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
