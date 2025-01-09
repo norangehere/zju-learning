@@ -108,8 +108,8 @@ nav:
       - index.md
       # - 更新记录: changelog.md
       # - 友链: link.md
-  - Course:
-      - Computer Logic Design Fundamentals:
+  - System:
+      - 计算机逻辑设计基础:
           - CLDF/index.md
           - Logic and Digital System: CLDF/CLDF1.md
           - Combinational Logic Circuits: CLDF/CLDF2.md
@@ -118,14 +118,21 @@ nav:
           - Digital Hardware Implementation: CLDF/CLDF5.md
           - Registers & Register Transfers: CLDF/CLDF6.md
           - Memory Basics: CLDF/CLDF7.md
-      - Advanced Data Structures and Algorithm Analysis:
+      - 操作系统原理与实践:
+          - 
+  - Computer Science:
+      - 高级数据结构与算法分析:
           - ADS/index.md
           - Review: ADS/review.md
           - 错题: ADS/collection.md
-      - Machine Learning and Data Analysis:
+      - 理论计算机设计基础:
+      - 计算机图形学:
+          - 
+  - AI:
+      - 机器学习与数据分析:
           - MLDA/index.md
           - Note: MLDA/review.md
-      - Multi-Agent Reinforcement Learning:
+      - 多智能体强化学习:
           - MARL/index.md
           - 1 Dynamic Programming: MARL/Lec1.md
           - 2 Value Estimation: MARL/Lec2.md
@@ -135,3 +142,12 @@ nav:
           - 6 策略学习高级技巧与连续控制: MARL/Lec6.md
           - 7 MARL with Factored Value Functions: MARL/Lec7.md
           - 9 MARL with A-C: MARL/Lec9.md
+
+      - 机器学习:
+          - 
+      - 计算机视觉导论:
+          - 
+
+  - 杂项：
+        - OpenGL:
+            -
