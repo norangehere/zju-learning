@@ -119,15 +119,32 @@ nav:
           - Registers & Register Transfers: CLDF/CLDF6.md
           - Memory Basics: CLDF/CLDF7.md
       - 操作系统原理与实践:
-          - 
+          - OS/index.md
+          - Introduction: OS/os0.md
+          - OS Structures: OS/os1 OS Structures.md
+          - Processes: OS/os2 Processes.md
+          - Scheduling: OS/os3 Scheduling.md
+          - Inter-Process Communication: OS/os4 Inter-Process Communication.md
+          - Threads: OS/os5 Threads.md
+          - Synchronization: OS/os6 Synchronization.md
+          - Deadlock: OS/os7 Deadlock.md
+          - Main Memory: OS/os8 Main Memory.md
+          - Virtual Memory: OS/os9 Virtual Memory.md
+          - Mass-Storage Structure: OS/os10 Mass-Storage Structure.md
+          - IO Systems: OS/os11 IO Systems.md
+          - File System Interface: OS/os12 File System Interface.md
+          - File System Implementation: OS/os13 File System Implementation.md
+          - Security and Protection: OS/os14 Security and Protection.md
   - Computer Science:
       - 高级数据结构与算法分析:
           - ADS/index.md
           - Review: ADS/review.md
           - 错题: ADS/collection.md
       - 理论计算机设计基础:
+          - TCS/index.md
       - 计算机图形学:
-          - 
+          - CG/index.md
+
   - AI:
       - 机器学习与数据分析:
           - MLDA/index.md
@@ -144,10 +161,9 @@ nav:
           - 9 MARL with A-C: MARL/Lec9.md
 
       - 机器学习:
-          - 
+          - ML/index.md
       - 计算机视觉导论:
-          - 
+          - CV/index.md
 
   - 杂项：
-        - OpenGL:
-            -
+        
