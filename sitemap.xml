@@ -26,6 +26,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://norangehere.github.io/zju-learning/CG/course/</loc>
+         <lastmod>2025-01-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://norangehere.github.io/zju-learning/CLDF/</loc>
          <lastmod>2025-01-09</lastmod>
          <changefreq>daily</changefreq>
@@ -207,6 +212,11 @@
     </url>
     <url>
          <loc>https://norangehere.github.io/zju-learning/OS/os9%20Virtual%20Memory/</loc>
+         <lastmod>2025-01-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://norangehere.github.io/zju-learning/OpenGL/learnopengl/</loc>
          <lastmod>2025-01-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
