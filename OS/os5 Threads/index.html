@@ -999,6 +999,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#threading-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Threading Issues
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-threads" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux Threads
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2149,6 +2167,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#threading-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Threading Issues
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-threads" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux Threads
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2263,102 +2299,116 @@
 </li>
 <li>缺点：内核只有一个线程，无法发挥 multi-core 的优势；一旦一个线程被阻塞，其他线程也会被阻塞。</li>
 </ul>
-<div align="center"><img src="https://cdn.hobbitqia.cc/20231031103409.png" alt="img" style="zoom:33%;" />
+<div align="center"><img src="https://cdn.hobbitqia.cc/20231031103409.png" alt="img" style="zoom:33%;" /></div>
 
-- One-to-One Model
+<ul>
+<li>One-to-One Model</li>
+</ul>
+<p>把线程的管理变得很简单，管理很简洁，现在 Linux，Windows 都是这种模型。硬件便宜了</p>
+<p>缺点：<strong>overhead</strong>大</p>
+<div align="center"><img src="https://cdn.hobbitqia.cc/20231031103523.png" alt="img" style="zoom:33%;" /></div>
 
-  把线程的管理变得很简单，管理很简洁，现在 Linux，Windows 都是这种模型。硬件便宜了
+<ul>
+<li>Many-to-Many Model</li>
+</ul>
+<p>m to n 线程，折中。缺点是太复杂。</p>
+<div align="center"><img src="https://cdn.hobbitqia.cc/20231031103647.png" alt="img" style="zoom:33%;" /></div>
 
-  缺点：**overhead**大
+<ul>
+<li>Two-Level Model</li>
+</ul>
+<p>可以选择 many to many 或者 one to one。</p>
+<div align="center"><img src="https://cdn.hobbitqia.cc/20231031103741.png" alt="img" style="zoom:33%;" /></div>
 
-  <div align="center"><img src="https://cdn.hobbitqia.cc/20231031103523.png" alt="img" style="zoom:33%;" />
-
-- Many-to-Many Model
-
-  m to n 线程，折中。缺点是太复杂。
-
-  <div align="center"><img src="https://cdn.hobbitqia.cc/20231031103647.png" alt="img" style="zoom:33%;" />
-
-- Two-Level Model
-
-可以选择 many to many 或者 one to one。
-
-<div align="center"><img src="https://cdn.hobbitqia.cc/20231031103741.png" alt="img" style="zoom:33%;" />
-
-1. implementation
-
-   - Java Threads / Kernel Threads: In modern JVMs, application threads are *mapped* to kernel threads
-
-     <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241022134950935.png" alt="image-20241022134950935" style="zoom:50%;" /></div>
-
-## Threading Issues
-
-1. Semantics of `fork()` and `exec()`
-
-如果一个线程调用了 `fork()`，可能发生两种情况：只复制调用线程，或者复制所有线程。
-
-Some OSes provide both options. In Linux the first option above is used
-
-因为大部分时候 `fork` 之后会接 `exec`，抹掉所有的数据，因此直接复制调用线程就可以了。
-
-2. Signals
-
-- multiple options: signal给调用线程/所有线程/certain线程/指定一个线程接收所有signal
-
-- Linux实现：提供多个接口自己选 dealing with threads and signals is tricky but well understood with many tutorials on the matter and man pages
-
-
-3. Safe Thread Cancellation
-
-- 可能出现问题：取消了一个正在工作的线程
-- two approach
-  - Asynchronous cancellation：立即终止
-    - problem: 可能会导致inconsistent state或synchronization problem，Absolutely terrible bugs lurking in the shadows
-  - Deferred cancellation: A thread periodically checks whether it should terminate 线程会自己进行周期性检查，如果取消掉不会影响系统的稳定性，就把自己取消掉。
-    - problem: the code is cumbersome due to multiple cancellation points
-- Invoking thread cancellation requests cancellation, but actual cancellation depends on thread state
-
+<ol>
+<li>implementation</li>
+</ol>
+<ul>
+<li>
+<p>Java Threads / Kernel Threads: In modern JVMs, application threads are <em>mapped</em> to kernel threads</p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241022134950935.png" alt="image-20241022134950935" style="zoom:50%;" /></div></p>
+</li>
+</ul>
+<h2 id="threading-issues">Threading Issues<a class="headerlink" href="#threading-issues" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Semantics of <code>fork()</code> and <code>exec()</code></li>
+</ol>
+<p>如果一个线程调用了 <code>fork()</code>，可能发生两种情况：只复制调用线程，或者复制所有线程。</p>
+<p>Some OSes provide both options. In Linux the first option above is used</p>
+<p>因为大部分时候 <code>fork</code> 之后会接 <code>exec</code>，抹掉所有的数据，因此直接复制调用线程就可以了。</p>
+<ol start="2">
+<li>Signals</li>
+</ol>
+<ul>
+<li>
+<p>multiple options: signal给调用线程/所有线程/certain线程/指定一个线程接收所有signal</p>
+</li>
+<li>
+<p>Linux实现：提供多个接口自己选 dealing with threads and signals is tricky but well understood with many tutorials on the matter and man pages</p>
+</li>
+</ul>
+<ol start="3">
+<li>Safe Thread Cancellation</li>
+</ol>
+<ul>
+<li>可能出现问题：取消了一个正在工作的线程</li>
+<li>two approach</li>
+<li>Asynchronous cancellation：立即终止<ul>
+<li>problem: 可能会导致inconsistent state或synchronization problem，Absolutely terrible bugs lurking in the shadows</li>
+</ul>
+</li>
+<li>Deferred cancellation: A thread periodically checks whether it should terminate 线程会自己进行周期性检查，如果取消掉不会影响系统的稳定性，就把自己取消掉。<ul>
+<li>problem: the code is cumbersome due to multiple cancellation points</li>
+</ul>
+</li>
+<li>Invoking thread cancellation requests cancellation, but actual cancellation depends on thread state</li>
+</ul>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241022135606658.png" alt="image-20241022135606658" style="zoom: 33%;" /></div>
 
-## Linux Threads
-
-In Linux, a thread is also called a light-weight process (LWP)
-
-The `clone()` syscall is used to create a thread or a process
-
+<h2 id="linux-threads">Linux Threads<a class="headerlink" href="#linux-threads" title="Permanent link">&para;</a></h2>
+<p>In Linux, a thread is also called a light-weight process (LWP)</p>
+<p>The <code>clone()</code> syscall is used to create a thread or a process</p>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241022141424657.png" alt="image-20241022141424657" style="zoom: 67%;" /></div>
 
-TCB 用来存储线程的信息，Linux 并不区分 PCB 和 TCB，都是用 `task_struct` 来表示。
-
-- single-threaded process vs multi-threaded process.
-  - 共享内容：通过指针指对应结构体
-
+<p>TCB 用来存储线程的信息，Linux 并不区分 PCB 和 TCB，都是用 <code>task_struct</code> 来表示。</p>
+<ul>
+<li>single-threaded process vs multi-threaded process.</li>
+<li>共享内容：通过指针指对应结构体</li>
+</ul>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241022142033544.png" alt="image-20241022142033544" style="zoom: 33%;" /></div>
 
-- PID 如果和 LWP 相同，说明这个进程只有这一个线程。如果不相同，说明进程有多个线程，此时进程的 PID 是主线程的 LWP。
-
+<ul>
+<li>PID 如果和 LWP 相同，说明这个进程只有这一个线程。如果不相同，说明进程有多个线程，此时进程的 PID 是主线程的 LWP。</li>
+</ul>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241022142808428.png" alt="image-20241022142808428" style="zoom:45%;" /></div>
 
-- A process is
-  - either a single thread + an address space, PID is thread ID
-  - or multiple threads + an address space, PID is the leading thread ID
-
-- Threads with Process – What is shared
-  - `mm_struct` is shared, `task_struct`, `pid`, `stack` and `comm` are not shared.
-
+<ul>
+<li>A process is</li>
+<li>either a single thread + an address space, PID is thread ID</li>
+<li>
+<p>or multiple threads + an address space, PID is the leading thread ID</p>
+</li>
+<li>
+<p>Threads with Process – What is shared</p>
+</li>
+<li><code>mm_struct</code> is shared, <code>task_struct</code>, <code>pid</code>, <code>stack</code> and <code>comm</code> are not shared.</li>
+</ul>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241022142625695.png" alt="image-20241022142625695" style="zoom: 67%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241022142630493.png" alt="image-20241022142630493" style="zoom:50%;" /></div>
 
-- One task in Linux
-  - Same task_struct (PCB) means same thread
-    - One user thread maps to one kernel thread
-    - But actually, they are the same thread
-  - Can be executed in user space: User code, user space stack
-  - Can be executed in kernel space: Kernel code, kernel space stack
-
-例如我们使用了一个系统调用，线程切换到内核模式，相当于是用户线程对应的内核线程在执行，此时就使用内核空间的栈。
-
-- example
-
+<ul>
+<li>One task in Linux</li>
+<li>Same task_struct (PCB) means same thread<ul>
+<li>One user thread maps to one kernel thread</li>
+<li>But actually, they are the same thread</li>
+</ul>
+</li>
+<li>Can be executed in user space: User code, user space stack</li>
+<li>Can be executed in kernel space: Kernel code, kernel space stack</li>
+</ul>
+<p>例如我们使用了一个系统调用，线程切换到内核模式，相当于是用户线程对应的内核线程在执行，此时就使用内核空间的栈。</p>
+<ul>
+<li>example</li>
+</ul>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241022144552903.png" alt="image-20241022144552903" style="zoom:50%;" /></div>
 
 
