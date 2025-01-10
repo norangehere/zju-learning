@@ -56,6 +56,8 @@
     
       <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
       <link rel="stylesheet" href="../../css/custom.css">
     
       <link rel="stylesheet" href="../../css/card.css">
@@ -2492,9 +2494,9 @@ x^{\prime}=ax+by+c\newline y^{\prime}=dx+ey+f
 <ul>
 <li>solving for homographies</li>
 </ul>
-<div class="arithmatex">\[ x_i'\left(h_{20}x_i+h_{21}y_i+h_{22}\right)=h_{00}x_i+h_{01}y_i+h_{02} $$
-$$ y_i'\left(h_{20}x_i+h_{21}y_i+h_{22}\right)=h_{10}x_i+h_{11}y_i+h_{12} $$
-$$
+<div class="arithmatex">\[ x_i'\left(h_{20}x_i+h_{21}y_i+h_{22}\right)=h_{00}x_i+h_{01}y_i+h_{02} \]</div>
+<div class="arithmatex">\[ y_i'\left(h_{20}x_i+h_{21}y_i+h_{22}\right)=h_{10}x_i+h_{11}y_i+h_{12} \]</div>
+<div class="arithmatex">\[
 \left[\begin{array}{cccccccc}x_i&amp;y_i&amp;1&amp;0&amp;0&amp;0&amp;-x_i'x_i&amp;-x_i'y_i&amp;-x_i'\newline 0&amp;0&amp;0&amp;x_i&amp;y_i&amp;1&amp;-y_i'x_i&amp;-y_i'y_i&amp;-y_i'\end{array}\right]\left[\begin{array}{c}h_{00}\newline h_{01}\newline h_{02}\newline h_{10}\newline h_{11}\newline h_{12}\newline h_{20}\newline h_{21}\newline h_{22}\end{array}\right]=\left[\begin{array}{c}0\newline 0\end{array}\right]
 \]</div>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241024111843669.png" alt="image-20241024111843669" style="zoom:50%;" /></div>
@@ -2673,6 +2675,10 @@ $$
         <script src="../../js/baidu-tongji.js"></script>
       
         <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
         <script src="../../js/katex.js"></script>
       

@@ -56,6 +56,8 @@
     
       <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
       <link rel="stylesheet" href="../../css/custom.css">
     
       <link rel="stylesheet" href="../../css/card.css">
@@ -2570,30 +2572,33 @@
 </li>
 </ul>
 <ol start="3">
+<li>Key idea:</li>
+</ol>
+<ul>
+<li>Exposure bracketing: Capture multiple LDR images at different exposures</li>
+<li>Merging: Combine them into a single HDR image</li>
+</ul>
+<ol start="4">
 <li>
-<p>Key idea:</p>
+<p>Image formation model: Suppose scene radiance for image pixel <span class="arithmatex">\((x,y)\)</span> is <span class="arithmatex">\(L(x,y)\)</span>. For image I, <span class="arithmatex">\(I(x,y)=clip[t_i\cdot L(x,y)+noise]\)</span></p>
 </li>
 <li>
-<p>Exposure bracketing: Capture multiple LDR images at different exposures</p>
-</li>
-<li>
-<p>Merging: Combine them into a single HDR image</p>
-</li>
-<li>
-<p>Image formation model: Suppose scene radiance for image pixel <span class="arithmatex">\((x,y)\)</span> is <span class="arithmatex">\(L(x,y)\)</span></p>
+<p>Merging images: For each pixel:</p>
 </li>
 </ol>
-<p>For image I, <span class="arithmatex">\(I(x,y)=clip[t_i\cdot L(x,y)+noise]\)</span></p>
-<ol start="5">
-<li>Merging images: For each pixel:</li>
+<ul>
 <li>Find “valid” pixels in each image</li>
 <li>Weight valid pixel values appropriately</li>
-<li>Form a new pixel value as the weighted average of valid pixel values</li>
-<li>Display the HDR image: 虽然说merge后的图片动态范围很大，但是显示屏等设备可以显示的依然只有8-bit，这样想表示出很好的亮部细节和暗部细节，就会使得整个图片偏暗,为了解决这个问题，我们就需要Tone Mapping来建立一个HDR到LDR的转换公式</li>
-<li>Tone Mapping
-   - 线性 <span class="arithmatex">\(X\rightarrow\alpha X\)</span>
-   - 非线性(gamma compression) <span class="arithmatex">\(X\rightarrow\alpha X^\gamma\)</span> <span class="arithmatex">\(\gamma\)</span>大于1更暗，小于1更亮。这一方法集成在不同的相机里了，也可以后期调，但是要存成log</li>
-</ol>
+<li>
+<p>Form a new pixel value as the weighted average of valid pixel values
+6. Display the HDR image: 虽然说merge后的图片动态范围很大，但是显示屏等设备可以显示的依然只有8-bit，这样想表示出很好的亮部细节和暗部细节，就会使得整个图片偏暗,为了解决这个问题，我们就需要Tone Mapping来建立一个HDR到LDR的转换公式
+7. Tone Mapping</p>
+</li>
+<li>
+<p>线性 <span class="arithmatex">\(X\rightarrow\alpha X\)</span></p>
+</li>
+<li>非线性(gamma compression) <span class="arithmatex">\(X\rightarrow\alpha X^\gamma\)</span> <span class="arithmatex">\(\gamma\)</span>大于1更暗，小于1更亮。这一方法集成在不同的相机里了，也可以后期调，但是要存成log</li>
+</ul>
 <h2 id="deblurring">Deblurring<a class="headerlink" href="#deblurring" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
@@ -2943,6 +2948,10 @@ $$</p>
         <script src="../../js/baidu-tongji.js"></script>
       
         <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
         <script src="../../js/katex.js"></script>
       
