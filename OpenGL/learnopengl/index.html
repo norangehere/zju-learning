@@ -2926,9 +2926,7 @@
 <ol start="4">
 <li>
 <p>LookAt矩阵：注意，位置向量P是相反的，因为我们最终希望把世界平移到与我们自身移动的相反方向</p>
-<div class="arithmatex">\[  
-    LookAt = \begin{bmatrix} \color{red}{R_x} &amp; \color{red}{R_y} &amp; \color{red}{R_z} &amp; 0 \\ \color{green}{U_x} &amp; \color{green}{U_y} &amp; \color{green}{U_z} &amp; 0 \\ \color{blue}{D_x} &amp; \color{blue}{D_y} &amp; \color{blue}{D_z} &amp; 0 \\ 0 &amp; 0 &amp; 0  &amp; 1 \end{bmatrix} * \begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; -\color{purple}{P_x} \\ 0 &amp; 1 &amp; 0 &amp; -\color{purple}{P_y} \\ 0 &amp; 0 &amp; 1 &amp; -\color{purple}{P_z} \\ 0 &amp; 0 &amp; 0  &amp; 1 \end{bmatrix}  
-\]</div>
+<div class="arithmatex">\[  LookAt = \begin{bmatrix} \color{red}{R_x} &amp; \color{red}{R_y} &amp; \color{red}{R_z} &amp; 0 \\ \color{green}{U_x} &amp; \color{green}{U_y} &amp; \color{green}{U_z} &amp; 0 \\ \color{blue}{D_x} &amp; \color{blue}{D_y} &amp; \color{blue}{D_z} &amp; 0 \\ 0 &amp; 0 &amp; 0  &amp; 1 \end{bmatrix} * \begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; -\color{purple}{P_x} \\ 0 &amp; 1 &amp; 0 &amp; -\color{purple}{P_y} \\ 0 &amp; 0 &amp; 1 &amp; -\color{purple}{P_z} \\ 0 &amp; 0 &amp; 0  &amp; 1 \end{bmatrix} \]</div>
 </li>
 <li>
 <p>我们要做的只是定义一个摄像机位置，一个目标位置和一个表示世界空间中的上向量的向量</p>

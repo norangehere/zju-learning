@@ -1144,8 +1144,86 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#smp-irq-affinity" class="md-nav__link">
+    <span class="md-ellipsis">
+      SMP IRQ Affinity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direct-memory-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Direct Memory Access
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-io-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application I/O Interface
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kernel-io-subsystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kernel I/O Subsystem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#io-requests-to-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      I/O Requests to Hardware
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#improve-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Improve Performance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux IO
+    </span>
+  </a>
   
 </li>
       
@@ -2192,8 +2270,86 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#smp-irq-affinity" class="md-nav__link">
+    <span class="md-ellipsis">
+      SMP IRQ Affinity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direct-memory-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Direct Memory Access
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-io-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application I/O Interface
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kernel-io-subsystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kernel I/O Subsystem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#io-requests-to-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      I/O Requests to Hardware
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#improve-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Improve Performance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux IO
+    </span>
+  </a>
   
 </li>
       
@@ -2305,140 +2461,164 @@ busywait 需要锁，会 sleep。所以如果设备很快那么轮询是合理�
 <ul>
 <li>下图虚线中CPU在执行其他线程</li>
 </ul>
-<div align="center"><img src="https://cdn.hobbitqia.cc/20231215162531.png" alt="img" style="zoom: 33%;" />
+<div align="center"><img src="https://cdn.hobbitqia.cc/20231215162531.png" alt="img" style="zoom: 33%;" /></div>
 
-- Interrupt is also used for exceptions
-  - protection error for access violation
-  - page fault for memory access error
-  - software interrupt for system calls
-- Multi-CPU systems can process interrupts concurrently
-  - sometimes a CPU may be dedicated to handle interrupts
-  - interrupts can also have CPU affinity
-
-### SMP IRQ Affinity
-
-- It allows you to restrict or repartition the work load that you server must do so that it can more efficiently do it's job.
-  - "balance" out multiple NiCs in a multi-processor machine. By tying a single NIC to a single CPU, you should be able to scale the amount of traffic your server can handle nicely.
-
-### Direct Memory Access
-
-**DMA** transfer data directly between I/O device and memory.
-
-GPU/NPU/TPU等XPU 访问内存也算 DMA，只要不经过 CPU 就算。
-
-- device driver在CPU上跑，所有的controller都是在设备上跑的
-- 第2步使用syscall ioctl
-
+<ul>
+<li>Interrupt is also used for exceptions</li>
+<li>protection error for access violation</li>
+<li>page fault for memory access error</li>
+<li>software interrupt for system calls</li>
+<li>Multi-CPU systems can process interrupts concurrently</li>
+<li>sometimes a CPU may be dedicated to handle interrupts</li>
+<li>interrupts can also have CPU affinity</li>
+</ul>
+<h3 id="smp-irq-affinity">SMP IRQ Affinity<a class="headerlink" href="#smp-irq-affinity" title="Permanent link">&para;</a></h3>
+<ul>
+<li>It allows you to restrict or repartition the work load that you server must do so that it can more efficiently do it's job.</li>
+<li>"balance" out multiple NiCs in a multi-processor machine. By tying a single NIC to a single CPU, you should be able to scale the amount of traffic your server can handle nicely.</li>
+</ul>
+<h3 id="direct-memory-access">Direct Memory Access<a class="headerlink" href="#direct-memory-access" title="Permanent link">&para;</a></h3>
+<p><strong>DMA</strong> transfer data directly between I/O device and memory.</p>
+<p>GPU/NPU/TPU等XPU 访问内存也算 DMA，只要不经过 CPU 就算。</p>
+<ul>
+<li>device driver在CPU上跑，所有的controller都是在设备上跑的</li>
+<li>第2步使用syscall ioctl</li>
+</ul>
 <div align="center"><img src="https://cdn.hobbitqia.cc/20231215163421.png" alt="img" style="zoom: 33%;" /></div>
 
-## Application I/O Interface
-
-I/O **system calls** encapsulate(封装) device behaviors in generic classes.
-
-- in Linux, devices can be accessed as **files**; low-level access with **`ioctl`**.
-
-  抽象成file，因为read和write的第一个参数是fd，这样所有内容都可以用read和write读了
-
-Device-driver layer hides differences among I/O controllers from kernel.
-
+<h2 id="application-io-interface">Application I/O Interface<a class="headerlink" href="#application-io-interface" title="Permanent link">&para;</a></h2>
+<p>I/O <strong>system calls</strong> encapsulate(封装) device behaviors in generic classes.</p>
+<ul>
+<li>in Linux, devices can be accessed as <strong>files</strong>; low-level access with <strong><code>ioctl</code></strong>.</li>
+</ul>
+<p>抽象成file，因为read和write的第一个参数是fd，这样所有内容都可以用read和write读了</p>
+<p>Device-driver layer hides differences among I/O controllers from kernel.</p>
 <div align="center"><img src="https://cdn.hobbitqia.cc/20231215163648.png" alt="img" style="zoom:33%;" /></div>
 
-Devices vary in many dimensions
-
+<p>Devices vary in many dimensions</p>
 <div align="center"><img src="https://cdn.hobbitqia.cc/20231215163807.png" alt="img" style="zoom:33%;" /></div>
 
-设备可以被大致分为：
-
-- Block and Character Devices
-
-  以块为单位访问数据。支持 read, write, seek 操作。可以通过内存映射访问，也有 DMA。
-
-  其中 character I/O 指逐个字节传输（Stream）。
-
-- Network Devices: **socket**
-
-- Clocks and Timers: provide current time, elapsed time, timer.
-
-- memory-mapped file access
-
-Synchronous/Asynchronous I/O
-
-- **Synchronous I/O** includes blocking and non-blocking I/o
-
-  -  **blocking I/O**: process suspended until I/O completed
-
-  -  **non-blocking I/O**: I/O calls return **as much data as available**
-
--  **Asynchronous I/O**: process runs while I/O executes, 
-
-  -  I/O subsystem signals process when I/O completed via signal or callback
-
-## Kernel I/O Subsystem
-
-- I/O scheduling
-
-- Buffering - store data in memory while transferring between devices.
-
-- Caching: hold a copy of data for fast access.
-
-- Spooling: A spool is a buffer that holds the output (device’s input) if device can serve only one request at a time.
-
-- Device reservation: provides exclusive access to a device.
-
-- OS needs to protect I/O devices.
-
-  - keystrokes can be stolen by a keylogger if keyboard is not protected
-
-    通过键盘输入获取密码
-
-- to protect I/O devices
-
-  - define all I/O instructions to be privileged
-    - I/O must be performed via system calls
-  - memory-mapped I/O and I/O ports must be protected too
-
-- kernel data structures
-  - Kernel keeps state info for I/O components
-    - e.g., open file tables, network connections, character device state
-  - Some OS uses message passing to implement I/O, e.g., Windows
-    - message with I/O information passed from user mode into kernel
-    - message modified as it flows through to device driver and back to process
-
+<p>设备可以被大致分为：</p>
+<ul>
+<li>Block and Character Devices</li>
+</ul>
+<p>以块为单位访问数据。支持 read, write, seek 操作。可以通过内存映射访问，也有 DMA。</p>
+<p>其中 character I/O 指逐个字节传输（Stream）。</p>
+<ul>
+<li>
+<p>Network Devices: <strong>socket</strong></p>
+</li>
+<li>
+<p>Clocks and Timers: provide current time, elapsed time, timer.</p>
+</li>
+<li>
+<p>memory-mapped file access</p>
+</li>
+</ul>
+<p>Synchronous/Asynchronous I/O</p>
+<ul>
+<li>
+<p><strong>Synchronous I/O</strong> includes blocking and non-blocking I/o</p>
+</li>
+<li>
+<p><strong>blocking I/O</strong>: process suspended until I/O completed</p>
+</li>
+<li>
+<p><strong>non-blocking I/O</strong>: I/O calls return <strong>as much data as available</strong></p>
+</li>
+<li>
+<p><strong>Asynchronous I/O</strong>: process runs while I/O executes, </p>
+</li>
+<li>
+<p>I/O subsystem signals process when I/O completed via signal or callback</p>
+</li>
+</ul>
+<h2 id="kernel-io-subsystem">Kernel I/O Subsystem<a class="headerlink" href="#kernel-io-subsystem" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>I/O scheduling</p>
+</li>
+<li>
+<p>Buffering - store data in memory while transferring between devices.</p>
+</li>
+<li>
+<p>Caching: hold a copy of data for fast access.</p>
+</li>
+<li>
+<p>Spooling: A spool is a buffer that holds the output (device’s input) if device can serve only one request at a time.</p>
+</li>
+<li>
+<p>Device reservation: provides exclusive access to a device.</p>
+</li>
+<li>
+<p>OS needs to protect I/O devices.</p>
+</li>
+<li>
+<p>keystrokes can be stolen by a keylogger if keyboard is not protected</p>
+<p>通过键盘输入获取密码</p>
+</li>
+<li>
+<p>to protect I/O devices</p>
+</li>
+<li>
+<p>define all I/O instructions to be privileged</p>
+<ul>
+<li>I/O must be performed via system calls</li>
+</ul>
+</li>
+<li>
+<p>memory-mapped I/O and I/O ports must be protected too</p>
+</li>
+<li>
+<p>kernel data structures</p>
+</li>
+<li>Kernel keeps state info for I/O components<ul>
+<li>e.g., open file tables, network connections, character device state</li>
+</ul>
+</li>
+<li>Some OS uses message passing to implement I/O, e.g., Windows<ul>
+<li>message with I/O information passed from user mode into kernel</li>
+<li>message modified as it flows through to device driver and back to process</li>
+</ul>
+</li>
+</ul>
 <div align="center"><img src="https://cdn.hobbitqia.cc/20231215164252.png" alt="img" style="zoom: 33%;" /></div>
 
-## I/O Requests to Hardware
+<h2 id="io-requests-to-hardware">I/O Requests to Hardware<a class="headerlink" href="#io-requests-to-hardware" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>System resource</strong> access needs to be mapped to hardware</li>
+</ul>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241204162651181.png" alt="image-20241204162651181" style="zoom: 25%;" /></div>
 
-- **System resource** access needs to be mapped to hardware
+<h2 id="performance">Performance<a class="headerlink" href="#performance" title="Permanent link">&para;</a></h2>
+<p>I/O is a major factor in system performance</p>
+<p>比如磁盘很慢，开机很耗时间</p>
+<h3 id="improve-performance">Improve Performance<a class="headerlink" href="#improve-performance" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Reduce number of context switches</li>
+<li>Reduce data copying</li>
+<li>Reduce interrupts by using large transfers, smart controllers, polling</li>
+<li>Use DMA</li>
+<li>Use smarter hardware devices</li>
+<li>Balance CPU, memory, bus, and I/O performance for highest throughput</li>
+<li>Move user-mode processes / daemons to kernel threads</li>
+</ul>
+<h2 id="linux-io">Linux IO<a class="headerlink" href="#linux-io" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Device initialization 需要先注册，注册的时候会把设备对应正确的读写操作的函数也给初始化</li>
+</ol>
+<ul>
+<li>/dev/tty<ul>
+<li>tty_init</li>
+<li>create /dev/tty file</li>
+</ul>
+</li>
+</ul>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241204163150625.png" alt="image-20241204163150625" style="zoom: 33%;" /></div>
 
-  <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241204162651181.png" alt="image-20241204162651181" style="zoom: 25%;" /></div>
-
-## Performance
-
-I/O is a major factor in system performance
-
-比如磁盘很慢，开机很耗时间
-
-### Improve Performance
-
-- Reduce number of context switches
-- Reduce data copying
-- Reduce interrupts by using large transfers, smart controllers, polling
-- Use DMA
-- Use smarter hardware devices
-- Balance CPU, memory, bus, and I/O performance for highest throughput
-- Move user-mode processes / daemons to kernel threads
-
-## Linux IO 
-
-1. Device initialization 需要先注册，注册的时候会把设备对应正确的读写操作的函数也给初始化
-
-   - /dev/tty
-     - tty_init
-     - create /dev/tty file
-
-   <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241204163150625.png" alt="image-20241204163150625" style="zoom: 33%;" /></div>
-
-2. Device write: Write (echo) to the file reach vfs_write, which eventually calls tty_write
+<ol start="2">
+<li>Device write: Write (echo) to the file reach vfs_write, which eventually calls tty_write</li>
+</ol>
 
 
 
