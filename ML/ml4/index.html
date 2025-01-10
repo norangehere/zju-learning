@@ -2999,14 +2999,14 @@
 <li>类似有：</li>
 </ul>
 <p>$$
-  \begin{aligned}&amp;\min_{\boldsymbol{w},b} \frac{1}{2} |\boldsymbol{w}|^{2}\&amp;\mathrm{s.t.} y_{i}(\boldsymbol{w}^{\mathrm{T}}\phi(\boldsymbol{x}_{i})+b)\geqslant1,\quad i=1,2,\ldots,m.\end{aligned}
+  \begin{aligned}&amp;\min_{\boldsymbol{w},b} \frac{1}{2} |\boldsymbol{w}|^{2}\newline &amp;\mathrm{s.t.} y_{i}(\boldsymbol{w}^{\mathrm{T}}\phi(\boldsymbol{x}_{i})+b)\geqslant1,\quad i=1,2,\ldots,m.\end{aligned}
   $$</p>
 <ul>
 <li>对偶问题是</li>
 </ul>
 <p>$$
-  \max_{\alpha}\quad\sum_{i=1}^{m}\alpha_{i}-\frac{1}{2} \sum_{i=1}^{m}\sum_{j=1}^{m}\alpha_{i}\alpha_{j}y_{i}y_{j}\phi(\boldsymbol{x}<em j="j">{i})^{\mathrm{T}}\phi(\boldsymbol{x}</em>) \
-  \begin{aligned}\mathrm{s.t.}&amp;\sum_{i=1}^{m}\alpha_{i}y_{i}=0 ,\&amp;\alpha_{i}\geqslant0 ,\quad i=1,2,\ldots,m .\end{aligned}
+  \max_{\alpha}\quad\sum_{i=1}^{m}\alpha_{i}-\frac{1}{2} \sum_{i=1}^{m}\sum_{j=1}^{m}\alpha_{i}\alpha_{j}y_{i}y_{j}\phi(\boldsymbol{x}<em j="j">{i})^{\mathrm{T}}\phi(\boldsymbol{x}</em>) \newline 
+  \begin{aligned}\mathrm{s.t.}&amp;\sum_{i=1}^{m}\alpha_{i}y_{i}=0 ,\newline &amp;\alpha_{i}\geqslant0 ,\quad i=1,2,\ldots,m .\end{aligned}
   $$</p>
 <ul>
 <li>求解上式可能比较复杂，可以设想</li>
@@ -3018,7 +3018,7 @@
 <li>
 <p>即<span class="arithmatex">\(x_i\)</span>与<span class="arithmatex">\(x_j\)</span>在特征空间的内积等于它们在原始样本空间中通过函数<span class="arithmatex">\(\kappa(\cdot,\cdot)\)</span>计算的结果<strong>(称为kernel trick)</strong>，有了这样的函数。我们就不必直接去计算高维其至无穷维特征空间中的内积，重写为
     $$
-    \begin{aligned}&amp;\max_{\alpha}&amp;&amp;\sum_{i=1}^{m}\alpha_{i}-\frac{1}{2} \sum_{i=1}^{m}\sum_{j=1}^{m}\alpha_{i}\alpha_{j}y_{i}y_{j}\kappa(\boldsymbol{x}<em j="j">{i},\boldsymbol{x}</em>)\&amp;\mathrm{s.t.}&amp;&amp;\sum_{i=1}^{m}\alpha_{i}y_{i}=0 ,\&amp;&amp;&amp;\alpha_{i}\geqslant0 ,\quad i=1,2,\ldots,m .\end{aligned}
+    \begin{aligned}&amp;\max_{\alpha}&amp;&amp;\sum_{i=1}^{m}\alpha_{i}-\frac{1}{2} \sum_{i=1}^{m}\sum_{j=1}^{m}\alpha_{i}\alpha_{j}y_{i}y_{j}\kappa(\boldsymbol{x}<em j="j">{i},\boldsymbol{x}</em>)\newline &amp;\mathrm{s.t.}&amp;&amp;\sum_{i=1}^{m}\alpha_{i}y_{i}=0 ,\newline &amp;&amp;&amp;\alpha_{i}\geqslant0 ,\quad i=1,2,\ldots,m .\end{aligned}
     $$</p>
 </li>
 <li>
@@ -3027,8 +3027,8 @@
 </ul>
 <p>$$
   \begin{aligned}
-  f(\boldsymbol{x})&amp; =\boldsymbol{w}^{\mathrm{T}}\phi(\boldsymbol{x})+b \
-  &amp;=\sum_{i=1}^{m}\alpha_{i}y_{i}\phi(x_{i})^{\mathrm{T}}\phi(x)+b \
+  f(\boldsymbol{x})&amp; =\boldsymbol{w}^{\mathrm{T}}\phi(\boldsymbol{x})+b \newline 
+  &amp;=\sum_{i=1}^{m}\alpha_{i}y_{i}\phi(x_{i})^{\mathrm{T}}\phi(x)+b \newline 
   &amp;=\sum_{i=1}^{m}\alpha_{i}y_{i}\kappa(\boldsymbol{x},\boldsymbol{x}_{i})+b .
   \end{aligned}
   $$</p>
@@ -3038,7 +3038,7 @@
 </li>
 </ol>
 <p>$$
-   \begin{gathered}\mathbf{K}=\begin{bmatrix}\kappa(\boldsymbol{x}_1,\boldsymbol{x}_1)&amp;\cdots&amp;\kappa(\boldsymbol{x}_1,\boldsymbol{x}_j)&amp;\cdots&amp;\kappa(\boldsymbol{x}_1,\boldsymbol{x}_m)\\vdots&amp;\ddots&amp;\vdots&amp;\ddots&amp;\vdots\\kappa(\boldsymbol{x}_i,\boldsymbol{x}_1)&amp;\cdots&amp;\kappa(\boldsymbol{x}_i,\boldsymbol{x}_j)&amp;\cdots&amp;\kappa(\boldsymbol{x}_i,\boldsymbol{x}_m)\\vdots&amp;\ddots&amp;\vdots&amp;\ddots&amp;\vdots\\kappa(\boldsymbol{x}_m,\boldsymbol{x}_1)&amp;\cdots&amp;\kappa(\boldsymbol{x}_m,\boldsymbol{x}_j)&amp;\cdots&amp;\kappa(\boldsymbol{x}_m,\boldsymbol{x}_m)\end{bmatrix}.\end{gathered}
+   \begin{gathered}\mathbf{K}=\begin{bmatrix}\kappa(\boldsymbol{x}_1,\boldsymbol{x}_1)&amp;\cdots&amp;\kappa(\boldsymbol{x}_1,\boldsymbol{x}_j)&amp;\cdots&amp;\kappa(\boldsymbol{x}_1,\boldsymbol{x}_m)\newline \vdots&amp;\ddots&amp;\vdots&amp;\ddots&amp;\vdots\newline \kappa(\boldsymbol{x}_i,\boldsymbol{x}_1)&amp;\cdots&amp;\kappa(\boldsymbol{x}_i,\boldsymbol{x}_j)&amp;\cdots&amp;\kappa(\boldsymbol{x}_i,\boldsymbol{x}_m)\newline \vdots&amp;\ddots&amp;\vdots&amp;\ddots&amp;\vdots\newline \kappa(\boldsymbol{x}_m,\boldsymbol{x}_1)&amp;\cdots&amp;\kappa(\boldsymbol{x}_m,\boldsymbol{x}_j)&amp;\cdots&amp;\kappa(\boldsymbol{x}_m,\boldsymbol{x}_m)\end{bmatrix}.\end{gathered}
    $$</p>
 <ol start="4">
 <li>dual representations: Ridge Regression</li>
@@ -3047,9 +3047,9 @@
    <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250104203407007.png" alt="image-20250104203407007" style="zoom:50%;" /></div>
 
 <p>$$
-   \text{Define Gram matrix}  K=\Phi\Phi^T \
-   \Phi^{T}={\phi(x_1),\cdots,\phi(x_N)}\
-   K_{nm}=\phi(x_n)^T\phi(x_m)=k(x_n,x_m)\
+   \text{Define Gram matrix}  K=\Phi\Phi^T \newline 
+   \Phi^{T}={\phi(x_1),\cdots,\phi(x_N)}\newline 
+   K_{nm}=\phi(x_n)^T\phi(x_m)=k(x_n,x_m)\newline 
    k(x,x^{\prime})\to\phi(x)^T\phi(x^{\prime})
    $$</p>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250104203835051.png" alt="image-20250104203835051" style="zoom:50%;" />
@@ -3063,10 +3063,10 @@
    </div>
 
 <p>$$
-   \mathcal{L}(\boldsymbol{a})=-\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}a_{i}a_{j}y_{i}y_{j}\phi^{T}(\boldsymbol{x}<em j="j">{i})\phi(\boldsymbol{x}</em>)+\sum_{i=1}^{N}a_{i}\ 
-   \mathcal{L}(\boldsymbol{a})=-\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}a_{i}a_{j}y_{i}y_{j}k(\boldsymbol{x}<em j="j">{i},\boldsymbol{x}</em>)+\sum_{i=1}^{N}a_{i}\
-   a_{i}\geq0\sum_{i=1}^{N}a_{i}y_{i}=0 \
-   f(\boldsymbol{x})=\boldsymbol{w}^T\phi(\boldsymbol{x})+b    \boldsymbol{w}=\sum_{i=1}^Na_iy_i\phi(\boldsymbol{x}<em i="1">i)\
+   \mathcal{L}(\boldsymbol{a})=-\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}a_{i}a_{j}y_{i}y_{j}\phi^{T}(\boldsymbol{x}<em j="j">{i})\phi(\boldsymbol{x}</em>)+\sum_{i=1}^{N}a_{i}\newline<br />
+   \mathcal{L}(\boldsymbol{a})=-\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}a_{i}a_{j}y_{i}y_{j}k(\boldsymbol{x}<em j="j">{i},\boldsymbol{x}</em>)+\sum_{i=1}^{N}a_{i}\newline 
+   a_{i}\geq0\sum_{i=1}^{N}a_{i}y_{i}=0 \newline 
+   f(\boldsymbol{x})=\boldsymbol{w}^T\phi(\boldsymbol{x})+b    \boldsymbol{w}=\sum_{i=1}^Na_iy_i\phi(\boldsymbol{x}<em i="1">i)\newline 
    f(\boldsymbol{x})=\sum</em>^Na_iy_i\phi(\boldsymbol{x}<em i="1">i)^T\phi(\boldsymbol{x})+b=\sum</em>^Na_iy_ik(\boldsymbol{x}_i,\boldsymbol{x})+b
    $$</p>
 <ol start="6">

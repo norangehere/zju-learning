@@ -3260,7 +3260,7 @@
 <h2 id="recall">Recall<a class="headerlink" href="#recall" title="Permanent link">&para;</a></h2>
 <p><span class="arithmatex">\(\pi_\theta(a|s)=P(a|s,\theta)\)</span></p>
 <ul>
-<li>策略参数化</li>
+<li>策略参数化<ul>
 <li>优点<ul>
 <li>收敛性质好</li>
 <li>在高维度或连续的动作空间中更有效</li>
@@ -3270,6 +3270,8 @@
 <li>缺点<ul>
 <li>会陷入局部最优</li>
 <li>评估一个策略通常不够高效并具有较大的方差</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -3289,20 +3291,26 @@
 </ul>
 <h3 id="_3">参数化策略<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <ul>
-<li>参数化策略<span class="arithmatex">\(\pi_\theta\)</span>​，并利用无梯度或基于梯度的优化方法对参数进行更新</li>
+<li>参数化策略<span class="arithmatex">\(\pi_\theta\)</span>​，并利用无梯度或基于梯度的优化方法对参数进行更新<ul>
 <li>无梯度优化可以有效覆盖低维参数空间</li>
 <li>但基于梯度的训练仍然是首选，因为其具有更高的采样效率</li>
-<li>参数化策略和表格型策略对比</li>
+</ul>
+</li>
+<li>
+<p>参数化策略和表格型策略对比</p>
+<ul>
 <li>采取动作的概率的计算方式不同：前者通过给定的函数结构和参数计算<span class="arithmatex">\(\pi_\theta(a|s)\)</span>，后者直接查对应s和a表</li>
 <li>策略更新方式不同：前者更新<span class="arithmatex">\(\theta\)</span>，后者直接修改表格对应条目</li>
-<li>
-<p>最优策略定义不同：前者最大化一个给定的标量指标<span class="arithmatex">\(π^\#(s) = \arg\max_πJ(π(s))，π∈Π\)</span> ，后者最大化每个状态对应值函数</p>
+<li>最优策略定义不同：前者最大化一个给定的标量指标<span class="arithmatex">\(π^\#(s) = \arg\max_πJ(π(s))，π∈Π\)</span> ，后者最大化每个状态对应值函数</li>
+</ul>
 </li>
 <li>
 <p>将参数化策略<span class="arithmatex">\(π_θ\)</span>所能表示的所有策略组成的集合记为策略容许集<span class="arithmatex">\(Π={π_θ:θ∈Θ}\)</span>，<span class="arithmatex">\(Θ\)</span>为参数<span class="arithmatex">\(θ\)</span>的取值范围 </p>
-</li>
+<ul>
 <li>若<span class="arithmatex">\(π^*∈Π\)</span>，则有<span class="arithmatex">\(J(π^\#) = J(π^*)\)</span> </li>
 <li>若<span class="arithmatex">\(π^*∉Π\)</span>，则策略<span class="arithmatex">\(π^*\)</span>比<span class="arithmatex">\(π^\#\)</span>更优</li>
+</ul>
+</li>
 </ul>
 <h3 id="_4">基本思想<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <ul>
@@ -3320,15 +3328,15 @@
 <ul>
 <li>
 <p>状态分布</p>
-</li>
-<li>
-<p>策略无关：一种简单的做法是取<span class="arithmatex">\(d(s)\)</span>为均匀分布，另一种做法是把权重集中分配给一部分状态集合，例如一些任务只从<span class="arithmatex">\(s_0\)</span>开始，则<span class="arithmatex">\(d(s_0)=1,d(s\neq s_0)=0\)</span></p>
-</li>
+<ul>
+<li>策略无关：一种简单的做法是取<span class="arithmatex">\(d(s)\)</span>为均匀分布，另一种做法是把权重集中分配给一部分状态集合，例如一些任务只从<span class="arithmatex">\(s_0\)</span>开始，则<span class="arithmatex">\(d(s_0)=1,d(s\neq s_0)=0\)</span></li>
 <li>策略相关：通常采用稳态状态分布，若对状态转移<span class="arithmatex">\(s\rightarrow a\rightarrow s'\)</span>，满足</li>
 </ul>
-<p>$$
-  d(s')=\sum_{s\in\mathcal{S}}\sum_{a\in\mathcal{A}}p(s'|s,a)\cdot\pi_\theta(a|s)\cdot d(s)
-  $$</p>
+<div class="arithmatex">\[
+d(s')=\sum_{s\in\mathcal{S}}\sum_{a\in\mathcal{A}}p(s'|s,a)\cdot\pi_\theta(a|s)\cdot d(s)
+\]</div>
+</li>
+</ul>
 <h3 id="_6">计算策略梯度<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <ul>
 <li>如梯度下降、牛顿迭代</li>
@@ -3392,13 +3400,13 @@
 <li>
 <p>自然策略梯度： <span class="arithmatex">\(d^*=\arg\max\limits_dJ(\theta+d), s.t. KL(\pi_\theta||\pi_{\theta+d})=c\)</span></p>
 <ul>
-<li>KL散度用于衡量两个分布的接近程度</li>
-</ul>
-<p>$$
-  KL(\pi_\theta||\pi_{\theta'})=\mathbb{E}<em>{\pi</em>\theta}[\log\pi_\theta]-\mathbb{E}<em _theta_="\theta'">{\pi</em>}[\log\pi_{\theta'}]
-  $$</p>
-<ul>
-<li>将更新前后策略的KL散度限定为一个常数c，确保策略分布以一个常量速度更新，而不受策略的参数化形式影响</li>
+<li>
+<p>KL散度用于衡量两个分布的接近程度</p>
+<div class="arithmatex">\[KL(\pi_\theta||\pi_{\theta'})=\mathbb{E}_{\pi_\theta}[\log\pi_\theta]-\mathbb{E}_{\pi_{\theta'}}[\log\pi_{\theta'}]\]</div>
+</li>
+<li>
+<p>将更新前后策略的KL散度限定为一个常数c，确保策略分布以一个常量速度更新，而不受策略的参数化形式影响</p>
+</li>
 <li>将KL散度进行二阶泰勒展开，<span class="arithmatex">\(KL(\pi_\theta||\pi_{\theta+d})\approx \dfrac{1}{2}d^TFd\)</span>，其中F为Fisher Information Matrix，即</li>
 </ul>
 <p>$$
@@ -3422,11 +3430,11 @@
 </li>
 <li>
 <p>思想：通过减去一个基线值来标准化评论家的打分</p>
-</li>
-<li>
-<p>降低较差工作概率，提高较优动作概率</p>
-</li>
+<ul>
+<li>降低较差工作概率，提高较优动作概率</li>
 <li>进一步降低方差</li>
+</ul>
+</li>
 </ul>
 <div align="center"> <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240705134012553.png" alt="image-20240705134012553" style="zoom: 33%;" /> </div>
 

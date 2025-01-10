@@ -3294,17 +3294,21 @@
 </ul>
 <h3 id="roma">ROMA<a class="headerlink" href="#roma" title="Permanent link">&para;</a></h3>
 <ul>
-<li>相似角色的智能体分享相似的学习目标和分享相似的行为策略。</li>
+<li>相似角色的智能体分享相似的学习目标和分享相似的行为策略。<ul>
 <li>相似角色<span class="arithmatex">\(\leftrightarrow\)</span>相似子任务<span class="arithmatex">\(\leftrightarrow\)</span>相似行为策略</li>
+</ul>
+</li>
 <li>角色可以作为短期博弈轨迹的编码并嵌入到输入。</li>
 <li>智能体以对应的角色作为条件进行策略学习。</li>
 <li>智能体在不同的场景下动态更换其角色</li>
 </ul>
 <h3 id="_4">价值分解局限性<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <ul>
-<li>不确定性</li>
+<li>不确定性<ul>
 <li>价值分解可以导致合作失调；</li>
 <li>在分布式执行的过程中也会导致行为浪费；</li>
+</ul>
+</li>
 <li>因此可以引入智能体之间的交流</li>
 </ul>
 <h3 id="ndq-nearly-decomposable-q-value-learning">NDQ Nearly Decomposable Q-Value Learning<a class="headerlink" href="#ndq-nearly-decomposable-q-value-learning" title="Permanent link">&para;</a></h3>
@@ -3316,10 +3320,12 @@
 
 <h3 id="w-qmix">W-QMIX<a class="headerlink" href="#w-qmix" title="Permanent link">&para;</a></h3>
 <ul>
-<li>QMIX问题</li>
+<li>QMIX问题<ul>
 <li>QMIX算法的单调性约束是充分不必要条件，即有些场景的值函数是QMIX无法精确拟合的。例如一个智能体的行为取决于另一个同队智能体时，QMIX是没有考虑的，同时IGM原则也被违反了。</li>
 <li><span class="arithmatex">\(\mathcal{J}^*_{Qmix}\)</span>算子不是收缩映射，即QMIX算法找不到<span class="arithmatex">\(\mathcal{J}^*\)</span>对应的不动点，而只能找到其最接近不动点的次优点，所以QMIX的优化结果可能不是唯一的。</li>
 <li>QMIX可能会低估某些联合动作的价值。这是QMIX自身缺陷导致的，与计算性能、探索机制、及网络参数没有关系</li>
+</ul>
+</li>
 <li>优化：增加权重函数 <span class="arithmatex">\(\pi_\omega Q=\arg\min\limits_{q\in Q^{mix}}\sum\limits_{a\in A}\omega(s,a)(Q(s,a)-y)^2\)</span></li>
 <li><span class="arithmatex">\(\omega(s,a)=1\)</span>，即QMIX</li>
 </ul>

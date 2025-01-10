@@ -3211,9 +3211,11 @@
 </li>
 <li>
 <p>常见的：<span class="arithmatex">\(TD-\lambda, G_t^n=R_{t+1}+\gamma R_{t+2}+\cdots+\gamma^{n-1}R_{t+n}+\gamma^n V(s_{t+n})=(1-\lambda)\sum_{n=1}^\infty\lambda^{n-1}G_t^n\)</span></p>
-</li>
+<ul>
 <li>前向视角：朝着<span class="arithmatex">\(G_t^n\)</span>方向更新值函数，同时通过观测未来数据计算，只能计算完整回合</li>
 <li>后向视角：对每个状态s保持资格迹，更新每个状态s的价值函数，与TD-error和资格迹<span class="arithmatex">\(E_t(s)\)</span>成比例关系</li>
+</ul>
+</li>
 </ul>
 <h2 id="_3">表格型时序差分方法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <h3 id="sarsa">SARSA<a class="headerlink" href="#sarsa" title="Permanent link">&para;</a></h3>

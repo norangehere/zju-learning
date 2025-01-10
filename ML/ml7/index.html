@@ -3161,31 +3161,29 @@
 </ol>
 <ul>
 <li>
-<p>解决办法：加入正则项
-     $$
-     \hat{x}^{(k)}=\gamma\times\frac{x^{(k)}-E[x^{(k)}]}{\sqrt{Var[x^{(k)}]}}+\beta
-     $$</p>
+<p>解决办法：加入正则项</p>
+<p>$$
+ \hat{x}^{(k)}=\gamma\times\frac{x^{(k)}-E[x^{(k)}]}{\sqrt{Var[x^{(k)}]}}+\beta
+ $$</p>
 </li>
 <li>
 <p>在学习过程中，E和Var被认为是不变的，更新按如下公式。而<span class="arithmatex">\(\gamma\)</span>和<span class="arithmatex">\(\beta\)</span>视为是normal parameter，在梯度下降中更新</p>
 </li>
 </ul>
 <ol start="3">
-<li>
-<p>compute <span class="arithmatex">\(E\)</span> and <span class="arithmatex">\(Var\)</span>: by approximating, adopt exponentially decaying
-   $$
-   \begin{aligned}&amp;\hat{E}\big[x^{(k)}\big]<em iter="iter">{iter+1}=0.9\times\hat{E}\big[x^{(k)}\big]</em>+0.1\times\frac{1}{m}\sum_{i=1}^{m}x^{(k)}<em iter_1="iter+1">{i}\&amp;\hat{Var}\big[x^{(k)}\big]</em>=0.9\times\hat{Var}\big[x^{(k)}\big]<em i="1">{iter}+0.1\times\frac{1}{m}\sum</em>^{m}(x^{(k)}_{i}-E\big[x^{(k)}\big])^{2}\end{aligned}
+<li>compute <span class="arithmatex">\(E\)</span> and <span class="arithmatex">\(Var\)</span>: by approximating, adopt exponentially decaying</li>
+</ol>
+<p>$$
+   \begin{aligned}&amp;\hat{E}\big[x^{(k)}\big]<em iter="iter">{iter+1}=0.9\times\hat{E}\big[x^{(k)}\big]</em>+0.1\times\frac{1}{m}\sum_{i=1}^{m}x^{(k)}<em iter_1="iter+1">{i}\newline &amp;\hat{Var}\big[x^{(k)}\big]</em>=0.9\times\hat{Var}\big[x^{(k)}\big]<em i="1">{iter}+0.1\times\frac{1}{m}\sum</em>^{m}(x^{(k)}_{i}-E\big[x^{(k)}\big])^{2}\end{aligned}
    $$</p>
-</li>
+<ol start="4">
 <li>
 <p>完整的流程</p>
-</li>
-<li>
-<p>每次循环，用上面的公式更新E和Var</p>
-</li>
+<ol>
+<li>每次循环，用上面的公式更新E和Var</li>
 <li>Update all the learnable parameters, including <span class="arithmatex">\(\gamma\)</span> and <span class="arithmatex">\(\beta\)</span>, and all the parameters in the convolutional layers.</li>
-<li>
-<p>Update E and Var for the usage of the next iteration</p>
+<li>Update E and Var for the usage of the next iteration</li>
+</ol>
 </li>
 <li>
 <p>BN消除了梯度爆炸和梯度消失</p>

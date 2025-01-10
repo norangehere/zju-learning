@@ -3265,18 +3265,20 @@
 <h1 id="12-dimensionality-reduction">12 Dimensionality Reduction<a class="headerlink" href="#12-dimensionality-reduction" title="Permanent link">&para;</a></h1>
 <blockquote>
 <ul>
-<li>Linear Methods</li>
+<li>
+<p>Linear Methods</p>
+<ul>
 <li>Principal Component Analysis (PCA) unsupervised</li>
 <li>Linear Discriminant Analysis (LDA) supervised</li>
 <li>Locality Preserving Projections (LPP)</li>
-<li>
-<p>The framework of graph based dimensionality reduction.</p>
+<li>The framework of graph based dimensionality reduction.</li>
+</ul>
 </li>
 <li>
 <p>Non-linear Methods</p>
-</li>
+<ul>
 <li>Kernel Extensions for nonlinear algorithms.</li>
-<li>Manifold Learning<ul>
+<li>Manifold Learning</li>
 <li>ISOMAP</li>
 <li>Locally Linear Embedding</li>
 <li>Laplacian Eigenmap</li>
@@ -3291,26 +3293,24 @@
 </li>
 <li>
 <p>main steps for computing PCs</p>
-</li>
-<li>
-<p>Form the covariance matrix <span class="arithmatex">\(S=\frac{1}{n}\sum_{i=1}^n(x_i-\overline{x})(x_i-\overline{x})^T\)</span>.</p>
-</li>
+<ul>
+<li>Form the covariance matrix <span class="arithmatex">\(S=\frac{1}{n}\sum_{i=1}^n(x_i-\overline{x})(x_i-\overline{x})^T\)</span>.</li>
 <li>Compute its eigenvectors: <span class="arithmatex">\(\{a_i\}^p_{i=1}\)</span></li>
 <li>Use the first d eigenvectors <span class="arithmatex">\(\{a_i\}^d_{i=1}\)</span> to form the d PCs.</li>
-<li>
-<p>The transformation <em>A</em> is given by <span class="arithmatex">\(A=[a_1,\dots,a_d]\)</span></p>
+<li>The transformation <em>A</em> is given by <span class="arithmatex">\(A=[a_1,\dots,a_d]\)</span></li>
+</ul>
 </li>
 <li>
 <p>Pre-Processing of PCA</p>
-</li>
-<li>
-<p>standardization: <span class="arithmatex">\(x'=\dfrac{x-\overline{x}}{\sigma}\)</span></p>
+<ul>
+<li>standardization: <span class="arithmatex">\(x'=\dfrac{x-\overline{x}}{\sigma}\)</span></li>
+</ul>
 </li>
 <li>
 <p>PCA的最优性质：PCA的projection在所有d规模的线性projection中最小化以下误差，即PCA保留了最多的信息。以下做的就是用A投影后再反投影回去得到重构的数据，比较和原数据的距离</p>
-</li>
-<li>
-<p>X is centered data matrix</p>
+<ul>
+<li>X is centered data matrix</li>
+</ul>
 </li>
 </ul>
 <p>$$
@@ -3326,18 +3326,22 @@
 <ul>
 <li>
 <p>Main steps:</p>
-</li>
+<ul>
 <li>
 <p>Form the scatter matrices <span class="arithmatex">\(S_B\)</span> and <span class="arithmatex">\(S_W\)</span></p>
 </li>
 <li>
 <p>Compute the eigenvectors <span class="arithmatex">\(\{a_i\}_{i=1}^{c-1}\)</span> corresponding to the non-zero eigenvalue of the generalized eigenproblem:
-    $$
-    S_Ba=\lambda S_Wa   or   S_Ba=\lambda S_T a
-    $$</p>
+  $$
+  S_Ba=\lambda S_Wa \newline
+   or \newline
+   S_Ba=\lambda S_T a
+  $$</p>
 </li>
 <li>
 <p>The transformation <em>A</em> is given by <span class="arithmatex">\(A=[a_1,\dots,a_{c-1}]\)</span></p>
+</li>
+</ul>
 </li>
 </ul>
 <h2 id="locality-preserving-projections-lpp">Locality Preserving Projections (LPP)<a class="headerlink" href="#locality-preserving-projections-lpp" title="Permanent link">&para;</a></h2>
@@ -3354,15 +3358,17 @@
 <h2 id="manifold-learning">Manifold Learning<a class="headerlink" href="#manifold-learning" title="Permanent link">&para;</a></h2>
 <h3 id="manifold">Manifold<a class="headerlink" href="#manifold" title="Permanent link">&para;</a></h3>
 <ul>
-<li>In mathematics, a manifold is a topological space that locally resembles Euclidean space near each point </li>
+<li>In mathematics, a manifold is a topological space that locally resembles Euclidean space near each point <ul>
 <li>Each point has a neighborhood that is <strong>homeomorphic</strong> to the Euclidean space. </li>
+</ul>
+</li>
 <li>a square and a circle are homeomorphic to each other, but a sphere and a torus are not. </li>
 </ul>
 <h3 id="multi-dimensional-scaling-mds">Multi-Dimensional Scaling (MDS)<a class="headerlink" href="#multi-dimensional-scaling-mds" title="Permanent link">&para;</a></h3>
 <ul>
 <li>希望降维后空间数据之间的距离和原始空间尽可能一致</li>
 <li>首先计算原来的数据点对应的pair-wise距离矩阵<span class="arithmatex">\(D=(d_{ij})\in\mathbb{R}^{n\times n}\)</span>，尝试找到一个k维的表示，使得<span class="arithmatex">\(\|z_i-z_j\|=d_{ij}\)</span></li>
-<li>suppose <span class="arithmatex">\(Z=[z_1,z_2,\dots,z_n]\)</span>, let <span class="arithmatex">\(B=Z^TZ\)</span></li>
+<li>suppose <span class="arithmatex">\(Z=[z_1,z_2,\dots,z_n]\)</span>, let <span class="arithmatex">\(B=Z^TZ\)</span><ul>
 <li><span class="arithmatex">\(b_{ij}=z_i^Tz_j\)</span></li>
 <li><span class="arithmatex">\(d^2_{ij}=\|\mathbf{z}_i\|^2+\left\|\mathbf{z}_j\right\|^2-2z_i^Tz_j=b_{ii}+b_{jj}-2b_{ij}\)</span></li>
 <li>One possible Z can be obtained through eigen-decomposition of B</li>
@@ -3370,26 +3376,28 @@
 <li>main idea: D-&gt;B-&gt;Z</li>
 <li>通过一系列计算，我们可以得到矩阵B每个元素用D的表示，之后使用奇异值分解即可得到Z</li>
 </ul>
+</li>
+</ul>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241119172255310.png" alt="image-20241119172255310" style="zoom:50%;" />
 <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241119172401592.png" alt="image-20241119172401592" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241119172543044.png" alt="image-20241119172543044" style="zoom:50%;" /></div>
 
 <ul>
-<li>summarize:</li>
+<li>summarize:<ul>
 <li>Input: Distance matrix <span class="arithmatex">\(D\)</span></li>
-<li>Algorithm:<ul>
-<li>compute <span class="arithmatex">\(d_{i:}^2=\frac1n\sum_{j=1}^{n}d_{ij}^2,d_{:j}^2=\frac1n\sum_{i=1}^{n}d_{ij}^2,d_{::}^2= \frac1{n^2}\sum_{i=1}^{n}\sum_{j=1}^{n}d_{ij}^2\)</span></li>
-<li>compute inner product B <span class="arithmatex">\(b_{ij}=-\frac12(d_{ij}^2-d_{i:}^2-d_{:j}^2+d_{::}^2)\)</span></li>
-<li>apply eigen-decomposition on <span class="arithmatex">\(B\)</span></li>
-<li>Select first <span class="arithmatex">\(k\)</span> biggest non-zero eigenvalues and corresponding eigenvectors, the target low-dimensional data matrix can be obtained from <span class="arithmatex">\(Z=\Lambda_{*}^{\frac12}U_{*}^{T}\)</span></li>
+<li>Algorithm:
+        - compute <span class="arithmatex">\(d_{i:}^2=\frac1n\sum_{j=1}^{n}d_{ij}^2,d_{:j}^2=\frac1n\sum_{i=1}^{n}d_{ij}^2,d_{::}^2= \frac1{n^2}\sum_{i=1}^{n}\sum_{j=1}^{n}d_{ij}^2\)</span>
+        - compute inner product B <span class="arithmatex">\(b_{ij}=-\frac12(d_{ij}^2-d_{i:}^2-d_{:j}^2+d_{::}^2)\)</span>
+        - apply eigen-decomposition on <span class="arithmatex">\(B\)</span>
+        - Select first <span class="arithmatex">\(k\)</span> biggest non-zero eigenvalues and corresponding eigenvectors, the target low-dimensional data matrix can be obtained from <span class="arithmatex">\(Z=\Lambda_{*}^{\frac12}U_{*}^{T}\)</span></li>
+<li>Output: the k-dimensional data matrix <span class="arithmatex">\(Z\)</span></li>
 </ul>
 </li>
-<li>Output: the k-dimensional data matrix <span class="arithmatex">\(Z\)</span></li>
 </ul>
 <h3 id="isomap">ISOMAP<a class="headerlink" href="#isomap" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>Step 1:</p>
-</li>
+<ul>
 <li>
 <p>Define the graph G over all data points</p>
 </li>
@@ -3397,23 +3405,23 @@
 <p>Connect neighbor points and define the edge length equals to Euclidean distance </p>
 </li>
 <li>
-<p>For point <span class="arithmatex">\(x_i\)</span> and <span class="arithmatex">\(x_j\)</span>, if they are:</p>
-<ul>
-<li>closer than <span class="arithmatex">\(\epsilon\)</span> (<span class="arithmatex">\(\epsilon\)</span>-ISOMAP)</li>
-<li><span class="arithmatex">\(x_i\)</span> is one of the k nearest neighbors of <span class="arithmatex">\(x_j\)</span> (k-ISOMAP)</li>
+<p>For point <span class="arithmatex">\(x_i\)</span> and <span class="arithmatex">\(x_j\)</span>, if they are:
+        - closer than <span class="arithmatex">\(\epsilon\)</span> (<span class="arithmatex">\(\epsilon\)</span>-ISOMAP)
+        - <span class="arithmatex">\(x_i\)</span> is one of the k nearest neighbors of <span class="arithmatex">\(x_j\)</span> (k-ISOMAP)</p>
+</li>
 </ul>
 </li>
 <li>
 <p>Step 2:</p>
-</li>
-<li>
-<p>Compute shortest paths <span class="arithmatex">\(d(x_i,x_j)\)</span> in G Floyd-Warshall or Dijkstra</p>
+<ul>
+<li>Compute shortest paths <span class="arithmatex">\(d(x_i,x_j)\)</span> in G Floyd-Warshall or Dijkstra</li>
+</ul>
 </li>
 <li>
 <p>Step 3:</p>
-</li>
-<li>
-<p>Apply MDS on <span class="arithmatex">\(d(x_i,x_j)\)</span> to find lower-dimensional embedding</p>
+<ul>
+<li>Apply MDS on <span class="arithmatex">\(d(x_i,x_j)\)</span> to find lower-dimensional embedding</li>
+</ul>
 </li>
 </ul>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241119174528992.png" alt="image-20241119174528992" style="zoom:33%;" /></div>
@@ -3452,24 +3460,19 @@
 <p>target:</p>
 </li>
 </ol>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}minimize\ \ \ &amp;rank(L)+\lambda\|S\|_0 \newline subject\ to\ \ \ &amp;L+S=X\end{aligned}\)</span>\)</span></p>
+<p>但是这个优化目标非凸且NP-hard，因此使用以下PCP(Principle Component Pursuit) surrogate error</p>
 <p>$$
    \begin{aligned}
-   minimize   &amp;rank(L)+\lambda|S|<em>0 \
-   subject to   &amp;L+S=X
-   \end{aligned}
-   $$
-   但是这个优化目标非凸且NP-hard，因此使用以下PCP(Principle Component Pursuit) surrogate error
-   $$
-   \begin{aligned}
-   minimize   &amp;|L|</em>*+\lambda|S|_1 \
+   minimize   &amp;|L|_*+\lambda|S|_1 \newline 
    subject to   &amp;L+S=X
    \end{aligned}
    $$</p>
-<div class="highlight"><pre><span></span><code>  - $\|L\|_*$ is the nuclear norm, i.e. the sum of the singular values of L, will lead to low rank for L
+<div class="highlight"><pre><span></span><code>- $\|L\|_*$ is the nuclear norm, i.e. the sum of the singular values of L, will lead to low rank for L
 
-  - $\|S\|_1$ will lead to sparsity for $S$ like Lasso decay
+- $\|S\|_1$ will lead to sparsity for $S$ like Lasso decay
 
-    &lt;div align=&quot;center&quot;&gt;&lt;img src=&quot;https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241125143843343.png&quot; alt=&quot;image-20241125143843343&quot; style=&quot;zoom: 50%;&quot; /&gt;&lt;/div&gt;
+&lt;div align=&quot;center&quot;&gt;&lt;img src=&quot;https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241125143843343.png&quot; alt=&quot;image-20241125143843343&quot; style=&quot;zoom: 50%;&quot; /&gt;&lt;/div&gt;
 </code></pre></div>
 <ol start="3">
 <li>

@@ -3012,7 +3012,7 @@
 <li>
 <p>Maximum likelihood estimation for logistic regression: </p>
 <div class="arithmatex">\[
-P(D)=\prod_{i\in I}\sigma(y_{i}\boldsymbol{a}^{T}\boldsymbol{x}_{i})\\l\big(P(D)\big)=\sum_{i\in I}\log\bigl(\sigma(y_{i}\boldsymbol{a}^{T}\boldsymbol{x}_{i})\big)=-\sum_{i\in I}\log\bigl(1+e^{-y_{i}\boldsymbol{a}^{T}\boldsymbol{x}_{i}}\bigr) \\
+P(D)=\prod_{i\in I}\sigma(y_{i}\boldsymbol{a}^{T}\boldsymbol{x}_{i})\newline l\big(P(D)\big)=\sum_{i\in I}\log\bigl(\sigma(y_{i}\boldsymbol{a}^{T}\boldsymbol{x}_{i})\big)=-\sum_{i\in I}\log\bigl(1+e^{-y_{i}\boldsymbol{a}^{T}\boldsymbol{x}_{i}}\bigr) \newline 
 E(\boldsymbol{a})=\sum_{i\in I}\log\left(1+e^{-y_i\boldsymbol{a}^T\boldsymbol{x}_i}\right)
 \]</div>
 </li>
@@ -3034,7 +3034,7 @@ E(a+\Delta a)=E(a)+E'(a)\Delta a+E''(a)\frac{\Delta a^2}{2!}+E'''(a)\frac{\Delta
 <ul>
 <li>Newton's Method: Choose <span class="arithmatex">\(\Delta a\)</span> that <span class="arithmatex">\(E^{\prime }( a) \Delta a+ E^{\prime \prime }( a) \frac {\Delta a^{2}}{2! }\)</span>is minimum
   $$
-  E^{\prime}(a)+E^{\prime\prime}(a)\Delta a=0\quad\\Delta\boldsymbol{a}=-\eta[\mathbf{H}E(\boldsymbol{a})]^{-1}E^{\prime}(\boldsymbol{a}) \
+  E^{\prime}(a)+E^{\prime\prime}(a)\Delta a=0\quad\newline \Delta\boldsymbol{a}=-\eta[\mathbf{H}E(\boldsymbol{a})]^{-1}E^{\prime}(\boldsymbol{a}) \newline 
   \Delta a=-\frac{E'(a)}{E''(a)}
   $$</li>
 </ul>
@@ -3074,14 +3074,14 @@ E(a+\Delta a)=E(a)+E'(a)\Delta a+E''(a)\frac{\Delta a^2}{2!}+E'''(a)\frac{\Delta
 <p>slack variables: Assign a slack variable <span class="arithmatex">\(\xi\)</span> to each data point. That means we allow the point to deviate from the correct margin by a distance of <span class="arithmatex">\(\xi\)</span> (Actually <span class="arithmatex">\(\|w\|\xi\)</span> when considering geometrical margin).</p>
 </li>
 <li>
-<p><strong>Unconstrained Optimization Problem of SVM</strong>
-   $$
-   \min_{w,b}\frac12|w|^2+C\sum_{i=1}^n\xi_i\y(\boldsymbol{w}^T\boldsymbol{x}<em i="i">i+b)\geq1-\xi_i\\xi_i\geq0 \
-   \xi</em>\geq1-y(w^{T}x_{i}+b)\quad\xi_{i}=\max[1-y(w^{T}x_{i}+b),0]\\min_{w,b}\left{\sum^{n}<em i="i">{i=1}\max[1-y(w^{T}x</em>+b),0]+\frac{1}{2C}|w|^{2}\right} \
-   \ell(f)=\max[1-yf,0]   \text{Hingeloss}
-   $$</p>
+<p><strong>Unconstrained Optimization Problem of SVM</strong></p>
 </li>
 </ul>
+<div class="arithmatex">\[
+        \min_{w,b}\frac12\|w\|^2+C\sum_{i=1}^n\xi_i\newline y(\boldsymbol{w}^T\boldsymbol{x}_i+b)\geq1-\xi_i\newline \xi_i\geq0 \newline 
+        \xi_{i}\geq1-y(w^{T}x_{i}+b)\quad\xi_{i}=\max[1-y(w^{T}x_{i}+b),0]\newline \min_{w,b}\left\{\sum^{n}_{i=1}\max[1-y(w^{T}x_{i}+b),0]+\frac{1}{2C}\|w\|^{2}\right\} \newline 
+        \ell(f)=\max[1-yf,0]\ \ \ \text{Hingeloss}
+\]</div>
 </li>
 <li>
 <p>A General formulation of classifiers</p>

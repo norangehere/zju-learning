@@ -3219,7 +3219,7 @@ E(f;D)=bias^2(x)+var(x)+\epsilon^2
 <ul>
 <li>
 <p>Decoder</p>
-</li>
+<ul>
 <li>
 <p>包含两个Multi-Head Attention，第一个采用Masked操作，第二个的K,V矩阵使用Encoder的编码信息矩阵C进行计算，而Q使用上一个Decoder block的输出计算</p>
 </li>
@@ -3228,8 +3228,10 @@ E(f;D)=bias^2(x)+var(x)+\epsilon^2
 </li>
 <li>
 <p>每一个词源要进行三次线性变换，分别对应Query, Key, Value，得到Q,K,V矩阵，计算<span class="arithmatex">\(QK^T\)</span></p>
-<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240703110026670.png" alt="image-20240703110026670" style="zoom:50%;" /> </div></p>
 </li>
+</ul>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240703110026670.png" alt="image-20240703110026670" style="zoom:50%;" /> </div></p>
+<ul>
 <li>
 <p>最后得到<span class="arithmatex">\(QK^T\)</span>进行Softmax，计算attention score，之后使用<span class="arithmatex">\(Mask\ QK^T\)</span>与矩阵<span class="arithmatex">\(V\)</span>相乘，得到输出<span class="arithmatex">\(Z\)</span></p>
 </li>
@@ -3244,6 +3246,8 @@ E(f;D)=bias^2(x)+var(x)+\epsilon^2
 <ul>
 <li>因为Mask存在，单词0的输出<span class="arithmatex">\(Z_0\)</span>只包含单词0的信息</li>
 <li>Softmax根据输出矩阵的每一行预测下一个单词</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
