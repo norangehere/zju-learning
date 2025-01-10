@@ -2782,15 +2782,19 @@
 </ul>
 <ol start="2">
 <li>
-<p>Monte Carlo estimator
-   - Define integral <span class="arithmatex">\(\int_a^bf(x)dx\)</span>
-   - Random variable <span class="arithmatex">\(X_i\sim p(x)\)</span>
-   - estimator: <span class="arithmatex">\(F_N=\dfrac{1}{N}\sum_{i=1}^N\dfrac{f(X_i)}{p(X_i)}\)</span></p>
+<p>Monte Carlo estimator</p>
+<ul>
+<li>Define integral <span class="arithmatex">\(\int_a^bf(x)dx\)</span></li>
+<li>Random variable <span class="arithmatex">\(X_i\sim p(x)\)</span></li>
+<li>estimator: <span class="arithmatex">\(F_N=\dfrac{1}{N}\sum_{i=1}^N\dfrac{f(X_i)}{p(X_i)}\)</span></li>
+</ul>
 </li>
 <li>
-<p>basic Monte Carlo estimator
-   - <span class="arithmatex">\(X_i\sim p(x)=\dfrac{1}{b-a}\)</span>
-   - so <span class="arithmatex">\(F_N=\dfrac{1}{N}\sum_{i=1}^Nf(X_i)\)</span></p>
+<p>basic Monte Carlo estimator</p>
+<ul>
+<li><span class="arithmatex">\(X_i\sim p(x)=\dfrac{1}{b-a}\)</span></li>
+<li>so <span class="arithmatex">\(F_N=\dfrac{1}{N}\sum_{i=1}^Nf(X_i)\)</span></li>
+</ul>
 </li>
 <li>
 <p>蒙特卡洛是unbiased的</p>
@@ -2809,8 +2813,10 @@
 </ul>
 <ol start="6">
 <li>
-<p>Importance Sampling 更加高效
-   - <span class="arithmatex">\(p(x)\)</span>更加接近<span class="arithmatex">\(f(x)\)</span>的分布，函数值越大采样概率越高</p>
+<p>Importance Sampling 更加高效</p>
+<ul>
+<li><span class="arithmatex">\(p(x)\)</span>更加接近<span class="arithmatex">\(f(x)\)</span>的分布，函数值越大采样概率越高</li>
+</ul>
 </li>
 <li>
 <p>如果<span class="arithmatex">\(p(x)\)</span>精确知道<span class="arithmatex">\(f(x)\)</span>，我们只需要一个样本点就够了</p>
@@ -2824,16 +2830,16 @@
 <li>can design this to be unbiased - this is called Russian Roulette</li>
 </ul>
 <ol start="2">
-<li>reweight
-   $$
-   \left.\left.\left.\mathrm{Let~}X_{\mathrm{rr}}=\left{\begin{array}{l}\frac{X}{p_{\mathrm{rr}}},\text{ with probability }p_{\mathrm{rr}}\0,\mathrm{~otherwise}\end{array}\right.\right.\right.\right.
-   $$
-   unbiased
-   $$
-   E[X_{\mathrm{rr}}]=p_{\mathrm{rr}}E\left[\frac{X}{p_{\mathrm{rr}}}\right]+\left(1-p_{\mathrm{rr}}\right)E[0]=E[X]
-   $$
-   但是会扩大variance</li>
+<li>reweight</li>
 </ol>
+<p>$$
+   \left.\left.\left.\mathrm{Let~}X_{\mathrm{rr}}=\left{\begin{array}{l}\frac{X}{p_{\mathrm{rr}}},\text{ with probability }p_{\mathrm{rr}}\0,\mathrm{~otherwise}\end{array}\right.\right.\right.\right.
+   $$</p>
+<p>unbiased</p>
+<p>$$
+   E[X_{\mathrm{rr}}]=p_{\mathrm{rr}}E\left[\frac{X}{p_{\mathrm{rr}}}\right]+\left(1-p_{\mathrm{rr}}\right)E[0]=E[X]
+   $$</p>
+<p>但是会扩大variance</p>
 
 
 
