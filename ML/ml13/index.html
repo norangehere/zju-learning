@@ -3264,28 +3264,32 @@ p(s',r|s,a)=Pr\{S_{t+1}=s',R_{t+1}=r|S_t=s,A_t=a\}
 <li>
 <p>value function</p>
 <ul>
-<li>the state-value function for policy <span class="arithmatex">\(\pi\)</span></li>
-</ul>
-<p><span class="arithmatex">\(<span class="arithmatex">\(v_\pi(s)=\mathbb{E}_\pi[G_t|S_t=s]=\mathbb{E}_\pi[\sum_{k=1}^\infty R_{t+k+1}|S_t=s]\)</span>\)</span></p>
-<ul>
-<li>the action-value function for policy <span class="arithmatex">\(\pi\)</span></li>
-</ul>
-<p><span class="arithmatex">\(<span class="arithmatex">\(q_\pi(s,a)=\mathbb{E}_\pi[G_t|S_t=s,A_t=a]=\mathbb{E}_\pi[\sum_{k=1}^\infty\gamma^k R_{t+k+1}|S_t=s,A_t=a]\)</span>\)</span></p>
-<ul>
+<li>
+<p>the state-value function for policy <span class="arithmatex">\(\pi\)</span><br />
+    $$
+    v_\pi(s)=\mathbb{E}<em>\pi[G_t|S_t=s]=\mathbb{E}</em>\pi[\sum_{k=1}^\infty R_{t+k+1}|S_t=s]
+    $$</p>
+</li>
+<li>
+<p>the action-value function for policy <span class="arithmatex">\(\pi\)</span><br />
+    $$
+    q_\pi(s,a)=\mathbb{E}<em>\pi[G_t|S_t=s,A_t=a]=\mathbb{E}</em>\pi[\sum_{k=1}^\infty\gamma^k R_{t+k+1}|S_t=s,A_t=a]
+    $$</p>
+</li>
 <li>
 <p>如果没有dynamic，v和q不能互转</p>
 </li>
 <li>
-<p>relation between the two value functions</p>
-</li>
-</ul>
-<p>$$
+<p>relation between the two value functions
+    $$
     \begin{aligned}
      &amp; v_{\pi}(s)=\mathbb{E}<em _pi="\pi">{\pi}[q</em>(s,A_{t})|S_{t}=s]=\sum_{a}\pi(a,s)q_{\pi}(s,a)\newline <br />
      &amp; q_{\pi}(s,a)=\mathbb{E}<em t_1="t+1">{\pi}[R</em>+\gamma v_{\pi}(S_{t+1})|S_{t}=s,A_{t}=a]\newline <br />
      &amp; =\sum_{s^{\prime},r}p(s^{\prime},r|s,a)(r+\gamma v_{\pi}(s^{\prime}))
     \end{aligned}
-  $$</p>
+    $$</p>
+</li>
+</ul>
 </li>
 <li>
 <p>Bellman equation for <span class="arithmatex">\(v_\pi\)</span></p>
@@ -3299,18 +3303,23 @@ p(s',r|s,a)=Pr\{S_{t+1}=s',R_{t+1}=r|S_t=s,A_t=a\}
 <li>
 <p>Optimal Value Functions</p>
 <ul>
-<li>最优策略是存在的，记为<span class="arithmatex">\(\pi_*\)</span>，可能不止一个，他们share同样的state-value function，同时有以下：</li>
-</ul>
-<p><span class="arithmatex">\(<span class="arithmatex">\(v_*(s)=\max_\pi v_\pi(s)\newline   q_*(s,a)=\max_\pi q_\pi(s,a)\)</span>\)</span></p>
-<ul>
+<li>
+<p>最优策略是存在的，记为<span class="arithmatex">\(\pi_*\)</span>，可能不止一个，他们share同样的state-value function，同时有以下：</p>
+<div class="arithmatex">\[
+v_*(s)=\max_\pi v_\pi(s) \newline  
+q_*(s,a)=\max_\pi q_\pi(s,a)
+\]</div>
+</li>
 <li>
 <p>最优策略在任何状态下都是最优的，不管MDP的初始状态如何</p>
 </li>
 <li>
-<p>Bellman optimality equation</p>
+<p>Bellman optimality equation
+    $$
+    v_<em>(s)=\max_aq_</em>(s,a)=\max_a\sum_{s',r}p(s',r|s,a)(r+\gamma v_*(s'))
+    $$</p>
 </li>
 </ul>
-<p><span class="arithmatex">\(<span class="arithmatex">\(v_*(s)=\max_aq_*(s,a)=\max_a\sum_{s',r}p(s',r|s,a)(r+\gamma v_*(s'))\)</span>\)</span></p>
 </li>
 <li>
 <p>DP: 给定符合MDP的perfect model环境，使用DP可以计算得到optimal policies</p>
