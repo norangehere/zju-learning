@@ -2763,8 +2763,8 @@
 </li>
 </ul>
 <ol>
-<li>Overview</li>
-</ol>
+<li>
+<p>Overview</p>
 <ul>
 <li>Idea: estimate integral based on random sampling of a function</li>
 <li>Strength<ul>
@@ -2780,7 +2780,7 @@
 </ul>
 </li>
 </ul>
-<ol start="2">
+</li>
 <li>
 <p>Monte Carlo estimator</p>
 <ul>
@@ -2803,15 +2803,15 @@
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241211083910233.png" alt="image-20241211083910233" style="zoom: 50%;" /></div>
 
 <ol start="5">
-<li>Direct Lighting Estimate</li>
-</ol>
+<li>
+<p>Direct Lighting Estimate</p>
 <ul>
 <li>
 <p>idea: sample directions over hemisphere uniformly in solid angle</p>
 <p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241211190251824.png" alt="image-20241211190251824" style="zoom:67%;" /></div></p>
 </li>
 </ul>
-<ol start="6">
+</li>
 <li>
 <p>Importance Sampling 更加高效</p>
 <ul>
@@ -2824,13 +2824,15 @@
 </ol>
 <h2 id="global-illumination">Global Illumination<a class="headerlink" href="#global-illumination" title="Permanent link">&para;</a></h2>
 <ol>
-<li>deal with infinite dimension: probabilistic termination</li>
-</ol>
+<li>
+<p>deal with infinite dimension: probabilistic termination</p>
 <ul>
 <li>can design this to be unbiased - this is called Russian Roulette</li>
 </ul>
-<ol start="2">
-<li>reweight</li>
+</li>
+<li>
+<p>reweight</p>
+</li>
 </ol>
 <div class="arithmatex">\[
 \left.\left.\left.\mathrm{Let~}X_{\mathrm{rr}}=\left\{\begin{array}{l}\frac{X}{p_{\mathrm{rr}}},\text{ with probability }p_{\mathrm{rr}}\\0,\mathrm{~otherwise}\end{array}\right.\right.\right.\right.

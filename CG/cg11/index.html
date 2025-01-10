@@ -2803,8 +2803,8 @@
 </ul>
 <h3 id="specular-reflection">Specular Reflection<a class="headerlink" href="#specular-reflection" title="Permanent link">&para;</a></h3>
 <ol>
-<li>Perfect Mirror Reflection.</li>
-</ol>
+<li>
+<p>Perfect Mirror Reflection.</p>
 <ul>
 <li>
 <p>p: point of interest</p>
@@ -2820,14 +2820,11 @@
 </li>
 <li>
 <p>i,o,n are unit vectors</p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241128222357905.png" alt="image-20241128222357905" style="zoom: 80%;" /></div></p>
 </li>
-</ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241128222357905.png" alt="image-20241128222357905" style="zoom: 80%;" /></div>
-
-<ul>
 <li>
 <p>计算反射方向r</p>
-</li>
+<ul>
 <li>
 <p><span class="arithmatex">\(– r = -(i - &lt;i,n&gt;n) + &lt;i,n&gt;n = 2&lt;i,n&gt;n - i\)</span></p>
 </li>
@@ -2836,33 +2833,37 @@
 </li>
 <li>
 <p>利用half vector <span class="arithmatex">\(h=\dfrac{i+o}{\|i+o\|}\)</span> 判断h和n是否重合即可</p>
+</li>
+</ul>
 <p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241128222819517.png" alt="image-20241128222819517" style="zoom: 67%;" /></div></p>
 </li>
 </ul>
-<ol start="2">
-<li>Fresnel Reflectance Term: Reflection depends on incident angle</li>
-</ol>
+</li>
+<li>
+<p>Fresnel Reflectance Term: Reflection depends on incident angle</p>
 <ul>
-<li>绝缘体</li>
+<li>
+<p>绝缘体</p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241128224657934.png" alt="image-20241128224657934" style="zoom: 35%;" /></div></p>
+</li>
+<li>
+<p>导体</p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241128224821743.png" alt="image-20241128224821743" style="zoom:35%;" /></div></p>
+</li>
+<li>
+<p>公式如下，但显然过于复杂了
+    $$
+    R_{s}=\left|\frac{n_{1}cos\theta_{i}-n_{2}cos\theta_{i}}{n_{1}cos\theta_{i}+n_{2}cos\theta_{i}}\right|^{2}=\left|\frac{n_{1}cos\theta_{i}-n_{2}\sqrt{1-\left(\frac{n_{1}}{n_{2}}sin\theta_{i}\right)^{2}}}{n_{1}cos\theta_{i}+n_{2}\sqrt{1-\left(\frac{n_{1}}{n_{2}}sin\theta_{i}\right)^{2}}}\right|^{2}
+    $$</p>
+<div class="arithmatex">\[
+R_{p}=\left|\frac{n_{1}cos\theta_{i}-n_{2}cos\theta_{i}}{n_{1}cos\theta_{i}+n_{2}cos\theta_{i}}\right|^{2}=\left|\frac{n_{1}\sqrt{1-\left(\frac{n_{1}}{n_{2}}sin\theta_{i}\right)^{2}-n_{2}cos\theta_{i}}}{n_{1}\sqrt{1-\left(\frac{n_{1}}{n_{2}}sin\theta_{i}\right)^{2}+n_{2}cos\theta_{i}}}\right|^{2}
+\]</div>
+</li>
 </ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241128224657934.png" alt="image-20241128224657934" style="zoom: 35%;" /></div>
-
-<ul>
-<li>导体</li>
-</ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241128224821743.png" alt="image-20241128224821743" style="zoom:35%;" /></div>
-
-<ul>
-<li>公式如下，但显然过于复杂了
-  $$
-  R_{s}=\left|\frac{n_{1}cos\theta_{i}-n_{2}cos\theta_{i}}{n_{1}cos\theta_{i}+n_{2}cos\theta_{i}}\right|^{2}=\left|\frac{n_{1}cos\theta_{i}-n_{2}\sqrt{1-\left(\frac{n_{1}}{n_{2}}sin\theta_{i}\right)^{2}}}{n_{1}cos\theta_{i}+n_{2}\sqrt{1-\left(\frac{n_{1}}{n_{2}}sin\theta_{i}\right)^{2}}}\right|^{2}
-  $$</li>
-</ul>
-<p>$$
-  R_{p}=\left|\frac{n_{1}cos\theta_{i}-n_{2}cos\theta_{i}}{n_{1}cos\theta_{i}+n_{2}cos\theta_{i}}\right|^{2}=\left|\frac{n_{1}\sqrt{1-\left(\frac{n_{1}}{n_{2}}sin\theta_{i}\right)^{2}-n_{2}cos\theta_{i}}}{n_{1}\sqrt{1-\left(\frac{n_{1}}{n_{2}}sin\theta_{i}\right)^{2}+n_{2}cos\theta_{i}}}\right|^{2}
-  $$</p>
-<ol start="3">
-<li>采用Schilick’s Approximation,其中<span class="arithmatex">\(\theta\)</span>是i和n的夹角</li>
+</li>
+<li>
+<p>采用Schilick’s Approximation,其中<span class="arithmatex">\(\theta\)</span>是i和n的夹角</p>
+</li>
 </ol>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -2871,15 +2872,15 @@
 \end{aligned}
 \]</div>
 <ol start="4">
-<li>Microfacet-Based Models: Many real-world materials actually consist of or can be modeled as microfacets</li>
-</ol>
+<li>
+<p>Microfacet-Based Models: Many real-world materials actually consist of or can be modeled as microfacets</p>
 <ul>
 <li>Microfacets = Tiny, planar and mirror-like surface patches</li>
 <li>Key: the distribution of microfacets’ normals 不同的法向量会影响反射的结果</li>
 </ul>
 <p>$$
-   f(i,o)=\frac{F(i,h)G(i,o,h)D(h)}{4(n,i)(n,o)}
-   $$</p>
+  f(i,o)=\frac{F(i,h)G(i,o,h)D(h)}{4(n,i)(n,o)}
+  $$</p>
 <p>F:反射率 D:微面法向量的分布</p>
 <p>D(h) describes the percentage of microfacets whose n = h (i.e. the normal distribution of microfacets)</p>
 <ul>
@@ -2890,10 +2891,9 @@
 <li>Microfacets in shadows do not reflect</li>
 <li>Microfacets occluded cannot be seen</li>
 </ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241128234144077.png" alt="image-20241128234144077" style="zoom:67%;" /></div>
-
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241128234144077.png" alt="image-20241128234144077" style="zoom:67%;" /></div></p>
 <p>Different microfacet BRDFs mainly differ with the choice of D</p>
-<ol start="5">
+</li>
 <li>
 <p>An Example: Cook-Torrance Model。D为Beckman distribution。m控制highlight的形状
    $$
@@ -2907,32 +2907,32 @@
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241129001206066.png" alt="image-20241129001206066" style="zoom:50%;" /></div>
 
 <ol start="7">
-<li>Diffuse Reflection </li>
-</ol>
+<li>
+<p>Diffuse Reflection </p>
 <ul>
 <li>
-<p>Lambertian model   </p>
+<p>Lambertian model    </p>
 </li>
 <li>
-<p>Light is equally reflected along all outgoing directions   </p>
+<p>Light is equally reflected along all outgoing directions    </p>
 </li>
 <li>
-<p>Can be considered as highly spread-out random microfacets  </p>
+<p>Can be considered as highly spread-out random microfacets   </p>
 </li>
 <li>
 <p>f(i,o) = constant</p>
 <p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241129001346824.png" alt="image-20241129001346824" style="zoom: 25%;" /></div></p>
 </li>
 </ul>
-<ol start="8">
-<li>Putting Things Altogether</li>
-</ol>
+</li>
+<li>
+<p>Putting Things Altogether</p>
 <ul>
 <li>
-<p>The reflected light of a unit amount of directional incident light can computed as 
-     $$
-     f(i,o)(i,n)=\left<a href="i,n">\frac{\rho_d}\pi+\rho_s\bullet f_{spec}(i,o)\right</a>
-     $$</p>
+<p>The reflected light of a unit amount of directional incident light can computed as<br />
+    $$
+    f(i,o)(i,n)=\left<a href="i,n">\frac{\rho_d}\pi+\rho_s\bullet f_{spec}(i,o)\right</a>
+    $$</p>
 </li>
 <li>
 <p><span class="arithmatex">\(\rho_d,\rho_s\)</span> are diffuse/specular coefficients 三个分量，RGB，各算一遍</p>
@@ -2944,15 +2944,15 @@
 <p>Could be extended to represent reflectance at different wavelengths</p>
 </li>
 </ul>
-<ol start="9">
-<li>高质量的数据：[Matusik et al. 2004] 每一个BRDF大概都要占64MB，高质量的</li>
+</li>
+<li>
+<p>高质量的数据：[Matusik et al. 2004] 每一个BRDF大概都要占64MB，高质量的</p>
+</li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241129002105821.png" alt="image-20241129002105821" style="zoom: 33%;" /></div>
 
 <ol start="10">
-<li>
-<p>useful tool</p>
-<ul>
+<li>useful tool<ul>
 <li>Disney’s BRDF Explorer: <a href="https://www.disneyanimation.com/technology/brdf.html">https://www.disneyanimation.com/technology/brdf.html</a></li>
 </ul>
 </li>
@@ -2964,26 +2964,28 @@
 <p>motivation: Accurate modeling of real-world materials</p>
 </li>
 <li>
-<p>direct sampling: General Idea  <br />
-   - For each o, For each i, Measure f(i,o) 
-   - The most general approach / highest quality  <br />
-   - Extremely time consuming: Curse of dimensionality</p>
+<p>direct sampling: General Idea    </p>
+<ul>
+<li>For each o, For each i, Measure f(i,o)  </li>
+<li>The most general approach / highest quality </li>
+<li>Extremely time consuming: Curse of dimensionality</li>
+</ul>
 </li>
 <li>
 <p>Illumination Multiplexing</p>
-</li>
-</ol>
 <ul>
-<li>Light Stage    <ul>
-<li>Use hundreds of light sources simultaneously </li>
-<li>Only one or a couple of cameras  </li>
-<li>Project certain patterns and recover the reflectance with a lookup table </li>
-<li>Far more efficient   </li>
+<li>Light Stage <ul>
+<li>Use hundreds of light sources simultaneously  </li>
+<li>Only one or a couple of cameras   </li>
+<li>Project certain patterns and recover the reflectance with a lookup table  </li>
+<li>Far more efficient    </li>
 </ul>
 </li>
 <li>在电影行业广泛应用</li>
 </ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241129002735320.png" alt="image-20241129002735320" style="zoom: 50%;" /></div>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241129002735320.png" alt="image-20241129002735320" style="zoom: 50%;" /></div>s</p>
+</li>
+</ol>
 
 
 

@@ -2820,13 +2820,13 @@
 </ol>
 <h3 id="visible-surface-determination">Visible Surface Determination<a class="headerlink" href="#visible-surface-determination" title="Permanent link">&para;</a></h3>
 <ol>
-<li>Goal</li>
-</ol>
+<li>
+<p>Goal</p>
 <ul>
 <li>Given: a set of 3D objects and view specification</li>
 <li>Determine: those parts of the objects that are visible when viewed along the direction of projection</li>
 </ul>
-<ol start="2">
+</li>
 <li>
 <p>Approaches: object space algorithm and image space algorithm</p>
 </li>
@@ -2845,32 +2845,31 @@
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241030081743419.png" alt="image-20241030081743419" style="zoom:50%;" /></div>
 
 <ol start="5">
-<li>Back-face Culling: elimination of back-faces</li>
-</ol>
+<li>
+<p>Back-face Culling: elimination of back-faces</p>
 <ul>
 <li>在封闭多边形表面 like surface of a polyhedral volume or a solid polyhedron 很显然地我们看不到背面的部分</li>
 <li>back face: part of the object surface facing away from the eye</li>
-<li>Algorithm<ul>
+<li>
+<p>Algorithm</p>
+<ul>
 <li>找到eye-vector/normal和面之间的角度</li>
 <li>如果这个角度在0°~90°，则为背面，剔除</li>
 </ul>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241030082256102.png" alt="image-20241030082256102" style="zoom:50%;" /></div></p>
+</li>
+<li>
+<p>处理不了的情况：</p>
 </li>
 </ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241030082256102.png" alt="image-20241030082256102" style="zoom:50%;" /></div>
-
-<ul>
-<li>处理不了的情况：</li>
-</ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241030082345595.png" alt="image-20241030082345595" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241030082403142.png" alt="image-20241030082403142" style="zoom: 67%;" /></div>
-
-<ol start="6">
-<li>Painter's Algorithm: draw back to front</li>
-</ol>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241030082345595.png" alt="image-20241030082345595" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241030082403142.png" alt="image-20241030082403142" style="zoom: 67%;" /></div></p>
+</li>
+<li>
+<p>Painter's Algorithm: draw back to front</p>
 <ul>
 <li>Failure case: 排不出序</li>
 </ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241030082925992.png" alt="image-20241030082925992" style="zoom:50%;" /></div>
-
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241030082925992.png" alt="image-20241030082925992" style="zoom:50%;" /></div></p>
 <ul>
 <li>
 <p>Warnock's Area Subdivision</p>
@@ -2891,14 +2890,13 @@
 <p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241030083250075.png" alt="image-20241030083250075" style="zoom: 60%;" /></div></p>
 </li>
 </ul>
-<ol start="7">
-<li>Z-buffer Algorithm</li>
-</ol>
+</li>
+<li>
+<p>Z-buffer Algorithm</p>
 <ul>
 <li>除了一个frame buffer存color值，还需要一个一样size的z-buffer存储depth(z) value</li>
 </ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241030083600767.png" alt="image-20241030083600767" style="zoom:50%;" /></div>
-
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241030083600767.png" alt="image-20241030083600767" style="zoom:50%;" /></div></p>
 <ul>
 <li>Code</li>
 </ul>
@@ -2921,11 +2919,10 @@
 <ul>
 <li>Related OpenGL Functions</li>
 </ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241030085628343.png" alt="image-20241030085628343" style="zoom: 67%;" /></div>
-
-<ol start="8">
-<li>BSP Tree: 对画家算法很有效，帮助找到前后顺序。树可以预先计算</li>
-</ol>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241030085628343.png" alt="image-20241030085628343" style="zoom: 67%;" /></div></p>
+</li>
+<li>
+<p>BSP Tree: 对画家算法很有效，帮助找到前后顺序。树可以预先计算</p>
 <ul>
 <li>
 <p>Very efficient for a static group of 3D polygons as seen from an arbitrary viewpoint</p>
@@ -2949,7 +2946,7 @@
 </ul>
 </li>
 </ul>
-<ol start="9">
+</li>
 <li>
 <p>k-d Tree</p>
 </li>
