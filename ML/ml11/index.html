@@ -3333,8 +3333,8 @@
 <li>
 <p>Compute the eigenvectors <span class="arithmatex">\(\{a_i\}_{i=1}^{c-1}\)</span> corresponding to the non-zero eigenvalue of the generalized eigenproblem:
   $$
-  S_Ba=\lambda S_Wa \newline
-   or \newline
+  S_Ba=\lambda S_Wa \newline<br />
+   or \newline<br />
    S_Ba=\lambda S_T a
   $$</p>
 </li>
@@ -3460,11 +3460,11 @@
 <p>target:</p>
 </li>
 </ol>
-<p><span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}minimize\ \ \ &amp;rank(L)+\lambda\|S\|_0 \newline subject\ to\ \ \ &amp;L+S=X\end{aligned}\)</span>\)</span></p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}minimize\ \ \ &amp;rank(L)+\lambda\|S\|_0 \newline   subject\ to\ \ \ &amp;L+S=X\end{aligned}\)</span>\)</span></p>
 <p>但是这个优化目标非凸且NP-hard，因此使用以下PCP(Principle Component Pursuit) surrogate error</p>
 <p>$$
    \begin{aligned}
-   minimize   &amp;|L|_*+\lambda|S|_1 \newline 
+   minimize   &amp;|L|_*+\lambda|S|_1 \newline <br />
    subject to   &amp;L+S=X
    \end{aligned}
    $$</p>

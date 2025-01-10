@@ -3175,8 +3175,8 @@
 <li>
 <p>Log-likelihood</p>
 <div class="arithmatex">\[
-l(\theta)=\ln p(D|\theta) \ \ \ \ p(D|\theta)=\prod^n_{k=1}p(x_k|\theta) \newline 
-l(\theta)=\sum_{k=1}^n\ln p(x_k|\theta) \newline 
+l(\theta)=\ln p(D|\theta) \ \ \ \ p(D|\theta)=\prod^n_{k=1}p(x_k|\theta)\newline   
+l(\theta)=\sum_{k=1}^n\ln p(x_k|\theta)\newline   
 \theta^*=arg\max_{\theta} l(\theta)
 \]</div>
 <ul>
@@ -3227,7 +3227,7 @@ l(\theta)=\sum_{k=1}^n\ln p(x_k|\theta) \newline
 <li>
 <p>Laplace Smoothing 避免出现零概率使得相乘后为0</p>
 <div class="arithmatex">\[
-P(x_{i}|\omega_{k})=\frac{|x_{ik}|+1}{N_{\omega_{k}}+K}\newline P(x_{i}|\omega_{k})=\frac{|x_{ik}|+\alpha}{N_{\omega_{k}}+\alpha K}
+P(x_{i}|\omega_{k})=\frac{|x_{ik}|+1}{N_{\omega_{k}}+K}\newline   P(x_{i}|\omega_{k})=\frac{|x_{ik}|+\alpha}{N_{\omega_{k}}+\alpha K}
 \]</div>
 </li>
 </ol>
