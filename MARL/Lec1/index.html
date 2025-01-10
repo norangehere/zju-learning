@@ -3192,6 +3192,20 @@ J^*_k(i)=\min\limits_{u\in U(i)}\sum\limits_{j=1}^np_{ij}(u)(g(i,u,j)+\alpha J^*
 
 
                  
+<audio id="bg-music" src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/IfICanStopOneHeartFromBreaking.mp3" autoplay loop></audio>
+  <button onclick="toggleMusic()">播放/暂停</button>
+
+  <script>
+    function toggleMusic() {
+      const audio = document.getElementById("bg-music");
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+  </script>
+<link rel="stylesheet" href="/css/counter.css" />
 <!-- Giscus -->
 <h2 id="__comments">评论</h2>
 

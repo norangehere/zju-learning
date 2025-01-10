@@ -3214,6 +3214,20 @@ R(t)=\frac{\sum_{i=0}^{n}B_{i,n}(t)\omega_{i}P_{i}}{\sum_{i=0}^{n}B_{i,n}(t)\ome
 
 
                  
+<audio id="bg-music" src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/IfICanStopOneHeartFromBreaking.mp3" autoplay loop></audio>
+  <button onclick="toggleMusic()">播放/暂停</button>
+
+  <script>
+    function toggleMusic() {
+      const audio = document.getElementById("bg-music");
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+  </script>
+<link rel="stylesheet" href="/css/counter.css" />
 <!-- Giscus -->
 <h2 id="__comments">评论</h2>
 
