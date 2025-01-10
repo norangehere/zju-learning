@@ -2924,13 +2924,12 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="w"> </span><span class="n">cameraUp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">glm</span><span class="o">::</span><span class="n">cross</span><span class="p">(</span><span class="n">cameraDirection</span><span class="p">,</span><span class="w"> </span><span class="n">cameraRight</span><span class="p">);</span>
 </code></pre></div>
 <ol start="4">
-<li>LookAt矩阵：注意，位置向量P是相反的，因为我们最终希望把世界平移到与我们自身移动的相反方向</li>
-</ol>
-<div class="arithmatex">\[
-LookAt = \begin{bmatrix} \color{red}{R_x} &amp; \color{red}{R_y} &amp; \color{red}{R_z} &amp; 0 \\ \color{green}{U_x} &amp; \color{green}{U_y} &amp; \color{green}{U_z} &amp; 0 \\ \color{blue}{D_x} &amp; \color{blue}{D_y} &amp; \color{blue}{D_z} &amp; 0 \\ 0 &amp; 0 &amp; 0  &amp; 1 \end{bmatrix} * \begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; -\color{purple}{P_x} \\ 0 &amp; 1 &amp; 0 &amp; -\color{purple}{P_y} \\ 0 &amp; 0 &amp; 1 &amp; -\color{purple}{P_z} \\ 0 &amp; 0 &amp; 0  &amp; 1 \end{bmatrix}
-\]</div>
-<ol start="5">
-<li>我们要做的只是定义一个摄像机位置，一个目标位置和一个表示世界空间中的上向量的向量</li>
+<li>
+<p>LookAt矩阵：注意，位置向量P是相反的，因为我们最终希望把世界平移到与我们自身移动的相反方向</p>
+</li>
+<li>
+<p>我们要做的只是定义一个摄像机位置，一个目标位置和一个表示世界空间中的上向量的向量</p>
+</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="n">glm</span><span class="o">::</span><span class="n">mat4</span><span class="w"> </span><span class="n">view</span><span class="p">;</span>
 <a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="n">view</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">glm</span><span class="o">::</span><span class="n">lookAt</span><span class="p">(</span><span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="p">(</span><span class="mf">0.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">3.0f</span><span class="p">),</span><span class="w"> </span>
