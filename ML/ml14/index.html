@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://norangehere.github.io/zju-learning/ML/ml12/">
+        <link rel="canonical" href="https://norangehere.github.io/zju-learning/ML/ml14/">
       
       
-        <link rel="prev" href="../ml11/">
+        <link rel="prev" href="../ml13/">
       
       
-        <link rel="next" href="../ml13/">
+        <link rel="next" href="../../CV/">
       
       
       <link rel="icon" href="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/logo.ico">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Clustering - Ran9E的笔记本</title>
+        <title>特征选择和稀疏学习 - Ran9E的笔记本</title>
       
     
     
@@ -94,7 +94,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#12-clustering" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -127,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Clustering
+              特征选择和稀疏学习
             
           </span>
         </div>
@@ -2429,30 +2429,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Clustering
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../ml12/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2461,62 +2441,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#gaussian-mixture-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      Gaussian Mixture Model
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#density-based-clustering-methods" class="md-nav__link">
-    <span class="md-ellipsis">
-      Density-Based Clustering Methods
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#spectral-clustering" class="md-nav__link">
-    <span class="md-ellipsis">
-      Spectral Clustering
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lvq" class="md-nav__link">
-    <span class="md-ellipsis">
-      LVQ
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2547,10 +2471,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../ml14/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    特征选择和稀疏学习
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -2559,6 +2503,62 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      子集搜索与子集评价
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      特征选择
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      稀疏表示
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      压缩感知
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3041,36 +3041,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#gaussian-mixture-model" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Gaussian Mixture Model
+      子集搜索与子集评价
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#density-based-clustering-methods" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Density-Based Clustering Methods
+      特征选择
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#spectral-clustering" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      Spectral Clustering
+      稀疏表示
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lvq" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      LVQ
+      压缩感知
     </span>
   </a>
   
@@ -3094,151 +3094,81 @@
   
 
 
-<h1 id="12-clustering">12 Clustering<a class="headerlink" href="#12-clustering" title="Permanent link">&para;</a></h1>
-<h2 id="gaussian-mixture-model">Gaussian Mixture Model<a class="headerlink" href="#gaussian-mixture-model" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>可能有缺漏</p>
-</blockquote>
+<h1 id="_1">特征选择和稀疏学习<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">子集搜索与子集评价<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>Gaussian Mixture Model (GMM) is one of the most popular clustering methods which can be viewed as a linear combination of different Gaussian components.</p>
-<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250102201016426.png" alt="image-20250102201016426" style="zoom:67%;" /></div></p>
+<p>子集搜索</p>
 <ul>
-<li>The log-likelihood function</li>
+<li>前向搜索：逐渐增加相关特征</li>
+<li>后向搜索：从完整的特征集合开始，逐渐减少特征</li>
+<li>双向搜索：每一轮逐渐增加相关特征，同时减少无关特征</li>
 </ul>
-<div class="arithmatex">\[
-\log\prod\limits_{i=1}^Np(x^{(i)};\Theta)=\sum_{i=1}^N\log(\sum_{k=1}^K\pi_k\mathcal{N}(x^{(i)};\mu_k,\Sigma_k))
-\]</div>
-<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250102201828978.png" alt="image-20250102201828978" style="zoom: 67%;" /></div></p>
-<ul>
-<li>
-<p>parameters estimation for GMM</p>
-<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250102202005619.png" alt="image-20250102202005619" style="zoom:67%;" /></div></p>
 </li>
+<li>
+<p>评价特征子集对数据集划分和样本标记划分的差异，差异越小则说明当前特征子集越好</p>
+<ul>
+<li>信息增益</li>
 </ul>
 </li>
 </ol>
-<h2 id="density-based-clustering-methods">Density-Based Clustering Methods<a class="headerlink" href="#density-based-clustering-methods" title="Permanent link">&para;</a></h2>
+<h2 id="_3">特征选择<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>two parameters</p>
+<p>过滤式选择：先用特征选择过程过滤原始数据，再用过滤后的特征来训练模型；特征选择过程与后续学习器无关</p>
 <ul>
-<li>Eps: Maximum radius of the neighborhood</li>
-<li>MinPts: Minimum number of points in an Eps-neighborhood of that point</li>
+<li>
+<p>Relief方法</p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250104195157128.png" alt="image-20250104195157128" style="zoom:67%;" /></div></p>
+</li>
+<li>
+<p>相关统计量越大，属性j上，猜对近邻比猜错近邻越近，即属性j对区分对错越有用</p>
+</li>
 </ul>
 </li>
 <li>
-<p><span class="arithmatex">\(N_{Eps}(p)\)</span>:{q belongs to D | <span class="arithmatex">\(dist(p,q)\leq Eps\)</span>}</p>
-</li>
-<li>
-<p>Directly density-reachable: A point <em>p</em> is directly density-reachable from a point <em>q</em> if p belongs to <span class="arithmatex">\(N_{Eps}(q)\)</span> and <span class="arithmatex">\(|N_{Eps}(q)|\geq MinPts\)</span></p>
-<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250102203030320.png" alt="image-20250102203030320" style="zoom: 67%;" />
-<img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250102203339985.png" alt="image-20250102203339985" style="zoom: 67%;" /></div></p>
-</li>
-<li>
-<p>DBSCAN</p>
+<p>包裹式选择：直接把最终将要使用的学习器的性能作为特征子集的评价准则</p>
 <ul>
-<li>Arbitrary select a point p</li>
-<li>Retrieve all points density-reachable from <em>p</em> w.r.t. Eps and MinPts</li>
-<li>If p is a core point, a cluster is formed</li>
-<li>If p is a border point, no points are density-reachable from p and DBSCAN visits the next point of the database</li>
-<li>Continue the process until all of the points have been processed</li>
+<li>LVW（Las Vegas Wrapper）<ul>
+<li>在循环的每一轮随机产生一个特征子集</li>
+<li>在随机产生的特征子集上通过交叉验证推断当前特征子集的误差</li>
+<li>进行多次循环，在多个随机产生的特征子集中选择误差最小的特征子集作为最终解</li>
+<li>若有运行时间限制，则该算法有可能给不出解</li>
 </ul>
+</li>
+</ul>
+</li>
+<li>
+<p>嵌入式选择：将特征选择过程与学习器训练过程融为一体，两者在同一个优化过程中完成，在学习器训练过程中自动地进行特征选择</p>
 </li>
 </ol>
-<h2 id="spectral-clustering">Spectral Clustering<a class="headerlink" href="#spectral-clustering" title="Permanent link">&para;</a></h2>
+<h2 id="_4">稀疏表示<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ol>
-<li>
-<p>Represent data points as the vertices V of a graph G, clustering can be viewed as partitioning a similarity graph. Large weights mean that the adjacent vertices are very similar; small weights imply dissimilarity.</p>
-<ul>
-<li>Naïve Idea: make the weight of those cut edges as small as possible</li>
-</ul>
-</li>
-<li>
-<p>Cut: Set of edges with only one vertex in a group. </p>
-</li>
+<li>字典学习：为普通稠密表达的样本找到合适的<strong>字典</strong>，将样本转化为稀疏表示</li>
 </ol>
-<p>$$
-   cut(A,B)=\sum_{i\in A.j\in B}w_{ij}
-   $$</p>
-<ol start="3">
-<li>Association: Set of edges with two vertexes in the same group.</li>
-</ol>
-<p>$$
-   assoc(A,A)=\sum_{i\in A,j\in A}w_{ij}
-   $$</p>
-<ol start="4">
-<li>Normalized Cut Criteria</li>
-</ol>
-<p>$$
-   Ncut(A,B)=\frac{cut(A,B)}{assoc(A,V)}+\frac{cut(A,B)}{assoc(B,V)} \
-   assoc(A,V)=\sum_{i\in A, j\in V}w_{ij} \
-   \text{goal:}  \min Ncut(A,B)
-   $$</p>
-<ol start="5">
-<li>matrix representation: symmetric matrix 得到<span class="arithmatex">\(W\)</span>,同时对角阵D，有<span class="arithmatex">\(d_i=\sum\limits_jw_{ij}\)</span></li>
-</ol>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250104120247149.png" alt="image-20250104120247149" style="zoom:67%;" /></div>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250104195642517.png" alt="image-20250104195642517" style="zoom:60%;" /></div>
 
-<ol start="6">
-<li>
-<p>objective function</p>
-<div class="arithmatex">\[
-x\in[1,-1]^n,x_i=\begin{cases}1&amp;i\in A\\-1&amp;i\in B&amp;\end{cases}\\
-y=(1+x)-b(1-x) \\
-\min_y \frac{y^T(D-W)y}{y^TDy}, y\in\mathcal{R}^n,y^TD\bold{1}=0
-\]</div>
-<ul>
-<li>make <span class="arithmatex">\(L=D-W\)</span>, then <span class="arithmatex">\(\min\limits_y y^TLy\ \ \ s.t.\ y^TDy=1\)</span></li>
-<li>by Lagrangian Function <span class="arithmatex">\(Ly=-\lambda Dy\)</span>, which is a generalized Eigen-problem</li>
-<li>change it to <span class="arithmatex">\(D^{-1}Ly=\lambda y\)</span></li>
-</ul>
-</li>
-<li>
-<p>K&gt;2</p>
-<ul>
-<li>
-<p>perform Ncut recursively</p>
-</li>
-<li>
-<p>use more than one eigenvectors</p>
-<ul>
-<li>suppose <span class="arithmatex">\(y_1,y_2,\cdots,y_k\)</span> are the first k eigenvectors corresponding to the smallest eigenvalues, let</li>
-</ul>
-<p><span class="arithmatex">\(Y=[y_1,y_2,\dots,y_k]\in R^{n\times k}\)</span></p>
-<ul>
-<li>
-<p>each row vector of <span class="arithmatex">\(Y\)</span> is a k dimensional representation of the original data point</p>
-</li>
-<li>
-<p>performing Kmeans</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>Spectral Clustering Algorithm</p>
+<h2 id="_5">压缩感知<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Graph construction<ul>
-<li>Heat kernel <span class="arithmatex">\(w_{ij}=\exp\{-\dfrac{\|x_i-x_j\|}{2\sigma^2}\}\)</span></li>
-<li>k-nearest neighbor graph</li>
-</ul>
+<li>
+<p>限定等距性：若存在常数<span class="arithmatex">\(\delta_k\in(0,1)\)</span>使得对于任意向量<span class="arithmatex">\(s\)</span>和<span class="arithmatex">\(A\)</span>的所有子矩阵<span class="arithmatex">\(A_k\in\mathbb{R}^{n\times k}\)</span>有：
+   $$
+   (1-\delta_k)|s|^2_2\leq|A_k s|^2_2\leq(1+\delta_k)|s|^2_2
+   $$
+   则称<span class="arithmatex">\(A\)</span>满足<span class="arithmatex">\(k\)</span>限定等距性 (k-RIP)，此时可以通过下面的优化问题近乎完美地从y恢复出稀疏信号s，进而恢复出x。若下式使用<span class="arithmatex">\(L_0\)</span>范数则是NP hard
+   $$
+   \min_s|s|_1 \
+   s.t.   y=As
+   $$</p>
 </li>
-<li>Eigen-problem<ul>
-<li>Compute eigenvalues and eigenvectors of the matrix L</li>
-<li>Map each point to a lower-dimensional representation based on one or more eigenvectors.</li>
-</ul>
-</li>
-<li>Conventional clustering schemes, e.g. K-Means<ul>
-<li>Assign points to two or more clusters, based on the new representation.</li>
-</ul>
+<li>
+<p>矩阵补全
+   $$
+   \min_X rank(X) \
+   s.t.   (X)<em ij="ij">{ij}=(A)</em>,(i,j)\in\Omega
+   $$</p>
 </li>
 </ol>
-</li>
-</ol>
-<h2 id="lvq">LVQ<a class="headerlink" href="#lvq" title="Permanent link">&para;</a></h2>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250104193815936.png" alt="image-20250104193815936" style="zoom:67%;" /></div>
 
 
 

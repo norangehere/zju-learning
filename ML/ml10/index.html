@@ -13,6 +13,10 @@
         <link rel="canonical" href="https://norangehere.github.io/zju-learning/ML/ml10/">
       
       
+        <link rel="prev" href="../ml9/">
+      
+      
+        <link rel="next" href="../ml11/">
       
       
       <link rel="icon" href="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/logo.ico">
@@ -20,7 +24,7 @@
     
     
       
-        <title>Ml10 - Ran9E的笔记本</title>
+        <title>kNN & Metric - Ran9E的笔记本</title>
       
     
     
@@ -89,6 +93,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#10-knn-metric" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -118,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Ml10
+              kNN & Metric
             
           </span>
         </div>
@@ -301,16 +310,20 @@
         
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../../MLDA/" class="md-tabs__link">
           
   
@@ -1721,8 +1734,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -1741,12 +1756,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
@@ -1760,7 +1775,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             AI
@@ -2100,6 +2115,8 @@
                 
   
   
+    
+  
   
   
     
@@ -2109,16 +2126,44 @@
           
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
         
           
           
@@ -2133,15 +2178,372 @@
 
             </a>
             
+              
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_3">
             <span class="md-nav__icon md-icon"></span>
             机器学习
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linear Regression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linear Classifier
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kernel Methods
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Decision Tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Neural Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Practical Topics in Deep Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bayesian Decision Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ensemble Methods
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    kNN & Metric
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    kNN & Metric
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#k-nearest-neighbor-classifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      k Nearest Neighbor Classifier
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aknn-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      AKNN Search
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dimensionality Reduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clustering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reinforcement Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    特征选择和稀疏学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
           </ul>
@@ -2611,6 +3013,34 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#k-nearest-neighbor-classifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      k Nearest Neighbor Classifier
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aknn-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      AKNN Search
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2628,9 +3058,107 @@
   
 
 
-  <h1>Ml10</h1>
+<h1 id="10-knn-metric">10 kNN &amp; Metric<a class="headerlink" href="#10-knn-metric" title="Permanent link">&para;</a></h1>
+<h2 id="k-nearest-neighbor-classifier">k Nearest Neighbor Classifier<a class="headerlink" href="#k-nearest-neighbor-classifier" title="Permanent link">&para;</a></h2>
+<ol>
+<li>requires three things<ul>
+<li>the set of stored records</li>
+<li>distance metric to compute distance between records</li>
+<li>the value of <span class="arithmatex">\(k\)</span></li>
+</ul>
+</li>
+<li>
+<p>To classify an unknown record:</p>
+<ul>
+<li>Compute distance to other training records</li>
+<li>Identify <span class="arithmatex">\(k\)</span> nearest neighbors </li>
+<li>Use class labels of nearest neighbors to determine the class label of unknown record (e.g., by taking majority vote)</li>
+</ul>
+</li>
+<li>
+<p>Metric Learning: 在距离衡量中加入权重，考虑不同feature的重要性</p>
+<div class="arithmatex">\[
+\rho_M(x,y)=\sqrt{(x-y)^TM(x-y)}
+\]</div>
+<ul>
+<li>我们希望对同类距离尽可能小，异类尽可能大</li>
+<li>Create cost/energy function and minimize with respect to M
+$$
+\mathcal{L}(M)=\sum_{(x,x^{\prime})\in S}\rho_{M}^{2}(x,x^{\prime})-\lambda\sum_{(x,x^{\prime})\in D}\rho_{M}^{2}(x,x^{\prime})
+$$</li>
+</ul>
+</li>
+<li>
+<p>MMC (Mahalanobis Metric for Clustering)</p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241118015921677.png" alt="image-20241118015921677" style="zoom: 80%;" />
+<img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241118020030648.png" alt="image-20241118020030648" style="zoom:80%;" />
+<img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241118020126515.png" alt="image-20241118020126515" style="zoom:80%;" />
+<img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241118020214305.png" alt="image-20241118020214305" style="zoom:80%;" /></div></p>
+<ul>
+<li>取对数</li>
+</ul>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241118020334931.png" alt="image-20241118020334931" style="zoom: 80%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241118020401063.png" alt="image-20241118020401063" style="zoom:80%;" /></div></p>
+</li>
+</ol>
+<h2 id="aknn-search">AKNN Search<a class="headerlink" href="#aknn-search" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Given a dataset D contains n d-dim data points, find nearest neighbor: <span class="arithmatex">\(O(nd+n)\)</span></li>
+<li>find k: <span class="arithmatex">\(O(nd+kn)\)</span> or <span class="arithmatex">\(O(nd+k\log n )\)</span> or <span class="arithmatex">\(O(nd+n\log k)\)</span></li>
+<li>
+<p><span class="arithmatex">\(\epsilon\)</span>-approximate nearest neighbor search</p>
+</li>
+<li>
+<p>method for ANNS: </p>
+</li>
+<li>partition the space<ul>
+<li>tree based</li>
+<li>graph based</li>
+</ul>
+</li>
+<li>
+<p>approximation</p>
+<ul>
+<li>hashing based</li>
+<li>Quantization based</li>
+</ul>
+</li>
+<li>
+<p>K-D Tree</p>
+<ul>
+<li>假设我们已经知道了 k 维空间内的 n个不同的点的坐标，要将其构建成一棵 k-D Tree，步骤如下：<ol>
+<li>若当前超长方体中只有一个点，返回这个点。</li>
+<li>选择一个维度，将当前超长方体按照这个维度分成两个超长方体。</li>
+<li>选择切割点：在选择的维度上选择一个点，这一维度上的值小于这个点的归入一个超长方体（左子树），其余的归入另一个超长方体（右子树）。</li>
+<li>将选择的点作为这棵子树的根节点，递归对分出的两个超长方体构建左右子树，维护子树的信息。</li>
+</ol>
+</li>
+<li>提出两个优化：<ol>
+<li>轮流选择 k 个维度，以保证在任意连续 k 层里每个维度都被切割到。</li>
+<li>每次在维度上选择切割点时选择该维度上的 <strong>中位数</strong>，这样可以保证每次分成的左右子树大小尽量相等。</li>
+</ol>
+</li>
+<li>优化后高度最多 <span class="arithmatex">\(\log n+O(1)\)</span></li>
+</ul>
+</li>
+<li>Locality Sensitive Hashing (LSH)<ul>
+<li>Basic assumption: Similar data (in certain dimensions) is likely to be thrown into the same bucket.</li>
+<li>While querying, the same set of hashing functions will be used.</li>
+<li>The hashing functions can be randomized or designed.</li>
+<li>Often times, built upon extracted features.</li>
+<li>LSH generates bunch of candidate points, followed by other post-processing mechanisms. </li>
+</ul>
+</li>
+</ul>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241118131905461.png" alt="image-20241118131905461" style="zoom:67%;" /></div>
 
-<p>。</p>
+<ul>
+<li>Graph based ANNS algorithms<ul>
+<li>Motivation: Neighbor’s neighbor is also likely the neighbor.</li>
+<li>Appealing theoretical properties on search but huge indexing time complexity (at least <span class="arithmatex">\(O(n^2)\)</span>)</li>
+</ul>
+</li>
+</ul>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241118132131680.png" alt="image-20241118132131680" style="zoom: 67%;" /></div>
 
 
 

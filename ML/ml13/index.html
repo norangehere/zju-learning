@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://norangehere.github.io/zju-learning/ML/ml12/">
+        <link rel="canonical" href="https://norangehere.github.io/zju-learning/ML/ml13/">
       
       
-        <link rel="prev" href="../ml11/">
+        <link rel="prev" href="../ml12/">
       
       
-        <link rel="next" href="../ml13/">
+        <link rel="next" href="../ml14/">
       
       
       <link rel="icon" href="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/logo.ico">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Clustering - Ran9E的笔记本</title>
+        <title>Reinforcement Learning - Ran9E的笔记本</title>
       
     
     
@@ -94,7 +94,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#12-clustering" class="md-skip">
+        <a href="#13-reinforcement-learning" class="md-skip">
           跳转至
         </a>
       
@@ -127,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Clustering
+              Reinforcement Learning
             
           </span>
         </div>
@@ -2429,6 +2429,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clustering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -2445,7 +2466,7 @@
           
   
   <span class="md-ellipsis">
-    Clustering
+    Reinforcement Learning
   </span>
   
 
@@ -2456,7 +2477,7 @@
         
   
   <span class="md-ellipsis">
-    Clustering
+    Reinforcement Learning
   </span>
   
 
@@ -2478,36 +2499,63 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#gaussian-mixture-model" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      Gaussian Mixture Model
+      Introduction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#density-based-clustering-methods" class="md-nav__link">
+  <a href="#goal" class="md-nav__link">
     <span class="md-ellipsis">
-      Density-Based Clustering Methods
+      Goal
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#spectral-clustering" class="md-nav__link">
+  <a href="#finite-mdp" class="md-nav__link">
     <span class="md-ellipsis">
-      Spectral Clustering
+      Finite MDP
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lvq" class="md-nav__link">
+  <a href="#monte-carlo-methods" class="md-nav__link">
     <span class="md-ellipsis">
-      LVQ
+      Monte Carlo Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#td-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      TD Learning
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exploration-vs-exploitation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exploration VS Exploitation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#policy-gradient-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy Gradient Methods
     </span>
   </a>
   
@@ -2517,27 +2565,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ml13/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Reinforcement Learning
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -3041,36 +3068,63 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#gaussian-mixture-model" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      Gaussian Mixture Model
+      Introduction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#density-based-clustering-methods" class="md-nav__link">
+  <a href="#goal" class="md-nav__link">
     <span class="md-ellipsis">
-      Density-Based Clustering Methods
+      Goal
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#spectral-clustering" class="md-nav__link">
+  <a href="#finite-mdp" class="md-nav__link">
     <span class="md-ellipsis">
-      Spectral Clustering
+      Finite MDP
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lvq" class="md-nav__link">
+  <a href="#monte-carlo-methods" class="md-nav__link">
     <span class="md-ellipsis">
-      LVQ
+      Monte Carlo Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#td-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      TD Learning
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exploration-vs-exploitation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exploration VS Exploitation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#policy-gradient-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy Gradient Methods
     </span>
   </a>
   
@@ -3094,151 +3148,337 @@
   
 
 
-<h1 id="12-clustering">12 Clustering<a class="headerlink" href="#12-clustering" title="Permanent link">&para;</a></h1>
-<h2 id="gaussian-mixture-model">Gaussian Mixture Model<a class="headerlink" href="#gaussian-mixture-model" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>可能有缺漏</p>
-</blockquote>
-<ol>
-<li>
-<p>Gaussian Mixture Model (GMM) is one of the most popular clustering methods which can be viewed as a linear combination of different Gaussian components.</p>
-<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250102201016426.png" alt="image-20250102201016426" style="zoom:67%;" /></div></p>
-<ul>
-<li>The log-likelihood function</li>
-</ul>
-<div class="arithmatex">\[
-\log\prod\limits_{i=1}^Np(x^{(i)};\Theta)=\sum_{i=1}^N\log(\sum_{k=1}^K\pi_k\mathcal{N}(x^{(i)};\mu_k,\Sigma_k))
-\]</div>
-<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250102201828978.png" alt="image-20250102201828978" style="zoom: 67%;" /></div></p>
-<ul>
-<li>
-<p>parameters estimation for GMM</p>
-<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250102202005619.png" alt="image-20250102202005619" style="zoom:67%;" /></div></p>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="density-based-clustering-methods">Density-Based Clustering Methods<a class="headerlink" href="#density-based-clustering-methods" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p>two parameters</p>
-<ul>
-<li>Eps: Maximum radius of the neighborhood</li>
-<li>MinPts: Minimum number of points in an Eps-neighborhood of that point</li>
-</ul>
-</li>
-<li>
-<p><span class="arithmatex">\(N_{Eps}(p)\)</span>:{q belongs to D | <span class="arithmatex">\(dist(p,q)\leq Eps\)</span>}</p>
-</li>
-<li>
-<p>Directly density-reachable: A point <em>p</em> is directly density-reachable from a point <em>q</em> if p belongs to <span class="arithmatex">\(N_{Eps}(q)\)</span> and <span class="arithmatex">\(|N_{Eps}(q)|\geq MinPts\)</span></p>
-<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250102203030320.png" alt="image-20250102203030320" style="zoom: 67%;" />
-<img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250102203339985.png" alt="image-20250102203339985" style="zoom: 67%;" /></div></p>
-</li>
-<li>
-<p>DBSCAN</p>
-<ul>
-<li>Arbitrary select a point p</li>
-<li>Retrieve all points density-reachable from <em>p</em> w.r.t. Eps and MinPts</li>
-<li>If p is a core point, a cluster is formed</li>
-<li>If p is a border point, no points are density-reachable from p and DBSCAN visits the next point of the database</li>
-<li>Continue the process until all of the points have been processed</li>
-</ul>
-</li>
-</ol>
-<h2 id="spectral-clustering">Spectral Clustering<a class="headerlink" href="#spectral-clustering" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p>Represent data points as the vertices V of a graph G, clustering can be viewed as partitioning a similarity graph. Large weights mean that the adjacent vertices are very similar; small weights imply dissimilarity.</p>
-<ul>
-<li>Naïve Idea: make the weight of those cut edges as small as possible</li>
-</ul>
-</li>
-<li>
-<p>Cut: Set of edges with only one vertex in a group. </p>
-</li>
-</ol>
-<p>$$
-   cut(A,B)=\sum_{i\in A.j\in B}w_{ij}
-   $$</p>
-<ol start="3">
-<li>Association: Set of edges with two vertexes in the same group.</li>
-</ol>
-<p>$$
-   assoc(A,A)=\sum_{i\in A,j\in A}w_{ij}
-   $$</p>
-<ol start="4">
-<li>Normalized Cut Criteria</li>
-</ol>
-<p>$$
-   Ncut(A,B)=\frac{cut(A,B)}{assoc(A,V)}+\frac{cut(A,B)}{assoc(B,V)} \
-   assoc(A,V)=\sum_{i\in A, j\in V}w_{ij} \
-   \text{goal:}  \min Ncut(A,B)
-   $$</p>
-<ol start="5">
-<li>matrix representation: symmetric matrix 得到<span class="arithmatex">\(W\)</span>,同时对角阵D，有<span class="arithmatex">\(d_i=\sum\limits_jw_{ij}\)</span></li>
-</ol>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250104120247149.png" alt="image-20250104120247149" style="zoom:67%;" /></div>
+<h1 id="13-reinforcement-learning">13 Reinforcement Learning<a class="headerlink" href="#13-reinforcement-learning" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241202143314405.png" alt="image-20241202143314405" style="zoom:67%;" /></div>
 
-<ol start="6">
+<ul>
+<li>agent: the learner and decision-maker</li>
+<li>environment: the thing agent interacts with, comprising everything outside the agent</li>
+<li>reward: special numerical values that the agent tries to maximize over time</li>
+<li>state and action: in general, actions can be any decisions we want to learn how to make, and the states can be anything we can know that might be useful in making them</li>
 <li>
-<p>objective function</p>
+<p>最终要得到的是policy <span class="arithmatex">\(\pi\)</span>，输入是state或其他包括reward等的内容，输出为对应的action</p>
+</li>
+<li>
+<p>data: (State, Action, Reward)</p>
+</li>
+<li>An RL agent must learn by trial-and-error 反复试错，策略一初始化就要开始跑，算reward</li>
+<li>
+<p>Actions may affect not only the immediate reward but also subsequent rewards(<strong>Delayed effect</strong>)  一个行动会对长期许多步的reward都有影响</p>
+</li>
+<li>
+<p>elements of RL</p>
+</li>
+<li>policy: a map from <strong>state space</strong> to <strong>action space</strong> 可能是<strong>stochastic</strong>(随机)的</li>
+<li>reward function: map each state or state-action pair to a real number, called <strong>reward</strong></li>
+<li>value function: value of a state or state-action pair is the <strong>total expected reward</strong>, starting from the state or state-action pair 从当前状态跑到正无穷或结束的总reward</li>
+</ul>
+<h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>maximize the Value function</p>
+</li>
+<li>
+<p>Value iteration and Policy iteration are two classic approached to this problem. But essentially both are dynamic programming.</p>
+</li>
+<li>
+<p>Q-learning是最新的一个算法，是一种时序差分的方法</p>
+</li>
+<li>
+<p>Algorithm</p>
+<ul>
+<li>
+<p>Goal</p>
+<ul>
+<li>policy <span class="arithmatex">\(\pi(a|s)\)</span> </li>
+<li>reward hypothesis: maximization of the expected value of the cumulative sum of reward</li>
+</ul>
+</li>
+<li>
+<p>Return</p>
+<ul>
+<li>
+<p>return G is the formally defined cumulative sum of reward</p>
+</li>
+<li>
+<p>episodic task(回合式任务): episode means there are some special states, after which agent-environment interaction should restart or stop
+  <span class="arithmatex">\(G_t = R_{t+1}+R_{t+2}+\cdots+R_T\)</span>, T is the time of final state</p>
+</li>
+<li>
+<p>continuing task: the agent-environment interaction does not break naturally into identifiable episodes, but goes on continually without limit
+  <span class="arithmatex">\(G_t=\sum_{k=0}^\infty\gamma^kR_{t+k+1},0\leq\gamma&lt;1\)</span>, <span class="arithmatex">\(\gamma\)</span> is called discount rate</p>
+</li>
+<li>
+<p>unified Notation for Episodic and Continuing Tasks</p>
+</li>
+</ul>
+<p><span class="arithmatex">\(G_t=\sum_{k=0}^\infty\gamma^kR_{t+k+1},0\leq\gamma\leq1\)</span></p>
+<ul>
+<li>if continuing tasks, <span class="arithmatex">\(\gamma\neq1\)</span></li>
+<li>if episodic task, adding an absorbing state after the final state(called terminal state) that transitions only to itself and that generates only zero reward, so we get <span class="arithmatex">\(R_{T+1}=R_{T+2}=\cdots=0\)</span> 即final state之后的reward都视为0即可</li>
+<li>但episodic也可以<span class="arithmatex">\(\gamma&lt;1\)</span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="finite-mdp">Finite MDP<a class="headerlink" href="#finite-mdp" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>马尔可夫性</p>
 <div class="arithmatex">\[
-x\in[1,-1]^n,x_i=\begin{cases}1&amp;i\in A\\-1&amp;i\in B&amp;\end{cases}\\
-y=(1+x)-b(1-x) \\
-\min_y \frac{y^T(D-W)y}{y^TDy}, y\in\mathcal{R}^n,y^TD\bold{1}=0
+Pr\{S_{t+1}=s',R_{t+1}=r|S_0,A_0,R_1,\dots,S_{t-1},A_{t-1},R_t,S_t,A_t\}=\\ Pr\{S_{t+1}=s',R_{t+1}=r|S_t,A_t\}
 \]</div>
 <ul>
-<li>make <span class="arithmatex">\(L=D-W\)</span>, then <span class="arithmatex">\(\min\limits_y y^TLy\ \ \ s.t.\ y^TDy=1\)</span></li>
-<li>by Lagrangian Function <span class="arithmatex">\(Ly=-\lambda Dy\)</span>, which is a generalized Eigen-problem</li>
-<li>change it to <span class="arithmatex">\(D^{-1}Ly=\lambda y\)</span></li>
-</ul>
+<li>
+<p>MDP: 满足马尔可夫性的强化学习任务，状态空间和行为空间有限则为有限MDP</p>
 </li>
 <li>
-<p>K&gt;2</p>
+<p>the dynamic of a finite MDP</p>
+</li>
+</ul>
+<div class="arithmatex">\[
+p(s',r|s,a)=Pr\{S_{t+1}=s',R_{t+1}=r|S_t=s,A_t=a\}
+\]</div>
 <ul>
 <li>
-<p>perform Ncut recursively</p>
+<p>从dynamic我们可以得到</p>
 </li>
 <li>
-<p>use more than one eigenvectors</p>
+<p>the expected rewards for state–action pairs
+    $$
+    r(s,a)=\mathbb{E}[R_{t+1}|S_t=s,A_t=a]=\sum_rr\sum_{s'}p(s',r|s,a)
+    $$</p>
+</li>
+<li>
+<p>state-transition probabilities
+    $$
+    p(s'|s,a)=Pr{S_{t+1}=s'|S_t=s,A_t=a}=\sum_rp(s',r|s,a)
+    $$</p>
+</li>
+</ul>
+</li>
+<li>
+<p>value function</p>
 <ul>
-<li>suppose <span class="arithmatex">\(y_1,y_2,\cdots,y_k\)</span> are the first k eigenvectors corresponding to the smallest eigenvalues, let</li>
+<li>
+<p>the state-value function for policy <span class="arithmatex">\(\pi\)</span>
+    $$
+    v_\pi(s)=\mathbb{E}<em>\pi[G_t|S_t=s]=\mathbb{E}</em>\pi[\sum_{k=1}^\infty R_{t+k+1}|S_t=s]
+    $$</p>
+</li>
+<li>
+<p>the action-value function for policy <span class="arithmatex">\(\pi\)</span>
+    $$
+    q_\pi(s,a)=\mathbb{E}<em>\pi[G_t|S_t=s,A_t=a]=\mathbb{E}</em>\pi[\sum_{k=1}^\infty\gamma^k R_{t+k+1}|S_t=s,A_t=a]
+    $$</p>
+</li>
+<li>
+<p>如果没有dynamic，v和q不能互转</p>
+</li>
+<li>
+<p>relation between the two value functions
+    $$
+    \begin{aligned}
+     &amp; v_{\pi}(s)=\mathbb{E}<em _pi="\pi">{\pi}[q</em>(s,A_{t})|S_{t}=s]=\sum_{a}\pi(a,s)q_{\pi}(s,a) \
+     &amp; q_{\pi}(s,a)=\mathbb{E}<em t_1="t+1">{\pi}[R</em>+\gamma v_{\pi}(S_{t+1})|S_{t}=s,A_{t}=a] \
+     &amp; =\sum_{s^{\prime},r}p(s^{\prime},r|s,a)(r+\gamma v_{\pi}(s^{\prime}))
+    \end{aligned}
+    $$</p>
+</li>
 </ul>
-<p><span class="arithmatex">\(Y=[y_1,y_2,\dots,y_k]\in R^{n\times k}\)</span></p>
+</li>
+<li>
+<p>Bellman equation for <span class="arithmatex">\(v_\pi\)</span></p>
+<ul>
+<li>for every state <span class="arithmatex">\(s\)</span>, we have the unique solution as follows 
+    $$
+    v_\pi(s)=\sum_a\pi(a,s)q_\pi(s,a)=\sum_a\pi(a,s)\sum_{s',r}p(s',r|s,a)(r+\gamma v_\pi(s'))
+    $$</li>
+</ul>
+</li>
+<li>
+<p>Optimal Value Functions</p>
 <ul>
 <li>
-<p>each row vector of <span class="arithmatex">\(Y\)</span> is a k dimensional representation of the original data point</p>
+<p>最优策略是存在的，记为<span class="arithmatex">\(\pi_*\)</span>，可能不止一个，他们share同样的state-value function，同时有以下：
+    $$
+    v_<em>(s)=\max_\pi v_\pi(s)\
+    q_</em>(s,a)=\max_\pi q_\pi(s,a)
+    $$</p>
 </li>
 <li>
-<p>performing Kmeans</p>
+<p>最优策略在任何状态下都是最优的，不管MDP的初始状态如何</p>
+</li>
+<li>
+<p>Bellman optimality equation
+    $$
+    v_<em>(s)=\max_aq_</em>(s,a)=\max_a\sum_{s',r}p(s',r|s,a)(r+\gamma v_*(s'))
+    $$</p>
 </li>
 </ul>
 </li>
+<li>
+<p>DP: 给定符合MDP的perfect model环境，使用DP可以计算得到optimal policies</p>
+<ul>
+<li>
+<p>策略评估，使用iterative policy evaluation，其中k为迭代次数
+    $$
+    v_{k+1}(s)=\sum_a\pi(a,s)\sum_{s^{\prime}r}p(s^{\prime},r|s,a)(r+\gamma v_k(s^{\prime}))
+    $$</p>
+</li>
+<li>
+<p>policy improvement theorem</p>
+<ul>
+<li>
+<p>deterministic policy: if policy <span class="arithmatex">\(\pi\)</span> is deterministic then only one action has non-zero probability under any state <span class="arithmatex">\(s\)</span>, note that action <span class="arithmatex">\(\pi(s)\)</span> </p>
+</li>
+<li>
+<p>如果<span class="arithmatex">\(\pi\)</span>和<span class="arithmatex">\(\pi'\)</span>是一对deterministic policy，使得对所有s，<span class="arithmatex">\(q_\pi(s,\pi'(s))\geq v_\pi(s)\)</span>，则显然<span class="arithmatex">\(v_{\pi'}(s)\geq v_{\pi}(s)\)</span></p>
+</li>
+<li>
+<p>proof</p>
+</li>
+</ul>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241203165005875.png" alt="image-20241203165005875" style="zoom:50%;" /></div></p>
+<ul>
+<li>因此
+  $$
+  \begin{aligned}
+  \pi^{\prime}(s) &amp; =\arg\max_aq_\pi(s,a) \
+   &amp; =\arg\max_{a}\sum_{s^{\prime},r}p(s^{\prime},r|s,a)\left[r+\gamma v_{\pi}(s^{\prime})\right]
+  \end{aligned}
+  $$</li>
 </ul>
 </li>
 <li>
-<p>Spectral Clustering Algorithm</p>
+<p>整体算法：</p>
+<ul>
+<li>每次策略评估直到收敛，之后提取最优策略</li>
+</ul>
+</li>
+</ul>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241203165540613.png" alt="image-20241203165540613" style="zoom:67%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241203170521137.png" alt="image-20241203170521137" style="zoom: 67%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241203170635401.png" alt="image-20241203170635401" style="zoom:67%;" /></div></p>
+</li>
+</ol>
+<h2 id="monte-carlo-methods">Monte Carlo Methods<a class="headerlink" href="#monte-carlo-methods" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>treat the unknown as an expectation, and estimate it by sampling and averaging</p>
+</li>
+<li>
+<p>sufficient exploration</p>
+</li>
+<li>需要得到无限的episodes</li>
+<li>exploring starts: the first state-action pair <span class="arithmatex">\((S_0,A_0)\)</span> of each episode is sampled from a distribution that every state-action has a non-zero probability</li>
+</ul>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241203172155062.png" alt="image-20241203172155062" style="zoom:67%;" /></div>
+
+<p>当蒙特卡洛评估收敛时，我们可以进行一次策略提升。但是实际中训练难度很大</p>
+<ul>
+<li>
+<p>下一次策略评估时</p>
+</li>
+<li>
+<p>若保留前一次的returns，由于之前的并不是由新策略生成的，因此会产生bias，同时很耗内存</p>
+</li>
+<li>
+<p>但如果不保存，又需要很多次数来重新生成收敛的Q</p>
+</li>
+<li>
+<p>constant-<span class="arithmatex">\(\alpha\)</span> MC</p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241203172928537.png" alt="image-20241203172928537" style="zoom:50%;" /></div></p>
+</li>
+<li>
+<p>一般<span class="arithmatex">\(\alpha\)</span>取0.1</p>
+</li>
+</ul>
+<h2 id="td-learning">TD Learning<a class="headerlink" href="#td-learning" title="Permanent link">&para;</a></h2>
+<p>update the value function when simulate only one step
+$$
+V(S_t)\leftarrow V(S_t)+\alpha[R_{t+1}+\gamma V(S_{t+1})-V(S_t)]
+$$
+优点是快</p>
+<ul>
+<li>对比DP，不需要环境模型</li>
+<li>对比MC，online fashion上运行，对continuing task也适用</li>
+</ul>
+<p>TD error
+$$
+\delta_t\doteq R_{t+1}+\gamma V(S_{t+1})-V(S_t)
+$$</p>
 <ol>
-<li>Graph construction<ul>
-<li>Heat kernel <span class="arithmatex">\(w_{ij}=\exp\{-\dfrac{\|x_i-x_j\|}{2\sigma^2}\}\)</span></li>
-<li>k-nearest neighbor graph</li>
+<li>
+<p>Sarsa</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(\epsilon\)</span>-greedy</p>
+<p>随尝试次数增加，<span class="arithmatex">\(\epsilon=\dfrac{1}{\sqrt{t}}\)</span>减少</p>
+</li>
+<li>
+<p>since <span class="arithmatex">\(p(s',r|s,a)\)</span> is unclear, we have to estimate action-value <span class="arithmatex">\(Q\)</span> rather than state-value <span class="arithmatex">\(V\)</span></p>
+</li>
+<li>
+<p>algorithm</p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241209145333306.png" alt="image-20241209145333306" style="zoom: 67%;" /></div></p>
+</li>
+<li>
+<p>in Sarsa, <span class="arithmatex">\(Q(s,a)\)</span> has theoretical guarantee for convergence</p>
+</li>
 </ul>
 </li>
-<li>Eigen-problem<ul>
-<li>Compute eigenvalues and eigenvectors of the matrix L</li>
-<li>Map each point to a lower-dimensional representation based on one or more eigenvectors.</li>
-</ul>
-</li>
-<li>Conventional clustering schemes, e.g. K-Means<ul>
-<li>Assign points to two or more clusters, based on the new representation.</li>
+<li>
+<p>Q-learning</p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241209150850808.png" alt="image-20241209150850808" style="zoom:67%;" /></div></p>
+<ol>
+<li>on-policy and off-policy<ul>
+<li>like Sarsa, if the policy to optimize is the same as the policy to generate training data, these control methods called on-policy</li>
+<li>like Q-learning, if the policy to optimize is different from the policy to generate training data, these control methods called off-policy</li>
 </ul>
 </li>
 </ol>
 </li>
 </ol>
-<h2 id="lvq">LVQ<a class="headerlink" href="#lvq" title="Permanent link">&para;</a></h2>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250104193815936.png" alt="image-20250104193815936" style="zoom:67%;" /></div>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241209151320410.png" alt="image-20241209151320410" style="zoom: 43%;" /></div>
+
+<ol>
+<li>Double Q-Learning<ul>
+<li>Essentially, we use one policy model for taking actions, and update it on-the-fly, while for the other <em>value model</em>, we use it to estimate the q-value for each action-state pair.</li>
+<li>The architecture for policy model and value model can be the same. In this case, we update the weight for value model with the weight of policy model several(say 500) iterations.</li>
+</ul>
+</li>
+</ol>
+<h2 id="exploration-vs-exploitation">Exploration VS Exploitation<a class="headerlink" href="#exploration-vs-exploitation" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Connected to: bias vs. variance, tradeoff.</li>
+<li>
+<p>Extremes: greedy vs. random acting</p>
+</li>
+<li>
+<p>At the beginning of learning, we may want more exploration to know the environment</p>
+</li>
+<li>As time goes by, we may want more exploitation</li>
+<li>Q-learning converges to optimal Q-values if<ul>
+<li>Every state is visited infinitely often (due to exploration)</li>
+<li>The action selection becomes greedy as time approaches infinity</li>
+<li>The learning rate a is decreased fast enough but not too fast</li>
+</ul>
+</li>
+</ol>
+<h2 id="policy-gradient-methods">Policy Gradient Methods<a class="headerlink" href="#policy-gradient-methods" title="Permanent link">&para;</a></h2>
+<p>in real world, we often can not get enough state information about the environment. At these time, the Markov property does not hold</p>
+<p>the optimal policy may not be deterministic policy</p>
+<blockquote>
+<p>example: Short corridor with switched actions</p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241209154215390.png" alt="image-20241209154215390" style="zoom:55%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241209154254433.png" alt="image-20241209154254433" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241209154312996.png" alt="image-20241209154312996" style="zoom:50%;" /></div></p>
+</blockquote>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241209154457265.png" alt="image-20241209154457265" style="zoom:50%;" /></div>
+
+<ul>
+<li>REINFORCE</li>
+</ul>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250104192802579.png" alt="image-20250104192802579" style="zoom: 67%;" /></div>
 
 
 

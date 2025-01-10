@@ -13,6 +13,10 @@
         <link rel="canonical" href="https://norangehere.github.io/zju-learning/ML/ml2/">
       
       
+        <link rel="prev" href="../ml1/">
+      
+      
+        <link rel="next" href="../ml3/">
       
       
       <link rel="icon" href="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/logo.ico">
@@ -20,7 +24,7 @@
     
     
       
-        <title>Ml2 - Ran9E的笔记本</title>
+        <title>Linear Regression - Ran9E的笔记本</title>
       
     
     
@@ -89,6 +93,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#2-linear-regression" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -118,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Ml2
+              Linear Regression
             
           </span>
         </div>
@@ -301,16 +310,20 @@
         
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../../MLDA/" class="md-tabs__link">
           
   
@@ -1721,8 +1734,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -1741,12 +1756,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
@@ -1760,7 +1775,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             AI
@@ -2100,6 +2115,8 @@
                 
   
   
+    
+  
   
   
     
@@ -2109,16 +2126,44 @@
           
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
         
           
           
@@ -2133,15 +2178,324 @@
 
             </a>
             
+              
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_3">
             <span class="md-nav__icon md-icon"></span>
             机器学习
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Linear Regression
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linear Classifier
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kernel Methods
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Decision Tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Neural Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Practical Topics in Deep Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bayesian Decision Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ensemble Methods
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    kNN & Metric
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dimensionality Reduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clustering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reinforcement Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    特征选择和稀疏学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
           </ul>
@@ -2611,6 +2965,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -2628,9 +2984,121 @@
   
 
 
-  <h1>Ml2</h1>
-
-<p>。</p>
+<h1 id="2-linear-regression">2 Linear Regression<a class="headerlink" href="#2-linear-regression" title="Permanent link">&para;</a></h1>
+<ol>
+<li>
+<p>mean-squared error(MSE): <span class="arithmatex">\(J_n=\dfrac{1}{n}\sum\limits_{i=1}^n(y_i-f(x_i))^2\)</span></p>
+</li>
+<li>
+<p>residual sum of squares: <span class="arithmatex">\(RSS(f)=\sum\limits_{i=1}^n(y_i-f(x_i))^2\)</span></p>
+</li>
+<li>
+<p>for matrix: <span class="arithmatex">\(J_n(w)=(y-X^Tw)^T(y-X^Tw)\)</span></p>
+</li>
+<li>
+<p>Maximum Likelihood Estimation: </p>
+<ul>
+<li><strong>Likelihood of predictions</strong>: The probability of observing outputs <span class="arithmatex">\(y\)</span> in <span class="arithmatex">\(D\)</span> given <span class="arithmatex">\(w,X,\)</span> and <span class="arithmatex">\(\sigma\)</span></li>
+<li>
+<p><span class="arithmatex">\(L(D,w,\sigma)=\prod\limits_{i=1}^np(y_i|x_i,w,\sigma)\)</span></p>
+</li>
+<li>
+<p><span class="arithmatex">\(w^*=\operatorname{argmax}\prod\limits_{i=1}^np(y_i|x_i,w,\sigma)\)</span></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Over-fitting</p>
+<ul>
+<li>解 <span class="arithmatex">\(w=(XX^T)^{-1}Xy\)</span></li>
+<li>若 <span class="arithmatex">\(XX^T\)</span> 非奇异(满秩)，则有唯一解，否则会导致过拟合</li>
+</ul>
+</li>
+<li>
+<p>Ridge Regression 二阶正则项</p>
+<ul>
+<li>control the size of the coefficients in Regression<ul>
+<li>local smoothness</li>
+<li>weight decay</li>
+</ul>
+</li>
+</ul>
+<p>$$
+  w^*=\operatorname{argmin}\sum_{i=1}^n\left(y_i-x_i^Tw\right)^2+\lambda\sum_{j=1}^pw_j^2
+  $$</p>
+<ul>
+<li>equivalent formulation</li>
+</ul>
+<p>$$
+  \boldsymbol{a}^*=\operatorname{argmin}\sum_{i=1}^n\left(y_i-x_i^T\boldsymbol{w}\right)^2 \
+  \text{Subject to} \Sigma_{j=1}^pw_j^2\leq t
+  $$</p>
+<blockquote>
+<p>推导</p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241008234923084.png" alt="image-20241008234923084" style="zoom:50%;" /></div></p>
+</blockquote>
+</li>
+<li>
+<p>subject to <span class="arithmatex">\(\sum\limits_{j=1}^p|w_j|^q\leq t\)</span></p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241008235322309.png" alt="image-20241008235322309" style="zoom: 30%;" /></div></p>
+</li>
+<li>
+<p>LASSO(Least Absolute Selection and Shrinkage Operator)</p>
+<div class="arithmatex">\[
+\widehat{\boldsymbol{w}}=\operatorname{argmin}\frac{1}{2n}\sum_{i=1}^{n}\left(y_{i}-x_{i}^{T}w\right)^{2}  \ \ \ \ \ \  \text{subject to}\sum_{j=1}^p|w_j|\leq t\\
+or \ \ \ \ \ \ \ \ \widehat{\boldsymbol{w}}=\operatorname{argmin}\frac{1}{2n}\sum_{i=1}^{n}\left(y_{i}-x_{i}^{T}w\right)^{2}+\lambda\|w\|_{1}
+\]</div>
+<ul>
+<li>
+<p>sparse model: 如上图q=1所示，更容易取到坐标轴上的角，对应的是有某一坐标分量为0，因此更能提取到重要的特征</p>
+</li>
+<li>
+<p>solution</p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241009000944910.png" alt="image-20241009000944910" style="zoom: 67%;" /></div></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Bias &amp; Variance Decomposition</p>
+<ul>
+<li>Given training set D, so <span class="arithmatex">\(f(x)\rightarrow f(x;D)\)</span>, and <span class="arithmatex">\(E_D(f(x;D))\)</span></li>
+</ul>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241009001124249.png" alt="image-20241009001124249" style="zoom: 60%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241009001303165.png" alt="image-20241009001303165" style="zoom:60%;" /></div></p>
+<ul>
+<li>
+<p>expected prediction error = <span class="arithmatex">\((\text{bias})^2+\text{variance}+\text{noise}\)</span></p>
+<ul>
+<li>
+<p>(bias<span class="arithmatex">\()^2:\)</span> 相当于拟合出来的函数和y的偏差
+  $$
+  \int{E_D(f(x;D))-E(y|x)}^2p(x)dx
+  $$</p>
+</li>
+<li>
+<p>variance: 拟合出的函数本身的方差</p>
+</li>
+</ul>
+<div class="arithmatex">\[
+\int E_D\left\{\left[f(\boldsymbol{x};D)-E_D(f(\boldsymbol{x};D))\right]^2\right\}p(\boldsymbol{x})d\boldsymbol{x}
+\]</div>
+<ul>
+<li>noise:</li>
+</ul>
+<div class="arithmatex">\[
+\int\mathrm{var}(y|x)p(x)dx
+\]</div>
+</li>
+</ul>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241009001645337.png" alt="image-20241009001645337" style="zoom: 50%;" /></div></p>
+</li>
+<li>
+<p>Cross-Validation:</p>
+<ul>
+<li>K-Fold Cross-Validation</li>
+<li>leave-one-out cross-validation</li>
+</ul>
+</li>
+</ol>
 
 
 

@@ -13,6 +13,10 @@
         <link rel="canonical" href="https://norangehere.github.io/zju-learning/ML/ml3/">
       
       
+        <link rel="prev" href="../ml2/">
+      
+      
+        <link rel="next" href="../ml4/">
       
       
       <link rel="icon" href="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/logo.ico">
@@ -20,7 +24,7 @@
     
     
       
-        <title>Ml3 - Ran9E的笔记本</title>
+        <title>Linear Classifier - Ran9E的笔记本</title>
       
     
     
@@ -89,6 +93,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#4-linear-classifier" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -118,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Ml3
+              Linear Classifier
             
           </span>
         </div>
@@ -301,16 +310,20 @@
         
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../../MLDA/" class="md-tabs__link">
           
   
@@ -1721,8 +1734,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -1741,12 +1756,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
@@ -1760,7 +1775,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             AI
@@ -2100,6 +2115,8 @@
                 
   
   
+    
+  
   
   
     
@@ -2109,16 +2126,44 @@
           
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
         
           
           
@@ -2133,15 +2178,324 @@
 
             </a>
             
+              
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_3">
             <span class="md-nav__icon md-icon"></span>
             机器学习
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linear Regression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Linear Classifier
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kernel Methods
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Decision Tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Neural Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Practical Topics in Deep Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bayesian Decision Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ensemble Methods
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    kNN & Metric
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dimensionality Reduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clustering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reinforcement Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    特征选择和稀疏学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
           </ul>
@@ -2611,6 +2965,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -2628,9 +2984,136 @@
   
 
 
-  <h1>Ml3</h1>
+<h1 id="4-linear-classifier">4 Linear Classifier<a class="headerlink" href="#4-linear-classifier" title="Permanent link">&para;</a></h1>
+<ol>
+<li>
+<p>Binary classifier to multi-class classifier</p>
+<ul>
+<li>one vs. one: 将类别两两配对，产生<span class="arithmatex">\(N(N-1)/2\)</span>个二分类任务，训练这些分类器。预测时将样本提交给所有分类器，结果中被预测的最多的即为最终分类结果</li>
+<li>one vs. rest：每次将一个类作为正例，其余反例，训练N个分类器，预测时将输出正例的视为预测结果。</li>
+</ul>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241009131026236.png" alt="image-20241009131026236" style="zoom: 80%;" /></div></p>
+<ul>
+<li>Error Correcting Output Codes(ECOC)，属于MvM<ul>
+<li>编码：对N个类别做M次划分,每次划分将一部分类别划为正类，一部分划为反类,从而形成一个二分类训练集;这样一共产生M个训练集,可训练出M个分类器</li>
+<li>解码：M个分类器分别对测试样本进行预测，这些预测标记组成一个编码.将这个预测编码与每个类别各自的编码进行比较,返回其中距离最小的类别作为最终预测结果</li>
+<li>编码越长，纠错能力越强</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241009131304980.png" alt="image-20241009131304980" style="zoom: 80%;" /></div>
 
-<p>。</p>
+<ol start="2">
+<li>
+<p>sigmoid function: <span class="arithmatex">\(\sigma(t)=\dfrac{1}{1+e^{-t}}, \sigma:R\rightarrow(0,1)\)</span></p>
+</li>
+<li>
+<p>Maximum likelihood estimation for logistic regression: </p>
+<div class="arithmatex">\[
+P(D)=\prod_{i\in I}\sigma(y_{i}\boldsymbol{a}^{T}\boldsymbol{x}_{i})\\l\big(P(D)\big)=\sum_{i\in I}\log\bigl(\sigma(y_{i}\boldsymbol{a}^{T}\boldsymbol{x}_{i})\big)=-\sum_{i\in I}\log\bigl(1+e^{-y_{i}\boldsymbol{a}^{T}\boldsymbol{x}_{i}}\bigr) \\
+E(\boldsymbol{a})=\sum_{i\in I}\log\left(1+e^{-y_i\boldsymbol{a}^T\boldsymbol{x}_i}\right)
+\]</div>
+</li>
+<li>
+<p>gradient descent algorithm</p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241009134925080.png" alt="image-20241009134925080" style="zoom: 67%;" /></div></p>
+</li>
+<li>
+<p>minimize a differentiable function:</p>
+<div class="arithmatex">\[
+E(a+\Delta a)=E(a)+E'(a)\Delta a+E''(a)\frac{\Delta a^2}{2!}+E'''(a)\frac{\Delta a^3}{3!}+\cdots
+\]</div>
+<ul>
+<li>
+<p>linear approximation: <span class="arithmatex">\(\Delta a=-\eta E^{\prime}(a)\)</span></p>
+</li>
+<li>
+<p>quadratic approximation:</p>
+<ul>
+<li>Newton's Method: Choose <span class="arithmatex">\(\Delta a\)</span> that <span class="arithmatex">\(E^{\prime }( a) \Delta a+ E^{\prime \prime }( a) \frac {\Delta a^{2}}{2! }\)</span>is minimum
+  $$
+  E^{\prime}(a)+E^{\prime\prime}(a)\Delta a=0\quad\\Delta\boldsymbol{a}=-\eta[\mathbf{H}E(\boldsymbol{a})]^{-1}E^{\prime}(\boldsymbol{a}) \
+  \Delta a=-\frac{E'(a)}{E''(a)}
+  $$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Support Vector Machine: hyperplane, decision surface</p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240923153829722.png" alt="image-20240923153829722" style="zoom: 67%;" /></div></p>
+<ul>
+<li>
+<p>对离群点敏感度</p>
+</li>
+<li>
+<p><strong>geometrical margin</strong>几何距离: <span class="arithmatex">\(\gamma=y\dfrac{w^Tx+b}{\|w\|}\)</span> y保证非负</p>
+</li>
+</ul>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240923154915764.png" alt="image-20240923154915764" style="zoom: 33%;" /></div></p>
+<ul>
+<li>
+<p>If the hyperplane moves a little, points with small <span class="arithmatex">\(\gamma\)</span> will be affected, but points with large <span class="arithmatex">\(\gamma\)</span> won’t</p>
+</li>
+<li>
+<p>Maximum Margin Classifier: find the hyperplane with the largest margin, maximize the confidence of classifying the dataset</p>
+</li>
+<li>
+<p>We know <span class="arithmatex">\(y(w^Tx+b)\)</span> can be made arbitrarily large without changing the hyperplane, so we simply fix it at <span class="arithmatex">\(y(w^Tx+b)=1\)</span></p>
+</li>
+<li>so <span class="arithmatex">\(\min\limits_{w,b}\dfrac{1}{2}||w||^2\)</span> and <span class="arithmatex">\(y_i(w^Tx_i+b)\geq1\)</span></li>
+</ul>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241009135851875.png" alt="image-20241009135851875" style="zoom: 55%;" /></div></p>
+<ul>
+<li>
+<p>weakness: When an outlier appear, the optimal hyperplane may be pushed far away from its original /correct place. The resultant margin will also be smaller than before.</p>
+</li>
+<li>
+<p>slack variables: Assign a slack variable <span class="arithmatex">\(\xi\)</span> to each data point. That means we allow the point to deviate from the correct margin by a distance of <span class="arithmatex">\(\xi\)</span> (Actually <span class="arithmatex">\(\|w\|\xi\)</span> when considering geometrical margin).</p>
+</li>
+<li>
+<p><strong>Unconstrained Optimization Problem of SVM</strong>
+   $$
+   \min_{w,b}\frac12|w|^2+C\sum_{i=1}^n\xi_i\y(\boldsymbol{w}^T\boldsymbol{x}<em i="i">i+b)\geq1-\xi_i\\xi_i\geq0 \
+   \xi</em>\geq1-y(w^{T}x_{i}+b)\quad\xi_{i}=\max[1-y(w^{T}x_{i}+b),0]\\min_{w,b}\left{\sum^{n}<em i="i">{i=1}\max[1-y(w^{T}x</em>+b),0]+\frac{1}{2C}|w|^{2}\right} \
+   \ell(f)=\max[1-yf,0]   \text{Hingeloss}
+   $$</p>
+</li>
+</ul>
+</li>
+<li>
+<p>A General formulation of classifiers</p>
+<p><div align="center"><img src="https://storage.simpletex.cn/view/fmoalurY4Bf4DSeUkkNtbHdf8Rwev7K1s" style="zoom: 80%;" /></div></p>
+<ul>
+<li>
+<p>Square loss: <span class="arithmatex">\(\ell(f)=(1-yf)^2\)</span> Ordinary regression</p>
+</li>
+<li>
+<p>Logistic loss: <span class="arithmatex">\(\ell ( f) = \log ( 1+ e^{- yf})\)</span>  Logistic regression</p>
+</li>
+<li>
+<p>Hinge loss: <span class="arithmatex">\(\ell ( f) = \max [ 1- yf, 0]\)</span>  SVM</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Lagrange Multipliers and the Karush-Kuhn-Tucker conditions</p>
+<ul>
+<li>equality constraints</li>
+</ul>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241009151333195.png" alt="image-20241009151333195" style="zoom: 67%;" /></div></p>
+<ul>
+<li>inequality constraints</li>
+</ul>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241009152601827.png" alt="image-20241009152601827" style="zoom: 67%;" /></div></p>
+<ul>
+<li>equality and inequality constraints</li>
+</ul>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241009152657563.png" alt="image-20241009152657563" style="zoom:67%;" /></div></p>
+</li>
+</ol>
 
 
 
