@@ -56,8 +56,6 @@
     
       <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
-      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
-    
       <link rel="stylesheet" href="../../css/custom.css">
     
       <link rel="stylesheet" href="../../css/card.css">
@@ -2492,10 +2490,10 @@
 <p>train descriptors by metric learning</p>
 </li>
 <li>
-<p>constrastive loss
-     $$
-     L_{tri}=\frac{1}{N}\sum_{i=1}^N\max(0,m+|F_I(A)-F_{I'}(P)|-|F_I(A)-F_{I'}(N)|)^2
-     $$</p>
+<p>constrastive loss</p>
+<p>$$
+ L_{tri}=\frac{1}{N}\sum_{i=1}^N\max(0,m+|F_I(A)-F_{I'}(P)|-|F_I(A)-F_{I'}(N)|)^2
+ $$</p>
 </li>
 <li>
 <p>where is training data from</p>
@@ -2544,13 +2542,13 @@
 <p>歧义性</p>
 </li>
 <li>
-<p>loss function: scale-invarient depth error
-     $$
-     D_{SI}(y,y^<em>)=\frac{1}{n}\sum_{i=1}^n(\log y_i-\log y_i^</em>+\alpha(y,y^<em>))^2 \newline 
-     \alpha(y,y^</em>)=\frac{1}{n}\sum_{j=1}^n(\log y_j-\log y_j^*)
-     $$</p>
+<p>loss function: scale-invarient depth error</p>
 </li>
 </ul>
+<div class="arithmatex">\[
+D_{SI}(y,y^*)=\frac{1}{n}\sum_{i=1}^n(\log y_i-\log y_i^*+\alpha(y,y^*))^2 \newline 
+\alpha(y,y^*)=\frac{1}{n}\sum_{j=1}^n(\log y_j-\log y_j^*)
+ \]</div>
 <h2 id="deep-learning-for-3d-understanding">Deep learning for 3D understanding<a class="headerlink" href="#deep-learning-for-3d-understanding" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
@@ -2764,10 +2762,6 @@
         <script src="../../js/baidu-tongji.js"></script>
       
         <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
-      
-        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
-      
-        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
         <script src="../../js/katex.js"></script>
       

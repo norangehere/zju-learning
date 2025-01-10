@@ -56,8 +56,6 @@
     
       <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
-      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
-    
       <link rel="stylesheet" href="../../css/custom.css">
     
       <link rel="stylesheet" href="../../css/card.css">
@@ -2539,8 +2537,10 @@
 </li>
 <li>
 <p>Pairwise potential
-     $$</p>
-<p>$$</p>
+     $$
+     \begin{aligned}\theta_{ij}(x_{i},x_{j})=&amp;\mu(x_{i},x_{j})\bigg[w_{1}\exp\bigg(-\frac{||p_{i}-p_{j}||^{2}}{2\sigma_{\alpha}^{2}}-\frac{||I_{i}-I_{j}||^{2}}{2\sigma_{\beta}^{2}}\bigg)\&amp;+w_{2}\exp\Big(-\frac{||p_{i}-p_{j}||^{2}}{2\sigma_{\gamma}^{2}}\Big)\Big]\end{aligned}
+     $$
+     where <span class="arithmatex">\(\mu(x_{i},x_{j})=1\)</span> if <span class="arithmatex">\(x_i\neq x_{j}\)</span>, and zero otherwise</p>
 </li>
 </ul>
 <ol start="3">
@@ -2829,10 +2829,6 @@
         <script src="../../js/baidu-tongji.js"></script>
       
         <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
-      
-        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
-      
-        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
         <script src="../../js/katex.js"></script>
       

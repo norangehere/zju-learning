@@ -56,8 +56,6 @@
     
       <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
-      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
-    
       <link rel="stylesheet" href="../../css/custom.css">
     
       <link rel="stylesheet" href="../../css/card.css">
@@ -2573,11 +2571,13 @@
 <p>instead of expanding <span class="arithmatex">\(F(x)\)</span>, we expand <span class="arithmatex">\(R(x)\)</span></p>
 </li>
 <li>
-<p><span class="arithmatex">\(J_R\)</span> is the Jacobian of <span class="arithmatex">\(R(x)\)</span>
-     $$
-     \begin{aligned}|R(x_{k}+\Delta x)|<em k="k">2^2 &amp; \approx|R(x</em>)+J_{R}\Delta x|<em k="k">2^2\quad\newline   &amp; =|R(x</em>)|<em k="k">2^2+2R(x</em>)^{T}J_{R}\Delta x+\Delta x^{T}J_{R}^{T}J_{R}\Delta x\end{aligned}
-     $$</p>
+<p><span class="arithmatex">\(J_R\)</span> is the Jacobian of <span class="arithmatex">\(R(x)\)</span></p>
 </li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}\|R(x_{k}+\Delta x)\|_2^2 &amp; \approx\|R(x_{k})+J_{R}\Delta x\|_2^2\quad\newline   &amp; =\|R(x_{k})\|_2^2+2R(x_{k})^{T}J_{R}\Delta x+\Delta x^{T}J_{R}^{T}J_{R}\Delta x\end{aligned}
+\]</div>
+<ul>
 <li>
 <p>最优解满足: <span class="arithmatex">\(J_R^TJ_R\Delta x+J_R^TR(x_k)=0,\Delta x=-(J_R^TJ_R)^{-1}J_R^TR(x_k)\)</span></p>
 </li>
@@ -2650,16 +2650,16 @@
 </ol>
 <ul>
 <li>
-<p>pixel dissimilarity
-     $$
-     S\left(\mathbf{f}<em j="j">{i},\mathbf{f}</em>\right)=\sqrt{\left(\sum_{k}\left(f_{ik}-f_{jk}\right)^{2}\right)}
-     $$</p>
+<p>pixel dissimilarity</p>
+<p>$$
+ S\left(\mathbf{f}<em j="j">{i},\mathbf{f}</em>\right)=\sqrt{\left(\sum_{k}\left(f_{ik}-f_{jk}\right)^{2}\right)}
+ $$</p>
 </li>
 <li>
-<p>pixel affinity
-     $$
-     w(i,j)=A\left(\mathbf{f}<em j="j">{i},\mathbf{f}</em>\right)=e^{\left{\frac{-1}{2\sigma^{2}}S\left(\mathbf{f}<em j="j">{t},\mathbf{f}</em>\right)\right}}
-     $$</p>
+<p>pixel affinity</p>
+<p>$$
+ w(i,j)=A\left(\mathbf{f}<em j="j">{i},\mathbf{f}</em>\right)=e^{\left{\frac{-1}{2\sigma^{2}}S\left(\mathbf{f}<em j="j">{t},\mathbf{f}</em>\right)\right}}
+ $$</p>
 </li>
 </ul>
 <ol start="3">
@@ -2812,10 +2812,6 @@
         <script src="../../js/baidu-tongji.js"></script>
       
         <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
-      
-        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
-      
-        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
         <script src="../../js/katex.js"></script>
       
