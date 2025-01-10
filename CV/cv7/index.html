@@ -3242,21 +3242,21 @@
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241031100655601.png" alt="image-20241031100655601" style="zoom:50%;" /></div>
 
 <ol start="2">
-<li>相机坐标系对齐到世界坐标系 extrinsic parameters包括相机坐标和旋转角度<span class="arithmatex">\((R,c_w)\)</span></li>
-</ol>
-<p>R是正交单位阵</p>
-<div class="highlight"><pre><span></span><code>&lt;div align=&quot;center&quot;&gt;&lt;img src=&quot;https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241031100719537.png&quot; alt=&quot;image-20241031100719537&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/div&gt;
-
-  - world-to-camera transformation
-
-&lt;div align=&quot;center&quot;&gt;&lt;img src=&quot;https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241031100744974.png&quot; alt=&quot;image-20241031100744974&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/div&gt;
-
-  - 齐次坐标系下
-
-&lt;div align=&quot;center&quot;&gt;&lt;img src=&quot;https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241031100805734.png&quot; alt=&quot;image-20241031100805734&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/div&gt;
-</code></pre></div>
-<ol start="3">
-<li>camera coordinate投影到image plane</li>
+<li>
+<p>相机坐标系对齐到世界坐标系 extrinsic parameters包括相机坐标和旋转角度<span class="arithmatex">\((R,c_w)\)</span>,R是正交单位阵</p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241031100719537.png" alt="image-20241031100719537" style="zoom:50%;" /></div></p>
+<ul>
+<li>world-to-camera transformation</li>
+</ul>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241031100744974.png" alt="image-20241031100744974" style="zoom:50%;" /></div></p>
+<ul>
+<li>齐次坐标系下</li>
+</ul>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241031100805734.png" alt="image-20241031100805734" style="zoom:50%;" /></div></p>
+</li>
+<li>
+<p>camera coordinate投影到image plane</p>
+</li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241031100824237.png" alt="image-20241031100824237" style="zoom:50%;" /></div>
 
@@ -3331,7 +3331,7 @@
 <ul>
 <li>这个二元二次方程有四个可能解，我们使用一个额外的点去决定哪个解最有可能</li>
 </ul>
-<ol>
+<ol start="3">
 <li>A more general solution for PnP problem: mminimizing the reprojection error 重投影误差. <span class="arithmatex">\(p_i\)</span>为given 2D points，后半部分式子为3D points投影到2D</li>
 </ol>
 <div class="arithmatex">\[
