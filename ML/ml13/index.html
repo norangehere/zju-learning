@@ -3265,29 +3265,29 @@ p(s',r|s,a)=Pr\{S_{t+1}=s',R_{t+1}=r|S_t=s,A_t=a\}
 <p>value function</p>
 <ul>
 <li>
-<p>the state-value function for policy <span class="arithmatex">\(\pi\)</span>, <br />
-    $$
-    v_\pi(s)=\mathbb{E}<em>\pi[G_t|S_t=s]=\mathbb{E}</em>\pi[\sum_{k=1}^\infty R_{t+k+1}|S_t=s]
-    $$</p>
+<p>the state-value function for policy <span class="arithmatex">\(\pi\)</span>,   </p>
+<div class="arithmatex">\[
+v_\pi(s)=\mathbb{E}_\pi[G_t|S_t=s]=\mathbb{E}_\pi[\sum_{k=1}^\infty R_{t+k+1}|S_t=s]
+\]</div>
 </li>
 <li>
-<p>the action-value function for policy <span class="arithmatex">\(\pi\)</span>,  <br />
-    $$
-    q_\pi(s,a)=\mathbb{E}<em>\pi[G_t|S_t=s,A_t=a]=\mathbb{E}</em>\pi[\sum_{k=1}^\infty\gamma^k R_{t+k+1}|S_t=s,A_t=a]
-    $$</p>
+<p>the action-value function for policy <span class="arithmatex">\(\pi\)</span>,    </p>
+<div class="arithmatex">\[
+q_\pi(s,a)=\mathbb{E}_\pi[G_t|S_t=s,A_t=a]=\mathbb{E}_\pi[\sum_{k=1}^\infty\gamma^k R_{t+k+1}|S_t=s,A_t=a]
+\]</div>
 </li>
 <li>
 <p>如果没有dynamic，v和q不能互转</p>
 </li>
 <li>
-<p>relation between the two value functions  <br />
-    $$
-    \begin{aligned}
-     &amp; v_{\pi}(s)=\mathbb{E}<em _pi="\pi">{\pi}[q</em>(s,A_{t})|S_{t}=s]=\sum_{a}\pi(a,s)q_{\pi}(s,a)\newline <br />
-     &amp; q_{\pi}(s,a)=\mathbb{E}<em t_1="t+1">{\pi}[R</em>+\gamma v_{\pi}(S_{t+1})|S_{t}=s,A_{t}=a]\newline <br />
-     &amp; =\sum_{s^{\prime},r}p(s^{\prime},r|s,a)(r+\gamma v_{\pi}(s^{\prime}))
-    \end{aligned}
-    $$</p>
+<p>relation between the two value functions    </p>
+<div class="arithmatex">\[
+\begin{aligned}
+ &amp; v_{\pi}(s)=\mathbb{E}_{\pi}[q_{\pi}(s,A_{t})|S_{t}=s]=\sum_{a}\pi(a,s)q_{\pi}(s,a)\newline   
+ &amp; q_{\pi}(s,a)=\mathbb{E}_{\pi}[R_{t+1}+\gamma v_{\pi}(S_{t+1})|S_{t}=s,A_{t}=a]\newline   
+ &amp; =\sum_{s^{\prime},r}p(s^{\prime},r|s,a)(r+\gamma v_{\pi}(s^{\prime}))
+\end{aligned}
+\]</div>
 </li>
 </ul>
 </li>
