@@ -2466,12 +2466,14 @@
 <h1 id="lec03-image-processing">Lec.03: Image Processing<a class="headerlink" href="#lec03-image-processing" title="Permanent link">&para;</a></h1>
 <h2 id="image-processing-basics">Image Processing Basics<a class="headerlink" href="#image-processing-basics" title="Permanent link">&para;</a></h2>
 <ol>
-<li>increase contrast with 'S curve' <span class="arithmatex">\(\text{output}(x,y)=f(\text{input}(x,y))\)</span>
-   - S型，亮的更亮，暗的更暗，提高对比度</li>
+<li>increase contrast with 'S curve' <span class="arithmatex">\(\text{output}(x,y)=f(\text{input}(x,y))\)</span></li>
 </ol>
+<ul>
+<li>S型，亮的更亮，暗的更暗，提高对比度</li>
+</ul>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240926105653055.png" alt="image-20240926105653055" style="zoom:43%;" /></div>
 
-<ol start="2">
+<ol>
 <li>Convolution</li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240926110440691.png" alt="image-20240926110440691" style="zoom:45%;" /></div>
@@ -2509,12 +2511,11 @@
 </ul>
 <h2 id="image-sampling">Image Sampling<a class="headerlink" href="#image-sampling" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Aliasing: artifacts due to sampling
-   - Signals are changing too fast but sampled too slow</li>
+<li>Aliasing: artifacts due to sampling. Signals are changing too fast but sampled too slow</li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240926113902574.png" alt="image-20240926113902574" style="zoom:50%;" /></div>
 
-<ol start="2">
+<ol>
 <li>把任意信号用正余弦信号表示 -&gt; Fourier Transform</li>
 </ol>
 <div class="arithmatex">\[
@@ -2524,15 +2525,17 @@
 <li>高斯函数的傅里叶变换还是高斯函数</li>
 </ul>
 <ol start="3">
-<li>Convolution Theorem：空间域和频域之间的关系
-   - 空间域中的卷积操作等价于频率域中的逐点乘法操作
-   - 应用卷积定理的步骤<ol>
+<li>Convolution Theorem：空间域和频域之间的关系</li>
+</ol>
+<ul>
+<li>空间域中的卷积操作等价于频率域中的逐点乘法操作</li>
+<li>应用卷积定理的步骤<ol>
 <li>计算傅里叶变换：将<span class="arithmatex">\(f(x,y)\)</span>和<span class="arithmatex">\(g(x,y)\)</span>通过二维傅里叶变换转换为<span class="arithmatex">\(F(u,v)\)</span>和<span class="arithmatex">\(G(u,v)\)</span>。</li>
 <li>在频率域中相乘：计算乘积<span class="arithmatex">\(H(u,v)=F(u,v)\cdot G(u,v)\)</span>。</li>
 <li>逆傅里叶变换：将<span class="arithmatex">\(H(u,v)\)</span>通过逆傅里叶变换转换回空间域，得到卷积结果<span class="arithmatex">\(h(x,y)\)</span>。</li>
 </ol>
 </li>
-</ol>
+</ul>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240926120233062.png" alt="image-20240926120233062" style="zoom: 25%;" /></div>
 
 <ol start="4">

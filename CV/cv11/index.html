@@ -2507,17 +2507,27 @@
 </ul>
 <h2 id="object-pose-estimation">Object Pose Estimation<a class="headerlink" href="#object-pose-estimation" title="Permanent link">&para;</a></h2>
 <ol>
-<li>feature-matching-based methods
-   - First,reconstruct object SfM model by input multi-view images
-   - Then obtain 2D-3D correspondeces by lifting 2D-2D matches to 3D
-   - Finally, object pose of query image can be solved by PnP</li>
-<li>Direct Pose Regression Methods
-   - Directly regressing object pose of queryimage using a neural network
-   - Need to render a large amount of images for training</li>
-<li>Keypoint detection methods
-   - Using a CNN to detect pre-defined keypoints
-   - Need to render a large amount ofimages for training</li>
+<li>feature-matching-based methods</li>
 </ol>
+<ul>
+<li>First,reconstruct object SfM model by input multi-view images</li>
+<li>Then obtain 2D-3D correspondeces by lifting 2D-2D matches to 3D</li>
+<li>
+<p>Finally, object pose of query image can be solved by PnP
+2. Direct Pose Regression Methods</p>
+</li>
+<li>
+<p>Directly regressing object pose of queryimage using a neural network</p>
+</li>
+<li>
+<p>Need to render a large amount of images for training
+3. Keypoint detection methods</p>
+</li>
+<li>
+<p>Using a CNN to detect pre-defined keypoints</p>
+</li>
+<li>Need to render a large amount ofimages for training</li>
+</ul>
 <h2 id="dense-reconstruction">Dense Reconstruction<a class="headerlink" href="#dense-reconstruction" title="Permanent link">&para;</a></h2>
 <ol>
 <li>MVSNet: predict cost volume from CNN features</li>
@@ -2618,15 +2628,15 @@ D_{SI}(y,y^*)=\frac{1}{n}\sum_{i=1}^n(\log y_i-\log y_i^*+\alpha(y,y^*))^2 \newl
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241128115039978.png" alt="image-20241128115039978" style="zoom: 25%;" /></div>
 
 <ol start="5">
-<li>
-<p>3D semantic segmentation
-   - Input: sensor data of a 3D scene (RGB/depth/point cloud …..)
-   - Output: Label each point in point cloud with category label.
-   - Possible solution: fuse 2D segmentation results in 3D 因为2D的效果比较好了</p>
-</li>
-<li>
-<p>3D object detection</p>
-</li>
+<li>3D semantic segmentation</li>
+</ol>
+<ul>
+<li>Input: sensor data of a 3D scene (RGB/depth/point cloud …..)</li>
+<li>Output: Label each point in point cloud with category label.</li>
+<li>Possible solution: fuse 2D segmentation results in 3D 因为2D的效果比较好了</li>
+</ul>
+<ol start="6">
+<li>3D object detection</li>
 </ol>
 <ul>
 <li>PointRCNN: RCNN for point cloud</li>

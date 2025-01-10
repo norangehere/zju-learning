@@ -2526,11 +2526,13 @@
 <h1 id="lec05-image-matching-and-motion-estimation">Lec.05: Image Matching and Motion Estimation<a class="headerlink" href="#lec05-image-matching-and-motion-estimation" title="Permanent link">&para;</a></h1>
 <h2 id="image-matching">Image matching<a class="headerlink" href="#image-matching" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Main Components of Feature matching
-   - Detection: identify the interest points
-   - Description: extract vector feature descriptor surrounding each interest point
-   - Matching: determine correspondence between descriptors in two views</li>
+<li>Main Components of Feature matching</li>
 </ol>
+<ul>
+<li>Detection: identify the interest points</li>
+<li>Description: extract vector feature descriptor surrounding each interest point</li>
+<li>Matching: determine correspondence between descriptors in two views</li>
+</ul>
 <h3 id="detection">Detection<a class="headerlink" href="#detection" title="Permanent link">&para;</a></h3>
 <ol>
 <li>local measures of uniqueness: consider a small window of pixels (region), shifting the window in any direction causes a big change</li>
@@ -2538,13 +2540,15 @@
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241017102911959.png" alt="image-20241017102911959" style="zoom:50%;" /></div>
 
 <ol start="2">
-<li>Principal Component Analysis
-   - The 1<sup>st</sup> principal component is the direction with highest variance.
-   - The 2<sup>nd</sup> principal component is the direction with highest variance which is orthogonal to the previous components.</li>
+<li>Principal Component Analysis</li>
 </ol>
+<ul>
+<li>The 1<sup>st</sup> principal component is the direction with highest variance.</li>
+<li>The 2<sup>nd</sup> principal component is the direction with highest variance which is orthogonal to the previous components.</li>
+</ul>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241017103505349.png" alt="image-20241017103505349" style="zoom:50%;" /></div>
 
-<ol start="3">
+<ol>
 <li>Corner detection</li>
 </ol>
 <ul>
@@ -2635,39 +2639,47 @@
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241017111657906.png" alt="image-20241017111657906" style="zoom:50%;" /></div>
 
 <ol start="6">
-<li>DoG: LoG can be approximated by Difference of two Gaussians (DoG) OpenCV中常用
-   - computing DoG at different scales 在图像金字塔中对不同<span class="arithmatex">\(\sigma\)</span>相减就可以得到不同scale下的DoG</li>
+<li>DoG: LoG can be approximated by Difference of two Gaussians (DoG) OpenCV中常用</li>
 </ol>
+<ul>
+<li>computing DoG at different scales 在图像金字塔中对不同<span class="arithmatex">\(\sigma\)</span>相减就可以得到不同scale下的DoG</li>
+</ul>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241017111808418.png" alt="image-20241017111808418" style="zoom: 67%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241017112010705.png" alt="image-20241017112010705" style="zoom: 60%;" /></div>
 
 <h3 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h3>
 <ol>
-<li>SIFT(Scale Invarient Feature Transform) descriptor:考察region内梯度方向的分布，用直方图作为描述子
-   - 平移不发生变化
-   - 旋转柱状图整体平移。处理：归一化，最大的放最左侧
-   - 缩放：窗口大小由DoG detector检测特征点时决定，因此invariant
-   - algorithm：DoG找到maxima，对旋转进行dominate orientation，最后create descriptor</li>
+<li>SIFT(Scale Invarient Feature Transform) descriptor:考察region内梯度方向的分布，用直方图作为描述子</li>
 </ol>
+<ul>
+<li>平移不发生变化</li>
+<li>旋转柱状图整体平移。处理：归一化，最大的放最左侧</li>
+<li>缩放：窗口大小由DoG detector检测特征点时决定，因此invariant</li>
+<li>algorithm：DoG找到maxima，对旋转进行dominate orientation，最后create descriptor</li>
+</ul>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241017113004300.png" alt="image-20241017113004300" style="zoom:50%;" /></div>
 
-<ol start="2">
-<li>Properties of SIFT: Extraordinarily robust matching technique
-   - Can handle changes in viewpoint: Theoretically invariant to scale and rotation
-   - Can handle significant changes in illumination: Sometimes even day vs. night
-   - Fast and efficient: can run in real time
-   - Lots of code available</li>
+<ol>
+<li>Properties of SIFT: Extraordinarily robust matching technique</li>
 </ol>
+<ul>
+<li>Can handle changes in viewpoint: Theoretically invariant to scale and rotation</li>
+<li>Can handle significant changes in illumination: Sometimes even day vs. night</li>
+<li>Fast and efficient: can run in real time</li>
+<li>Lots of code available</li>
+</ul>
 <h3 id="matching">Matching<a class="headerlink" href="#matching" title="Permanent link">&para;</a></h3>
 <ol>
-<li>
-<p>Feature distance:
-   - simple approach <span class="arithmatex">\(\|f_1-f_2\|\)</span>, can give small distances for ambiguous (incorrect) matches 
-   - ratio test: ratio score = <span class="arithmatex">\(\dfrac{\|f_1-f_2\|}{\|f_1-f_2'\|}\)</span></p>
+<li>Feature distance:</li>
+</ol>
 <ul>
+<li>simple approach <span class="arithmatex">\(\|f_1-f_2\|\)</span>, can give small distances for ambiguous (incorrect) matches </li>
+<li>ratio test: ratio score = <span class="arithmatex">\(\dfrac{\|f_1-f_2\|}{\|f_1-f_2'\|}\)</span><ul>
 <li><span class="arithmatex">\(f_2\)</span>是best match, <span class="arithmatex">\(f_2'\)</span>是2nd best match</li>
 <li>很接近1说明很近似，则不对此点进行匹配</li>
 </ul>
 </li>
+</ul>
+<ol start="2">
 <li>
 <p>Another strategy: find mutual nearest neighbors 即找到一对特征点，彼此互为图中最近似的点</p>
 </li>
@@ -2679,10 +2691,12 @@
 
 <h2 id="motion-estimation">Motion estimation<a class="headerlink" href="#motion-estimation" title="Permanent link">&para;</a></h2>
 <ol>
-<li>problem
-   - feature-tracking: 提取追踪特征点，输出点的位移信息
-   - optical flow：恢复每个像素处的图像运动，输出密集位移场（光流）</li>
+<li>problem</li>
 </ol>
+<ul>
+<li>feature-tracking: 提取追踪特征点，输出点的位移信息</li>
+<li>optical flow：恢复每个像素处的图像运动，输出密集位移场（光流）</li>
+</ul>
 <h3 id="lucas-kanade-method">Lucas-Kanade method<a class="headerlink" href="#lucas-kanade-method" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Key assumptions</li>

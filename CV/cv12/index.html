@@ -2550,20 +2550,22 @@
 <h1 id="lec12-computational-photography">Lec.12: Computational Photography<a class="headerlink" href="#lec12-computational-photography" title="Permanent link">&para;</a></h1>
 <h2 id="high-dynamic-range-imaginghdr">High Dynamic Range Imaging(HDR)<a class="headerlink" href="#high-dynamic-range-imaginghdr" title="Permanent link">&para;</a></h2>
 <ol>
-<li>
-<p>Exposure = Gain x Irradiance x Time
-   - Gain is controlled by the ISO</p>
+<li>Exposure = Gain x Irradiance x Time</li>
+</ol>
 <ul>
+<li>Gain is controlled by the ISO<ul>
 <li>越高越灵敏，也会放大噪声</li>
-<li>Irradiance is controlled by the aperture 光圈 f数</li>
-<li>Time is controlled by the shutter speed</li>
-<li>按下快门，先清空之前的内容，再开始拍。这个时间差叫快门延迟。单反相机是光学取景器，传感器不需要接受光线，因此拍照时不用清空之前的内容，快门延迟比较低</li>
-<li>When taking a photo, the averaged exposure should be at the middle of the sensor’s measurement range. So that the photo has both bright and dark parts with details</li>
 </ul>
 </li>
-<li>
-<p>Dynamic range(动态范围): The ratio between the largest and smallest values of a certain quantity</p>
+<li>Irradiance is controlled by the aperture 光圈 f数</li>
+<li>Time is controlled by the shutter speed<ul>
+<li>按下快门，先清空之前的内容，再开始拍。这个时间差叫快门延迟。单反相机是光学取景器，传感器不需要接受光线，因此拍照时不用清空之前的内容，快门延迟比较低</li>
+</ul>
 </li>
+<li>When taking a photo, the averaged exposure should be at the middle of the sensor’s measurement range. So that the photo has both bright and dark parts with details</li>
+</ul>
+<ol start="2">
+<li>Dynamic range(动态范围): The ratio between the largest and smallest values of a certain quantity</li>
 </ol>
 <ul>
 <li>
@@ -2601,25 +2603,27 @@
 </ul>
 <h2 id="deblurring">Deblurring<a class="headerlink" href="#deblurring" title="Permanent link">&para;</a></h2>
 <ol>
-<li>
-<p>reason
-   - Defocus: the subject is not in the depth of view 没对上焦
-   - Motion blur: moving subjects or unstable camera</p>
-</li>
-<li>
-<p>Get a clear image
-   - Accurate focus
-   - Fast shutter speed</p>
+<li>reason</li>
+</ol>
 <ul>
+<li>Defocus: the subject is not in the depth of view 没对上焦</li>
+<li>Motion blur: moving subjects or unstable camera</li>
+</ul>
+<ol start="2">
+<li>Get a clear image</li>
+</ol>
+<ul>
+<li>Accurate focus</li>
+<li>Fast shutter speed<ul>
 <li>Large aperture</li>
 <li>High ISO</li>
 <li>One of the reasons why SLR cameras and lenses are expensive</li>
-<li>使用hardware：如三脚架、云台、自带防抖</li>
 </ul>
 </li>
-<li>
-<p>Modeling image blur: The blurring process can be described by convolution, the blurred image is called convolution kernel</p>
-</li>
+<li>使用hardware：如三脚架、云台、自带防抖</li>
+</ul>
+<ol start="3">
+<li>Modeling image blur: The blurring process can be described by convolution, the blurred image is called convolution kernel</li>
 </ol>
 <ul>
 <li>The blur pattern of defocusing depends on the aperture shape</li>
@@ -2787,24 +2791,29 @@ $$</p>
 <h2 id="more-image-synthesis-tasks">More Image Synthesis Tasks<a class="headerlink" href="#more-image-synthesis-tasks" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>Super-Resolution
-   - Super Resolution using GAN</p>
+<p>Super-Resolution: Super Resolution using GAN</p>
 </li>
 <li>
-<p>Image to Image Translation
-   - Style transfer
-   - Text-to-Photo
-   - Image dehazings</p>
+<p>Image to Image Translation</p>
 </li>
-<li>
-<p>Pose and garment transfer
-   - Method</p>
+</ol>
 <ul>
+<li>Style transfer</li>
+<li>Text-to-Photo</li>
+<li>Image dehazings</li>
+</ul>
+<ol start="2">
+<li>Pose and garment transfer</li>
+</ol>
+<ul>
+<li>Method<ul>
 <li>Use parametric mesh (SMPL) to represent body pose and shape</li>
 <li>Use high-dimensional UV texture map to encode appearance</li>
 <li>Transfer the pose and appearance</li>
 </ul>
 </li>
+</ul>
+<ol start="3">
 <li>
 <p>Head Re-enactment</p>
 </li>
@@ -2817,7 +2826,7 @@ $$</p>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241207234353103.png" alt="image-20241207234353103" style="zoom: 100%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241207234515485.png" alt="image-20241207234515485" style="zoom: 100%;" /></div>
 
-<ol start="7">
+<ol start="6">
 <li>Conditional DMs: Text-to-Image, Latent Diffusion, Text-to-Video (SORA)</li>
 </ol>
 

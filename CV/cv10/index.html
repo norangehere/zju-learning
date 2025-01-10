@@ -2665,14 +2665,14 @@
 </ul>
 </blockquote>
 <ol start="2">
-<li>
-<p>single human
-   - directly predict joint locations
-   - represent joint locations as the heatmap</p>
-</li>
-<li>
-<p>Multiple humans</p>
-</li>
+<li>single human</li>
+</ol>
+<ul>
+<li>directly predict joint locations</li>
+<li>represent joint locations as the heatmap</li>
+</ul>
+<ol start="3">
+<li>Multiple humans</li>
 </ol>
 <ul>
 <li>Top-down: Detect humans and detect keypoints in each bbox 先用前面的方法分割找到每个人，之后再当single human识别。但效率低，同时两个人重合时可能只会有一个box，不可修正<ul>

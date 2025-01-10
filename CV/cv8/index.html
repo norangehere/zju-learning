@@ -2616,17 +2616,17 @@
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241107102701325.png" alt="image-20241107102701325" style="zoom:50%;" /></div>
 
 <ol start="2">
-<li>
-<p>Basic stereo matching algorithm: 
-   - For each pixel in the first image</p>
+<li>Basic stereo matching algorithm: </li>
+</ol>
 <ul>
+<li>For each pixel in the first image<ul>
 <li>Find corresponding epipolar line in the right image</li>
 <li>Search along epipolar line and pick the best match</li>
 </ul>
 </li>
-<li>
-<p>Simplest Case: Parallel images: 相机同高度，镜头角度一样，focal length相同</p>
-</li>
+</ul>
+<ol start="3">
+<li>Simplest Case: Parallel images: 相机同高度，镜头角度一样，focal length相同</li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241107103503735.png" alt="image-20241107103503735" style="zoom:50%;" /></div>
 
@@ -2637,15 +2637,16 @@
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241107103617421.png" alt="image-20241107103617421" style="zoom:50%;" /></div>
 
 <ol start="4">
-<li>Stereo image rectification：假设拍摄的时候两个相机不平行，先进行reproject使得两个相机水平
-   - Reproject image planes onto a common plane parallel to the line between camera centers
-   - 使用两个3x3的单应矩阵</li>
+<li>Stereo image rectification：假设拍摄的时候两个相机不平行，先进行reproject使得两个相机水平</li>
 </ol>
+<ul>
+<li>Reproject image planes onto a common plane parallel to the line between camera centers</li>
+<li>使用两个3x3的单应矩阵</li>
+</ul>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241107104408094.png" alt="image-20241107104408094" style="zoom:50%;" /></div>
 
-<ol start="5">
-<li>Basic stereo matching algorithm
-   - Best match minimizes the dissimilarity</li>
+<ol>
+<li>Basic stereo matching algorithm: Best match minimizes the dissimilarity</li>
 <li>Popular matching scores</li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241107104503632.png" alt="image-20241107104503632" style="zoom:50%;" /></div>
@@ -2719,15 +2720,15 @@
 
 <h3 id="multi-view-stereo">Multi-view stereo<a class="headerlink" href="#multi-view-stereo" title="Permanent link">&para;</a></h3>
 <ol>
-<li>
-<p>Advantages
-   - Can match windows using more than 1 neighbor, giving a <strong>stronger constraint</strong>
-   - If you have lots of potential neighbors, can <strong>choose</strong> <strong>the best subset</strong> of neighbors to match per reference image
-   - Can reconstruct a depth map for each reference frame, and the merge into a <strong>complete 3D model</strong></p>
-</li>
-<li>
-<p>basic idea: Correct depth gives consistent projections while incorrect depth gives inconsistent projections. </p>
-</li>
+<li>Advantages</li>
+</ol>
+<ul>
+<li>Can match windows using more than 1 neighbor, giving a <strong>stronger constraint</strong></li>
+<li>If you have lots of potential neighbors, can <strong>choose</strong> <strong>the best subset</strong> of neighbors to match per reference image</li>
+<li>Can reconstruct a depth map for each reference frame, and the merge into a <strong>complete 3D model</strong></li>
+</ul>
+<ol start="2">
+<li>basic idea: Correct depth gives consistent projections while incorrect depth gives inconsistent projections. </li>
 </ol>
 <p>Compute the error for each depth value for each point in the reference image. Find the depth value that gives the smallest error</p>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241107112126106.png" alt="image-20241107112126106" style="zoom: 45%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241107112211904.png" alt="image-20241107112211904" style="zoom:45%;" />
@@ -2772,26 +2773,30 @@
 </ul>
 <h2 id="3d-reconstruction">3D reconstruction<a class="headerlink" href="#3d-reconstruction" title="Permanent link">&para;</a></h2>
 <ol>
-<li>pipeline
-   - Compute depth map per image
-   - Fuse the depth maps into a 3D surface
-   - Texture mapping</li>
+<li>pipeline</li>
 </ol>
+<ul>
+<li>Compute depth map per image</li>
+<li>Fuse the depth maps into a 3D surface</li>
+<li>Texture mapping</li>
+</ul>
 <h3 id="3d-representations">3D representations<a class="headerlink" href="#3d-representations" title="Permanent link">&para;</a></h3>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241107114512604.png" alt="image-20241107114512604" style="zoom:50%;" /></div>
 
 <ol>
 <li>point cloud: 只有点，no surface</li>
-<li>volume
-   - occupancy volume: <span class="arithmatex">\(V_{ijk}=1\)</span> if occupied, 0 if empty
-   - SDF(Signed Distance Function) volume: The distance of a point to the shape boundary. The distance is defined by a metric, usually the Euclidean distance<ul>
+<li>volume</li>
+</ol>
+<ul>
+<li>occupancy volume: <span class="arithmatex">\(V_{ijk}=1\)</span> if occupied, 0 if empty</li>
+<li>SDF(Signed Distance Function) volume: The distance of a point to the shape boundary. The distance is defined by a metric, usually the Euclidean distance<ul>
 <li>Truncated Signed Distance Function <strong>(TSDF)</strong>: Truncation SDF’s distance value to [−1, 1]</li>
 </ul>
 </li>
-</ol>
+</ul>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241107114939305.png" alt="image-20241107114939305" style="zoom:50%;" /></div>
 
-<ol start="3">
+<ol>
 <li>mesh: A polygon mesh with vertices and edges, usually triangle mesh</li>
 </ol>
 <h3 id="3d-surface-reconstruction">3D surface reconstruction<a class="headerlink" href="#3d-surface-reconstruction" title="Permanent link">&para;</a></h3>

@@ -2446,12 +2446,13 @@
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241024104300601.png" alt="image-20241024104300601" style="zoom:50%;" /></div>
 
 <ol start="4">
-<li>什么时候是单应变换
-   - 相机绕其中心转动
-   - 相机中心移动并且拍摄内容在一个平面上</li>
-<li>Inverse Transform: <span class="arithmatex">\(T^{-1}\)</span>
-   - 将变换图片每个像素点通过逆变换映射到原图的对应的位置，若坐标不为整数则利用插值得到对应像素</li>
+<li>什么时候是单应变换</li>
 </ol>
+<ul>
+<li>相机绕其中心转动</li>
+<li>相机中心移动并且拍摄内容在一个平面上
+5. Inverse Transform(<span class="arithmatex">\(T^{-1}\)</span>): 将变换图片每个像素点通过逆变换映射到原图的对应的位置，若坐标不为整数则利用插值得到对应像素</li>
+</ul>
 <h2 id="image-stitching">Image Stitching<a class="headerlink" href="#image-stitching" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Affine transformation</li>
@@ -2536,17 +2537,21 @@ x^{\prime}=ax+by+c\newline y^{\prime}=dx+ey+f
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241024113703384.png" alt="image-20241024113703384" style="zoom:50%;" /></div>
 
 <ol start="5">
-<li>Cylindrical panoramas
-   - step<ul>
+<li>Cylindrical panoramas</li>
+</ol>
+<ul>
+<li>step<ul>
 <li>reproject each image onto a cylinder</li>
 <li>blend</li>
 <li>Cylindrical image stitching: A rotation of the camera is a <strong>translation</strong> of the cylinder!</li>
-<li>problem: Drift</li>
+</ul>
+</li>
+<li>problem: Drift<ul>
 <li>small errors accumulate over time</li>
 <li>solution: apply correction so that sum=0 for 360° pan</li>
 </ul>
 </li>
-</ol>
+</ul>
 
 
 
