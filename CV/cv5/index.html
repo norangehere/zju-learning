@@ -3365,23 +3365,27 @@
 <li>assume the pixel's neighbors have the same <span class="arithmatex">\((u,v)\)</span></li>
 <li>for <span class="arithmatex">\(5\times5\)</span> window, that gives us 25 equations per pixel</li>
 </ul>
+<div class="arithmatex">\[
+\left.\left[\begin{array}{cc}I_x(\mathbf{p_1})&amp;I_y(\mathbf{p_1})\newline I_x(\mathbf{p_2})&amp;I_y(\mathbf{p_2})\newline \vdots&amp;\vdots\newline I_x(\mathbf{p_{25}})&amp;I_y(\mathbf{p_{25}})\end{array}\right.\right]\left[\begin{array}{c}u\newline v\end{array}\right]=-\left[\begin{array}{c}I_t(\mathbf{p_1})\newline I_t(\mathbf{p_2})\newline \vdots\newline I_t(\mathbf{p_{25}})\end{array}\right]
+\]</div>
+<ul>
+<li>即<span class="arithmatex">\(Ad=b\)</span>,方程个数远多于变量，很可能没解，因此solve <span class="arithmatex">\(\min\limits_d\|Ad-b\|^2\)</span></li>
+<li>即<span class="arithmatex">\((A^TA)d=A^Tb\)</span></li>
+</ul>
+<div class="arithmatex">\[
+\left[\begin{array}{cc}\sum I_xI_x&amp;\sum I_xI_y\newline \sum I_xI_y&amp;\sum I_yI_y\end{array}\right]\left[\begin{array}{c}u\newline v\end{array}\right]=-\left[\begin{array}{c}\sum I_xI_t\newline \sum I_yI_t\end{array}\right]
+\]</div>
+<ul>
+<li>
+<p>有解左侧要可逆，对应两个特征值<span class="arithmatex">\(\lambda_1\)</span>和<span class="arithmatex">\(\lambda_2\)</span>不能太小，对应之前提到的边缘检测，需要是corner点</p>
+</li>
+<li>
+<p>The aperture problem 无法判断沿孔径方向的运动</p>
 </li>
 </ul>
-<p>$$
-    \left.\left[\begin{array}{cc}I_x(\mathbf{p_1})&amp;I_y(\mathbf{p_1})\newline I_x(\mathbf{p_2})&amp;I_y(\mathbf{p_2})\newline \vdots&amp;\vdots\newline I_x(\mathbf{p_{25}})&amp;I_y(\mathbf{p_{25}})\end{array}\right.\right]\left[\begin{array}{c}u\newline v\end{array}\right]=-\left[\begin{array}{c}I_t(\mathbf{p_1})\newline I_t(\mathbf{p_2})\newline \vdots\newline I_t(\mathbf{p_{25}})\end{array}\right]
-   $$</p>
-<div class="highlight"><pre><span></span><code>- 即$Ad=b$,方程个数远多于变量，很可能没解，因此solve $\min\limits_d\|Ad-b\|^2$
-- 即$(A^TA)d=A^Tb$
-</code></pre></div>
-<p>$$
-    \left[\begin{array}{cc}\sum I_xI_x&amp;\sum I_xI_y\newline \sum I_xI_y&amp;\sum I_yI_y\end{array}\right]\left[\begin{array}{c}u\newline v\end{array}\right]=-\left[\begin{array}{c}\sum I_xI_t\newline \sum I_yI_t\end{array}\right]
-   $$</p>
-<div class="highlight"><pre><span></span><code>- 有解左侧要可逆，对应两个特征值$\lambda_1$和$\lambda_2$不能太小，对应之前提到的边缘检测，需要是corner点
-
-  - The aperture problem 无法判断沿孔径方向的运动
-
-  &lt;div align=&quot;center&quot;&gt;&lt;img src=&quot;https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241017122234538.png&quot; alt=&quot;image-20241017122234538&quot; style=&quot;zoom: 33%;&quot; /&gt;&lt;/div&gt;
-</code></pre></div>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241017122234538.png" alt="image-20241017122234538" style="zoom: 33%;" /></div></p>
+</li>
+</ul>
 </li>
 <li>
 <p>好跟踪的点：纹理丰富的点</p>
