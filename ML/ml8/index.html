@@ -3227,8 +3227,10 @@ l(\theta)=\sum_{k=1}^n\ln p(x_k|\theta)\newline
 <li>
 <p>Laplace Smoothing 避免出现零概率使得相乘后为0</p>
 <div class="arithmatex">\[
-P(x_{i}|\omega_{k})=\frac{|x_{ik}|+1}{N_{\omega_{k}}+K}\newline   
-P(x_{i}|\omega_{k})=\frac{|x_{ik}|+\alpha}{N_{\omega_{k}}+\alpha K}
+\begin{aligned}
+P(x_{i}|\omega_{k})&amp;=\frac{|x_{ik}|+1}{N_{\omega_{k}}+K}\newline   
+P(x_{i}|\omega_{k})&amp;=\frac{|x_{ik}|+\alpha}{N_{\omega_{k}}+\alpha K}
+\end{aligned}
 \]</div>
 </li>
 </ol>

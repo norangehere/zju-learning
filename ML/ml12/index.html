@@ -3171,9 +3171,11 @@
 <li>Normalized Cut Criteria</li>
 </ol>
 <p>$$
-   Ncut(A,B)=\frac{cut(A,B)}{assoc(A,V)}+\frac{cut(A,B)}{assoc(B,V)} \newline <br />
-   assoc(A,V)=\sum_{i\in A, j\in V}w_{ij} \newline <br />
-   \text{goal:}  \min Ncut(A,B)
+   \begin{aligned}
+   Ncut(A,B)&amp;=\frac{cut(A,B)}{assoc(A,V)}+\frac{cut(A,B)}{assoc(B,V)} \newline <br />
+   assoc(A,V)&amp;=\sum_{i\in A, j\in V}w_{ij} \newline <br />
+   \text{goal:} \quad &amp;\min Ncut(A,B)
+   \end{aligned}
    $$</p>
 <ol start="5">
 <li>matrix representation: symmetric matrix 得到<span class="arithmatex">\(W\)</span>,同时对角阵D，有<span class="arithmatex">\(d_i=\sum\limits_jw_{ij}\)</span></li>

@@ -3333,9 +3333,11 @@
 <li>
 <p>Compute the eigenvectors <span class="arithmatex">\(\{a_i\}_{i=1}^{c-1}\)</span> corresponding to the non-zero eigenvalue of the generalized eigenproblem:
   $$
-  S_Ba=\lambda S_Wa \newline
-   or \newline
-   S_Ba=\lambda S_T a
+  \begin{aligned}
+  S_Ba &amp;=\lambda S_Wa \newline
+   &amp;or \newline
+   S_Ba&amp;=\lambda S_T a
+   \end{aligned}
   $$</p>
 </li>
 <li>
@@ -3384,13 +3386,14 @@
 <ul>
 <li>summarize:<ul>
 <li>Input: Distance matrix <span class="arithmatex">\(D\)</span></li>
-<li>Algorithm:<div class="highlight"><pre><span></span><code>- compute $d_{i:}^2=\frac1n\sum_{j=1}^{n}d_{ij}^2,d_{:j}^2=\frac1n\sum_{i=1}^{n}d_{ij}^2,d_{::}^2= \frac1{n^2}\sum_{i=1}^{n}\sum_{j=1}^{n}d_{ij}^2$
-- compute inner product B $b_{ij}=-\frac12(d_{ij}^2-d_{i:}^2-d_{:j}^2+d_{::}^2)$
-- apply eigen-decomposition on $B$
-- Select first $k$ biggest non-zero eigenvalues and corresponding eigenvectors, the target low-dimensional data matrix can be obtained from $Z=\Lambda_{*}^{\frac12}U_{*}^{T}$
-  - Output: the k-dimensional data matrix $Z$
-</code></pre></div>
+<li>Algorithm:<ul>
+<li>compute <span class="arithmatex">\(d_{i:}^2=\frac1n\sum_{j=1}^{n}d_{ij}^2,d_{:j}^2=\frac1n\sum_{i=1}^{n}d_{ij}^2,d_{::}^2= \frac1{n^2}\sum_{i=1}^{n}\sum_{j=1}^{n}d_{ij}^2\)</span></li>
+<li>compute inner product B <span class="arithmatex">\(b_{ij}=-\frac12(d_{ij}^2-d_{i:}^2-d_{:j}^2+d_{::}^2)\)</span></li>
+<li>apply eigen-decomposition on <span class="arithmatex">\(B\)</span></li>
+<li>Select first <span class="arithmatex">\(k\)</span> biggest non-zero eigenvalues and corresponding eigenvectors, the target low-dimensional data matrix can be obtained from <span class="arithmatex">\(Z=\Lambda_{*}^{\frac12}U_{*}^{T}\)</span></li>
+</ul>
 </li>
+<li>Output: the k-dimensional data matrix <span class="arithmatex">\(Z\)</span></li>
 </ul>
 </li>
 </ul>
