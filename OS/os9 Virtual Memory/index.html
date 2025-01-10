@@ -2892,7 +2892,7 @@ VMA 是 Virtual Memory Area，<code>brk()</code> 只是增大了 VMA 的大小�
 </li>
 <li>
 <p>Effective Access Time(EAT):
-  $$ \begin{aligned} (1-p)\times\text{memory access} + p\times(\text{page fault overhead} + \text{swap page out} + \ \text{swap page in} + \text{instruction restart overhead}) \end{aligned} $$</p>
+  $$ \begin{aligned} (1-p)\times\text{memory access} + p\times(\text{page fault overhead} + \text{swap page out} + \newline \text{swap page in} + \text{instruction restart overhead}) \end{aligned} $$</p>
 </li>
 </ul>
 <blockquote>
@@ -3488,6 +3488,8 @@ User 和 OS 都缓存了同一份内容，导致一个文件占用了两个帧�
         <script src="../../js/baidu-tongji.js"></script>
       
         <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
       
         <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
