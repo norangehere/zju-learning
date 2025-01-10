@@ -2986,11 +2986,11 @@
 <p>复原图像尽可能real  prior</p>
 </li>
 <li>
-<p>假设噪声是高斯分布
-  $$
-  MSE=|G-F\otimes H|<em ij="ij">2^2=\sum</em>(G_{ij}-[F\otimes H]_{ij})^2
-  $$</p>
+<p>假设噪声是高斯分布</p>
 </li>
+</ul>
+<div class="arithmatex">\[ MSE=\|G-F\otimes H\|_2^2=\sum_{ij}(G_{ij}-[F\otimes H]_{ij})^2 \]</div>
+<ul>
 <li>
 <p>Prior of natural image</p>
 </li>
@@ -3046,7 +3046,7 @@
 
 <p>转化为优化问题
 $$
-J(U)=\sum_r\left(U&reg;-\sum_{s\in N&reg;}w_{rs}U\left(s\right)\right)^2
+J(U)=\sum_r\left(U(\text{r})-\sum_{s\in N(\text{r})}w_{rs}U\left(s\right)\right)^2
 $$</p>
 <ul>
 <li><span class="arithmatex">\(U(r),U(s)\)</span>: RGB values of pixel <span class="arithmatex">\(r,s\)</span></li>
