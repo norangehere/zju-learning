@@ -3036,11 +3036,15 @@
 <p>CART(Classification and Regression Trees)</p>
 <ul>
 <li>pick feature <span class="arithmatex">\(x^{(j)}\)</span> as splitting variable and <span class="arithmatex">\(s\)</span> as the splitting point, we have two regions: <span class="arithmatex">\(\mathcal{R}_1(j,s)=\{x|x^{(j)}\leq s\},\mathcal{R}_2(j,s)=\{x|x^{(j)}&gt;s\}\)</span></li>
-<li>calculate</li>
-</ul>
-<p><span class="arithmatex">\(<span class="arithmatex">\(\min_{j,s}[\min_{c_1}\sum_{x_i\in\mathcal{R}_1(j,s)}(y_i-c_1)^2+\min_{c_2}\sum_{x_i\in\mathcal{R}_2(j,s)}(y_i-c_2)^2]\)</span>\)</span></p>
-<ul>
-<li>find the best <span class="arithmatex">\((j,s)\)</span> pair and then have two regions</li>
+<li>
+<p>calculate</p>
+<div class="arithmatex">\[
+    \min_{j,s}[\min_{c_1}\sum_{x_i\in\mathcal{R}_1(j,s)}(y_i-c_1)^2+\min_{c_2}\sum_{x_i\in\mathcal{R}_2(j,s)}(y_i-c_2)^2]
+\]</div>
+</li>
+<li>
+<p>find the best <span class="arithmatex">\((j,s)\)</span> pair and then have two regions</p>
+</li>
 <li>finally we have <span class="arithmatex">\(M\)</span> regions, and the tree can be represented as <span class="arithmatex">\(f(x)=\sum\limits_{\tau=1}^M c_\tau I(x\in\mathcal{R}_\tau)\)</span></li>
 <li>prune</li>
 </ul>

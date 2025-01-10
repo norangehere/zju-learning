@@ -3063,9 +3063,11 @@ r=\frac{f(x)}{\|w\|}\ \ \ \text{distance}
 <li>If an example can be correctly predicted, No penalty.</li>
 </ul>
 <div class="arithmatex">\[
-J(w)=-\sum_{i\in I_M}w^Tx_iy_i \newline   
-\nabla J=\sum_{i\in I_M}-x_iy_i \newline   
-\text{gradient descent}\ \ \ w(k+1)=w(k)+\eta(k)\sum_{i\in I^k_M}x_iy_i
+\begin{aligned}
+J(w)&amp;=-\sum_{i\in I_M}w^Tx_iy_i \newline   
+\nabla J&amp;=\sum_{i\in I_M}-x_iy_i \newline   
+\text{gradient descent}\quad &amp;w(k+1)=w(k)+\eta(k)\sum_{i\in I^k_M}x_iy_i
+\end{aligned}
 \]</div>
 <p>batch learning：所有sample都available</p>
 </li>

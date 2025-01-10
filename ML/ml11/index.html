@@ -3333,8 +3333,8 @@
 <li>
 <p>Compute the eigenvectors <span class="arithmatex">\(\{a_i\}_{i=1}^{c-1}\)</span> corresponding to the non-zero eigenvalue of the generalized eigenproblem:
   $$
-  S_Ba=\lambda S_Wa \newline<br />
-   or \newline<br />
+  S_Ba=\lambda S_Wa \newline
+   or \newline
    S_Ba=\lambda S_T a
   $$</p>
 </li>
@@ -3384,12 +3384,13 @@
 <ul>
 <li>summarize:<ul>
 <li>Input: Distance matrix <span class="arithmatex">\(D\)</span></li>
-<li>Algorithm:
-        - compute <span class="arithmatex">\(d_{i:}^2=\frac1n\sum_{j=1}^{n}d_{ij}^2,d_{:j}^2=\frac1n\sum_{i=1}^{n}d_{ij}^2,d_{::}^2= \frac1{n^2}\sum_{i=1}^{n}\sum_{j=1}^{n}d_{ij}^2\)</span>
-        - compute inner product B <span class="arithmatex">\(b_{ij}=-\frac12(d_{ij}^2-d_{i:}^2-d_{:j}^2+d_{::}^2)\)</span>
-        - apply eigen-decomposition on <span class="arithmatex">\(B\)</span>
-        - Select first <span class="arithmatex">\(k\)</span> biggest non-zero eigenvalues and corresponding eigenvectors, the target low-dimensional data matrix can be obtained from <span class="arithmatex">\(Z=\Lambda_{*}^{\frac12}U_{*}^{T}\)</span></li>
-<li>Output: the k-dimensional data matrix <span class="arithmatex">\(Z\)</span></li>
+<li>Algorithm:<div class="highlight"><pre><span></span><code>- compute $d_{i:}^2=\frac1n\sum_{j=1}^{n}d_{ij}^2,d_{:j}^2=\frac1n\sum_{i=1}^{n}d_{ij}^2,d_{::}^2= \frac1{n^2}\sum_{i=1}^{n}\sum_{j=1}^{n}d_{ij}^2$
+- compute inner product B $b_{ij}=-\frac12(d_{ij}^2-d_{i:}^2-d_{:j}^2+d_{::}^2)$
+- apply eigen-decomposition on $B$
+- Select first $k$ biggest non-zero eigenvalues and corresponding eigenvectors, the target low-dimensional data matrix can be obtained from $Z=\Lambda_{*}^{\frac12}U_{*}^{T}$
+  - Output: the k-dimensional data matrix $Z$
+</code></pre></div>
+</li>
 </ul>
 </li>
 </ul>
@@ -3458,22 +3459,28 @@
 </li>
 <li>
 <p>target:</p>
+<div class="arithmatex">\[
+\begin{aligned}minimize\ \ \ &amp;rank(L)+\lambda\|S\|_0 \newline subject\ to\ \ \ &amp;L+S=X\end{aligned}
+\]</div>
 </li>
 </ol>
-<p><span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}minimize\ \ \ &amp;rank(L)+\lambda\|S\|_0 \newline   subject\ to\ \ \ &amp;L+S=X\end{aligned}\)</span>\)</span></p>
 <p>但是这个优化目标非凸且NP-hard，因此使用以下PCP(Principle Component Pursuit) surrogate error</p>
 <p>$$
    \begin{aligned}
-   minimize   &amp;|L|_*+\lambda|S|_1 \newline <br />
-   subject to   &amp;L+S=X
+   minimize\quad &amp;|L|_*+\lambda|S|_1 \newline 
+   subject\quad to\quad  &amp;L+S=X
    \end{aligned}
    $$</p>
-<div class="highlight"><pre><span></span><code>- $\|L\|_*$ is the nuclear norm, i.e. the sum of the singular values of L, will lead to low rank for L
+<ul>
+<li>
+<p><span class="arithmatex">\(\|L\|_*\)</span> is the nuclear norm, i.e. the sum of the singular values of L, will lead to low rank for L</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\|S\|_1\)</span> will lead to sparsity for <span class="arithmatex">\(S\)</span> like Lasso decay</p>
+</li>
+</ul>
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241125143843343.png" alt="image-20241125143843343" style="zoom: 50%;" /></div>
 
-- $\|S\|_1$ will lead to sparsity for $S$ like Lasso decay
-
-&lt;div align=&quot;center&quot;&gt;&lt;img src=&quot;https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241125143843343.png&quot; alt=&quot;image-20241125143843343&quot; style=&quot;zoom: 50%;&quot; /&gt;&lt;/div&gt;
-</code></pre></div>
 <ol start="3">
 <li>
 <p>Pros: The noise <span class="arithmatex">\(S_0\)</span> can be arbitrarily large as long as it is sparse enough</p>

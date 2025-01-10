@@ -3184,9 +3184,12 @@
 <li>
 <p>objective function</p>
 <div class="arithmatex">\[
-x\in[1,-1]^n,x_i=\begin{cases}1&amp;i\in A\newline   -1&amp;i\in B&amp;\end{cases}\newline   
-y=(1+x)-b(1-x) \newline   
-\min_y \frac{y^T(D-W)y}{y^TDy}, y\in\mathcal{R}^n,y^TD1=0
+\begin{aligned}
+x\in[1,-1]^n,&amp;x_i=\begin{cases}1&amp;i\in A\newline  
+-1&amp;i\in B&amp;\end{cases}   \newline   
+y=(1+x)&amp;-b(1-x) \newline     
+\min_y \frac{y^T(D-W)y}{y^TDy},&amp; y\in\mathcal{R}^n,y^TD1=0
+\end{aligned}
 \]</div>
 <ul>
 <li>make <span class="arithmatex">\(L=D-W\)</span>, then <span class="arithmatex">\(\min\limits_y y^TLy\ \ \ s.t.\ y^TDy=1\)</span></li>
