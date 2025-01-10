@@ -3165,8 +3165,12 @@
 <li>
 <p>Normal on a Bezier Surface
    $$
-   \frac{\partial}{\partial u}S(u,v)=\frac{\partial}{\partial u}\sum_{i=0}^{n}\sum_{j=0}^{m}P_{ij}B_{i,n}(u)B_{j,m}(v)=n\sum_{i=0}^{n-1}\sum_{j=0}^{m}(P_{i+1,j}-P_{ij})B_{i,n-1}(u)B_{j,m}(v) \newline
-   \frac{\partial}{\partial v}S(u,v)=\frac{\partial}{\partial v}\sum_{i=0}^{n}\sum_{j=0}^{m}P_{ij}B_{i,n}(u)B_{j,n}(v)=m\sum_{i=0}^{n}\sum_{j=0}^{m-1}(P_{i,j+1}-P_{ij})B_{i,n}(u)B_{j,m-1}(v)
+   \begin{aligned}
+   \frac{\partial}{\partial u}S(u,v)&amp;=\frac{\partial}{\partial u}\sum_{i=0}^{n}\sum_{j=0}^{m}P_{ij}B_{i,n}(u)B_{j,m}(v) \newline<br />
+   &amp;=n\sum_{i=0}^{n-1}\sum_{j=0}^{m}(P_{i+1,j}-P_{ij})B_{i,n-1}(u)B_{j,m}(v) \newline
+   \frac{\partial}{\partial v}S(u,v)&amp;=\frac{\partial}{\partial v}\sum_{i=0}^{n}\sum_{j=0}^{m}P_{ij}B_{i,n}(u)B_{j,n}(v) \newline<br />
+   &amp;=m\sum_{i=0}^{n}\sum_{j=0}^{m-1}(P_{i,j+1}-P_{ij})B_{i,n}(u)B_{j,m-1}(v)
+   \end{aligned}
    $$</p>
 </li>
 </ol>
