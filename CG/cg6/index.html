@@ -2801,11 +2801,13 @@
 <ol>
 <li>rectangular region, specified by a center <code>(xCenter, yCenter)</code> and size <code>windowSize</code></li>
 <li>Screen referred to as Viewport is a discrete matrix of pixels specified by size <code>screenSize (in pixels)</code></li>
-<li>Mapping the 2D world seen in the window onto the viewport is 2D viewing transformation, also called window-to-viewport transformation.</li>
-</ol>
+<li>
+<p>Mapping the 2D world seen in the window onto the viewport is 2D viewing transformation, also called window-to-viewport transformation.</p>
 <ul>
 <li>注意对image，x轴正向朝右，y轴正向朝下，而2D world中y轴正向朝上，因此在缩放时要加一个负号</li>
 </ul>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241023082718628.png" alt="image-20241023082718628" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241023082928371.png" alt="image-20241023082928371" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241023082954229.png" alt="image-20241023082954229" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241023083006043.png" alt="image-20241023083006043" style="zoom:50%;" /></div>
 
 <ol>
@@ -2816,29 +2818,27 @@
 <ol start="5">
 <li>
 <p>OpenGL Commands</p>
-</li>
+<ol>
 <li>
 <p><code>gluOrtho2D( left, right, bottom, top )</code>: Creates a matrix for projecting 2D coordinates onto the screen</p>
 </li>
 <li>
 <p><code>glViewport(x, y, width, height)</code>: Define a rectangle of pixels onto which the final image is mapped.</p>
-<ul>
-<li>
-<p><code>(x, y)</code> specifies the lower-left corner of the viewport.</p>
+<div class="highlight"><pre><span></span><code>   - `(x, y)` specifies the lower-left corner of the viewport.
+
+   - `(width, height)` specifies the size of the viewport rectangle.
+</code></pre></div>
 </li>
-<li>
-<p><code>(width, height)</code> specifies the size of the viewport rectangle.</p>
-</li>
-</ul>
+</ol>
 </li>
 <li>
 <p>Modeling v.s. Viewing</p>
-</li>
-</ol>
 <ul>
 <li>Modeling变换改变了world中放置的物体，会改变场景</li>
 <li>Viewing变换仅仅移动了相机，不改变场景</li>
 </ul>
+</li>
+</ol>
 <h2 id="3d-viewing">3D Viewing<a class="headerlink" href="#3d-viewing" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>To display a 3D world onto a 2D screen    </p>
@@ -2870,13 +2870,17 @@
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241023090056922.png" alt="image-20241023090056922" style="zoom:50%;" /></div>
 
 <ol start="4">
-<li>Oblique Projection(斜平行)
-   - Projectors make an arbitrary angle with the projection plane <br />
-   - Angles in planes parallel to the projection plane are preserved</li>
+<li>
+<p>Oblique Projection(斜平行)</p>
+<ul>
+<li>Projectors make an arbitrary angle with the projection plane    </li>
+<li>Angles in planes parallel to the projection plane are preserved</li>
+</ul>
+</li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241023090648765.png" alt="image-20241023090648765" style="zoom: 50%;" /></div>
 
-<ol start="5">
+<ol>
 <li>View Specification</li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241023090904523.png" alt="image-20241023090904523" style="zoom: 60%;" /></div>
@@ -2892,12 +2896,14 @@
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241023091852623.png" alt="image-20241023091852623" style="zoom: 60%;" /></div>
 
 <ol start="7">
-<li>Perspective Projection
-   - prp: projection reference point or cop: center of projection</li>
+<li>Perspective Projection<ul>
+<li>prp: projection reference point or cop: center of projection</li>
+</ul>
+</li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241023092205744.png" alt="image-20241023092205744" style="zoom:60%;" /></div>
 
-<ol start="8">
+<ol>
 <li>View Window</li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241023092345942.png" alt="image-20241023092345942" style="zoom:60%;" /></div>
@@ -2913,35 +2919,35 @@
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241023092440059.png" alt="image-20241023092440059" style="zoom:60%;" /></div>
 
 <ol start="11">
-<li>
-<p>View Volume: 在此以外的内容看不到，不用考虑</p>
-<ul>
-<li>Perspective projection</li>
-</ul>
-<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241023092539196.png" alt="image-20241023092539196" style="zoom:50%;" /></div></p>
-<ul>
-<li>Parallel projection</li>
-</ul>
-<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241023092730773.png" alt="image-20241023092730773" style="zoom:50%;" /></div></p>
+<li>View Volume: 在此以外的内容看不到，不用考虑<div class="highlight"><pre><span></span><code>- Perspective projection
+
+  &lt;div align=&quot;center&quot;&gt;&lt;img src=&quot;https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241023092539196.png&quot; alt=&quot;image-20241023092539196&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/div&gt;
+
+- Parallel projection
+
+  &lt;div align=&quot;center&quot;&gt;&lt;img src=&quot;https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241023092730773.png&quot; alt=&quot;image-20241023092730773&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/div&gt;
+</code></pre></div>
 </li>
 </ol>
 <h3 id="complete-view-specification">Complete View Specification<a class="headerlink" href="#complete-view-specification" title="Permanent link">&para;</a></h3>
 <ol>
-<li>Specification in world coordinates   </li>
-</ol>
+<li>
+<p>Specification in world coordinates   </p>
 <ul>
 <li>position of viewing (<strong>vrp</strong>), direction of viewing(-<strong>n</strong>),</li>
-<li>up direction for viewing (<strong>upVector</strong>)    </li>
+<li>up direction for viewing (<strong>upVector</strong>) </li>
 </ul>
-<ol start="2">
-<li>Specification in view coordinates    </li>
-</ol>
+</li>
+<li>
+<p>Specification in view coordinates    </p>
 <ul>
-<li>view window : center (<strong>cx, cy</strong>), <strong>width</strong> and <strong>height</strong>,   </li>
+<li>view window : center (<strong>cx, cy</strong>), <strong>width</strong> and <strong>height</strong>,    </li>
 <li><strong>prp</strong> : distance from the view plane,</li>
 <li>front clipping plane : distance from view plane</li>
 <li>back clipping plane : distance from view plane</li>
 </ul>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241023093047136.png" alt="image-20241023093047136" style="zoom: 50%;" /></div>
 
 

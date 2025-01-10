@@ -2734,8 +2734,8 @@
 <li>Each of the system's state variables has a default value</li>
 </ul>
 <ol>
-<li>OpenGL Primitives</li>
-</ol>
+<li>
+<p>OpenGL Primitives</p>
 <ul>
 <li>GL_POINTS</li>
 <li>GL_LINES</li>
@@ -2752,14 +2752,16 @@
 <li>GL_TRIANGLE_FAN</li>
 <li>GL_QUAD_STRIP</li>
 </ul>
+</li>
+</ol>
 <blockquote>
 <p><strong>Sample</strong></p>
 <p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240922163320794.png" alt="image-20240922163320794" style="zoom: 67%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240922163337206.png" alt="image-20240922163337206" style="zoom:67%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240922163424525.png" alt="image-20240922163424525" style="zoom:67%;" />
 </div></p>
 </blockquote>
-<ol start="2">
-<li>Command Syntax</li>
-</ol>
+<ol>
+<li>
+<p>Command Syntax</p>
 <ul>
 <li>All command names begin with <code>gl</code></li>
 <li>Constant names are in all uppercase</li>
@@ -2767,24 +2769,26 @@
 <li><code>GLfloat onevertex[3]</code></li>
 </ul>
 </li>
-<li>
-<p>Most commands end in two characters that determine the data type of expected arguments</p>
-<ul>
-<li><code>glVertex3f</code>
-3. <code>glVertex</code></li>
+<li>Most commands end in two characters that determine the data type of expected arguments<ul>
+<li><code>glVertex3f</code></li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
-<p><code>glVertex2f( x, y );</code></p>
-</li>
+<p><code>glVertex</code></p>
+<ul>
+<li><code>glVertex2f( x, y );</code></li>
 <li><code>glVertex3f( x, y, z );</code></li>
 <li><code>glVertex4f( x, y, z, w );</code></li>
 <li><code>glVertex3fv( a ); // with a[0], a[1], a[2]</code></li>
 </ul>
-<ol start="4">
-<li>building objects from vertices: Specify a primitive mode, and enclose a set of vertices in a glBegin / glEnd block</li>
-<li>colors</li>
-</ol>
+</li>
+<li>
+<p>building objects from vertices: Specify a primitive mode, and enclose a set of vertices in a glBegin / glEnd block</p>
+</li>
+<li>
+<p>colors</p>
 <ul>
 <li>defined as RGB components from 0.0 to 1.0</li>
 <li>for background<ul>
@@ -2797,48 +2801,59 @@
 </ul>
 </li>
 </ul>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240922164124859.png" alt="image-20240922164124859" style="zoom:67%;" /></div>
 
 <ol>
-<li>Polygon Display Modes</li>
-</ol>
+<li>
+<p>Polygon Display Modes</p>
 <ul>
-<li><code>glPolygonMode( GLenum face, GLenum mode );</code></li>
+<li><code>glPolygonMode( GLenum face, GLenum mode );</code><ul>
 <li>Faces: GL_FRONT / GL_BACK / GL_FRONT_AND_BACK`</li>
 <li>Modes: GL_FILL / GL_LINE / GL_POINT</li>
 <li>By default, both the front and back face are drawn filled</li>
-<li><code>glFrontFace( GLenum mode );</code>定义多边形的前面方向</li>
+</ul>
+</li>
+<li><code>glFrontFace( GLenum mode );</code>定义多边形的前面方向<ul>
 <li>GL_CCW (default) / GL_CW 默认逆时针</li>
-<li><code>glCullFace( Glenum mode );</code>指定要剔除（不渲染）的多边形面</li>
+</ul>
+</li>
+<li><code>glCullFace( Glenum mode );</code>指定要剔除（不渲染）的多边形面<ul>
 <li>GL_FRONT / GL_BACK</li>
+</ul>
+</li>
 <li>You must enable and disable culling with <code>glEnable( GL_CULL_FACE )</code> or <code>glDisable( GL_CULL_FACE );</code> 启用或禁用剔除</li>
 </ul>
-<ol start="7">
-<li>Drawing Other Objects</li>
-</ol>
+</li>
+<li>
+<p>Drawing Other Objects</p>
 <ul>
 <li>cylinders, cones and more complex surfaces called NURBS</li>
 <li>spheres and cubes</li>
 </ul>
-<ol start="8">
-<li>Structure of GLUT-based Programs</li>
-</ol>
+</li>
+<li>
+<p>Structure of GLUT-based Programs</p>
 <ul>
 <li>rely on user-defined callback functions</li>
 </ul>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240922164612416.png" alt="image-20240922164612416" style="zoom:67%;" /></div>
 
-<ol start="9">
+<ol>
 <li>Double buffer/Tripple buffer: 隐藏绘图的过程，back buffer画好后与front buffer交换，直接让用户看到画好的</li>
 <li>
 <p>More GLUT</p>
-<ul>
-<li>Additional GLUT fucntions</li>
-<li><code>glutPositionwindow(int x,int y)</code></li>
-<li><code>glutReshapewindow(int w,int h)</code></li>
-<li>Additional callback functions
-11. Reshape Callback/Mouse Callback/Keyboard Callback/Idle Callback/Menu Callback</li>
-</ul>
+<div class="highlight"><pre><span></span><code>- Additional GLUT fucntions
+  - `glutPositionwindow(int x,int y)`
+  - `glutReshapewindow(int w,int h)`
+- Additional callback functions
+</code></pre></div>
+</li>
+<li>
+<p>Reshape Callback/Mouse Callback/Keyboard Callback/Idle Callback/Menu Callback</p>
 </li>
 </ol>
 

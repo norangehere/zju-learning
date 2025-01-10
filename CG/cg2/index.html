@@ -2788,12 +2788,14 @@
 <h1 id="2d-graphics">2D Graphics<a class="headerlink" href="#2d-graphics" title="Permanent link">&para;</a></h1>
 <h2 id="rasterization">Rasterization<a class="headerlink" href="#rasterization" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Convert 2D primitives (lines, polygons,filled/patterned regions, etc.) into a raster image</li>
-</ol>
+<li>
+<p>Convert 2D primitives (lines, polygons,filled/patterned regions, etc.) into a raster image</p>
 <ul>
 <li>For output on a monitor/printer</li>
 <li>Rasterization or Scan Conversion</li>
 </ul>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240918081204883.png" alt="image-20240918081204883" style="zoom:50%;" />
 <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240918081738982.png" alt="image-20240918081738982" style="zoom:50%;" /></div>
 
@@ -2806,8 +2808,10 @@
 <ul>
 <li>The efficiency is critical to the performance of a display system</li>
 <li>The raster graphics package is typically a collection of efficient algorithms for scan converting (rasterizing) primitives</li>
-<li>High performance graphics workstations have most of these algorithms implemented in hardware</li>
+<li>High performance graphics workstations have most of these algorithms implemented in hardware<ul>
 <li>Modern PCs (video cards)</li>
+</ul>
+</li>
 </ul>
 <h2 id="line-segment">Line Segment<a class="headerlink" href="#line-segment" title="Permanent link">&para;</a></h2>
 <ol>
@@ -2822,8 +2826,6 @@
 </li>
 <li>
 <p>Requirements</p>
-</li>
-</ol>
 <ul>
 <li>the selected pixels should lie as close to the ideal line as possible</li>
 <li>the sequence of pixels should be as straight as possible</li>
@@ -2832,41 +2834,39 @@
 <li>should be drawn as rapidly as possible</li>
 <li>should be possible to draw lines with different width and line styles</li>
 </ul>
-<ol start="5">
-<li>Equation of a line</li>
-</ol>
+</li>
+<li>
+<p>Equation of a line</p>
 <ul>
 <li><span class="arithmatex">\(y=mx+c\)</span></li>
 <li>对于线段端点 <span class="arithmatex">\(P(x_1,y_1),P(x_2,y_2)\)</span></li>
 <li>可以计算斜率，x每增大单位长度，y增大m</li>
 </ul>
-<ol start="6">
-<li>Digital Differential Analyzer(DDA)</li>
-</ol>
+</li>
+<li>
+<p>Digital Differential Analyzer(DDA)</p>
 <ul>
 <li>只考虑first octant</li>
 </ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240918083701459.png" alt="image-20240918083701459" style="zoom:50%;" /></div>
-
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240918083701459.png" alt="image-20240918083701459" style="zoom:50%;" /></div></p>
 <ul>
 <li>use differential equation</li>
 <li>increment x by 1</li>
 <li><span class="arithmatex">\(x_i=x_{i,prev}+1,y_i=y_{i,prev}+m\)</span></li>
 <li><span class="arithmatex">\([x_i,round(y_i)]\)</span></li>
 </ul>
-<ol start="7">
+</li>
 <li>
 <p>DDA is an incremental algorithm, uses floating point operations, which are very cleverly avoided in an algorithm.</p>
 </li>
 <li>
 <p>Bresenham's Line Drawing</p>
-</li>
-</ol>
 <ul>
 <li>小于45°时，y只有两种选择，不变或加1</li>
 </ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240918084427868.png" alt="image-20240918084427868" style="zoom:50%;" /></div>
-
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240918084427868.png" alt="image-20240918084427868" style="zoom:50%;" /></div></p>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240918085635477.png" alt="image-20240918085635477" style="zoom:67%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240918085856244.png" alt="image-20240918085856244" style="zoom:67%;" /></div>
 
 <h2 id="circles">Circles<a class="headerlink" href="#circles" title="Permanent link">&para;</a></h2>
@@ -2890,13 +2890,15 @@
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240918091154337.png" alt="image-20240918091154337" style="zoom:50%;" /></div>
 
 <ol start="2">
-<li>filling: vertex representation -&gt; lattice representation</li>
-</ol>
+<li>
+<p>filling: vertex representation -&gt; lattice representation</p>
 <ul>
 <li>fill a polygonal region -&gt; test every pixel in the raster to see if it lies inside the polygon</li>
 </ul>
-<ol start="3">
-<li>even-odd test: 引一条射线与图形交点奇数个则图形内，偶数个则图形外</li>
+</li>
+<li>
+<p>even-odd test: 引一条射线与图形交点奇数个则图形内，偶数个则图形外</p>
+</li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240918091759931.png" alt="image-20240918091759931" style="zoom: 67%;" /></div>
 
@@ -2906,8 +2908,8 @@
 <div align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Winding_Number_Animation_Small.gif" alt="undefined" style="zoom: 67%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240919000511371.png" alt="image-20240919000511371" style="zoom:50%;" /></div>
 
 <ol start="4">
-<li>Scan-line Method</li>
-</ol>
+<li>
+<p>Scan-line Method</p>
 <ul>
 <li>Use intersections between region boundaries and scan lines to identify pixels that are inside the area</li>
 <li>Exploit the coherence<ul>
@@ -2926,8 +2928,7 @@
 </ul>
 </li>
 </ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240919000850125.png" alt="image-20240919000850125" style="zoom: 80%;" /></div>
-
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240919000850125.png" alt="image-20240919000850125" style="zoom: 80%;" /></div></p>
 <ul>
 <li>Efficiency in Scan-line Method<ul>
 <li>Intersections could be found using edge coherence</li>
@@ -2938,8 +2939,7 @@
 </li>
 <li>Special cases</li>
 </ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240918092555954.png" alt="image-20240918092555954" style="zoom:50%;" /></div>
-
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240918092555954.png" alt="image-20240918092555954" style="zoom:50%;" /></div></p>
 <ul>
 <li>Advantages:<ul>
 <li>efficient</li>
@@ -2948,19 +2948,23 @@
 </ul>
 </li>
 </ul>
-<ol start="5">
-<li>Seed Fill Algorithm</li>
+</li>
+<li>
+<p>Seed Fill Algorithm</p>
+</li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240918092509207.png" alt="image-20240918092509207" style="zoom:50%;" /></div>
 
 <h2 id="clipping">Clipping<a class="headerlink" href="#clipping" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Clipping: removal of content that is not going to be displayed</li>
-</ol>
+<li>
+<p>Clipping: removal of content that is not going to be displayed</p>
 <ul>
 <li>屏幕外，camera后，too close or too far</li>
 <li>usually done before scan converting to make more efficient</li>
 </ul>
+</li>
+</ol>
 
 
 
