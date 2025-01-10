@@ -3173,11 +3173,8 @@
 <ol start="3">
 <li>compute <span class="arithmatex">\(E\)</span> and <span class="arithmatex">\(Var\)</span>: by approximating, adopt exponentially decaying</li>
 </ol>
-<p><center></p>
 <p><span class="arithmatex">\(\hat{E}\big[x^{(k)}\big]_{iter+1}=0.9\times\hat{E}\big[x^{(k)}\big]_{iter}+0.1\times\frac{1}{m}\sum_{i=1}^{m}x^{(k)}_{i}\)</span></p>
 <div class="highlight"><pre><span></span><code>$\hat{Var}\big[x^{(k)}\big]_{iter+1}=0.9\times\hat{Var}\big[x^{(k)}\big]_{iter}+0.1\times\frac{1}{m}\sum_{i=1}^{m}(x^{(k)}_{i}-E\big[x^{(k)}\big])^{2}$
-
-&lt;/center&gt;
 </code></pre></div>
 <ol start="4">
 <li>
