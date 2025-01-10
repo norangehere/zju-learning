@@ -2957,49 +2957,64 @@
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-1.png" alt="Alt text" style="zoom:50%;" /></div>
 
 <ol start="2">
-<li>一种可以独自实现所有布尔函数的门类型叫做通用门，与非门和或非门都是通用门</li>
-<li><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-4.png" alt="Alt text" style="zoom:67%;" /></div></li>
-<li>Gate Delay:
-   - When input changes,the output change doesn't occur instantaneously.
-   - the delay between an input changes and the resulting output change is the gate delay denoted by $$ t_G $$ </li>
-<li>Logic Diagrams and Expressions: Truth Table,Equation(逻辑函数),Diagram,波形图</li>
-<li>Boolean Algebra:</li>
-</ol>
-<ul>
 <li>
-<div class="arithmatex">\[ X(Y+Z)=XY+XZ \]</div>
+<p>一种可以独自实现所有布尔函数的门类型叫做通用门，与非门和或非门都是通用门
+ <br />
+<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-4.png" alt="Alt text" style="zoom:67%;" /></div></p>
 </li>
-<li><span class="arithmatex">\(X+YZ=(X+Y)(X+Z)\)</span></li>
+<li>
+<p>Gate Delay:</p>
+<ul>
+<li>When input changes,the output change doesn't occur instantaneously.</li>
+<li>the delay between an input changes and the resulting output change is the gate delay denoted by <span class="arithmatex">\(t_G\)</span> </li>
+</ul>
+</li>
+<li>Logic Diagrams and Expressions: Truth Table,Equation(逻辑函数),Diagram,波形图</li>
+<li>
+<p>Boolean Algebra:</p>
+<ul>
+<li><span class="arithmatex">\(X(Y+Z)=XY+XZ\)</span></li>
+<li>
+<p><span class="arithmatex">\(X+YZ=(X+Y)(X+Z)\)</span></p>
+<ul>
 <li>Prf:</li>
 </ul>
 <div class="arithmatex">\[
 A=A\cdot A=A\cdot (A+C)  \\
 A+BC=A(A+B+C)+BC=(A+B)(A+C)
 \]</div>
-<ul>
-<li><span class="arithmatex">\(\overline{X·Y}=\overline{X}+\overline{Y}\)</span></li>
+</li>
+<li>
+<p><span class="arithmatex">\(\overline{X·Y}=\overline{X}+\overline{Y}\)</span></p>
+</li>
 <li>Absorption Theorem: <span class="arithmatex">\(A+A·B=A,A+\overline{A}B=A+B\)</span></li>
 <li>Consensus Law:</li>
 <li><span class="arithmatex">\((A+B)(\overline{A}+C)(B+C)=(A+B)(\overline{A}+C)\)</span></li>
 <li><span class="arithmatex">\(AB+\overline{A}C+BC=AB+\overline{A}C\)</span><br />
-    Hint： <span class="arithmatex">\(BC=BC(A+\overline{A})\)</span></li>
+      Hint： <span class="arithmatex">\(BC=BC(A+\overline{A})\)</span></li>
 <li><span class="arithmatex">\(\overline{X}Z+X=(X+\overline{X})(Z+X)=Z+X\)</span><br />
   Hint: <span class="arithmatex">\(X+YZ=(X+Y)(X+Z)\)</span></li>
 </ul>
-<ol start="7">
-<li>对偶（duality）式：把一个布尔等式中的所有与变或，或变与；若有 0，1 出现，则把 1 变 0，0 变 1；等式两端同时进行对偶操作，等式仍然成立。
-   - 应用：求反函数时，可以先求对偶式，再将每一个字符求反
-   - 除非一个表达式是<strong>自对偶</strong>，否则求对偶后都会变化</li>
-<li>Precedence:</li>
-</ol>
+</li>
+<li>
+<p>对偶（duality）式：把一个布尔等式中的所有与变或，或变与；若有 0，1 出现，则把 1 变 0，0 变 1；等式两端同时进行对偶操作，等式仍然成立。</p>
+<ul>
+<li>应用：求反函数时，可以先求对偶式，再将每一个字符求反</li>
+<li>除非一个表达式是<strong>自对偶</strong>，否则求对偶后都会变化</li>
+</ul>
+</li>
+<li>
+<p>Precedence:</p>
 <ul>
 <li>Parentheses</li>
 <li>NOT</li>
 <li>AND</li>
 <li>OR</li>
 </ul>
-<ol start="9">
-<li>Examples:</li>
+</li>
+<li>
+<p>Examples:</p>
+</li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-5.png" alt="Alt text" style="zoom:50%;" /></div>
 
@@ -3036,13 +3051,15 @@ A+BC=A(A+B+C)+BC=(A+B)(A+C)
 <li>the number of inputs to the gates in the implementation corresponding exactly to the given equation or equations.</li>
 <li>G - inverters not counted</li>
 <li>GN - inverters counted</li>
-<li>For SOP and POS equations, it can be found from the equation(s) by finding the sum of:</li>
-</ol>
+<li>
+<p>For SOP and POS equations, it can be found from the equation(s) by finding the sum of:</p>
 <ul>
 <li>all literal appearances（Literal cost,L:公式中一共出现的变量个数，可重复）</li>
 <li>the number of terms excluding single literal terms,(G) and 除单个文字之外的全部项数</li>
 <li>optionally, the number of distinct complemented single literals (GN) 计算非门.</li>
 </ul>
+</li>
+</ol>
 <h2 id="karnaugh-maps">Karnaugh Maps<a class="headerlink" href="#karnaugh-maps" title="Permanent link">&para;</a></h2>
 <p>相邻的只有一位不同，Gray 码顺序</p>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-7-17202888238661.png" alt="Alt text" style="zoom: 33%;" /></div>

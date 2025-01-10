@@ -3396,11 +3396,13 @@
 <h3 id="_1">分层设计<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <ol>
 <li>原子模块(Primitive Block)：与门、或非、非门等等</li>
-<li>分层设计：模块可重用性非常重要。先决条件：电路是规整(regularity)的</li>
+<li>
+<p>分层设计：模块可重用性非常重要。先决条件：电路是规整(regularity)的</p>
+<ol>
 <li>分层设计即将复杂问题模块化为若干层次，之后逐个解决</li>
 <li>分为自顶向下和自底向上</li>
-<li>
-<p>前者从需求开始，后者从现有模块开始</p>
+<li>前者从需求开始，后者从现有模块开始</li>
+</ol>
 </li>
 <li>
 <p>出现在设计中的模块被称为这个模块的一个实例（instance），将它应用称为实例化（instantiation）</p>
@@ -3487,7 +3489,7 @@
 </li>
 <li>
 <p>Repeat the following pair of actions until there is at most one inverter between : </p>
-</li>
+<ol>
 <li>
 <p>A circuit input or driving NAND gate output, and-</p>
 </li>
@@ -3495,8 +3497,9 @@
 <p>The attached NAND gate inputs.</p>
 </li>
 </ol>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231026102745203.png" alt="image-20231026102745203" style="zoom:50%;" /> </div>
-
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231026102745203.png" alt="image-20231026102745203" style="zoom:50%;" /> </div></p>
+</li>
+</ol>
 <h4 id="nor-mapping-algorithm">NOR Mapping Algorithm<a class="headerlink" href="#nor-mapping-algorithm" title="Permanent link">&para;</a></h4>
 <p>​   Similar to the NAND,first Replace ANDs and ORs</p>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231026103035484.png" alt="image-20231026103035484" style="zoom:50%;" /></div>
@@ -3547,17 +3550,14 @@
 <li>优先编码器（Priority Encoder）</li>
 </ol>
 <p>位数越高优先级越高。增加一个单独输出V表示至少有一个输入为0以与<span class="arithmatex">\(D_0=1\)</span>区分</p>
-<ul>
-<li>One encoder that can accept all possible combinations of input values and produce a meaningful result is a priority encoder.</li>
-<li>Among the 1s that appear, it selects the most significant input position (or the least significant input position) containing a 1 and responds with  the corresponding binary code for that position.</li>
-<li>example:<ul>
-<li>Priority encoder with 5 inputs (D4, D3, D2, D1, D0) - highest priority to most significant 1 present - Code outputs A2, A1, A0 and V where V indicates at least one 1 present.</li>
-<li><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231026111647111.png" alt="image-20231026111647111" style="zoom:50%;" /></div></li>
-</ul>
-</li>
-<li>Xs in input part of table represent 0 or 1; thus table entries correspond to product terms instead of minterms. The column on the left shows that all 32 minterms are present in the product terms in the table</li>
-<li>Xs 在输出列表示无关情况不同</li>
-</ul>
+<div class="highlight"><pre><span></span><code>  - One encoder that can accept all possible combinations of input values and produce a meaningful result is a priority encoder.
+  - Among the 1s that appear, it selects the most significant input position (or the least significant input position) containing a 1 and responds with  the corresponding binary code for that position.
+  - example:
+    - Priority encoder with 5 inputs (D4, D3, D2, D1, D0) - highest priority to most significant 1 present - Code outputs A2, A1, A0 and V where V indicates at least one 1 present.
+    - &lt;div align=&quot;center&quot;&gt;&lt;img src=&quot;https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231026111647111.png&quot; alt=&quot;image-20231026111647111&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/div&gt;
+  - Xs in input part of table represent 0 or 1; thus table entries correspond to product terms instead of minterms. The column on the left shows that all 32 minterms are present in the product terms in the table
+  - Xs 在输出列表示无关情况不同
+</code></pre></div>
 <h3 id="selecting">Selecting<a class="headerlink" href="#selecting" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Selecting of data or information is a critical function in digital systems and computers</li>
@@ -3575,9 +3575,11 @@
 <h3 id="2-to-1-line-multiplexer">2-to-1-Line Multiplexer<a class="headerlink" href="#2-to-1-line-multiplexer" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>The single selection variable S has two values:
-   - S = 0 selects input <span class="arithmatex">\(I_0\)</span>
-   - S = 1 selects input <span class="arithmatex">\(I_1\)</span></p>
+<p>The single selection variable S has two values:</p>
+<ul>
+<li>S = 0 selects input <span class="arithmatex">\(I_0\)</span></li>
+<li>S = 1 selects input <span class="arithmatex">\(I_1\)</span></li>
+</ul>
 </li>
 <li>
 <p>The equation:<span class="arithmatex">\(Y =\overline{S}I_0 + SI_1\)</span></p>

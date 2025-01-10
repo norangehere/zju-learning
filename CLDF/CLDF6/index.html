@@ -2663,16 +2663,16 @@
 <h3 id="_1">保持信号在多个时钟周期不变<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>添加Load，Load为0时无论clock为何值，输出不变，Load为1时，输出随clock变化</p>
 <ol>
-<li>方式一：直接加或门</li>
-</ol>
-<div align="center"><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/96.png" alt="img"  /></div>
-
+<li>
+<p>方式一：直接加或门</p>
+<p><div align="center"><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/96.png" alt="img"  /></div></p>
 <p>然而，在门控时钟技术中，由于添加了一个额外的逻辑门，时钟脉冲到达 Control 的时候会出现额外的传播延时，即时钟偏移(clock skew)。而这微小的延时会导致在整个同步系统中，不同组件得到的时钟脉冲有偏差，而这是我们所不希望看到的。所以在实际设计中，我们应当避免或尽可能缩小时钟偏移。</p>
-<ol start="2">
-<li>另外一个做法是，在不希望它修改的时候，不断将它的输入载入，也就是保持不变。我们可以通过一个二选一多路复用器实现。</li>
+</li>
+<li>
+<p>另外一个做法是，在不希望它修改的时候，不断将它的输入载入，也就是保持不变。我们可以通过一个二选一多路复用器实现。</p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231207112040627.png" alt="image-20231207112040627" style="zoom:50%;" /></div></p>
+</li>
 </ol>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231207112040627.png" alt="image-20231207112040627" style="zoom:50%;" /></div>
-
 <h2 id="register-cell-design">Register Cell Design<a class="headerlink" href="#register-cell-design" title="Permanent link">&para;</a></h2>
 <p>Assume that a register consists of identical cells.(每个位执行相同操作)</p>
 <ul>
@@ -2746,9 +2746,11 @@
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214104642254.png" alt="image-20231214104642254" style="zoom:67%;" /></div>
 
 <ol start="2">
-<li>右移+并行输入 Parallel Load Shift Registers
-   - shift=0 并行输入
-   - shift=1 移位</li>
+<li>右移+并行输入 Parallel Load Shift Registers<ul>
+<li>shift=0 并行输入</li>
+<li>shift=1 移位</li>
+</ul>
+</li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214104741844.png" alt="image-20231214104741844" style="zoom:67%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214105012908.png" alt="image-20231214105012908" style="zoom: 50%;" /></div>
 
@@ -2771,11 +2773,11 @@
 <p>B频率是A一半。A输出取反作为B的时钟信号。 可以用做时钟分频。</p>
 </li>
 <li>
-<p>上图中，下一个 FF 的时钟来自于上一个 FF 的输出取反，也就是对于上升沿触发的 FF 来说，下一个 FF 会在上一个 FF 的输出从 1 到 0 时自反，所以是正向计时(Upward Counting)；
-   反之，如果下一个 FF 的时钟来自于上一个 FF 的直接输出，也就是对于上升沿触发的 FF 来说，下一个 FF 会在上一个 FF 的输出从 0 到 1 时自反，所以是逆向输出(Downward Counting)；</p>
+<p>上图中，下一个 FF 的时钟来自于上一个 FF 的输出取反，也就是对于上升沿触发的 FF 来说，下一个 FF 会在上一个 FF 的输出从 1 到 0 时自反，所以是正向计时(Upward Counting)；</p>
 </li>
-<li>缺点：每一个时钟信号传递都有延时，同时不能作为同步计数器。简单但不安全。</li>
 </ol>
+<p>反之，如果下一个 FF 的时钟来自于上一个 FF 的直接输出，也就是对于上升沿触发的 FF 来说，下一个 FF 会在上一个 FF 的输出从 0 到 1 时自反，所以是逆向输出(Downward Counting)；
+3. 缺点：每一个时钟信号传递都有延时，同时不能作为同步计数器。简单但不安全。</p>
 <p>理论上，111之后应该变成000，但实际上：<span class="arithmatex">\(111-&gt;110-&gt;100-&gt;000\)</span></p>
 <div align="center"><img src="http://cdn.hobbitqia.cc/202212071112469.png" alt="img" style="zoom:50%;" /></div>
 
@@ -2827,20 +2829,20 @@
 
 <h3 id="counting-modulo-n">Counting Modulo N<a class="headerlink" href="#counting-modulo-n" title="Permanent link">&para;</a></h3>
 <ol>
-<li>二进制计数器基础上，采取同步/异步清零</li>
-</ol>
+<li>
+<p>二进制计数器基础上，采取同步/异步清零</p>
 <ul>
 <li>异步，通过clear（异步复位脚），计数达到N实时清零即可</li>
 </ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214114143431.png" alt="image-20231214114143431" style="zoom:67%;" /></div>
-
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214114143431.png" alt="image-20231214114143431" style="zoom:67%;" /></div></p>
 <ul>
 <li>同步，N-1时reset为1，在下一个上升沿清零 <code>better choice</code></li>
 </ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214114241739.png" alt="image-20231214114241739" style="zoom:67%;" /></div>
-
-<ol start="2">
-<li>多位寄存器，分开设计，如设计时间，低位为模 10 计数器，高位为模 6 计时器，低位的 <code>Carry Output</code> 既作为低位的同步清零信号，又是高位的 <code>Enable</code> 信号.</li>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214114241739.png" alt="image-20231214114241739" style="zoom:67%;" /></div></p>
+</li>
+<li>
+<p>多位寄存器，分开设计，如设计时间，低位为模 10 计数器，高位为模 6 计时器，低位的 <code>Carry Output</code> 既作为低位的同步清零信号，又是高位的 <code>Enable</code> 信号.</p>
+</li>
 </ol>
 <h2 id="serial-operations">Serial Operations<a class="headerlink" href="#serial-operations" title="Permanent link">&para;</a></h2>
 <p>串行：寄存器一次只接受一个二进制位，如果传输 n 位需要 n 个时钟周期。</p>

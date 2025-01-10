@@ -3316,10 +3316,9 @@
 <h1 id="chapter-4-sequential-circuits">Chapter 4 Sequential Circuits<a class="headerlink" href="#chapter-4-sequential-circuits" title="Permanent link">&para;</a></h1>
 <h2 id="_1">时序电路介绍<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ol>
-<li>组成：</li>
-</ol>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231116101846007.png" alt="image-20231116101846007" style="zoom:33%;" /></div>
-
+<li>
+<p>组成：</p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231116101846007.png" alt="image-20231116101846007" style="zoom:33%;" /></div></p>
 <ul>
 <li>现代复杂电路设计大多使用同步</li>
 <li>Storage elements: Latches or Flip-Flops</li>
@@ -3338,6 +3337,8 @@
 </ul>
 </li>
 </ul>
+</li>
+</ol>
 <h2 id="_2">时序电路分类<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ol>
 <li>同步(Synchronous)：在某几个时间检测，什么时候观测输入和改变状态仅与时间信号有关。所有元件在时钟模块控制下同时更新。同步抽象使复杂的设计变得易于处理！</li>
@@ -3601,8 +3602,8 @@ The circuit produces a 1 on Z after four clock periods and every five clock peri
 000 -&gt; 001 -&gt; 010 -&gt; 011 -&gt; 100 -&gt; 000 -&gt; 001 -&gt; 010 -&gt; 011 -&gt; 100 …</p>
 <h2 id="circuit-and-system-level-timing"><strong>Circuit and System Level Timing</strong><a class="headerlink" href="#circuit-and-system-level-timing" title="Permanent link">&para;</a></h2>
 <ol>
-<li>New Timing Components</li>
-</ol>
+<li>
+<p>New Timing Components</p>
 <ul>
 <li>
 <p><span class="arithmatex">\(t_p\)</span> clock period - The interval between occurrences of a specific clock edge in a periodic clock</p>
@@ -3616,13 +3617,15 @@ The circuit produces a 1 on Z after four clock periods and every five clock peri
 </li>
 <li>
 <p><span class="arithmatex">\(t_{slack}\)</span> ： extra time in the clock period in addition to the sum of the delays and setup time on a path
-     可以是正数，也可以是负数 所有路径上的必须大于或等于零才能正确操作
-     Must be greater than or equal to zero on all paths for correct operation</p>
+    可以是正数，也可以是负数 所有路径上的必须大于或等于零才能正确操作
+    Must be greater than or equal to zero on all paths for correct operation</p>
 </li>
 </ul>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231123114223146.png" alt="image-20231123114223146" style="zoom: 50%;" /></div>
 
-<ol start="2">
+<ol>
 <li>Timing Equations：</li>
 </ol>
 <p>$$
@@ -3633,7 +3636,7 @@ The circuit produces a 1 on Z after four clock periods and every five clock peri
    t_p\geqslant \max(t_{pd,FF}+t_{pd,COMB}+t_s)
    $$</p>
 <p>for all paths from flip-flop output to flip-flop input</p>
-<ol start="3">
+<ol start="2">
 <li>Calculation of Allowable <span class="arithmatex">\(t_{pd,COMB}\)</span></li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231123114847350.png" alt="image-20231123114847350" style="zoom:40%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231123114859972.png" alt="image-20231123114859972" style="zoom:40%;" /></div>
@@ -3655,12 +3658,12 @@ A state is an abstraction of the history of the past applied inputs to the circu
 
    To develop a sequence recognizer state diagram:
 
-- Begin in an initial state in which NONE of the initial portion of the sequence has occurred (typically “reset” state).
-- Add a state that recognizes that the first symbol has occurred.
-- Add states that recognize each successive symbol occurring.
-- The final state represents the input sequence (possibly less the final input value) occurrence.
-- Add state transition arcs which specify what happens when a symbol not in the proper sequence has occurred.
-- Add other arcs on non-sequence inputs which transition to states that represent the input subsequence that has occurred.
+      - Begin in an initial state in which NONE of the initial portion of the sequence has occurred (typically “reset” state).
+      - Add a state that recognizes that the first symbol has occurred.
+      - Add states that recognize each successive symbol occurring.
+      - The final state represents the input sequence (possibly less the final input value) occurrence.
+      - Add state transition arcs which specify what happens when a symbol not in the proper sequence has occurred.
+      - Add other arcs on non-sequence inputs which transition to states that represent the input subsequence that has occurred.
 
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231130100623709.png" alt="image-20231130100623709" style="zoom: 67%;" /></div>
 
@@ -3677,26 +3680,26 @@ $S_i$与$S_j$等效，$S_k$与$S_l$等效
 
 4. 隐含表化简
 
-   - 作隐含表
-   - 顺序比较，寻找等效状态对
-     - 状态对等效，打“√”；
-     - 状态对不等效，打“×”；
-     - 状态对是否等效需进一步检查，则标记次态对。 进一步检查指输出相同但不能判断次态是否相同
+      - 作隐含表
+      - 顺序比较，寻找等效状态对
+        - 状态对等效，打“√”；
+        - 状态对不等效，打“×”；
+        - 状态对是否等效需进一步检查，则标记次态对。 进一步检查指输出相同但不能判断次态是否相同
 
-   <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231130101638517.png" alt="image-20231130101638517" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231130101801189.png" alt="image-20231130101801189" style="zoom:50%;" /></div>
+      <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231130101638517.png" alt="image-20231130101638517" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231130101801189.png" alt="image-20231130101801189" style="zoom:50%;" /></div>
 
-   - 进行关联比较，确定等效状态对
-     - 由于 CD、DE 不等效，所以 DG 不等效，画斜线标志
-     - <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231130101949997.png" alt="image-20231130101949997" style="zoom:33%;" />处于循环链中的每一个状态都是等效状态对
+      - 进行关联比较，确定等效状态对
+        - 由于 CD、DE 不等效，所以 DG 不等效，画斜线标志
+        - <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231130101949997.png" alt="image-20231130101949997" style="zoom:33%;" />处于循环链中的每一个状态都是等效状态对
 
 ### 状态分配
 
 1. 基本原则：一般情况下，第一条原则较为重要，需优先考虑，其次要考虑由前三条原则得到的应分配相邻代码的状态对出现的次数，次数多的状态对应优先分配相邻的二进制代码。
 
-- 在相同输入条件下具有相同次态的现态，应尽可能分配相邻的二进制代码 （**较为重要**）
-- 在相邻输入条件，同一现态的次态应尽可能分配相邻的二进制代码
-- 输出完全相同的现态应尽可能分配相邻的二进制代码
-- 最小化状态表中出现次数最多的状态或初始状态应分配逻辑 0
+      - 在相同输入条件下具有相同次态的现态，应尽可能分配相邻的二进制代码 （**较为重要**）
+      - 在相邻输入条件，同一现态的次态应尽可能分配相邻的二进制代码
+      - 输出完全相同的现态应尽可能分配相邻的二进制代码
+      - 最小化状态表中出现次数最多的状态或初始状态应分配逻辑 0
 
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231130104325316.png" alt="image-20231130104325316" style="zoom:50%;" /></div>
 
