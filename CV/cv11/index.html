@@ -2775,32 +2775,32 @@
 </li>
 <li>
 <p>CNN-based detectors:</p>
-</li>
-</ol>
 <ul>
 <li>
 <p>train CNNs to detect corners</p>
 </li>
 <li>
 <p>train CNNs to enforce repeatability: warp image and enforce equivariance
-     $$
-     \min_f\frac{1}{n}\sum_{i=1}^n|f(g(\mathbf{I}))-g(f(\mathbf{I}))|^2
-     $$</p>
+    $$
+    \min_f\frac{1}{n}\sum_{i=1}^n|f(g(\mathbf{I}))-g(f(\mathbf{I}))|^2
+    $$</p>
 </li>
 </ul>
-<ol start="3">
-<li>CNN-based descriptors</li>
-</ol>
+</li>
+<li>
+<p>CNN-based descriptors</p>
 <ul>
 <li>
 <p>train descriptors by metric learning</p>
 </li>
 <li>
 <p>constrastive loss</p>
-<p>$$
- L_{tri}=\frac{1}{N}\sum_{i=1}^N\max(0,m+|F_I(A)-F_{I'}(P)|-|F_I(A)-F_{I'}(N)|)^2
- $$</p>
 </li>
+</ul>
+<div class="arithmatex">\[
+L_{tri}=\frac{1}{N}\sum_{i=1}^N\max(0,m+\|F_I(A)-F_{I'}(P)\|-\|F_I(A)-F_{I'}(N)\|)^2
+\]</div>
+<ul>
 <li>
 <p>where is training data from</p>
 <ul>
@@ -2809,29 +2809,33 @@
 </ul>
 </li>
 </ul>
+</li>
+</ol>
 <h2 id="object-pose-estimation">Object Pose Estimation<a class="headerlink" href="#object-pose-estimation" title="Permanent link">&para;</a></h2>
 <ol>
-<li>feature-matching-based methods</li>
-</ol>
+<li>
+<p>feature-matching-based methods</p>
 <ul>
 <li>First,reconstruct object SfM model by input multi-view images</li>
 <li>Then obtain 2D-3D correspondeces by lifting 2D-2D matches to 3D</li>
-<li>
-<p>Finally, object pose of query image can be solved by PnP
-2. Direct Pose Regression Methods</p>
+<li>Finally, object pose of query image can be solved by PnP</li>
+</ul>
 </li>
 <li>
-<p>Directly regressing object pose of queryimage using a neural network</p>
+<p>Direct Pose Regression Methods</p>
+<ul>
+<li>Directly regressing object pose of queryimage using a neural network</li>
+<li>Need to render a large amount of images for training</li>
+</ul>
 </li>
 <li>
-<p>Need to render a large amount of images for training
-3. Keypoint detection methods</p>
-</li>
-<li>
-<p>Using a CNN to detect pre-defined keypoints</p>
-</li>
+<p>Keypoint detection methods</p>
+<ul>
+<li>Using a CNN to detect pre-defined keypoints</li>
 <li>Need to render a large amount ofimages for training</li>
 </ul>
+</li>
+</ol>
 <h2 id="dense-reconstruction">Dense Reconstruction<a class="headerlink" href="#dense-reconstruction" title="Permanent link">&para;</a></h2>
 <ol>
 <li>MVSNet: predict cost volume from CNN features</li>
@@ -2847,8 +2851,8 @@
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241128102605040.png" alt="image-20241128102605040" style="zoom:50%;" /></div>
 
 <ol start="3">
-<li>single image to 3D</li>
-</ol>
+<li>
+<p>single image to 3D</p>
 <ul>
 <li>
 <p>monoculer depth estimation: using network to guess depth from single image</p>
@@ -2861,6 +2865,8 @@
 <p>loss function: scale-invarient depth error</p>
 </li>
 </ul>
+</li>
+</ol>
 <div class="arithmatex">\[
 D_{SI}(y,y^*)=\frac{1}{n}\sum_{i=1}^n(\log y_i-\log y_i^*+\alpha(y,y^*))^2 \newline 
 \alpha(y,y^*)=\frac{1}{n}\sum_{j=1}^n(\log y_j-\log y_j^*)
@@ -2872,18 +2878,15 @@ D_{SI}(y,y^*)=\frac{1}{n}\sum_{i=1}^n(\log y_i-\log y_i^*+\alpha(y,y^*))^2 \newl
 </li>
 <li>
 <p>sparse ConvNets: using sparity of 3D shapes</p>
-</li>
-</ol>
 <ul>
 <li>Store the sparse surface signals (Octree)</li>
 <li>Constrain the computation near the surface</li>
 <li>Sparse convolution: compute inner product only at the active sites (nonzero entries)</li>
 </ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241128112654618.png" alt="image-20241128112654618" style="zoom: 33%;" /></div>
-
-<ol start="3">
-<li>deep learning on point clouds</li>
-</ol>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241128112654618.png" alt="image-20241128112654618" style="zoom: 33%;" /></div></p>
+</li>
+<li>
+<p>deep learning on point clouds</p>
 <ul>
 <li>
 <p>challenge</p>
@@ -2917,39 +2920,41 @@ D_{SI}(y,y^*)=\frac{1}{n}\sum_{i=1}^n(\log y_i-\log y_i^*+\alpha(y,y^*))^2 \newl
 </ul>
 </li>
 </ul>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241128113727314.png" alt="image-20241128113727314" style="zoom:50%;" /></div>
 
-<ol start="4">
+<ol>
 <li>
 <p>PointNet++: Multi-Scale PointNet</p>
+<ol>
+<li>Sampling: Sample anchor points by Farthest Point Sampling (FPS)</li>
+<li>Grouping: Find neighbourhood of anchor points</li>
+<li>
+<p>Apply PointNet in each neighborhood to mimic convolution</p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241128115039978.png" alt="image-20241128115039978" style="zoom: 25%;" /></div></p>
+</li>
+</ol>
 </li>
 <li>
-<p>Sampling: Sample anchor points by Farthest Point Sampling (FPS)</p>
-</li>
-<li>Grouping: Find neighbourhood of anchor points</li>
-<li>Apply PointNet in each neighborhood to mimic convolution</li>
-</ol>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241128115039978.png" alt="image-20241128115039978" style="zoom: 25%;" /></div>
-
-<ol start="5">
-<li>3D semantic segmentation</li>
-</ol>
+<p>3D semantic segmentation</p>
 <ul>
 <li>Input: sensor data of a 3D scene (RGB/depth/point cloud …..)</li>
 <li>Output: Label each point in point cloud with category label.</li>
 <li>Possible solution: fuse 2D segmentation results in 3D 因为2D的效果比较好了</li>
 </ul>
-<ol start="6">
-<li>3D object detection</li>
-</ol>
+</li>
+<li>
+<p>3D object detection</p>
 <ul>
 <li>PointRCNN: RCNN for point cloud</li>
 </ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241128115732543.png" alt="image-20241128115732543" style="zoom: 20%;" /></div>
-
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241128115732543.png" alt="image-20241128115732543" style="zoom: 20%;" /></div></p>
 <ul>
 <li>Frustum PointNets: using 2D detectors to generate 3D proposals</li>
 </ul>
+</li>
+</ol>
 
 
 

@@ -2854,8 +2854,8 @@
 <h1 id="lec12-computational-photography">Lec.12: Computational Photography<a class="headerlink" href="#lec12-computational-photography" title="Permanent link">&para;</a></h1>
 <h2 id="high-dynamic-range-imaginghdr">High Dynamic Range Imaging(HDR)<a class="headerlink" href="#high-dynamic-range-imaginghdr" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Exposure = Gain x Irradiance x Time</li>
-</ol>
+<li>
+<p>Exposure = Gain x Irradiance x Time</p>
 <ul>
 <li>Gain is controlled by the ISO<ul>
 <li>越高越灵敏，也会放大噪声</li>
@@ -2868,54 +2868,56 @@
 </li>
 <li>When taking a photo, the averaged exposure should be at the middle of the sensor’s measurement range. So that the photo has both bright and dark parts with details</li>
 </ul>
-<ol start="2">
-<li>Dynamic range(动态范围): The ratio between the largest and smallest values of a certain quantity</li>
-</ol>
+</li>
+<li>
+<p>Dynamic range(动态范围): The ratio between the largest and smallest values of a certain quantity</p>
 <ul>
 <li>
 <p>Images have an even lower dynamic range because of quantization (8-bit = 256)</p>
 <p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241207002718145.png" alt="image-20241207002718145" style="zoom: 75%;" /></div></p>
 </li>
 </ul>
-<ol start="3">
-<li>Key idea:</li>
-</ol>
+</li>
+<li>
+<p>Key idea:</p>
 <ul>
 <li>Exposure bracketing: Capture multiple LDR images at different exposures</li>
 <li>Merging: Combine them into a single HDR image</li>
 </ul>
-<ol start="4">
+</li>
 <li>
 <p>Image formation model: Suppose scene radiance for image pixel <span class="arithmatex">\((x,y)\)</span> is <span class="arithmatex">\(L(x,y)\)</span>. For image I, <span class="arithmatex">\(I(x,y)=clip[t_i\cdot L(x,y)+noise]\)</span></p>
 </li>
 <li>
 <p>Merging images: For each pixel:</p>
-</li>
-</ol>
 <ul>
 <li>Find “valid” pixels in each image</li>
 <li>Weight valid pixel values appropriately</li>
-<li>
-<p>Form a new pixel value as the weighted average of valid pixel values
-6. Display the HDR image: 虽然说merge后的图片动态范围很大，但是显示屏等设备可以显示的依然只有8-bit，这样想表示出很好的亮部细节和暗部细节，就会使得整个图片偏暗,为了解决这个问题，我们就需要Tone Mapping来建立一个HDR到LDR的转换公式
-7. Tone Mapping</p>
+<li>Form a new pixel value as the weighted average of valid pixel values</li>
+</ul>
 </li>
 <li>
-<p>线性 <span class="arithmatex">\(X\rightarrow\alpha X\)</span></p>
+<p>Display the HDR image: 虽然说merge后的图片动态范围很大，但是显示屏等设备可以显示的依然只有8-bit，这样想表示出很好的亮部细节和暗部细节，就会使得整个图片偏暗,为了解决这个问题，我们就需要Tone Mapping来建立一个HDR到LDR的转换公式</p>
 </li>
+<li>
+<p>Tone Mapping</p>
+<ul>
+<li>线性 <span class="arithmatex">\(X\rightarrow\alpha X\)</span></li>
 <li>非线性(gamma compression) <span class="arithmatex">\(X\rightarrow\alpha X^\gamma\)</span> <span class="arithmatex">\(\gamma\)</span>大于1更暗，小于1更亮。这一方法集成在不同的相机里了，也可以后期调，但是要存成log</li>
 </ul>
+</li>
+</ol>
 <h2 id="deblurring">Deblurring<a class="headerlink" href="#deblurring" title="Permanent link">&para;</a></h2>
 <ol>
-<li>reason</li>
-</ol>
+<li>
+<p>reason</p>
 <ul>
 <li>Defocus: the subject is not in the depth of view 没对上焦</li>
 <li>Motion blur: moving subjects or unstable camera</li>
 </ul>
-<ol start="2">
-<li>Get a clear image</li>
-</ol>
+</li>
+<li>
+<p>Get a clear image</p>
 <ul>
 <li>Accurate focus</li>
 <li>Fast shutter speed<ul>
@@ -2926,17 +2928,17 @@
 </li>
 <li>使用hardware：如三脚架、云台、自带防抖</li>
 </ul>
-<ol start="3">
-<li>Modeling image blur: The blurring process can be described by convolution, the blurred image is called convolution kernel</li>
-</ol>
+</li>
+<li>
+<p>Modeling image blur: The blurring process can be described by convolution, the blurred image is called convolution kernel</p>
 <ul>
 <li>The blur pattern of defocusing depends on the aperture shape</li>
 <li>The blur pattern of shaking depends on the camera trajectory</li>
 <li>blurred image = clear image 与 blur kernel 做卷积</li>
 </ul>
-<ol start="4">
-<li>deblurring = deconvolution</li>
-</ol>
+</li>
+<li>
+<p>deblurring = deconvolution</p>
 <ul>
 <li>
 <p>Non-blind image deconvolution(NBID): <span class="arithmatex">\(G=F\otimes H\)</span></p>
@@ -2952,12 +2954,12 @@
 </li>
 <li>
 <p>问题：大部分模糊核都是低频滤波器，做逆卷积可能会放大高频部分，从而噪音被放大了
-   $$
-   \begin{aligned}
-    &amp; G(u,v)=H(u,v)F(u,v)+N(u,v) \newline 
-    &amp; \hat{F}(u,v)=G(u,v)/H(u,v)=F(u,v)+N(u,v)/H(u,v)
-   \end{aligned}
-   $$</p>
+  $$
+  \begin{aligned}
+   &amp; G(u,v)=H(u,v)F(u,v)+N(u,v) \newline 
+   &amp; \hat{F}(u,v)=G(u,v)/H(u,v)=F(u,v)+N(u,v)/H(u,v)
+  \end{aligned}
+  $$</p>
 </li>
 <li>
 <p>解决方法：改变滤波器表达方式，不放大高频</p>
@@ -2985,9 +2987,9 @@
 </li>
 <li>
 <p>假设噪声是高斯分布
-   $$
-   MSE=|G-F\otimes H|<em ij="ij">2^2=\sum</em>(G_{ij}-[F\otimes H]_{ij})^2
-   $$</p>
+  $$
+  MSE=|G-F\otimes H|<em ij="ij">2^2=\sum</em>(G_{ij}-[F\otimes H]_{ij})^2
+  $$</p>
 </li>
 <li>
 <p>Prior of natural image</p>
@@ -3007,13 +3009,15 @@
 </li>
 <li>
 <p>优化目标函数
-   $$
-   \min_{F,H}|G-F\otimes H|_2^2+\lambda_1|\nabla F|_1+\lambda_2|H|_1   s.t. H\geq0
-   $$</p>
+  $$
+  \min_{F,H}|G-F\otimes H|_2^2+\lambda_1|\nabla F|_1+\lambda_2|H|_1   s.t. H\geq0
+  $$</p>
 </li>
 </ul>
 </li>
 </ul>
+</li>
+</ol>
 <h2 id="colorization">Colorization<a class="headerlink" href="#colorization" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>不考</p>
@@ -3055,11 +3059,11 @@ $$</p>
 <h3 id="modern-approach">Modern approach<a class="headerlink" href="#modern-approach" title="Permanent link">&para;</a></h3>
 <p>神经网络</p>
 <ol>
-<li>Loss function for image synthesis
-   $$
-   L(\Theta)=||F(X;\Theta)-Y||^2
-   $$</li>
-</ol>
+<li>
+<p>Loss function for image synthesis
+    $$
+    L(\Theta)=||F(X;\Theta)-Y||^2
+    $$</p>
 <ul>
 <li>Problem with reconstruction loss<ul>
 <li>Cannot handle the case with multiple solutions</li>
@@ -3067,21 +3071,21 @@ $$</p>
 </ul>
 </li>
 </ul>
-<ol start="2">
-<li>GAN</li>
-</ol>
+</li>
+<li>
+<p>GAN</p>
 <ul>
 <li>
 <p><strong>G</strong> tries to synthesize fake images that fool D:
-     $$
-     \arg\min_G\mathbb{E}_{x,y}[\log D(G(x))+\log(1-D(y))]
-     $$</p>
+    $$
+    \arg\min_G\mathbb{E}_{x,y}[\log D(G(x))+\log(1-D(y))]
+    $$</p>
 </li>
 <li>
 <p>G tries to synthesize fake images that fool the best D:
-     $$
-     \arg\min_G\max_D\mathbb{E}_{x,y}[\log D(G(x))+\log(1-D(y))]
-     $$</p>
+    $$
+    \arg\min_G\max_D\mathbb{E}_{x,y}[\log D(G(x))+\log(1-D(y))]
+    $$</p>
 </li>
 <li>
 <p>D can be viewed as a loss function to train G</p>
@@ -3092,6 +3096,8 @@ $$</p>
 </ul>
 </li>
 </ul>
+</li>
+</ol>
 <h2 id="more-image-synthesis-tasks">More Image Synthesis Tasks<a class="headerlink" href="#more-image-synthesis-tasks" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
@@ -3099,15 +3105,15 @@ $$</p>
 </li>
 <li>
 <p>Image to Image Translation</p>
-</li>
-</ol>
 <ul>
 <li>Style transfer</li>
 <li>Text-to-Photo</li>
 <li>Image dehazings</li>
 </ul>
-<ol start="2">
-<li>Pose and garment transfer</li>
+</li>
+<li>
+<p>Pose and garment transfer</p>
+</li>
 </ol>
 <ul>
 <li>Method<ul>

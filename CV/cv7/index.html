@@ -2918,29 +2918,27 @@
 <li>相机坐标系对齐到世界坐标系 extrinsic parameters包括相机坐标和旋转角度<span class="arithmatex">\((R,c_w)\)</span></li>
 </ol>
 <p>R是正交单位阵</p>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241031100719537.png" alt="image-20241031100719537" style="zoom:50%;" /></div>
+<div class="highlight"><pre><span></span><code>&lt;div align=&quot;center&quot;&gt;&lt;img src=&quot;https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241031100719537.png&quot; alt=&quot;image-20241031100719537&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/div&gt;
 
-<ul>
-<li>world-to-camera transformation</li>
-</ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241031100744974.png" alt="image-20241031100744974" style="zoom:50%;" /></div>
+  - world-to-camera transformation
 
-<ul>
-<li>齐次坐标系下</li>
-</ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241031100805734.png" alt="image-20241031100805734" style="zoom:50%;" /></div>
+&lt;div align=&quot;center&quot;&gt;&lt;img src=&quot;https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241031100744974.png&quot; alt=&quot;image-20241031100744974&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/div&gt;
 
+  - 齐次坐标系下
+
+&lt;div align=&quot;center&quot;&gt;&lt;img src=&quot;https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241031100805734.png&quot; alt=&quot;image-20241031100805734&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/div&gt;
+</code></pre></div>
 <ol start="3">
 <li>camera coordinate投影到image plane</li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241031100824237.png" alt="image-20241031100824237" style="zoom:50%;" /></div>
 
-<ol start="3">
+<ol start="4">
 <li>image plane to image sensor mapping by intrinsic matrix</li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241031100843756.png" alt="image-20241031100843756" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241031100852079.png" alt="image-20241031100852079" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241031100944671.png" alt="image-20241031100944671" style="zoom:50%;" /></div>
 
-<ol start="4">
+<ol start="5">
 <li>总的projection matrix <span class="arithmatex">\(P\)</span></li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250108162148163.png" alt="image-20250108162148163" style="zoom: 67%;" /></div>
@@ -2967,8 +2965,8 @@
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241031102236126.png" alt="image-20241031102236126" style="zoom: 67%;" /></div>
 
 <ol start="5">
-<li>Step 5: Solve for <span class="arithmatex">\(p\)</span> </li>
-</ol>
+<li>
+<p>Step 5: Solve for <span class="arithmatex">\(p\)</span> </p>
 <ul>
 <li>注意到对p的所有数同时乘除一个非零数不会影响结果</li>
 <li>P is defined only up to a scale.</li>
@@ -2976,6 +2974,8 @@
 <li>我们让 <span class="arithmatex">\(Ap\)</span> 尽可能为0，即<span class="arithmatex">\(\min\limits_{p}||Ap||^2\)</span>同时使得 <span class="arithmatex">\(||p||^2=1\)</span></li>
 <li>可以知道解是矩阵<span class="arithmatex">\(A^TA\)</span>最小特征值对应的特征向量</li>
 </ul>
+</li>
+</ol>
 <h3 id="decompose-projection-matrices-to-intrinsic-and-extrinsic-matrices">Decompose Projection Matrices to Intrinsic and Extrinsic Matrices<a class="headerlink" href="#decompose-projection-matrices-to-intrinsic-and-extrinsic-matrices" title="Permanent link">&para;</a></h3>
 <ul>
 <li>旋转矩阵是正交的，因为行列式值为1</li>
@@ -3004,7 +3004,7 @@
 <ul>
 <li>这个二元二次方程有四个可能解，我们使用一个额外的点去决定哪个解最有可能</li>
 </ul>
-<ol start="3">
+<ol>
 <li>A more general solution for PnP problem: mminimizing the reprojection error 重投影误差. <span class="arithmatex">\(p_i\)</span>为given 2D points，后半部分式子为3D points投影到2D</li>
 </ol>
 <div class="arithmatex">\[
@@ -3025,18 +3025,22 @@
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241031110746279.png" alt="image-20241031110746279" style="zoom: 67%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241031110958675.png" alt="image-20241031110958675" style="zoom:67%;" /></div>
 
 <ol>
-<li>Epipole(极点)： Image point of origin/pinhole of one camera as viewed by the other camera.两个相机光心连线与图像平面的交点，相当于另一个相机在这个相机的投影位置</li>
-</ol>
+<li>
+<p>Epipole(极点)： Image point of origin/pinhole of one camera as viewed by the other camera.两个相机光心连线与图像平面的交点，相当于另一个相机在这个相机的投影位置</p>
 <ul>
 <li><span class="arithmatex">\(e_l\)</span> 和 <span class="arithmatex">\(e_r\)</span> 是对极点。给定相机时是唯一的。</li>
 </ul>
-<ol start="2">
-<li>Epipolar Plane of Scene Point <span class="arithmatex">\(P\)</span>: The plane formed by camera origins(<span class="arithmatex">\(O_l\)</span> and <span class="arithmatex">\(O_r\)</span>), epipoles(<span class="arithmatex">\(e_l\)</span> and <span class="arithmatex">\(e_r\)</span>) and scene point <span class="arithmatex">\(P\)</span>.</li>
-</ol>
+</li>
+<li>
+<p>Epipolar Plane of Scene Point <span class="arithmatex">\(P\)</span>: The plane formed by camera origins(<span class="arithmatex">\(O_l\)</span> and <span class="arithmatex">\(O_r\)</span>), epipoles(<span class="arithmatex">\(e_l\)</span> and <span class="arithmatex">\(e_r\)</span>) and scene point <span class="arithmatex">\(P\)</span>.</p>
 <ul>
-<li>场景中的每个点都位于唯一的极平面上
-3. Epipolar Constraint</li>
+<li>场景中的每个点都位于唯一的极平面上</li>
 </ul>
+</li>
+<li>
+<p>Epipolar Constraint</p>
+</li>
+</ol>
 <div class="arithmatex">\[
 x_l \cdot (t\times x_l)=0
 \]</div>
@@ -3107,8 +3111,6 @@ x_l \cdot (t\times x_l)=0
 </li>
 <li>
 <p>For each additional view</p>
-</li>
-</ol>
 <ul>
 <li>Determine projection matrix of new camera using all the known 3D points that are visible in its image </li>
 <li>Refine and extend structure: compute new 3D points, reoptimize existing points that are also seen by this camera </li>
@@ -3117,10 +3119,11 @@ x_l \cdot (t\times x_l)=0
 </ul>
 </li>
 </ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241031120756776.png" alt="image-20241031120756776" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241031120812968.png" alt="image-20241031120812968" style="zoom: 50%;" /></div>
-
-<ol start="3">
-<li>Refine structure and motion: Bundle Adjustment</li>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241031120756776.png" alt="image-20241031120756776" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241031120812968.png" alt="image-20241031120812968" style="zoom: 50%;" /></div></p>
+</li>
+<li>
+<p>Refine structure and motion: Bundle Adjustment</p>
+</li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241031120559225.png" alt="image-20241031120559225" style="zoom:50%;" /></div>
 

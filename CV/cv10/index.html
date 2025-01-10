@@ -2795,16 +2795,13 @@
 </li>
 <li>
 <p>一般使用全连接神经网络</p>
-</li>
-</ol>
 <ul>
 <li>loss function: per-pixel cross-entropy<ul>
 <li>But convolution on high resolution is expensive</li>
 </ul>
 </li>
 </ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241121100936758.png" alt="image-20241121100936758" style="zoom: 33%;" /></div>
-
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241121100936758.png" alt="image-20241121100936758" style="zoom: 33%;" /></div></p>
 <ul>
 <li>
 <p>提高效率：使用unet</p>
@@ -2820,37 +2817,37 @@
 <p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241121101605990.png" alt="image-20241121101605990" style="zoom:50%;" /></div></p>
 </li>
 </ul>
-<ol start="3">
+</li>
 <li>
 <p>DeepLab: FCN + CRF</p>
 </li>
 <li>
 <p>CRF(Conditional random field):</p>
-</li>
-</ol>
 <ul>
 <li>
 <p>Energy function:
-     $$
-     E(x)=\sum_{i'}\theta_i(x_i)+\sum_{ij}\theta_{ij}(x_i,x_j)
-     $$</p>
+    $$
+    E(x)=\sum_{i'}\theta_i(x_i)+\sum_{ij}\theta_{ij}(x_i,x_j)
+    $$</p>
 </li>
 <li>
 <p>Unary potential
-     $$
-     \theta_i(x_i)=-\log P(x_i)
-     $$</p>
+    $$
+    \theta_i(x_i)=-\log P(x_i)
+    $$</p>
 </li>
 <li>
 <p>Pairwise potential
-     $$
-     \begin{aligned}\theta_{ij}(x_{i},x_{j})=&amp;\mu(x_{i},x_{j})\bigg[w_{1}\exp\bigg(-\frac{||p_{i}-p_{j}||^{2}}{2\sigma_{\alpha}^{2}}-\frac{||I_{i}-I_{j}||^{2}}{2\sigma_{\beta}^{2}}\bigg)\&amp;+w_{2}\exp\Big(-\frac{||p_{i}-p_{j}||^{2}}{2\sigma_{\gamma}^{2}}\Big)\Big]\end{aligned}
-     $$
-     where <span class="arithmatex">\(\mu(x_{i},x_{j})=1\)</span> if <span class="arithmatex">\(x_i\neq x_{j}\)</span>, and zero otherwise</p>
+    $$
+    \begin{aligned}\theta_{ij}(x_{i},x_{j})=&amp;\mu(x_{i},x_{j})\bigg[w_{1}\exp\bigg(-\frac{||p_{i}-p_{j}||^{2}}{2\sigma_{\alpha}^{2}}-\frac{||I_{i}-I_{j}||^{2}}{2\sigma_{\beta}^{2}}\bigg)\&amp;+w_{2}\exp\Big(-\frac{||p_{i}-p_{j}||^{2}}{2\sigma_{\gamma}^{2}}\Big)\Big]\end{aligned}
+    $$
+    where <span class="arithmatex">\(\mu(x_{i},x_{j})=1\)</span> if <span class="arithmatex">\(x_i\neq x_{j}\)</span>, and zero otherwise</p>
 </li>
 </ul>
-<ol start="3">
-<li>Evaluation metric: Per-pixel Intersection-over-union(IoU)</li>
+</li>
+<li>
+<p>Evaluation metric: Per-pixel Intersection-over-union(IoU)</p>
+</li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241121102107055.png" alt="image-20241121102107055" style="zoom: 40%;" /></div>
 
@@ -2864,21 +2861,18 @@
 </li>
 <li>
 <p>Region proposals：对图像采取过分割，找到所有有可能的box，通常基于启发式。relatively fast to run</p>
-</li>
-</ol>
 <ul>
 <li>Selective Search gives 2000 region proposals in a few seconds on CPU</li>
 </ul>
-<ol start="4">
-<li>R-CNN</li>
-</ol>
+</li>
+<li>
+<p>R-CNN</p>
 <ul>
 <li>Resize each region to 224x224 and run through CNN</li>
 <li>Predict class scores and bbox transform</li>
 <li>Use scores to select a subset of region proposals to output</li>
 </ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241121103313306.png" alt="image-20241121103313306" style="zoom:50%;" /></div>
-
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241121103313306.png" alt="image-20241121103313306" style="zoom:50%;" /></div></p>
 <ul>
 <li>evaluation metric: IoU &gt; 0.5 is decent, &gt; 0.7 is pretty good, &gt; 0.9 is almost perfect</li>
 <li>Non-Max Suppression: Object detectors often output many overlapping detections<ol>
@@ -2888,37 +2882,32 @@
 </ol>
 </li>
 </ul>
-<ol start="5">
-<li>Fast R-CNN: 把整个图都跑一遍网络的backbone以提取特征，提高效率</li>
+</li>
+<li>
+<p>Fast R-CNN: 把整个图都跑一遍网络的backbone以提取特征，提高效率</p>
+</li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241121104025419.png" alt="image-20241121104025419" style="zoom: 50%;" /></div>
 
 <ol start="6">
-<li>Faster R-CNN: A <strong>two-stage object detector</strong></li>
-</ol>
+<li>
+<p>Faster R-CNN: A <strong>two-stage object detector</strong></p>
 <ul>
-<li>First stage: run once per image<ul>
+<li>First stage: run once per image</li>
 <li>Backbone network</li>
 <li>RPN</li>
-</ul>
-</li>
-<li>Second stage: run once per region<ul>
+<li>Second stage: run once per region</li>
 <li>Crop features: RoI pool / align</li>
 <li>Predict object class</li>
 <li>Predict bbox offset</li>
-</ul>
-</li>
 <li>进一步地，使用一个卷积网络训练region proposal</li>
 </ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241121104124531.png" alt="image-20241121104124531" style="zoom:50%;" /></div>
-
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241121104124531.png" alt="image-20241121104124531" style="zoom:50%;" /></div></p>
 <ul>
-<li>
-<p>RPN：预先定义K种可能的anchor box，对每个点都生成对应的这些box，之后跑网络，网络输出对应box是否包含物体，以及4个<span class="arithmatex">\(\Delta\)</span>，表示box在四个方向上要如何调整。最后选取分数最高的若干个</p>
+<li>RPN：预先定义K种可能的anchor box，对每个点都生成对应的这些box，之后跑网络，网络输出对应box是否包含物体，以及4个<span class="arithmatex">\(\Delta\)</span>，表示box在四个方向上要如何调整。最后选取分数最高的若干个</li>
+</ul>
 <p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241121104638351.png" alt="image-20241121104638351" style="zoom:43%;" /></div></p>
 </li>
-</ul>
-<ol start="7">
 <li>
 <p>确认哪些box有object后，<strong>Single-Stage Detector</strong>: Classify each object as one of C categories (or background)</p>
 </li>
@@ -2927,12 +2916,12 @@
 </li>
 <li>
 <p>two vs. single</p>
-</li>
-</ol>
 <ul>
 <li>Two-stage is generally more accurate</li>
 <li>Single-stage is faster</li>
 </ul>
+</li>
+</ol>
 <h2 id="instance-segmentation">Instance segmentation<a class="headerlink" href="#instance-segmentation" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
@@ -2945,11 +2934,13 @@
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241121110219349.png" alt="image-20241121110219349" style="zoom:50%;" /></div>
 
 <ol start="3">
-<li>Beyond instance-segmentation</li>
-</ol>
+<li>
+<p>Beyond instance-segmentation</p>
 <ul>
 <li>Label all pixels in the image (both things and stuff)</li>
 </ul>
+</li>
+</ol>
 <h2 id="human-pose-estimation">Human pose estimation<a class="headerlink" href="#human-pose-estimation" title="Permanent link">&para;</a></h2>
 <ol>
 <li>represent the pose of a human by locating a set of keypoints</li>
@@ -2969,15 +2960,15 @@
 </ul>
 </blockquote>
 <ol start="2">
-<li>single human</li>
-</ol>
+<li>
+<p>single human</p>
 <ul>
 <li>directly predict joint locations</li>
 <li>represent joint locations as the heatmap</li>
 </ul>
-<ol start="3">
-<li>Multiple humans</li>
-</ol>
+</li>
+<li>
+<p>Multiple humans</p>
 <ul>
 <li>Top-down: Detect humans and detect keypoints in each bbox 先用前面的方法分割找到每个人，之后再当single human识别。但效率低，同时两个人重合时可能只会有一个box，不可修正<ul>
 <li>Mask R-CNNs</li>
@@ -2990,6 +2981,8 @@
 </ul>
 </li>
 </ul>
+</li>
+</ol>
 <h2 id="other-tasks">Other tasks<a class="headerlink" href="#other-tasks" title="Permanent link">&para;</a></h2>
 <ol>
 <li>video classification: use 3D CNN</li>

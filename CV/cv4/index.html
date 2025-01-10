@@ -2785,8 +2785,6 @@
 </li>
 <li>
 <p>MSE: <span class="arithmatex">\(\widehat{x}=\underset{x}{\operatorname*{argmin}}\Sigma_i(b_i-a_i^Tx)^2\)</span></p>
-</li>
-</ol>
 <ul>
 <li>Why MSE: 对噪声没有任何先验知识情况下，认为各种噪声的和是高斯噪声</li>
 <li>Gaussian noise: <span class="arithmatex">\(b_i=a_i^Tx+n,n\sim G(0,\sigma)\)</span></li>
@@ -2809,10 +2807,12 @@
 <ul>
 <li>MLE = 最大化上述概率相当于最小化<span class="arithmatex">\(||Ax-b||^2_2\)</span>。因此MSE = MLE with Gaussian noise assumption</li>
 </ul>
+</li>
+</ol>
 <h2 id="numerical-methods">Numerical methods<a class="headerlink" href="#numerical-methods" title="Permanent link">&para;</a></h2>
 <ol>
-<li>overall:</li>
-</ol>
+<li>
+<p>overall:</p>
 <ul>
 <li><span class="arithmatex">\(x\leftarrow x_0\%\)</span> Initialization</li>
 <li>while not converge<ul>
@@ -2822,19 +2822,19 @@
 </ul>
 </li>
 </ul>
-<ol start="2">
-<li>Taylor expansion</li>
-</ol>
+</li>
+<li>
+<p>Taylor expansion</p>
 <ul>
 <li>First-order: <span class="arithmatex">\(F(x_k+\Delta x)\approx F(x_k)+J_F\Delta x\)</span>,<span class="arithmatex">\(J_F=[\dfrac{\partial f}{\partial x_1}\cdots\dfrac{\partial f}{\partial x_n}]\)</span>为Jacobian matrix </li>
 <li>Second-order: <span class="arithmatex">\(F(x_k+\Delta x)\approx F(x_k)+J_F\Delta x+\dfrac{1}{2}\Delta x^TH_F\Delta x\)</span>,<span class="arithmatex">\(H_F\)</span>为Hessian matrix</li>
 </ul>
-<div class="arithmatex">\[
-\mathbf{H}=\begin{bmatrix}\frac{\partial^2f}{\partial x_1^2}&amp;\frac{\partial^2f}{\partial x_1\partial x_2}&amp;\cdots&amp;\frac{\partial^2f}{\partial x_1 \partial x_n}\newline \newline \frac{\partial^2f}{\partial x_2 \partial x_1}&amp;\frac{\partial^2f}{\partial x_2^2}&amp;\cdots&amp;\frac{\partial^2f}{\partial x_2 \partial x_n}\newline \newline \vdots&amp;\vdots&amp;\ddots&amp;\vdots\newline \newline \frac{\partial^2f}{\partial x_n \partial x_1}&amp;\frac{\partial^2f}{\partial x_n \partial x_2}&amp;\cdots&amp;\frac{\partial^2f}{\partial x_n^2}\end{bmatrix}
-\]</div>
-<ol start="3">
-<li>Steepest descent method: When direction of <span class="arithmatex">\(\Delta x\)</span> is same as <span class="arithmatex">\(-J_F^T\)</span>, the objective function descend steepest</li>
-</ol>
+<p>$$
+  \mathbf{H}=\begin{bmatrix}\frac{\partial^2f}{\partial x_1^2}&amp;\frac{\partial^2f}{\partial x_1\partial x_2}&amp;\cdots&amp;\frac{\partial^2f}{\partial x_1 \partial x_n}\newline \newline \frac{\partial^2f}{\partial x_2 \partial x_1}&amp;\frac{\partial^2f}{\partial x_2^2}&amp;\cdots&amp;\frac{\partial^2f}{\partial x_2 \partial x_n}\newline \newline \vdots&amp;\vdots&amp;\ddots&amp;\vdots\newline \newline \frac{\partial^2f}{\partial x_n \partial x_1}&amp;\frac{\partial^2f}{\partial x_n \partial x_2}&amp;\cdots&amp;\frac{\partial^2f}{\partial x_n^2}\end{bmatrix}
+  $$</p>
+</li>
+<li>
+<p>Steepest descent method: When direction of <span class="arithmatex">\(\Delta x\)</span> is same as <span class="arithmatex">\(-J_F^T\)</span>, the objective function descend steepest</p>
 <ul>
 <li>Advantage<ul>
 <li>Easy to implement</li>
@@ -2852,9 +2852,9 @@
 </ul>
 </li>
 </ul>
-<ol start="4">
-<li>determine the step size</li>
-</ol>
+</li>
+<li>
+<p>determine the step size</p>
 <ul>
 <li>exact line search: too slow</li>
 <li>backtracking algorithm<ul>
@@ -2863,18 +2863,20 @@
 </ul>
 </li>
 </ul>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241010113612982.png" alt="image-20241010113612982" style="zoom:50%;" /></div>
 
 <ol>
-<li>Newton method: 用二阶泰勒展开，Newton step <span class="arithmatex">\(\Delta x=-H_F^{-1}J_F^T\)</span></li>
-</ol>
+<li>
+<p>Newton method: 用二阶泰勒展开，Newton step <span class="arithmatex">\(\Delta x=-H_F^{-1}J_F^T\)</span></p>
 <ul>
 <li>Advantage: fast convergence near the minimum</li>
 <li>Disadvantage: Hessian矩阵的计算消耗资源量大。改进：近似计算Hessian阵</li>
 </ul>
-<ol start="2">
-<li>Gauss-Newton method: useful for solving nonlinear least squares</li>
-</ol>
+</li>
+<li>
+<p>Gauss-Newton method: useful for solving nonlinear least squares</p>
 <ul>
 <li>
 <p><span class="arithmatex">\(\widehat{x}=\underset{x}{\operatorname*{argmin}}\|R(x)\|_2^2=F(x)\)</span>,<span class="arithmatex">\(R(x)\)</span>为残差</p>
@@ -2900,9 +2902,9 @@
 <p>缺点：若<span class="arithmatex">\(J_R^TJ_R\)</span>为奇异的，即不满秩，特征值有可能为0，算法不稳定</p>
 </li>
 </ul>
-<ol start="7">
-<li>Levenberg-Marquardt：<span class="arithmatex">\(\Delta x=-(J_R^TJ_R+\lambda I)^{-1}J_R^TR(x_k)\)</span>,对<span class="arithmatex">\(\lambda&gt;0\)</span>，<span class="arithmatex">\(J_R^TJ_R+\lambda I\)</span>一定是正定的</li>
-</ol>
+</li>
+<li>
+<p>Levenberg-Marquardt：<span class="arithmatex">\(\Delta x=-(J_R^TJ_R+\lambda I)^{-1}J_R^TR(x_k)\)</span>,对<span class="arithmatex">\(\lambda&gt;0\)</span>，<span class="arithmatex">\(J_R^TJ_R+\lambda I\)</span>一定是正定的</p>
 <ul>
 <li>Advantage:<ul>
 <li>Start quickly: <span class="arithmatex">\(\lambda\uparrow\)</span></li>
@@ -2914,6 +2916,8 @@
 </ul>
 </li>
 </ul>
+</li>
+</ol>
 <h2 id="robust-estimation">Robust estimation<a class="headerlink" href="#robust-estimation" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Inlier: obey the model assumption</li>
@@ -2922,20 +2926,22 @@
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241010121535899.png" alt="image-20241010121535899" style="zoom:50%;" /></div>
 
 <ol start="2">
-<li>use other loss functions to replace MSE to reduce the effect
-   - like L1, Huber. They are called robust functions</li>
+<li>use other loss functions to replace MSE to reduce the effect<ul>
+<li>like L1, Huber. They are called robust functions</li>
+</ul>
+</li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241010121845129.png" alt="image-20241010121845129" style="zoom: 25%;" /></div>
 
 <ol start="3">
-<li>RANSAC(Random Sample Concensus): The most powerful method to handle outliers</li>
-</ol>
+<li>
+<p>RANSAC(Random Sample Concensus): The most powerful method to handle outliers</p>
 <ul>
 <li>Key idea: The distribution of inliers is similar while outliers differ a lot, use data point pairs to vote</li>
 </ul>
-<ol start="4">
-<li>ill-posed problem: the solution is not unique.</li>
-</ol>
+</li>
+<li>
+<p>ill-posed problem: the solution is not unique.</p>
 <ul>
 <li>example:方程个数少于变量个数</li>
 <li>solution: use prior knowledge to add more constraints<ul>
@@ -2943,13 +2949,15 @@
 </ul>
 </li>
 </ul>
+</li>
+</ol>
 <h2 id="graphcut">Graphcut<a class="headerlink" href="#graphcut" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>以后讲，不考</p>
 </blockquote>
 <ol>
-<li>Image labeling problems</li>
-</ol>
+<li>
+<p>Image labeling problems</p>
 <ul>
 <li>Assign a label to each image pixel</li>
 <li>Neighboring pixels tend to take the same label</li>
@@ -2959,37 +2967,37 @@
 </ul>
 </li>
 </ul>
-<ol start="2">
-<li>Measuring affinity: let <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> be two pixels whose features are <span class="arithmatex">\(f_i\)</span> and <span class="arithmatex">\(f_j\)</span> (color for example)</li>
-</ol>
+</li>
+<li>
+<p>Measuring affinity: let <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> be two pixels whose features are <span class="arithmatex">\(f_i\)</span> and <span class="arithmatex">\(f_j\)</span> (color for example)</p>
 <ul>
-<li>
-<p>pixel dissimilarity</p>
-<p>$$
- S\left(\mathbf{f}<em j="j">{i},\mathbf{f}</em>\right)=\sqrt{\left(\sum_{k}\left(f_{ik}-f_{jk}\right)^{2}\right)}
- $$</p>
-</li>
-<li>
-<p>pixel affinity</p>
-<p>$$
- w(i,j)=A\left(\mathbf{f}<em j="j">{i},\mathbf{f}</em>\right)=e^{\left{\frac{-1}{2\sigma^{2}}S\left(\mathbf{f}<em j="j">{t},\mathbf{f}</em>\right)\right}}
- $$</p>
-</li>
+<li>pixel dissimilarity</li>
 </ul>
-<ol start="3">
-<li>Graph cut</li>
-</ol>
+<div class="arithmatex">\[
+S\left(\mathbf{f}_{i},\mathbf{f}_{j}\right)=\sqrt{\left(\sum_{k}\left(f_{ik}-f_{jk}\right)^{2}\right)}
+\]</div>
+<ul>
+<li>pixel affinity</li>
+</ul>
+<div class="arithmatex">\[
+w(i,j)=A\left(\mathbf{f}_{i},\mathbf{f}_{j}\right)=e^{\left\{\frac{-1}{2\sigma^{2}}S\left(\mathbf{f}_{t},\mathbf{f}_{j}\right)\right\}}
+\]</div>
+</li>
+<li>
+<p>Graph cut</p>
 <ul>
 <li>cut <span class="arithmatex">\(C=(V_A, V_B)\)</span> is a partition of vertices <span class="arithmatex">\(V\)</span> of a graph <span class="arithmatex">\(G\)</span> into two disjoint subsets <span class="arithmatex">\(V_A\)</span> and <span class="arithmatex">\(V_B\)</span></li>
 <li>qcost of cut: sum of weights of cut-set edges <span class="arithmatex">\(cut(V_A, V_B)=\sum\limits_{u\in V_A,v\in V_B}w(u,v)\)</span></li>
 </ul>
-<ol start="4">
-<li>Segmentation as graph cut</li>
-</ol>
+</li>
+<li>
+<p>Segmentation as graph cut</p>
 <ul>
 <li>Vertices within a subgraph have high affinity</li>
 <li>Vertices from two different subgraphs have low affinity</li>
 </ul>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250108120643144.png" alt="image-20250108120643144" style="zoom:50%;" /></div>
 
 <ol start="5">

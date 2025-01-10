@@ -2738,29 +2738,35 @@
 <p>parametric(global) warping: 所有像素点遵循统一的变换, <span class="arithmatex">\(p'=T(p)\)</span></p>
 </li>
 <li>
-<p>projective transformation(Homography 单应变换): 透视投影、变换
-   - 自由度为8，因为齐次坐标系下放缩没有影响，我们通常约束<span class="arithmatex">\([h_{00}\ h_{01}\dots h_{22}]\)</span>的长度为1</p>
+<p>projective transformation(Homography 单应变换): 透视投影、变换</p>
+<ul>
+<li>自由度为8，因为齐次坐标系下放缩没有影响，我们通常约束<span class="arithmatex">\([h_{00}\ h_{01}\dots h_{22}]\)</span>的长度为1</li>
+</ul>
 </li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241024103708595.png" alt="image-20241024103708595" style="zoom:50%;" /></div>
 
-<ol start="3">
+<ol>
 <li>Change projection plane</li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241024104300601.png" alt="image-20241024104300601" style="zoom:50%;" /></div>
 
 <ol start="4">
-<li>什么时候是单应变换</li>
-</ol>
+<li>
+<p>什么时候是单应变换</p>
 <ul>
 <li>相机绕其中心转动</li>
-<li>相机中心移动并且拍摄内容在一个平面上
-5. Inverse Transform(<span class="arithmatex">\(T^{-1}\)</span>): 将变换图片每个像素点通过逆变换映射到原图的对应的位置，若坐标不为整数则利用插值得到对应像素</li>
+<li>相机中心移动并且拍摄内容在一个平面上</li>
 </ul>
+</li>
+<li>
+<p>Inverse Transform(<span class="arithmatex">\(T^{-1}\)</span>): 将变换图片每个像素点通过逆变换映射到原图的对应的位置，若坐标不为整数则利用插值得到对应像素</p>
+</li>
+</ol>
 <h2 id="image-stitching">Image Stitching<a class="headerlink" href="#image-stitching" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Affine transformation</li>
-</ol>
+<li>
+<p>Affine transformation</p>
 <div class="arithmatex">\[
 \left[\begin{array}{c}x'\newline y'\newline 1\end{array}\right]=\left[\begin{array}{ccc}a&amp;b&amp;c\newline d&amp;e&amp;f\newline 0&amp;0&amp;1\end{array}\right]\left[\begin{array}{c}x\newline y\newline 1\end{array}\right]=\left[\begin{array}{c}ax+by+c\newline dx+ey+f\newline 1\end{array}\right]
 \]</div>
@@ -2779,36 +2785,38 @@ x^{\prime}=ax+by+c\newline y^{\prime}=dx+ey+f
 <ul>
 <li>
 <p>solve <span class="arithmatex">\(t\)</span>: find <span class="arithmatex">\(t\)</span> that minimizes
-  $$
-  |At-b |^2
-  $$</p>
+$$
+|At-b |^2
+$$</p>
 </li>
 <li>
 <p>solution is given by
-  $$
-  A^TAt=A^Tb
-  t=(A^TA)^{-1}A^Tb
-  $$</p>
+$$
+A^TAt=A^Tb
+t=(A^TA)^{-1}A^Tb
+$$</p>
 </li>
 </ul>
-<ol start="2">
-<li>projective transformations</li>
+</li>
+<li>
+<p>projective transformations</p>
+</li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241024111353184.png" alt="image-20241024111353184" style="zoom:50%;" /></div>
 
 <ul>
 <li>solving for homographies</li>
 </ul>
-<div class="arithmatex">\[ x_i'\left(h_{20}x_i+h_{21}y_i+h_{22}\right)=h_{00}x_i+h_{01}y_i+h_{02} \]</div>
-<div class="arithmatex">\[ y_i'\left(h_{20}x_i+h_{21}y_i+h_{22}\right)=h_{10}x_i+h_{11}y_i+h_{12} \]</div>
-<div class="arithmatex">\[
-\left[\begin{array}{cccccccc}x_i&amp;y_i&amp;1&amp;0&amp;0&amp;0&amp;-x_i'x_i&amp;-x_i'y_i&amp;-x_i'\newline 0&amp;0&amp;0&amp;x_i&amp;y_i&amp;1&amp;-y_i'x_i&amp;-y_i'y_i&amp;-y_i'\end{array}\right]\left[\begin{array}{c}h_{00}\newline h_{01}\newline h_{02}\newline h_{10}\newline h_{11}\newline h_{12}\newline h_{20}\newline h_{21}\newline h_{22}\end{array}\right]=\left[\begin{array}{c}0\newline 0\end{array}\right]
-\]</div>
+<p>$$ x_i'\left(h_{20}x_i+h_{21}y_i+h_{22}\right)=h_{00}x_i+h_{01}y_i+h_{02} $$</p>
+<p>$$ y_i'\left(h_{20}x_i+h_{21}y_i+h_{22}\right)=h_{10}x_i+h_{11}y_i+h_{12} $$</p>
+<p>$$
+   \left[\begin{array}{cccccccc}x_i&amp;y_i&amp;1&amp;0&amp;0&amp;0&amp;-x_i'x_i&amp;-x_i'y_i&amp;-x_i'\newline 0&amp;0&amp;0&amp;x_i&amp;y_i&amp;1&amp;-y_i'x_i&amp;-y_i'y_i&amp;-y_i'\end{array}\right]\left[\begin{array}{c}h_{00}\newline h_{01}\newline h_{02}\newline h_{10}\newline h_{11}\newline h_{12}\newline h_{20}\newline h_{21}\newline h_{22}\end{array}\right]=\left[\begin{array}{c}0\newline 0\end{array}\right]
+   $$</p>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241024111843669.png" alt="image-20241024111843669" style="zoom:50%;" /></div>
 
-<ol start="3">
-<li>RANSAC</li>
-</ol>
+<ol>
+<li>
+<p>RANSAC</p>
 <ul>
 <li>
 <p>Idea: All the inliers will agree with each other on the translation vector; The outliers will disagree with each other</p>
@@ -2820,10 +2828,8 @@ x^{\prime}=ax+by+c\newline y^{\prime}=dx+ey+f
 <p>General version:</p>
 <ol>
 <li>
-<p>Randomly choose <span class="arithmatex">\(s\)</span> samples</p>
-<ul>
-<li>Typically <span class="arithmatex">\(s\)</span> = minimum sample size that lets you fit a model</li>
-</ul>
+<p>Randomly choose <span class="arithmatex">\(s\)</span> samples
+   - Typically <span class="arithmatex">\(s\)</span> = minimum sample size that lets you fit a model</p>
 </li>
 <li>
 <p>Fit a model (e.g., transformation matrix) to those samples</p>
@@ -2835,14 +2841,16 @@ x^{\prime}=ax+by+c\newline y^{\prime}=dx+ey+f
 </ol>
 </li>
 </ul>
-<ol start="4">
-<li>Cylindrical projection 为了做360度的拼接</li>
+</li>
+<li>
+<p>Cylindrical projection 为了做360度的拼接</p>
+</li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241024113703384.png" alt="image-20241024113703384" style="zoom:50%;" /></div>
 
 <ol start="5">
-<li>Cylindrical panoramas</li>
-</ol>
+<li>
+<p>Cylindrical panoramas</p>
 <ul>
 <li>step<ul>
 <li>reproject each image onto a cylinder</li>
@@ -2856,6 +2864,8 @@ x^{\prime}=ax+by+c\newline y^{\prime}=dx+ey+f
 </ul>
 </li>
 </ul>
+</li>
+</ol>
 
 
 

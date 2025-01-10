@@ -2830,13 +2830,15 @@
 <h1 id="lec05-image-matching-and-motion-estimation">Lec.05: Image Matching and Motion Estimation<a class="headerlink" href="#lec05-image-matching-and-motion-estimation" title="Permanent link">&para;</a></h1>
 <h2 id="image-matching">Image matching<a class="headerlink" href="#image-matching" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Main Components of Feature matching</li>
-</ol>
+<li>
+<p>Main Components of Feature matching</p>
 <ul>
 <li>Detection: identify the interest points</li>
 <li>Description: extract vector feature descriptor surrounding each interest point</li>
 <li>Matching: determine correspondence between descriptors in two views</li>
 </ul>
+</li>
+</ol>
 <h3 id="detection">Detection<a class="headerlink" href="#detection" title="Permanent link">&para;</a></h3>
 <ol>
 <li>local measures of uniqueness: consider a small window of pixels (region), shifting the window in any direction causes a big change</li>
@@ -2844,58 +2846,61 @@
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241017102911959.png" alt="image-20241017102911959" style="zoom:50%;" /></div>
 
 <ol start="2">
-<li>Principal Component Analysis</li>
-</ol>
+<li>
+<p>Principal Component Analysis</p>
 <ul>
 <li>The 1<sup>st</sup> principal component is the direction with highest variance.</li>
 <li>The 2<sup>nd</sup> principal component is the direction with highest variance which is orthogonal to the previous components.</li>
 </ul>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241017103505349.png" alt="image-20241017103505349" style="zoom:50%;" /></div>
 
 <ol>
-<li>Corner detection</li>
-</ol>
+<li>
+<p>Corner detection</p>
 <ul>
 <li>Compute the covariance matrix at each point。<span class="arithmatex">\(w\)</span>为高斯权重，即越中心权重越高</li>
 </ul>
 <p>$$
-   H=\sum_{(u,v)}w(u,v)\left[\begin{array}{cc}{I_{x}^{2}}&amp;{I_{x}I_{y}}\newline {I_{x}I_{y}}&amp;{I_{y}^{2}}\newline \end{array}\right]\quad I_{x}=\frac{\partial f}{\partial x},I_{y}=\frac{\partial f}{\partial y}
-   $$</p>
+  H=\sum_{(u,v)}w(u,v)\left[\begin{array}{cc}{I_{x}^{2}}&amp;{I_{x}I_{y}}\newline {I_{x}I_{y}}&amp;{I_{y}^{2}}\newline \end{array}\right]\quad I_{x}=\frac{\partial f}{\partial x},I_{y}=\frac{\partial f}{\partial y}
+  $$</p>
 <ul>
 <li>
 <p>二维情况下特征值有解析解
-     $$
-     H=\begin{bmatrix}a   b\newline c   d\end{bmatrix}\quad\lambda_{\pm}=\frac{1}{2}\left((a+d)\pm\sqrt{4bc+(a-d)^{2}}\right)
-     $$</p>
+    $$
+    H=\begin{bmatrix}a   b\newline c   d\end{bmatrix}\quad\lambda_{\pm}=\frac{1}{2}\left((a+d)\pm\sqrt{4bc+(a-d)^{2}}\right)
+    $$</p>
 </li>
 <li>
 <p>Classify points using eigenvalues of <span class="arithmatex">\(H\)</span></p>
 </li>
 <li>
 <p>简化，我们可以使用Harris operator。通过设置threshold进行二值化。最后找到response function的局部最大值
-     $$
-     f=\frac{\lambda_1\lambda_2}{\lambda_1+\lambda_2}=\frac{determinant(H)}{trace(H)}
-     $$</p>
+    $$
+    f=\frac{\lambda_1\lambda_2}{\lambda_1+\lambda_2}=\frac{determinant(H)}{trace(H)}
+    $$</p>
 </li>
 </ul>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241017103836755.png" alt="image-20241017103505349" style="zoom:50%;" /></div>
 
-<ul>
-<li>Harris detector</li>
-<li>Compute derivatives at each pixel</li>
-<li>Compute covariance matrix <span class="arithmatex">\(H\)</span> in a Gaussian window around each pixel </li>
-<li>Compute corner response function <span class="arithmatex">\(f\)</span></li>
-<li>Threshold <span class="arithmatex">\(f\)</span></li>
-<li>Find local maxima of response function (nonmaximum suppression)</li>
-</ul>
-<ol start="4">
-<li>特征点的可重复性: We want response value <span class="arithmatex">\(f\)</span> at the corresponding pixels to be <strong>invariant </strong>to image tran sformations</li>
-</ol>
+<ol start="2">
+<li>
+<p>Harris detector
+  - Compute derivatives at each pixel
+  - Compute covariance matrix <span class="arithmatex">\(H\)</span> in a Gaussian window around each pixel 
+  - Compute corner response function <span class="arithmatex">\(f\)</span>
+  - Threshold <span class="arithmatex">\(f\)</span>
+  - Find local maxima of response function (nonmaximum suppression)</p>
+</li>
+<li>
+<p>特征点的可重复性: We want response value <span class="arithmatex">\(f\)</span> at the corresponding pixels to be <strong>invariant</strong> to image tran sformations</p>
 <ul>
 <li>Intensity change(亮度):极值会变，极值点不会, partially invarient</li>
 </ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241017105446132.png" alt="image-20241017105446132" style="zoom:50%;" /></div>
-
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241017105446132.png" alt="image-20241017105446132" style="zoom:50%;" /></div></p>
 <ul>
 <li>
 <p>平移、旋转: 不变</p>
@@ -2912,12 +2917,14 @@
 </ul>
 </li>
 </ul>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241017110232702.png" alt="image-20241017110232702" style="zoom: 50%;" />
 <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250108145341497.png" alt="image-20250108145341497" style="zoom:67%;" /></div>
 
-<ol start="5">
-<li>Blob detector:斑点在亮度图中二阶导值较大</li>
-</ol>
+<ol>
+<li>
+<p>Blob detector:斑点在亮度图中二阶导值较大</p>
 <ul>
 <li>
 <p>Laplacian filter</p>
@@ -2940,41 +2947,46 @@
 <p>Scale selection: Feature points are local maxima in both position and scale. 把scale作为第三维度</p>
 </li>
 </ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241017111657906.png" alt="image-20241017111657906" style="zoom:50%;" /></div>
-
-<ol start="6">
-<li>DoG: LoG can be approximated by Difference of two Gaussians (DoG) OpenCV中常用</li>
-</ol>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241017111657906.png" alt="image-20241017111657906" style="zoom:50%;" /></div></p>
+</li>
+<li>
+<p>DoG: LoG can be approximated by Difference of two Gaussians (DoG) OpenCV中常用</p>
 <ul>
 <li>computing DoG at different scales 在图像金字塔中对不同<span class="arithmatex">\(\sigma\)</span>相减就可以得到不同scale下的DoG</li>
 </ul>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241017111808418.png" alt="image-20241017111808418" style="zoom: 67%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241017112010705.png" alt="image-20241017112010705" style="zoom: 60%;" /></div>
 
 <h3 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h3>
 <ol>
-<li>SIFT(Scale Invarient Feature Transform) descriptor:考察region内梯度方向的分布，用直方图作为描述子</li>
-</ol>
+<li>
+<p>SIFT(Scale Invarient Feature Transform) descriptor:考察region内梯度方向的分布，用直方图作为描述子</p>
 <ul>
 <li>平移不发生变化</li>
 <li>旋转柱状图整体平移。处理：归一化，最大的放最左侧</li>
 <li>缩放：窗口大小由DoG detector检测特征点时决定，因此invariant</li>
 <li>algorithm：DoG找到maxima，对旋转进行dominate orientation，最后create descriptor</li>
 </ul>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241017113004300.png" alt="image-20241017113004300" style="zoom:50%;" /></div>
 
 <ol>
-<li>Properties of SIFT: Extraordinarily robust matching technique</li>
-</ol>
+<li>
+<p>Properties of SIFT: Extraordinarily robust matching technique</p>
 <ul>
 <li>Can handle changes in viewpoint: Theoretically invariant to scale and rotation</li>
 <li>Can handle significant changes in illumination: Sometimes even day vs. night</li>
 <li>Fast and efficient: can run in real time</li>
 <li>Lots of code available</li>
 </ul>
+</li>
+</ol>
 <h3 id="matching">Matching<a class="headerlink" href="#matching" title="Permanent link">&para;</a></h3>
 <ol>
-<li>Feature distance:</li>
-</ol>
+<li>
+<p>Feature distance:</p>
 <ul>
 <li>simple approach <span class="arithmatex">\(\|f_1-f_2\|\)</span>, can give small distances for ambiguous (incorrect) matches </li>
 <li>ratio test: ratio score = <span class="arithmatex">\(\dfrac{\|f_1-f_2\|}{\|f_1-f_2'\|}\)</span><ul>
@@ -2983,7 +2995,7 @@
 </ul>
 </li>
 </ul>
-<ol start="2">
+</li>
 <li>
 <p>Another strategy: find mutual nearest neighbors 即找到一对特征点，彼此互为图中最近似的点</p>
 </li>
@@ -2995,16 +3007,18 @@
 
 <h2 id="motion-estimation">Motion estimation<a class="headerlink" href="#motion-estimation" title="Permanent link">&para;</a></h2>
 <ol>
-<li>problem</li>
-</ol>
+<li>
+<p>problem</p>
 <ul>
 <li>feature-tracking: 提取追踪特征点，输出点的位移信息</li>
 <li>optical flow：恢复每个像素处的图像运动，输出密集位移场（光流）</li>
 </ul>
+</li>
+</ol>
 <h3 id="lucas-kanade-method">Lucas-Kanade method<a class="headerlink" href="#lucas-kanade-method" title="Permanent link">&para;</a></h3>
 <ol>
-<li>Key assumptions</li>
-</ol>
+<li>
+<p>Key assumptions</p>
 <ul>
 <li>
 <p>small motion: poitns do not move very far</p>
@@ -3024,35 +3038,29 @@
 <li>assume the pixel's neighbors have the same <span class="arithmatex">\((u,v)\)</span></li>
 <li>for <span class="arithmatex">\(5\times5\)</span> window, that gives us 25 equations per pixel</li>
 </ul>
-<p>$$
- \left.\left[\begin{array}{cc}I_x(\mathbf{p_1})&amp;I_y(\mathbf{p_1})\newline I_x(\mathbf{p_2})&amp;I_y(\mathbf{p_2})\newline \vdots&amp;\vdots\newline I_x(\mathbf{p_{25}})&amp;I_y(\mathbf{p_{25}})\end{array}\right.\right]\left[\begin{array}{c}u\newline v\end{array}\right]=-\left[\begin{array}{c}I_t(\mathbf{p_1})\newline I_t(\mathbf{p_2})\newline \vdots\newline I_t(\mathbf{p_{25}})\end{array}\right]
- $$</p>
-<ul>
-<li>即<span class="arithmatex">\(Ad=b\)</span>,方程个数远多于变量，很可能没解，因此solve <span class="arithmatex">\(\min\limits_d\|Ad-b\|^2\)</span></li>
-<li>即<span class="arithmatex">\((A^TA)d=A^Tb\)</span></li>
+</li>
 </ul>
 <p>$$
- \left[\begin{array}{cc}\sum I_xI_x&amp;\sum I_xI_y\newline \sum I_xI_y&amp;\sum I_yI_y\end{array}\right]\left[\begin{array}{c}u\newline v\end{array}\right]=-\left[\begin{array}{c}\sum I_xI_t\newline \sum I_yI_t\end{array}\right]
- $$</p>
-<ul>
-<li>
-<p>有解左侧要可逆，对应两个特征值<span class="arithmatex">\(\lambda_1\)</span>和<span class="arithmatex">\(\lambda_2\)</span>不能太小，对应之前提到的边缘检测，需要是corner点</p>
+    \left.\left[\begin{array}{cc}I_x(\mathbf{p_1})&amp;I_y(\mathbf{p_1})\newline I_x(\mathbf{p_2})&amp;I_y(\mathbf{p_2})\newline \vdots&amp;\vdots\newline I_x(\mathbf{p_{25}})&amp;I_y(\mathbf{p_{25}})\end{array}\right.\right]\left[\begin{array}{c}u\newline v\end{array}\right]=-\left[\begin{array}{c}I_t(\mathbf{p_1})\newline I_t(\mathbf{p_2})\newline \vdots\newline I_t(\mathbf{p_{25}})\end{array}\right]
+   $$</p>
+<div class="highlight"><pre><span></span><code>- 即$Ad=b$,方程个数远多于变量，很可能没解，因此solve $\min\limits_d\|Ad-b\|^2$
+- 即$(A^TA)d=A^Tb$
+</code></pre></div>
+<p>$$
+    \left[\begin{array}{cc}\sum I_xI_x&amp;\sum I_xI_y\newline \sum I_xI_y&amp;\sum I_yI_y\end{array}\right]\left[\begin{array}{c}u\newline v\end{array}\right]=-\left[\begin{array}{c}\sum I_xI_t\newline \sum I_yI_t\end{array}\right]
+   $$</p>
+<div class="highlight"><pre><span></span><code>- 有解左侧要可逆，对应两个特征值$\lambda_1$和$\lambda_2$不能太小，对应之前提到的边缘检测，需要是corner点
+
+  - The aperture problem 无法判断沿孔径方向的运动
+
+  &lt;div align=&quot;center&quot;&gt;&lt;img src=&quot;https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241017122234538.png&quot; alt=&quot;image-20241017122234538&quot; style=&quot;zoom: 33%;&quot; /&gt;&lt;/div&gt;
+</code></pre></div>
 </li>
-<li>
-<p>The aperture problem 无法判断沿孔径方向的运动</p>
-</li>
-</ul>
-<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241017122234538.png" alt="image-20241017122234538" style="zoom: 33%;" /></div></p>
-</li>
-</ul>
-<ol start="2">
 <li>
 <p>好跟踪的点：纹理丰富的点</p>
 </li>
 <li>
 <p>Errors in Lukas-Kanade</p>
-</li>
-</ol>
 <ul>
 <li>
 <p>Brightness constancy is <strong>not</strong> satisfied 如开关灯、进出隧道</p>
@@ -3071,6 +3079,8 @@
 <p>A point does <strong>not</strong> move like its neighbors 边缘</p>
 </li>
 </ul>
+</li>
+</ol>
 
 
 

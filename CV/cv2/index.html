@@ -2782,12 +2782,14 @@
 <h1 id="lec02-image-formation">Lec.02: Image Formation<a class="headerlink" href="#lec02-image-formation" title="Permanent link">&para;</a></h1>
 <h2 id="camera-and-lens">Camera and lens<a class="headerlink" href="#camera-and-lens" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Pinhole camera</li>
-</ol>
+<li>
+<p>Pinhole camera</p>
 <ul>
 <li>Add a barrier to block off most of the rays, The opening known as the aperture</li>
 <li>孔太小一方面亮度不够，另一方面会发生衍射现象diffraction</li>
 </ul>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240919105704449.png" alt="image-20240919105704449" style="zoom:50%;" /></div>
 
 <ol>
@@ -2799,31 +2801,35 @@
 <li>Magnification: <span class="arithmatex">\(m=\dfrac{h_i}{h_o}\)</span></li>
 </ul>
 <ol start="3">
-<li>Field of View: depend on focal length and sensor size</li>
-</ol>
+<li>
+<p>Field of View: depend on focal length and sensor size</p>
 <ul>
 <li>长焦会放大远处的物体。焦距越长，视角越窄，适合远摄；焦距越短，视角越宽，适合广角拍摄。</li>
 <li>FOV also depends on sensor size</li>
 </ul>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240919111158448.png" alt="image-20240919111158448" style="zoom: 33%;" /></div>
 
-<ol>
+<ol start="4">
 <li>
-<p>F-number: More convenient to represent aperture as a fraction of focal length
-   - <span class="arithmatex">\(N=\dfrac{f}{D}\)</span></p>
+<p>F-number: More convenient to represent aperture as a fraction of focal length</p>
+<ul>
+<li><span class="arithmatex">\(N=\dfrac{f}{D}\)</span></li>
+</ul>
 </li>
 <li>
 <p>Lens Defocus</p>
-</li>
-</ol>
 <ul>
 <li>From similar triangles: <span class="arithmatex">\(\dfrac bD=\dfrac{|i^{\prime}-i|}{i^{\prime}}\)</span></li>
 <li>Blur circle diameter: <span class="arithmatex">\(b=\dfrac D{i^{\prime}}|i^{\prime}-i|,b\propto D\propto\dfrac1N\)</span></li>
 <li>如何认为image是well focused的，只要b的大小小于像素大小即可</li>
 </ul>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240919111749495.png" alt="image-20240919111749495" style="zoom: 43%;" /></div>
 
-<ol>
+<ol start="6">
 <li>Depth of Field：图像足够聚焦的物体距离的范围</li>
 </ol>
 <blockquote>
@@ -2841,14 +2847,16 @@
 \begin{aligned}&amp;\bullet c=\frac{f^2(o-o_1)}{No_1(o-f)}, c=\frac{f^2(o_2-o)}{No_2(o-f)}\newline &amp;\bullet\text{ Depth of Field: }o_2-o_1=\frac{2of^2cN(o-f)}{f^4-c^2N^2(o-f)^2}\end{aligned}
 \]</div>
 <ol start="7">
-<li>How to blur the background</li>
-</ol>
+<li>
+<p>How to blur the background</p>
 <ul>
 <li>Large aperture</li>
 <li>Long focal length</li>
 <li>Near foreground</li>
 <li>Far Background</li>
 </ul>
+</li>
+</ol>
 <h2 id="geometric-image-formation">Geometric Image Formation<a class="headerlink" href="#geometric-image-formation" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Pin-hole camera model: Perspective Projection</li>
@@ -2875,8 +2883,8 @@
 <li>v may be outside the image frame or at infinity</li>
 </ul>
 <ol start="4">
-<li>Vanishing lines</li>
-</ol>
+<li>
+<p>Vanishing lines</p>
 <ul>
 <li>Any set of parallel lines on the plane define a vanishing point</li>
 <li>The union of all of these vanishing points is the vanishing line</li>
@@ -2885,23 +2893,25 @@
 </ul>
 </li>
 </ul>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240919120554009.png" alt="image-20240919120554009" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240919120719492.png" alt="image-20240919120719492" style="zoom: 50%;" /></div>
 
 <blockquote>
 <p>造成畸变的原因有哪些</p>
 </blockquote>
-<ol>
-<li>Perspective distortion</li>
-</ol>
+<ol start="5">
+<li>
+<p>Perspective distortion</p>
 <ul>
 <li>向上倾斜照相机会导致垂直方向收敛</li>
 <li>用一个普通的镜头来保持相机的水平，只能捕捉到建筑的底部</li>
 <li>外部柱看起来更大</li>
 <li>变形不是由于镜头的缺陷</li>
 </ul>
-<ol start="2">
-<li>Radial distortion</li>
-</ol>
+</li>
+<li>
+<p>Radial distortion</p>
 <ul>
 <li>
 <p>Caused by imperfect lenses(透镜)</p>
@@ -2917,6 +2927,8 @@
 <p>长焦容易导致枕形畸变</p>
 </li>
 </ul>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240919121834128.png" alt="image-20240919121834128" style="zoom:50%;" /></div>
 
 <div class="arithmatex">\[

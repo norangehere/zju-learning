@@ -2920,8 +2920,8 @@
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241107102701325.png" alt="image-20241107102701325" style="zoom:50%;" /></div>
 
 <ol start="2">
-<li>Basic stereo matching algorithm: </li>
-</ol>
+<li>
+<p>Basic stereo matching algorithm: </p>
 <ul>
 <li>For each pixel in the first image<ul>
 <li>Find corresponding epipolar line in the right image</li>
@@ -2929,27 +2929,30 @@
 </ul>
 </li>
 </ul>
-<ol start="3">
-<li>Simplest Case: Parallel images: 相机同高度，镜头角度一样，focal length相同</li>
-</ol>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241107103503735.png" alt="image-20241107103503735" style="zoom:50%;" /></div>
-
+</li>
+<li>
+<p>Simplest Case: Parallel images: 相机同高度，镜头角度一样，focal length相同</p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241107103503735.png" alt="image-20241107103503735" style="zoom:50%;" /></div></p>
 <ul>
 <li><span class="arithmatex">\(x_2-x_1\)</span>= the disparity of pixel <span class="arithmatex">\((x_1,y_1)\)</span></li>
 <li>depth from disparity: Note that x and x’ are image coordinates relative to the image centers, respectively. Disparity is inversely proportional to depth.</li>
 </ul>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241107103617421.png" alt="image-20241107103617421" style="zoom:50%;" /></div>
 
 <ol start="4">
-<li>Stereo image rectification：假设拍摄的时候两个相机不平行，先进行reproject使得两个相机水平</li>
-</ol>
+<li>
+<p>Stereo image rectification：假设拍摄的时候两个相机不平行，先进行reproject使得两个相机水平</p>
 <ul>
 <li>Reproject image planes onto a common plane parallel to the line between camera centers</li>
 <li>使用两个3x3的单应矩阵</li>
 </ul>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241107104408094.png" alt="image-20241107104408094" style="zoom:50%;" /></div>
 
-<ol>
+<ol start="5">
 <li>Basic stereo matching algorithm: Best match minimizes the dissimilarity</li>
 <li>Popular matching scores</li>
 </ol>
@@ -2964,24 +2967,24 @@
 <p>本部分以下不考</p>
 </blockquote>
 <ol start="8">
-<li>Stereo as energy minimization。</li>
-</ol>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241107105252512.png" alt="image-20241107105252512" style="zoom:50%;" /></div>
-
+<li>
+<p>Stereo as energy minimization。</p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241107105252512.png" alt="image-20241107105252512" style="zoom:50%;" /></div></p>
 <ul>
 <li>match cost: <span class="arithmatex">\(E_d(d)=\sum\limits_{(x,y)\in I}C(x,y,d(x,y))\)</span></li>
 <li>smoothness cost: <span class="arithmatex">\(E_s(d)=\sum\limits_{(p,q)\in\epsilon}V(d_p,d_q)\)</span></li>
 </ul>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241107105645725.png" alt="image-20241107105645725" style="zoom:50%;" /></div>
-
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241107105645725.png" alt="image-20241107105645725" style="zoom:50%;" /></div></p>
 <ul>
-<li>can minimize this independently per scanline using DP</li>
+<li>can minimize this independently per scanline using DP<ul>
 <li>但DP只能处理1D的，不能处理2D的</li>
 </ul>
-<ol start="9">
+</li>
+</ul>
+</li>
 <li>
 <p>Steps</p>
-</li>
+<ol>
 <li>
 <p>Calibrate cameras</p>
 </li>
@@ -2994,19 +2997,21 @@
 <li>
 <p>Estimate depth</p>
 </li>
+</ol>
+</li>
 <li>
 <p>optimal baseline</p>
-</li>
-</ol>
 <ul>
 <li>too small: large depth error</li>
 <li>too large: difficult search problem</li>
 </ul>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241107110113135.png" alt="image-20241107110113135" style="zoom:50%;" /></div>
 
-<ol start="11">
-<li>What will cause errors</li>
-</ol>
+<ol>
+<li>
+<p>What will cause errors</p>
 <ul>
 <li>相机标定误差</li>
 <li>图片分辨率低</li>
@@ -3014,25 +3019,29 @@
 <li>亮度不一致</li>
 <li>textureless regions</li>
 </ul>
-<ol start="12">
-<li>Active stereo with structured light 主动式的立体匹配</li>
-</ol>
+</li>
+<li>
+<p>Active stereo with structured light 主动式的立体匹配</p>
 <ul>
 <li>simplifies the correspondence problem 通过结构光降低匹配难度，提高纹理丰富度</li>
 </ul>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241107111038459.png" alt="image-20241107111038459" style="zoom: 67%;" /></div>
 
 <h3 id="multi-view-stereo">Multi-view stereo<a class="headerlink" href="#multi-view-stereo" title="Permanent link">&para;</a></h3>
 <ol>
-<li>Advantages</li>
-</ol>
+<li>
+<p>Advantages</p>
 <ul>
 <li>Can match windows using more than 1 neighbor, giving a <strong>stronger constraint</strong></li>
 <li>If you have lots of potential neighbors, can <strong>choose</strong> <strong>the best subset</strong> of neighbors to match per reference image</li>
 <li>Can reconstruct a depth map for each reference frame, and the merge into a <strong>complete 3D model</strong></li>
 </ul>
-<ol start="2">
-<li>basic idea: Correct depth gives consistent projections while incorrect depth gives inconsistent projections. </li>
+</li>
+<li>
+<p>basic idea: Correct depth gives consistent projections while incorrect depth gives inconsistent projections. </p>
+</li>
 </ol>
 <p>Compute the error for each depth value for each point in the reference image. Find the depth value that gives the smallest error</p>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241107112126106.png" alt="image-20241107112126106" style="zoom: 45%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241107112211904.png" alt="image-20241107112211904" style="zoom:45%;" />
@@ -3049,8 +3058,6 @@
 </li>
 <li>
 <p>Patch Match: an efficient algorithm</p>
-</li>
-</ol>
 <ul>
 <li>
 <p>假设：随机初始化中会产生一部分good guess，neighbor的变换是相似的</p>
@@ -3066,31 +3073,35 @@
 </li>
 <li>
 <p>local search: Each pixels searches for better patch offsets within a concentric radius around the current offset. 在当前偏移量周围进行随机搜索，寻找更好的匹配。</p>
+</li>
+</ol>
 <p>The search radius starts with the size of the image and is halved each time until it is 1</p>
-</li>
-<li>
-<p>Go to Step 2 until converge</p>
-</li>
+<ol start="4">
+<li>Go to Step 2 until converge</li>
 </ol>
 <p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241107113736728.png" alt="image-20241107113736728" style="zoom:50%;" /></div></p>
 </li>
 </ul>
+</li>
+</ol>
 <h2 id="3d-reconstruction">3D reconstruction<a class="headerlink" href="#3d-reconstruction" title="Permanent link">&para;</a></h2>
 <ol>
-<li>pipeline</li>
-</ol>
+<li>
+<p>pipeline</p>
 <ul>
 <li>Compute depth map per image</li>
 <li>Fuse the depth maps into a 3D surface</li>
 <li>Texture mapping</li>
 </ul>
+</li>
+</ol>
 <h3 id="3d-representations">3D representations<a class="headerlink" href="#3d-representations" title="Permanent link">&para;</a></h3>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241107114512604.png" alt="image-20241107114512604" style="zoom:50%;" /></div>
 
 <ol>
 <li>point cloud: 只有点，no surface</li>
-<li>volume</li>
-</ol>
+<li>
+<p>volume</p>
 <ul>
 <li>occupancy volume: <span class="arithmatex">\(V_{ijk}=1\)</span> if occupied, 0 if empty</li>
 <li>SDF(Signed Distance Function) volume: The distance of a point to the shape boundary. The distance is defined by a metric, usually the Euclidean distance<ul>
@@ -3098,6 +3109,8 @@
 </ul>
 </li>
 </ul>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20241107114939305.png" alt="image-20241107114939305" style="zoom:50%;" /></div>
 
 <ol>
@@ -3136,16 +3149,16 @@
 </li>
 <li>
 <p>represent surface by indicator(occupancy) function</p>
-</li>
-</ol>
 <ul>
 <li>gradient relationship: 构造出的表面在对应点的梯度应该尽可能和每个点的法向量一致，优化问题</li>
 <li>represent the oriented points by a vector field <span class="arithmatex">\(\vec{V}\)</span></li>
 <li>find the function whose gradient best approximates <span class="arithmatex">\(\vec{V}\)</span> by minimizing</li>
 </ul>
-<p>$$
-   \min_{\chi}|\nabla\chi-\vec{V}|
-   $$</p>
+<div class="arithmatex">\[
+\min_{\chi}\|\nabla\chi-\vec{V}\|
+\]</div>
+</li>
+</ol>
 <h4 id="marching-cubes">Marching cubes<a class="headerlink" href="#marching-cubes" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p><strong>Marching Squares(2D)</strong></p>

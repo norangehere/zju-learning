@@ -2770,11 +2770,13 @@
 <h1 id="lec03-image-processing">Lec.03: Image Processing<a class="headerlink" href="#lec03-image-processing" title="Permanent link">&para;</a></h1>
 <h2 id="image-processing-basics">Image Processing Basics<a class="headerlink" href="#image-processing-basics" title="Permanent link">&para;</a></h2>
 <ol>
-<li>increase contrast with 'S curve' <span class="arithmatex">\(\text{output}(x,y)=f(\text{input}(x,y))\)</span></li>
-</ol>
+<li>
+<p>increase contrast with 'S curve' <span class="arithmatex">\(\text{output}(x,y)=f(\text{input}(x,y))\)</span></p>
 <ul>
 <li>S型，亮的更亮，暗的更暗，提高对比度</li>
 </ul>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240926105653055.png" alt="image-20240926105653055" style="zoom:43%;" /></div>
 
 <ol>
@@ -2819,7 +2821,7 @@
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240926113902574.png" alt="image-20240926113902574" style="zoom:50%;" /></div>
 
-<ol>
+<ol start="2">
 <li>把任意信号用正余弦信号表示 -&gt; Fourier Transform</li>
 </ol>
 <div class="arithmatex">\[
@@ -2829,8 +2831,8 @@
 <li>高斯函数的傅里叶变换还是高斯函数</li>
 </ul>
 <ol start="3">
-<li>Convolution Theorem：空间域和频域之间的关系</li>
-</ol>
+<li>
+<p>Convolution Theorem：空间域和频域之间的关系</p>
 <ul>
 <li>空间域中的卷积操作等价于频率域中的逐点乘法操作</li>
 <li>应用卷积定理的步骤<ol>
@@ -2840,11 +2842,15 @@
 </ol>
 </li>
 </ul>
+</li>
+</ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240926120233062.png" alt="image-20240926120233062" style="zoom: 25%;" /></div>
 
 <ol start="4">
-<li>box filter = low-pass filter 全是1
-   - wider kernel = lower frequency</li>
+<li>box filter = low-pass filter 全是1<ul>
+<li>wider kernel = lower frequency</li>
+</ul>
+</li>
 <li>采样频率低，在频域脉冲密集，产生混叠，导致采样失真</li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240926121339953.png" alt="image-20240926121339953" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240926121353411.png" alt="image-20240926121353411" style="zoom:50%;" /></div>
@@ -2875,8 +2881,8 @@
 
 <h2 id="image-magnification">Image Magnification<a class="headerlink" href="#image-magnification" title="Permanent link">&para;</a></h2>
 <ol>
-<li>插值</li>
-</ol>
+<li>
+<p>插值</p>
 <ul>
 <li>
 <p>Nearest-neighbor interpolation：不连续不平滑</p>
@@ -2898,24 +2904,26 @@
 <p>Bicubic Interpolation: <span class="arithmatex">\(p(x,y)=\sum_{i=0}^3\sum_{j=0}^3a_{ij}x^iy^j\)</span></p>
 </li>
 </ul>
+</li>
+</ol>
 <h2 id="change-aspect-ratio">Change Aspect Ratio<a class="headerlink" href="#change-aspect-ratio" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Basic idea:</li>
-</ol>
+<li>
+<p>Basic idea:</p>
 <ul>
 <li>Problem statement: we need to remove <span class="arithmatex">\(n\)</span> pixels from each row</li>
 <li>Basic idea: remove unimportant pixels</li>
 </ul>
-<ol start="2">
-<li>Importance of pixel</li>
-</ol>
+</li>
+<li>
+<p>Importance of pixel</p>
 <ul>
 <li>Edge energgy: <span class="arithmatex">\(E(I)=|\dfrac{\partial I}{\partial x}|+|\dfrac{\partial I}{\partial y}|\)</span></li>
 <li>计算：通过卷积</li>
 </ul>
-<ol start="3">
-<li>Seam carving: Find connected path of pixels from top to bottom of which the edge energy is minimal。每次每行删除一个像素，要删除n个则跑n次</li>
-</ol>
+</li>
+<li>
+<p>Seam carving: Find connected path of pixels from top to bottom of which the edge energy is minimal。每次每行删除一个像素，要删除n个则跑n次</p>
 <ul>
 <li>
 <p>solved by dynamic programming:</p>
@@ -2923,13 +2931,15 @@
 <li>If <span class="arithmatex">\(M(i,j)\)</span> = minimal energy of a seam going through <span class="arithmatex">\((i,j)\)</span></li>
 <li>Then</li>
 </ul>
-<p>$$
- \mathbf{M}(i,j)=E(i,j)+\min\left(\mathbf{M}(i-1,j-1),\mathbf{M}(i-1,j),\mathbf{M}(i-1,j+1)\right)
- $$</p>
+<div class="arithmatex">\[
+\mathbf{M}(i,j)=E(i,j)+\min\left(\mathbf{M}(i-1,j-1),\mathbf{M}(i-1,j),\mathbf{M}(i-1,j+1)\right)
+\]</div>
 </li>
 </ul>
-<ol start="4">
-<li>Seam insertion: Find <span class="arithmatex">\(k\)</span> seams to insert, then interpolate pixels</li>
+</li>
+<li>
+<p>Seam insertion: Find <span class="arithmatex">\(k\)</span> seams to insert, then interpolate pixels</p>
+</li>
 </ol>
 
 
