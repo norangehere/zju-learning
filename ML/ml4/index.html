@@ -3004,9 +3004,10 @@
 <ul>
 <li>对偶问题是</li>
 </ul>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\max_{\alpha}\quad\sum_{i=1}^{m}\alpha_{i}-\frac{1}{2} \sum_{i=1}^{m}\sum_{j=1}^{m}\alpha_{i}\alpha_{j}y_{i}y_{j}\phi(\boldsymbol{x}_{i})^{\mathrm{T}}\phi(\boldsymbol{x}_{j})\)</span>\)</span></p>
 <p>$$
-  \max_{\alpha}\quad\sum_{i=1}^{m}\alpha_{i}-\frac{1}{2} \sum_{i=1}^{m}\sum_{j=1}^{m}\alpha_{i}\alpha_{j}y_{i}y_{j}\phi(\boldsymbol{x}<em j="j">{i})^{\mathrm{T}}\phi(\boldsymbol{x}</em>) \newline 
-  \begin{aligned}\mathrm{s.t.}&amp;\sum_{i=1}^{m}\alpha_{i}y_{i}=0 ,\newline &amp;\alpha_{i}\geqslant0 ,\quad i=1,2,\ldots,m .\end{aligned}
+  \begin{aligned}\mathrm{s.t.}&amp;\sum_{i=1}^{m}\alpha_{i}y_{i}=0 ,\newline 
+  &amp;\alpha_{i}\geqslant0 ,\quad i=1,2,\ldots,m .\end{aligned}
   $$</p>
 <ul>
 <li>求解上式可能比较复杂，可以设想</li>
@@ -3015,15 +3016,13 @@
   \kappa(\boldsymbol{x}_i,\boldsymbol{x}_j)=\langle\phi(\boldsymbol{x}_i),\phi(\boldsymbol{x}_j)\rangle=\phi(\boldsymbol{x}_i)^\mathrm{T}\phi(\boldsymbol{x}_j)
   $$</p>
 <ul>
-<li>
-<p>即<span class="arithmatex">\(x_i\)</span>与<span class="arithmatex">\(x_j\)</span>在特征空间的内积等于它们在原始样本空间中通过函数<span class="arithmatex">\(\kappa(\cdot,\cdot)\)</span>计算的结果<strong>(称为kernel trick)</strong>，有了这样的函数。我们就不必直接去计算高维其至无穷维特征空间中的内积，重写为
-    $$
-    \begin{aligned}&amp;\max_{\alpha}&amp;&amp;\sum_{i=1}^{m}\alpha_{i}-\frac{1}{2} \sum_{i=1}^{m}\sum_{j=1}^{m}\alpha_{i}\alpha_{j}y_{i}y_{j}\kappa(\boldsymbol{x}<em j="j">{i},\boldsymbol{x}</em>)\newline &amp;\mathrm{s.t.}&amp;&amp;\sum_{i=1}^{m}\alpha_{i}y_{i}=0 ,\newline &amp;&amp;&amp;\alpha_{i}\geqslant0 ,\quad i=1,2,\ldots,m .\end{aligned}
-    $$</p>
-</li>
-<li>
-<p>求解后即可得到</p>
-</li>
+<li>即<span class="arithmatex">\(x_i\)</span>与<span class="arithmatex">\(x_j\)</span>在特征空间的内积等于它们在原始样本空间中通过函数<span class="arithmatex">\(\kappa(\cdot,\cdot)\)</span>计算的结果<strong>(称为kernel trick)</strong>，有了这样的函数。我们就不必直接去计算高维其至无穷维特征空间中的内积，重写为</li>
+</ul>
+<p>$$
+  \begin{aligned}&amp;\max_{\alpha}&amp;&amp;\sum_{i=1}^{m}\alpha_{i}-\frac{1}{2} \sum_{i=1}^{m}\sum_{j=1}^{m}\alpha_{i}\alpha_{j}y_{i}y_{j}\kappa(\boldsymbol{x}<em j="j">{i},\boldsymbol{x}</em>)\newline &amp;\mathrm{s.t.}&amp;&amp;\sum_{i=1}^{m}\alpha_{i}y_{i}=0 ,\newline &amp;&amp;&amp;\alpha_{i}\geqslant0 ,\quad i=1,2,\ldots,m .\end{aligned}
+  $$</p>
+<ul>
+<li>求解后即可得到</li>
 </ul>
 <p>$$
   \begin{aligned}
@@ -3059,8 +3058,7 @@
 <li>Maximum Margin Classifier</li>
 </ol>
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250104204113125.png" alt="image-20250104204113125" style="zoom: 50%;" />
-       <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250104204152152.png" alt="image-20250104204152152" style="zoom:50%;" />
-   </div>
+   <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250104204152152.png" alt="image-20250104204152152" style="zoom:50%;" /></div>
 
 <p>$$
    \mathcal{L}(\boldsymbol{a})=-\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}a_{i}a_{j}y_{i}y_{j}\phi^{T}(\boldsymbol{x}<em j="j">{i})\phi(\boldsymbol{x}</em>)+\sum_{i=1}^{N}a_{i}\newline<br />
