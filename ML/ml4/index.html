@@ -3005,10 +3005,9 @@
 <li>
 <p>对偶问题是</p>
 <div class="arithmatex">\[
-\max_{\alpha}\quad\sum_{i=1}^{m}\alpha_{i}-\frac{1}{2} \sum_{i=1}^{m}\sum_{j=1}^{m}\alpha_{i}\alpha_{j}y_{i}y_{j}\phi(\boldsymbol{x}_{i})^{\mathrm{T}}\phi(\boldsymbol{x}_{j})
-\]</div>
-<div class="arithmatex">\[
-\begin{aligned}\mathrm{s.t.}&amp;\sum_{i=1}^{m}\alpha_{i}y_{i}=0 ,\newline 
+\begin{aligned}
+\max_{\alpha}\quad&amp;\sum_{i=1}^{m}\alpha_{i}-\frac{1}{2} \sum_{i=1}^{m}\sum_{j=1}^{m}\alpha_{i}\alpha_{j}y_{i}y_{j}\phi(\boldsymbol{x}_{i})^{\mathrm{T}}\phi(\boldsymbol{x}_{j}) \newline    
+\mathrm{s.t.}&amp;\sum_{i=1}^{m}\alpha_{i}y_{i}=0 ,\newline 
 &amp;\alpha_{i}\geqslant0 ,\quad i=1,2,\ldots,m .\end{aligned}
 \]</div>
 </li>
@@ -3065,21 +3064,23 @@
    <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250104203938664.png" alt="image-20250104203938664" style="zoom: 50%;" /></div>
 
 <ol start="5">
-<li>Maximum Margin Classifier</li>
-</ol>
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250104204113125.png" alt="image-20250104204113125" style="zoom: 50%;" />
-   <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250104204152152.png" alt="image-20250104204152152" style="zoom:50%;" /></div>
-
-<p>$$
-   \begin{aligned}
-    \mathcal{L}(\boldsymbol{a})=-\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}&amp;a_{i}a_{j}y_{i}y_{j}\phi^{T}(\boldsymbol{x}<em j="j">{i})\phi(\boldsymbol{x}</em>)+\sum_{i=1}^{N}a_{i}\newline<br />
-    \mathcal{L}(\boldsymbol{a})=-\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}&amp;a_{i}a_{j}y_{i}y_{j}k(\boldsymbol{x}<em j="j">{i},\boldsymbol{x}</em>)+\sum_{i=1}^{N}a_{i}\newline 
-    a_{i}\geq0&amp;\quad \sum_{i=1}^{N}a_{i}y_{i}=0 \newline 
-    f(\boldsymbol{x})=\boldsymbol{w}^T\phi(\boldsymbol{x})+b&amp;\quad  \boldsymbol{w}=\sum_{i=1}^Na_iy_i\phi(\boldsymbol{x}<em i="1">i)\newline 
-    f(\boldsymbol{x})=\sum</em>^Na_iy_i\phi(\boldsymbol{x}<em i="1">i)^T\phi(\boldsymbol{x})&amp;+b=\sum</em>^Na_iy_ik(\boldsymbol{x}_i,\boldsymbol{x})+b
-    \end{aligned}
-   $$</p>
-<ol start="6">
+<li>
+<p>Maximum Margin Classifier</p>
+<p><div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250104204113125.png" alt="image-20250104204113125" style="zoom: 50%;" />
+<img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20250104204152152.png" alt="image-20250104204152152" style="zoom:50%;" /></div></p>
+<div class="arithmatex">\[
+\mathcal{L}(\boldsymbol{a})=-\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}a_{i}a_{j}y_{i}y_{j}\phi^{T}(\boldsymbol{x}_{i})\phi(\boldsymbol{x}_{j})+\sum_{i=1}^{N}a_{i}
+\]</div>
+<div class="arithmatex">\[
+\begin{aligned}
+\mathcal{L}(\boldsymbol{a})=-\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}&amp;a_{i}a_{j}y_{i}y_{j}\phi^{T}(\boldsymbol{x}_{i})\phi(\boldsymbol{x}_{j})+\sum_{i=1}^{N}a_{i}\newline  
+\mathcal{L}(\boldsymbol{a})=-\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}&amp;a_{i}a_{j}y_{i}y_{j}k(\boldsymbol{x}_{i},\boldsymbol{x}_{j})+\sum_{i=1}^{N}a_{i}\newline 
+a_{i}\geq0&amp;\quad \sum_{i=1}^{N}a_{i}y_{i}=0 \newline 
+f(\boldsymbol{x})=\boldsymbol{w}^T\phi(\boldsymbol{x})+b&amp;\quad  \boldsymbol{w}=\sum_{i=1}^Na_iy_i\phi(\boldsymbol{x}_i)\newline 
+f(\boldsymbol{x})=\sum_{i=1}^Na_iy_i\phi(\boldsymbol{x}_i)^T\phi(\boldsymbol{x})&amp;+b=\sum_{i=1}^Na_iy_ik(\boldsymbol{x}_i,\boldsymbol{x})+b
+\end{aligned}
+\]</div>
+</li>
 <li>
 <p>常用核函数</p>
 <ul>
