@@ -262,6 +262,15 @@ button,
   opacity: 1 !important;
 }
 
+.md-tabs[hidden] {
+  pointer-events: auto !important;
+}
+
+.md-tabs[hidden] .md-tabs__list,
+.md-tabs[hidden] .md-tabs__link {
+  pointer-events: auto !important;
+}
+
 .md-search__form,
 .md-search__input {
   border: 1px solid rgba(126, 164, 224, 0.36);

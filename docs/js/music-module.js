@@ -1,109 +1,129 @@
-function initMusicModule(root) {
-  const host = root.querySelector("#fd-music-module");
-  if (!host || host.dataset.initialized === "true") return;
-  host.dataset.initialized = "true";
+(function () {
+  const AUDIO_ID = "fd-header-music-audio";
+  const SOURCE_URL = "https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/IfICanStopOneHeartFromBreaking.mp3";
 
-  const handle = host.querySelector("#fd-music-handle");
-  const audio = host.querySelector("#fd-music-audio");
-  const playBtn = host.querySelector("#fd-music-play");
-  const progress = host.querySelector("#fd-music-progress");
-  const volume = host.querySelector("#fd-music-volume");
-  const time = host.querySelector("#fd-music-time");
-
-  if (!handle || !audio || !playBtn || !progress || !volume || !time) return;
-
-  const lsKeyCollapse = "fd_music_collapsed";
-  const lsKeyVolume = "fd_music_volume";
-
-  function formatTime(seconds) {
-    if (!Number.isFinite(seconds) || seconds < 0) return "00:00";
-    const m = Math.floor(seconds / 60);
-    const s = Math.floor(seconds % 60);
-    return String(m).padStart(2, "0") + ":" + String(s).padStart(2, "0");
+  if (typeof window.__fdMusicWanted !== "boolean") {
+    window.__fdMusicWanted = true;
   }
 
-  function refreshTime() {
-    const cur = audio.currentTime || 0;
-    const dur = audio.duration || 0;
-    time.textContent = formatTime(cur) + " / " + formatTime(dur);
-    if (dur > 0) {
-      progress.value = String((cur / dur) * 100);
+  function unlockTabs(root) {
+    const tabs = root.querySelector('[data-md-component="tabs"]');
+    if (!tabs) return;
+
+    tabs.removeAttribute("hidden");
+    tabs.style.pointerEvents = "auto";
+
+    tabs.querySelectorAll(".md-tabs__list, .md-tabs__link").forEach(function (el) {
+      el.style.pointerEvents = "auto";
+    });
+  }
+
+  function ensureAudio() {
+    let audio = document.getElementById(AUDIO_ID);
+    if (audio) return audio;
+
+    audio = document.createElement("audio");
+    audio.id = AUDIO_ID;
+    audio.loop = true;
+    audio.preload = "auto";
+    audio.style.display = "none";
+
+    const source = document.createElement("source");
+    source.src = SOURCE_URL;
+    source.type = "audio/mpeg";
+    audio.appendChild(source);
+
+    document.body.appendChild(audio);
+    return audio;
+  }
+
+  function syncButtons(audio) {
+    const playing = !audio.paused;
+    document.querySelectorAll(".fd-header-music-btn").forEach(function (btn) {
+      btn.classList.toggle("is-playing", playing);
+      btn.setAttribute("aria-label", playing ? "Pause music" : "Play music");
+      btn.title = playing ? "Pause music" : "Play music";
+    });
+  }
+
+  function ensureButton(root, audio) {
+    const palette = root.querySelector('[data-md-component="palette"]');
+    if (!palette || !palette.parentElement) return;
+
+    const parent = palette.parentElement;
+    let host = parent.querySelector(".fd-header-music");
+    let btn;
+
+    if (!host) {
+      host = document.createElement("div");
+      host.className = "fd-header-music";
+      btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "fd-header-music-btn";
+      btn.textContent = "♪";
+      host.appendChild(btn);
+      parent.insertBefore(host, palette);
     } else {
-      progress.value = "0";
+      btn = host.querySelector(".fd-header-music-btn");
     }
+
+    if (btn && btn.dataset.bound !== "true") {
+      btn.dataset.bound = "true";
+      btn.addEventListener("click", function () {
+        if (audio.paused) {
+          window.__fdMusicWanted = true;
+          audio.play().catch(function () {
+            syncButtons(audio);
+          });
+        } else {
+          window.__fdMusicWanted = false;
+          audio.pause();
+        }
+      });
+    }
+
+    syncButtons(audio);
   }
 
-  function setCollapsed(collapsed) {
-    host.classList.toggle("is-collapsed", collapsed);
-    handle.setAttribute("aria-expanded", String(!collapsed));
-    handle.textContent = collapsed ? "Music" : "Music -";
-    localStorage.setItem(lsKeyCollapse, collapsed ? "1" : "0");
+  function init(root) {
+    unlockTabs(root);
+
+    const audio = ensureAudio();
+    ensureButton(root, audio);
+
+    if (audio.dataset.bound !== "true") {
+      audio.dataset.bound = "true";
+      audio.addEventListener("play", function () {
+        syncButtons(audio);
+      });
+      audio.addEventListener("pause", function () {
+        syncButtons(audio);
+      });
+      audio.addEventListener("ended", function () {
+        syncButtons(audio);
+      });
+    }
+
+    if (window.__fdMusicWanted && audio.paused) {
+      audio.play().catch(function () {
+        syncButtons(audio);
+      });
+    }
+
+    if (!window.__fdMusicWanted && !audio.paused) {
+      audio.pause();
+    }
+
+    syncButtons(audio);
   }
 
-  const savedVolume = localStorage.getItem(lsKeyVolume);
-  if (savedVolume !== null) {
-    const volumeValue = Math.min(1, Math.max(0, Number(savedVolume)));
-    if (Number.isFinite(volumeValue)) {
-      audio.volume = volumeValue;
-      volume.value = String(volumeValue);
-    }
+  if (typeof document$ !== "undefined" && document$.subscribe) {
+    document$.subscribe(function ({ body }) {
+      init(body);
+    });
   } else {
-    audio.volume = Number(volume.value);
+    document.addEventListener("DOMContentLoaded", function () {
+      init(document);
+    });
   }
-
-  setCollapsed(localStorage.getItem(lsKeyCollapse) !== "0");
-
-  handle.addEventListener("click", function () {
-    setCollapsed(!host.classList.contains("is-collapsed"));
-  });
-
-  playBtn.addEventListener("click", async function () {
-    try {
-      if (audio.paused) {
-        await audio.play();
-        playBtn.textContent = "Pause";
-      } else {
-        audio.pause();
-        playBtn.textContent = "Play";
-      }
-    } catch (e) {
-      playBtn.textContent = "Play";
-    }
-  });
-
-  audio.addEventListener("play", function () {
-    playBtn.textContent = "Pause";
-  });
-
-  audio.addEventListener("pause", function () {
-    playBtn.textContent = "Play";
-  });
-
-  audio.addEventListener("timeupdate", refreshTime);
-  audio.addEventListener("loadedmetadata", refreshTime);
-  audio.addEventListener("ended", refreshTime);
-
-  progress.addEventListener("input", function () {
-    if (!audio.duration || !Number.isFinite(audio.duration)) return;
-    audio.currentTime = (Number(progress.value) / 100) * audio.duration;
-    refreshTime();
-  });
-
-  volume.addEventListener("input", function () {
-    const v = Math.min(1, Math.max(0, Number(volume.value)));
-    audio.volume = v;
-    localStorage.setItem(lsKeyVolume, String(v));
-  });
-
-  refreshTime();
-}
-
-if (typeof document$ !== "undefined" && document$.subscribe) {
-  document$.subscribe(function ({ body }) {
-    initMusicModule(body);
-  });
-} else {
-  document.addEventListener("DOMContentLoaded", function () {
-    initMusicModule(document);
-  });
-}
+})();

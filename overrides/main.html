@@ -1,31 +1,6 @@
-﻿{% extends "base.html" %}
+{% extends "base.html" %}
 {% block content %}
 {{ super() }}
-
-<section class="fd-music-module" id="fd-music-module" aria-label="Music Module">
-  <button class="fd-music-handle" id="fd-music-handle" type="button" aria-expanded="false">
-    Music
-  </button>
-  <div class="fd-music-panel" id="fd-music-panel">
-    <div class="fd-music-title">If I Can Stop One Heart From Breaking</div>
-    <audio id="fd-music-audio" preload="metadata" loop>
-      <source
-        src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/IfICanStopOneHeartFromBreaking.mp3"
-        type="audio/mpeg"
-      />
-    </audio>
-    <div class="fd-music-row">
-      <button class="fd-music-btn" id="fd-music-play" type="button">Play</button>
-      <span class="fd-music-time" id="fd-music-time">00:00 / 00:00</span>
-    </div>
-    <input class="fd-music-progress" id="fd-music-progress" type="range" min="0" max="100" value="0" />
-    <div class="fd-music-row">
-      <label class="fd-music-label" for="fd-music-volume">Volume</label>
-      <input class="fd-music-volume" id="fd-music-volume" type="range" min="0" max="1" step="0.01" value="0.45" />
-    </div>
-  </div>
-</section>
-
 {% if page and page.meta and page.meta.counter %}
 {% endif %}
 <link rel="stylesheet" href="{{ 'css/counter.css' | url }}" />
@@ -78,3 +53,4 @@
   });
 </script>
 {% endblock %}
+
