@@ -13,6 +13,8 @@
   --fd-accent: #66d9c5;
   --fd-accent-2: #f5c879;
   --fd-shadow: 0 22px 70px rgba(3, 8, 22, 0.48);
+  --fd-header-text: #edf3ff;
+  --fd-header-muted: #b9c8e8;
 }
 
 [data-md-color-scheme="default"] {
@@ -27,6 +29,8 @@
   --fd-accent: #0b8f8a;
   --fd-accent-2: #b88222;
   --fd-shadow: 0 16px 50px rgba(18, 37, 84, 0.16);
+  --fd-header-text: #1a2d4f;
+  --fd-header-muted: #4b5f86;
 }
 
 html,
@@ -69,6 +73,27 @@ button,
 [data-md-color-scheme="default"] .md-header,
 [data-md-color-scheme="default"] .md-tabs {
   background: linear-gradient(120deg, rgba(255, 255, 255, 0.92), rgba(241, 246, 255, 0.87));
+}
+
+.md-header__title,
+.md-header__topic,
+.md-tabs__link,
+.md-source,
+.md-source__repository,
+.md-header .md-icon {
+  color: var(--fd-header-text);
+}
+
+.md-source__facts,
+.md-tabs__link {
+  color: var(--fd-header-muted);
+}
+
+.md-tabs__link:hover,
+.md-tabs__link:focus-visible,
+.md-tabs__link--active {
+  color: var(--fd-accent);
+  opacity: 1;
 }
 
 .md-search__form,
