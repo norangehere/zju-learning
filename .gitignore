@@ -24,6 +24,7 @@
 
 # Ignore the generated HTML files
 *.html
+!overrides/**/*.html
 
 # Ignore the generated PDF files
 *.pdf
