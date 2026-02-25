@@ -43,6 +43,104 @@ body {
   color: var(--fd-text);
 }
 
+body {
+  position: relative;
+}
+
+.md-container,
+.md-main,
+.md-main__inner {
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 90em) {
+  body::before,
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: clamp(92px, 8vw, 146px);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.78;
+    background:
+      radial-gradient(circle at 24% 14%, rgba(102, 217, 197, 0.28), transparent 36%),
+      radial-gradient(circle at 78% 28%, rgba(129, 166, 234, 0.22), transparent 42%),
+      radial-gradient(circle at 42% 72%, rgba(245, 200, 121, 0.2), transparent 38%),
+      linear-gradient(180deg, rgba(20, 36, 67, 0.58), rgba(7, 18, 38, 0.06) 30%, rgba(11, 23, 46, 0.54));
+    border-inline: 1px solid rgba(136, 165, 221, 0.22);
+    box-shadow: 0 0 24px rgba(12, 26, 55, 0.25);
+    animation: fd-side-flow 16s ease-in-out infinite alternate;
+  }
+
+  body::before {
+    left: 0;
+  }
+
+  body::after {
+    right: 0;
+    transform: scaleX(-1);
+    animation-delay: -7s;
+  }
+
+  .md-main::before,
+  .md-main::after {
+    content: "";
+    position: fixed;
+    top: 16vh;
+    width: 2px;
+    height: 68vh;
+    pointer-events: none;
+    z-index: 0;
+    background:
+      linear-gradient(180deg, rgba(102, 217, 197, 0), rgba(102, 217, 197, 0.75), rgba(245, 200, 121, 0.28), rgba(102, 217, 197, 0));
+    box-shadow: 0 0 16px rgba(102, 217, 197, 0.42);
+    animation: fd-side-pulse 6.6s ease-in-out infinite;
+  }
+
+  .md-main::before {
+    left: clamp(86px, 6.8vw, 126px);
+  }
+
+  .md-main::after {
+    right: clamp(86px, 6.8vw, 126px);
+    animation-delay: -3.1s;
+  }
+}
+
+@keyframes fd-side-flow {
+  0% {
+    background-position:
+      0 0,
+      0 0,
+      0 0,
+      0 0;
+    filter: saturate(100%);
+  }
+  100% {
+    background-position:
+      12px -36px,
+      -14px 42px,
+      8px 58px,
+      0 0;
+    filter: saturate(124%);
+  }
+}
+
+@keyframes fd-side-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.95;
+    transform: translateY(-8px);
+  }
+}
+
 body,
 input,
 button,
@@ -269,6 +367,10 @@ button,
 }
 
 @media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after,
+  .md-main::before,
+  .md-main::after,
   .md-nav__link,
   .md-top,
   .md-typeset .md-button,
