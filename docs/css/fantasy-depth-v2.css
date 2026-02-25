@@ -66,13 +66,15 @@ body {
     z-index: 0;
     opacity: 0.78;
     background:
+      radial-gradient(circle at 50% 50%, rgba(173, 222, 255, 0.13) 0 1px, transparent 1.2px) 0 0 / 26px 26px,
+      radial-gradient(circle at 35% 65%, rgba(255, 241, 208, 0.12) 0 1px, transparent 1.2px) 8px 14px / 32px 32px,
       radial-gradient(circle at 24% 14%, rgba(102, 217, 197, 0.28), transparent 36%),
       radial-gradient(circle at 78% 28%, rgba(129, 166, 234, 0.22), transparent 42%),
       radial-gradient(circle at 42% 72%, rgba(245, 200, 121, 0.2), transparent 38%),
       linear-gradient(180deg, rgba(20, 36, 67, 0.58), rgba(7, 18, 38, 0.06) 30%, rgba(11, 23, 46, 0.54));
     border-inline: 1px solid rgba(136, 165, 221, 0.22);
     box-shadow: 0 0 24px rgba(12, 26, 55, 0.25);
-    animation: fd-side-flow 16s ease-in-out infinite alternate;
+    animation: fd-side-flow 20s ease-in-out infinite alternate;
   }
 
   body::before {
@@ -97,7 +99,7 @@ body {
     background:
       linear-gradient(180deg, rgba(102, 217, 197, 0), rgba(102, 217, 197, 0.75), rgba(245, 200, 121, 0.28), rgba(102, 217, 197, 0));
     box-shadow: 0 0 16px rgba(102, 217, 197, 0.42);
-    animation: fd-side-pulse 6.6s ease-in-out infinite;
+    animation: fd-side-pulse 7.4s ease-in-out infinite;
   }
 
   .md-main::before {
@@ -108,6 +110,34 @@ body {
     right: clamp(86px, 6.8vw, 126px);
     animation-delay: -3.1s;
   }
+
+  .md-main__inner::before,
+  .md-main__inner::after {
+    content: "";
+    position: fixed;
+    width: clamp(180px, 17vw, 260px);
+    height: clamp(180px, 17vw, 260px);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(30px);
+    opacity: 0.32;
+    background:
+      radial-gradient(circle at 30% 35%, rgba(102, 217, 197, 0.62), rgba(102, 217, 197, 0) 62%),
+      radial-gradient(circle at 62% 62%, rgba(245, 200, 121, 0.58), rgba(245, 200, 121, 0) 64%);
+    animation: fd-orb-drift 12.5s ease-in-out infinite alternate;
+  }
+
+  .md-main__inner::before {
+    left: clamp(-110px, -6vw, -70px);
+    top: 20vh;
+  }
+
+  .md-main__inner::after {
+    right: clamp(-110px, -6vw, -70px);
+    bottom: 16vh;
+    animation-delay: -6.3s;
+  }
 }
 
 @keyframes fd-side-flow {
@@ -116,11 +146,15 @@ body {
       0 0,
       0 0,
       0 0,
+      0 0,
+      0 0,
       0 0;
     filter: saturate(100%);
   }
   100% {
     background-position:
+      9px -28px,
+      -12px 24px,
       12px -36px,
       -14px 42px,
       8px 58px,
@@ -138,6 +172,21 @@ body {
   50% {
     opacity: 0.95;
     transform: translateY(-8px);
+  }
+}
+
+@keyframes fd-orb-drift {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.26;
+  }
+  50% {
+    transform: translateY(-18px) scale(1.06);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(14px) scale(0.96);
+    opacity: 0.28;
   }
 }
 
