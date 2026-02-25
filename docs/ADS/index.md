@@ -1,4 +1,4 @@
-# 计算机逻辑设计基础
+# Advanced Data Structure and Algorithm Analysis
 
 !!! Abstract
 

@@ -7,7 +7,7 @@
 1. multi-programming, time-sharing
 2. OS events: interrupts and exceptions
 3. Timer: modifying the timer is done via privileged instructions
-3. **Released the first Linux prototypes in late 1991 **
+3. **Released the first Linux prototypes in late 1991**
 
 ## Main OS Services
 

@@ -1,0 +1,24 @@
+﻿/* Card-like blocks */
+.md-typeset .grid.cards > ul > li,
+.card,
+.flink-item {
+  border: 1px solid rgba(130, 157, 214, 0.3);
+  border-radius: 14px;
+  background: rgba(17, 29, 56, 0.45);
+  box-shadow: 0 10px 28px rgba(5, 13, 34, 0.2);
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+[data-md-color-scheme="default"] .md-typeset .grid.cards > ul > li,
+[data-md-color-scheme="default"] .card,
+[data-md-color-scheme="default"] .flink-item {
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.md-typeset .grid.cards > ul > li:hover,
+.card:hover,
+.flink-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(102, 217, 197, 0.5);
+  box-shadow: 0 14px 30px rgba(5, 14, 35, 0.3);
+}

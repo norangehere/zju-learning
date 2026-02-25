@@ -1,0 +1,49 @@
+﻿/* Download file card */
+.card.file-block {
+  border: 1px solid rgba(131, 161, 217, 0.35);
+  border-radius: 14px;
+  padding: 1rem;
+  margin: 1rem 0;
+  background: rgba(18, 31, 58, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  box-shadow: 0 12px 26px rgba(6, 14, 35, 0.22);
+}
+
+.file-icon {
+  margin-right: 0.35rem;
+}
+
+.file-body {
+  flex: 1;
+}
+
+.file-title {
+  font-weight: 700;
+  margin-bottom: 0.25em;
+}
+
+.file-meta {
+  font-size: 0.9em;
+  color: #9cb0dc;
+}
+
+.down-button {
+  text-decoration: none;
+  color: #eaf5ff;
+  background: linear-gradient(120deg, #0b8f8a, #2f7fd9);
+  padding: 0.5em 0.95em;
+  border-radius: 10px;
+  border: 1px solid rgba(130, 201, 200, 0.42);
+  transition: transform 200ms ease, filter 200ms ease;
+}
+
+.down-button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
+
+[data-md-color-scheme="default"] .card.file-block {
+  background: rgba(255, 255, 255, 0.9);
+}

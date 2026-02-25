@@ -2,21 +2,21 @@
 
 1. 有限步(N)期望累计奖励
 
-$$
-J^{\Pi}_N(i)=E[\alpha^NG(i_N)+\sum\limits_{k=0}^{N-1}\alpha^kg(i_k,\mu_k(i_k),i_{k+1})|i_0=i]
-$$
+    $$
+    J^{\Pi}_N(i)=E[\alpha^NG(i_N)+\sum\limits_{k=0}^{N-1}\alpha^kg(i_k,\mu_k(i_k),i_{k+1})|i_0=i]
+    $$
 
-- 一阶段决策 最小化cost
+    - 一阶段决策 最小化cost
 
-$$
-J^*_1(i)=\min\limits_{u\in U(i)}\sum\limits_{j=1}^np_{ij}(u)(g(i,u,j)+\alpha G(j))
-$$
+    $$
+    J^*_1(i)=\min\limits_{u\in U(i)}\sum\limits_{j=1}^np_{ij}(u)(g(i,u,j)+\alpha G(j))
+    $$
 
-- k阶段决策
+    - k阶段决策
 
-$$
-J^*_k(i)=\min\limits_{u\in U(i)}\sum\limits_{j=1}^np_{ij}(u)(g(i,u,j)+\alpha J^*_{k-1}(j))
-$$
+    $$
+    J^*_k(i)=\min\limits_{u\in U(i)}\sum\limits_{j=1}^np_{ij}(u)(g(i,u,j)+\alpha J^*_{k-1}(j))
+    $$
 
 > **Example:最短路径案例**
 >
@@ -45,19 +45,19 @@ $$
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240701105058473.png" alt="image-20240701105058473" style="zoom:50%;" /></div>
 
 3. 在前面的最短路径问题，假设至少有一个合理策略以及每一个不合理策略都至少有一个状态成本无限大，则
-   - 最优未来成本(奖励)$J^*$变量是有限元，且是$J=TJ$的唯一解
-   - 给定每一个向量$J,\lim\limits_{k\rightarrow\infty}T^kJ=J^*$
-   - 对策略$\mu$和$T_\mu$上述同样适用
+      - 最优未来成本(奖励)$J^*$变量是有限元，且是$J=TJ$的唯一解
+      - 给定每一个向量$J,\lim\limits_{k\rightarrow\infty}T^kJ=J^*$
+      - 对策略$\mu$和$T_\mu$上述同样适用
 4. 证明DP的正确性，by收缩映射
 
 ## MDP建模
 
 1. 马尔科夫过程$M=<S,A,P,R,Y>$包括状态集合、行为集合、状态转移函数、奖励函数、未来奖励衰减系数
-   - 在一个未知环境中，转移概率P和奖励R由环境给出，无法获取全部信息
+      - 在一个未知环境中，转移概率P和奖励R由环境给出，无法获取全部信息
 
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240701110333367.png" alt="image-20240701110333367" style="zoom: 50%;" /> </div>
 
-2. POMDP：部分可观测，带有隐藏状态的MDP，$M=<S,A,O,P,R,Z,\gamma>$
+1. POMDP：部分可观测，带有隐藏状态的MDP，$M=<S,A,O,P,R,Z,\gamma>$
 
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240701110443841.png" alt="image-20240701110443841" style="zoom:50%;" /></div>
 

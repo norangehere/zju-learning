@@ -15,8 +15,8 @@
 构造函数$L(\theta|\theta_{now})$，满足对$\forall\theta\in\mathcal{N}(\theta_{now})$，此函数很接近目标函数$J(\theta)$，其中$\mathcal{N}(\theta_{now})$为邻域。此时我们称此邻域为置信域，即在此范围我们可以信任$L(\theta|\theta_{now})$，用他代替目标函数
 
 1. 置信域方法：
-   - 第一步：做近似，给定$\theta_{now}$，构造函数$L$，满足如上定义。比如蒙特卡洛、二阶泰勒
-   - 第二步：最大化，在置信域内寻找使得$L$最大的$\theta$，即$\theta_{new}=\arg\max\limits_{\theta\in\mathcal{N}(\theta_{now})}L(\theta|\theta_{now})$，需要解一个带约束的最大化问题，利用梯度投影算法、拉格朗日法等
+      - 第一步：做近似，给定$\theta_{now}$，构造函数$L$，满足如上定义。比如蒙特卡洛、二阶泰勒
+      - 第二步：最大化，在置信域内寻找使得$L$最大的$\theta$，即$\theta_{new}=\arg\max\limits_{\theta\in\mathcal{N}(\theta_{now})}L(\theta|\theta_{now})$，需要解一个带约束的最大化问题，利用梯度投影算法、拉格朗日法等
 
 > **Example**
 >
@@ -37,18 +37,18 @@
 
 1. 近似：
 
-   - 当前策略网络参数$\theta_{now}$，用策略网络$\pi(a|s;\theta_{now})$控制智能体与环境交互，记录轨迹：
+      - 当前策略网络参数$\theta_{now}$，用策略网络$\pi(a|s;\theta_{now})$控制智能体与环境交互，记录轨迹：
 
-   $$
-   s_1, a_1, r_1, s_2, a_2, r_2, \cdots, s_n, a_n, r_n
-   $$
+      $$
+      s_1, a_1, r_1, s_2, a_2, r_2, \cdots, s_n, a_n, r_n
+      $$
 
-   - 对于所有$t=1,2,\cdots,n$，计算折扣回报$u_t=\sum_{k=t}^n\gamma^{k-t}\cdot r_k$
-   - 得出近似函数
+      - 对于所有$t=1,2,\cdots,n$，计算折扣回报$u_t=\sum_{k=t}^n\gamma^{k-t}\cdot r_k$
+      - 得出近似函数
 
-   $$
-   \tilde{L}(\theta|\theta_{now})=\dfrac{1}{n}\sum_{i=1}^n\dfrac{\pi(a_t|s_t;\theta)}{\pi(a_t|s_t;\theta_{now})}\cdot u_t
-   $$
+      $$
+      \tilde{L}(\theta|\theta_{now})=\dfrac{1}{n}\sum_{t=1}^n\dfrac{\pi(a_t|s_t;\theta)}{\pi(a_t|s_t;\theta_{now})}\cdot u_t
+      $$
 
 2. 最大化：约束条件可以是二范数距离、KL 散度等
 

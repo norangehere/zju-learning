@@ -89,7 +89,9 @@ Interrupt-based I/O requires context switch at start and end.
 
 - 下图虚线中CPU在执行其他线程
 
-<div align="center"><img src="https://cdn.hobbitqia.cc/20231215162531.png" alt="img" style="zoom: 33%;" />
+
+<div align="center"><img src="https://cdn.hobbitqia.cc/20231215162531.png" alt="img" style="zoom: 33%;" /></div>
+
 
 - Interrupt is also used for exceptions
   - protection error for access violation

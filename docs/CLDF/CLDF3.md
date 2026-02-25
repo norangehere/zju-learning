@@ -6,9 +6,9 @@
 
 1. 原子模块(Primitive Block)：与门、或非、非门等等
 2. 分层设计：模块可重用性非常重要。先决条件：电路是规整(regularity)的
-   1. 分层设计即将复杂问题模块化为若干层次，之后逐个解决
-   2. 分为自顶向下和自底向上
-   3. 前者从需求开始，后者从现有模块开始
+      1. 分层设计即将复杂问题模块化为若干层次，之后逐个解决
+      2. 分为自顶向下和自底向上
+      3. 前者从需求开始，后者从现有模块开始
 
 3. 出现在设计中的模块被称为这个模块的一个实例（instance），将它应用称为实例化（instantiation）
 
@@ -61,11 +61,11 @@
 
 3. Repeat the following pair of actions until there is at most one inverter between : 
 
-   1. A circuit input or driving NAND gate output, and-
+      1. A circuit input or driving NAND gate output, and-
 
-   2. The attached NAND gate inputs.
+      2. The attached NAND gate inputs.
 
-   <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231026102745203.png" alt="image-20231026102745203" style="zoom:50%;" /> </div>
+      <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231026102745203.png" alt="image-20231026102745203" style="zoom:50%;" /> </div>
 
 #### NOR Mapping Algorithm
 
@@ -126,13 +126,13 @@ EN为0输出始终为0，EN为1时为对应表达式值
 
    位数越高优先级越高。增加一个单独输出V表示至少有一个输入为0以与$D_0=1$区分
 
-   - One encoder that can accept all possible combinations of input values and produce a meaningful result is a priority encoder.
-   - Among the 1s that appear, it selects the most significant input position (or the least significant input position) containing a 1 and responds with  the corresponding binary code for that position.
-   - example:
-     - Priority encoder with 5 inputs (D4, D3, D2, D1, D0) - highest priority to most significant 1 present - Code outputs A2, A1, A0 and V where V indicates at least one 1 present.
-     - <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231026111647111.png" alt="image-20231026111647111" style="zoom:50%;" /></div>
-   - Xs in input part of table represent 0 or 1; thus table entries correspond to product terms instead of minterms. The column on the left shows that all 32 minterms are present in the product terms in the table
-   - Xs 在输出列表示无关情况不同
+      - One encoder that can accept all possible combinations of input values and produce a meaningful result is a priority encoder.
+      - Among the 1s that appear, it selects the most significant input position (or the least significant input position) containing a 1 and responds with  the corresponding binary code for that position.
+      - example:
+        - Priority encoder with 5 inputs (D4, D3, D2, D1, D0) - highest priority to most significant 1 present - Code outputs A2, A1, A0 and V where V indicates at least one 1 present.
+        - <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231026111647111.png" alt="image-20231026111647111" style="zoom:50%;" /></div>
+      - Xs in input part of table represent 0 or 1; thus table entries correspond to product terms instead of minterms. The column on the left shows that all 32 minterms are present in the product terms in the table
+      - Xs 在输出列表示无关情况不同
 
 ### Selecting
 
@@ -151,8 +151,8 @@ EN为0输出始终为0，EN为1时为对应表达式值
 ### 2-to-1-Line Multiplexer
 
 1. The single selection variable S has two values:
-   - S = 0 selects input $I_0$
-   - S = 1 selects input $I_1$
+      - S = 0 selects input $I_0$
+      - S = 1 selects input $I_1$
 
 2. The equation:$Y =\overline{S}I_0 + SI_1$
 

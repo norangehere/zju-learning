@@ -5,13 +5,13 @@
 $\pi_\theta(a|s)=P(a|s,\theta)$
 
 - 策略参数化
-  - 优点
-    - 收敛性质好
-    - 在高维度或连续的动作空间中更有效
-    - 能够学习出随机策略
-  - 缺点
-    - 会陷入局部最优
-    - 评估一个策略通常不够高效并具有较大的方差
+    - 优点
+        - 收敛性质好
+        - 在高维度或连续的动作空间中更有效
+        - 能够学习出随机策略
+    - 缺点
+        - 会陷入局部最优
+        - 评估一个策略通常不够高效并具有较大的方差
 
 ## 策略梯度
 
@@ -28,16 +28,16 @@ $\pi_\theta(a|s)=P(a|s,\theta)$
 ### 参数化策略
 
 - 参数化策略$\pi_\theta$​，并利用无梯度或基于梯度的优化方法对参数进行更新
-  - 无梯度优化可以有效覆盖低维参数空间
-  - 但基于梯度的训练仍然是首选，因为其具有更高的采样效率
+    - 无梯度优化可以有效覆盖低维参数空间
+    - 但基于梯度的训练仍然是首选，因为其具有更高的采样效率
 - 参数化策略和表格型策略对比
-  - 采取动作的概率的计算方式不同：前者通过给定的函数结构和参数计算$\pi_\theta(a|s)$，后者直接查对应s和a表
-  - 策略更新方式不同：前者更新$\theta$，后者直接修改表格对应条目
-  - 最优策略定义不同：前者最大化一个给定的标量指标$π^\#(s) = \arg\max_πJ(π(s))，π∈Π$ ，后者最大化每个状态对应值函数
+    - 采取动作的概率的计算方式不同：前者通过给定的函数结构和参数计算$\pi_\theta(a|s)$，后者直接查对应s和a表
+    - 策略更新方式不同：前者更新$\theta$，后者直接修改表格对应条目
+    - 最优策略定义不同：前者最大化一个给定的标量指标$π^\#(s) = \arg\max_πJ(π(s))，π∈Π$ ，后者最大化每个状态对应值函数
 
 - 将参数化策略$π_θ$所能表示的所有策略组成的集合记为策略容许集$Π={π_θ:θ∈Θ}$，$Θ$为参数$θ$的取值范围 
-  - 若$π^*∈Π$，则有$J(π^\#) = J(π^*)$ 
-  - 若$π^*∉Π$，则策略$π^*$比$π^\#$更优
+    - 若$π^*∈Π$，则有$J(π^\#) = J(π^*)$ 
+    - 若$π^*∉Π$，则策略$π^*$比$π^\#$更优
 
 ### 基本思想
 
@@ -52,12 +52,12 @@ $\pi_\theta(a|s)=P(a|s,\theta)$
 
 - 状态分布
 
-  - 策略无关：一种简单的做法是取$d(s)$为均匀分布，另一种做法是把权重集中分配给一部分状态集合，例如一些任务只从$s_0$开始，则$d(s_0)=1,d(s\neq s_0)=0$
-  - 策略相关：通常采用稳态状态分布，若对状态转移$s\rightarrow a\rightarrow s'$，满足
+    - 策略无关：一种简单的做法是取$d(s)$为均匀分布，另一种做法是把权重集中分配给一部分状态集合，例如一些任务只从$s_0$开始，则$d(s_0)=1,d(s\neq s_0)=0$
+    - 策略相关：通常采用稳态状态分布，若对状态转移$s\rightarrow a\rightarrow s'$，满足
 
-  $$
-  d(s')=\sum_{s\in\mathcal{S}}\sum_{a\in\mathcal{A}}p(s'|s,a)\cdot\pi_\theta(a|s)\cdot d(s)
-  $$
+    $$
+    d(s')=\sum_{s\in\mathcal{S}}\sum_{a\in\mathcal{A}}p(s'|s,a)\cdot\pi_\theta(a|s)\cdot d(s)
+    $$
 
 ### 计算策略梯度
 
@@ -82,48 +82,46 @@ $$
 
 1. 添加baseline
 
-- 训练可能存在偏差：考虑只有正奖励，在理想情况下进行优化，最终能够使得奖励值高的动作分配较高的采样概率，而奖励值低的动作分配较低的采样概率，但在实际场景中我们可能并不能采样到所有的动作，如只能采样到b和c ，这就会使得我们的优化有所偏差：
+      - 训练可能存在偏差：考虑只有正奖励，在理想情况下进行优化，最终能够使得奖励值高的动作分配较高的采样概率，而奖励值低的动作分配较低的采样概率，但在实际场景中我们可能并不能采样到所有的动作，如只能采样到b和c ，这就会使得我们的优化有所偏差：
 
-<div align="center"> <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240705110730711.png" alt="image-20240705110730711" style="zoom: 33%;" /> </div>
+      <div align="center"> <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240705110730711.png" alt="image-20240705110730711" style="zoom: 33%;" /> </div>
 
-- 我们可以将奖励函数减去一个基线𝑏，使得$𝑅(𝜏) − 𝑏$ 有正有负
-  - 如果$𝑅(𝜏) > 𝑏$，就让采取对应动作的概率提升
-  - 如果$𝑅(𝜏)< 𝑏$，就让采取对应动作的概率降低
-- 一般取$b=\dfrac{1}{N}\sum\limits_{i=1}^NR(\tau)$，训练时记录$R(\tau)$的值并维护平均值
-- 减去一个基线并不会影响原梯度的期望值
+      - 我们可以将奖励函数减去一个基线𝑏，使得$𝑅(𝜏) − 𝑏$ 有正有负
+        - 如果$𝑅(𝜏) > 𝑏$，就让采取对应动作的概率提升
+        - 如果$𝑅(𝜏)< 𝑏$，就让采取对应动作的概率降低
+      - 一般取$b=\dfrac{1}{N}\sum\limits_{i=1}^NR(\tau)$，训练时记录$R(\tau)$的值并维护平均值
+      - 减去一个基线并不会影响原梯度的期望值
 
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240705110949820.png" alt="image-20240705110949820" style="zoom:50%;" /> </div>
+      <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240705110949820.png" alt="image-20240705110949820" style="zoom:50%;" /> </div>
 
 2. 实现策略梯度：利用自动求导工具实现		
-   - 将策略梯度的目标函数视为极大似然法的目标函数一个利用累积奖励进行加权的版本
+      - 将策略梯度的目标函数视为极大似然法的目标函数一个利用累积奖励进行加权的版本
 
 3. 策略梯度存在问题
-   - 为同策略算法，样本利用率较低
-   - 较大的策略更新或不适宜的更新步长会导致训练的不稳定
-     - 不适宜更新步长 $\rightarrow$ 坏策略 $\rightarrow$ 低质量的数据
-     - 可能难以从糟糕策略中恢复，导致性能崩溃
+      - 为同策略算法，样本利用率较低
+      - 较大的策略更新或不适宜的更新步长会导致训练的不稳定
+        - 不适宜更新步长 $\rightarrow$ 坏策略 $\rightarrow$ 低质量的数据
+        - 可能难以从糟糕策略中恢复，导致性能崩溃
 4. 离策略梯度：根据重要性采样利用异策略样本
 
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240705132249865.png" alt="image-20240705132249865" style="zoom:50%;" /> </div>
 
 5. 自然策略梯度： $d^*=\arg\max\limits_dJ(\theta+d), s.t. KL(\pi_\theta||\pi_{\theta+d})=c$
 
-   - KL散度用于衡量两个分布的接近程度
+      - KL散度用于衡量两个分布的接近程度
 
-   $$
-   KL(\pi_\theta||\pi_{\theta'})=\mathbb{E}_{\pi_\theta}[\log\pi_\theta]-\mathbb{E}_{\pi_{\theta'}}[\log\pi_{\theta'}]
-   $$
+        $$KL(\pi_\theta||\pi_{\theta'})=\mathbb{E}_{\pi_\theta}[\log\pi_\theta]-\mathbb{E}_{\pi_{\theta'}}[\log\pi_{\theta'}]$$
 
-   - 将更新前后策略的KL散度限定为一个常数c，确保策略分布以一个常量速度更新，而不受策略的参数化形式影响
-   - 将KL散度进行二阶泰勒展开，$KL(\pi_\theta||\pi_{\theta+d})\approx \dfrac{1}{2}d^TFd$，其中F为Fisher Information Matrix，即
+      - 将更新前后策略的KL散度限定为一个常数c，确保策略分布以一个常量速度更新，而不受策略的参数化形式影响
+      - 将KL散度进行二阶泰勒展开，$KL(\pi_\theta||\pi_{\theta+d})\approx \dfrac{1}{2}d^TFd$，其中F为Fisher Information Matrix，即
 
-   $$
-   \mathbb{E}_{\pi_\theta}[\nabla\log\pi_\theta\nabla\log\pi_\theta^T]
-   $$
+      $$
+      \mathbb{E}_{\pi_\theta}[\nabla\log\pi_\theta\nabla\log\pi_\theta^T]
+      $$
 
-   <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240705133318258.png" alt="image-20240705133318258" style="zoom:50%;" /> </div>
+      <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240705133318258.png" alt="image-20240705133318258" style="zoom:50%;" /> </div>
 
-   - 从而得到$\theta_{t+1}=\theta_t+\alpha F^{-1}\nabla_\theta J (\theta)$，其更新效果与模型的参数化无关
+      - 从而得到$\theta_{t+1}=\theta_t+\alpha F^{-1}\nabla_\theta J (\theta)$，其更新效果与模型的参数化无关
 
 ## Actor-Critic算法
 
@@ -136,8 +134,8 @@ $$
 
 - 思想：通过减去一个基线值来标准化评论家的打分
 
-  - 降低较差工作概率，提高较优动作概率
-  - 进一步降低方差
+    - 降低较差工作概率，提高较优动作概率
+    - 进一步降低方差
 
 <div align="center"> <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240705134012553.png" alt="image-20240705134012553" style="zoom: 33%;" /> </div>
 

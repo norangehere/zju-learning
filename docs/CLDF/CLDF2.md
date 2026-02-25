@@ -11,42 +11,41 @@
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-1.png" alt="Alt text" style="zoom:50%;" /></div>
 
 2. 一种可以独自实现所有布尔函数的门类型叫做通用门，与非门和或非门都是通用门
-3. <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-4.png" alt="Alt text" style="zoom:67%;" /></div>
-4. Gate Delay:
-   - When input changes,the output change doesn't occur instantaneously.
-   - the delay between an input changes and the resulting output change is the gate delay denoted by $$ t_G $$ 
-5. Logic Diagrams and Expressions: Truth Table,Equation(逻辑函数),Diagram,波形图
-6. Boolean Algebra:
+   <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-4.png" alt="Alt text" style="zoom:67%;" /></div>
+3. Gate Delay:
+      - When input changes,the output change doesn't occur instantaneously.
+      - the delay between an input changes and the resulting output change is the gate delay denoted by $t_G$ 
+4. Logic Diagrams and Expressions: Truth Table,Equation(逻辑函数),Diagram,波形图
+5. Boolean Algebra:
+      - $X(Y+Z)=XY+XZ$
+      - $X+YZ=(X+Y)(X+Z)$
+        - Prf:
 
-- $$ X(Y+Z)=XY+XZ $$
-- $X+YZ=(X+Y)(X+Z)$
-  - Prf:
+        $$
+        A=A\cdot A=A\cdot (A+C)  \\
+        A+BC=A(A+B+C)+BC=(A+B)(A+C)
+        $$
 
-$$
-A=A\cdot A=A\cdot (A+C)  \\
-A+BC=A(A+B+C)+BC=(A+B)(A+C)
-$$
+      - $\overline{X·Y}=\overline{X}+\overline{Y}$
+      - Absorption Theorem: $A+A·B=A,A+\overline{A}B=A+B$
+      - Consensus Law:
+      - $(A+B)(\overline{A}+C)(B+C)=(A+B)(\overline{A}+C)$
+      - $AB+\overline{A}C+BC=AB+\overline{A}C$  
+          Hint： $BC=BC(A+\overline{A})$
+      - $\overline{X}Z+X=(X+\overline{X})(Z+X)=Z+X$  
+      Hint: $X+YZ=(X+Y)(X+Z)$
 
-- $\overline{X·Y}=\overline{X}+\overline{Y}$
-- Absorption Theorem: $A+A·B=A,A+\overline{A}B=A+B$
-- Consensus Law:
-  - $(A+B)(\overline{A}+C)(B+C)=(A+B)(\overline{A}+C)$
-  - $AB+\overline{A}C+BC=AB+\overline{A}C$  
-    Hint： $BC=BC(A+\overline{A})$
-- $\overline{X}Z+X=(X+\overline{X})(Z+X)=Z+X$  
-  Hint: $X+YZ=(X+Y)(X+Z)$
+6. 对偶（duality）式：把一个布尔等式中的所有与变或，或变与；若有 0，1 出现，则把 1 变 0，0 变 1；等式两端同时进行对偶操作，等式仍然成立。
+      - 应用：求反函数时，可以先求对偶式，再将每一个字符求反
+      - 除非一个表达式是**自对偶**，否则求对偶后都会变化
+7. Precedence:
 
-7. 对偶（duality）式：把一个布尔等式中的所有与变或，或变与；若有 0，1 出现，则把 1 变 0，0 变 1；等式两端同时进行对偶操作，等式仍然成立。
-   - 应用：求反函数时，可以先求对偶式，再将每一个字符求反
-   - 除非一个表达式是**自对偶**，否则求对偶后都会变化
-8. Precedence:
+      - Parentheses
+      - NOT
+      - AND
+      - OR
 
-   - Parentheses
-   - NOT
-   - AND
-   - OR
-
-9. Examples:
+8. Examples:
 
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-5.png" alt="Alt text" style="zoom:50%;" /></div>
 
@@ -88,9 +87,9 @@ $$=ABC+\overline{A}BC=BC $$
 3. GN - inverters counted
 4. For SOP and POS equations, it can be found from the equation(s) by finding the sum of:
 
-- all literal appearances（Literal cost,L:公式中一共出现的变量个数，可重复）
-- the number of terms excluding single literal terms,(G) and 除单个文字之外的全部项数
-- optionally, the number of distinct complemented single literals (GN) 计算非门.
+      - all literal appearances（Literal cost,L:公式中一共出现的变量个数，可重复）
+      - the number of terms excluding single literal terms,(G) and 除单个文字之外的全部项数
+      - optionally, the number of distinct complemented single literals (GN) 计算非门.
 
 ## Karnaugh Maps
 
@@ -181,11 +180,11 @@ EN 为 0 时，不管输入什么，输出都是高阻态（开路，没有连�
 
    <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231019104054827.png" alt="image-20231019104054827" style="zoom:50%;" /></div>
 
-   2. 两个三态门输出相连时：当两边 EN 不同时, 输出为 EN 为 1 的输出值; 当两边 EN 都是 0 时输出⾼阻, 当两边 EN 都是 1 时, 不被允许.
+2. 两个三态门输出相连时：当两边 EN 不同时, 输出为 EN 为 1 的输出值; 当两边 EN 都是 0 时输出⾼阻, 当两边 EN 都是 1 时, 不被允许.
 
    <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240102204035210.png" alt="image-20240102204035210" style="zoom:67%;" /></div>
 
-   3. 至少有一个 buffer 输出为高阻态，否则会导致 high currents，破坏电路。因此只有以下五种输入允许。
+3. 至少有一个 buffer 输出为高阻态，否则会导致 high currents，破坏电路。因此只有以下五种输入允许。
 
    <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240102211153277.png" alt="image-20240102211153277" style="zoom:50%;" /></div>
 

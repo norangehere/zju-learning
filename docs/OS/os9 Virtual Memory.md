@@ -154,12 +154,7 @@ Page Fault Handling
 - page fault rate: $0\leq p\leq1$
 
 - Effective Access Time(EAT):
-  $$
-  \begin{aligned}
-  (1-p)\times\text{memory access} + p\times(\text{page fault overhead} + \text{swap page out} + \\
-  \text{swap page in} + \text{instruction restart overhead})
-  \end{aligned}
-  $$
+  $$ \begin{aligned} (1-p)\times\text{memory access} + p\times(\text{page fault overhead} + \text{swap page out} + \newline \text{swap page in} + \text{instruction restart overhead}) \end{aligned} $$
 
 > **Example**
 >

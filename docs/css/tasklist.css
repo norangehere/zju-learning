@@ -1,0 +1,26 @@
+﻿/* Task list style */
+.md-typeset .task-list-item {
+  list-style: none;
+}
+
+.md-typeset .task-list-item [type="checkbox"] {
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.45rem;
+  border-radius: 0.3rem;
+  border: 1px solid rgba(136, 165, 223, 0.62);
+  background: rgba(14, 24, 46, 0.55);
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.md-typeset .task-list-item [type="checkbox"]:checked {
+  background: linear-gradient(120deg, #66d9c5, #2f8fdb);
+  border-color: rgba(102, 217, 197, 0.9);
+  box-shadow: 0 0 0 2px rgba(102, 217, 197, 0.2);
+}
+
+[data-md-color-scheme="default"] .md-typeset .task-list-item [type="checkbox"] {
+  background: rgba(255, 255, 255, 0.96);
+}

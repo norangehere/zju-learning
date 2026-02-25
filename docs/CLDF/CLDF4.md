@@ -4,20 +4,20 @@
 
 1. 组成：
 
-   <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231116101846007.png" alt="image-20231116101846007" style="zoom:33%;" /></div>
+    <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231116101846007.png" alt="image-20231116101846007" style="zoom:33%;" /></div>
 
-   - 现代复杂电路设计大多使用同步
-   - Storage elements: Latches or Flip-Flops
-   - 组合逻辑：
-     - Implements a multiple-output switching function
-     - Inputs are signals from the outside.
-     - Outputs are signals to the outside.
-     - Other inputs, State or Present State are signals from storage elements.
-     - The remaining outputs,Next State are inputs to storage elements.
-   - Combinatorial Logic:
-     - Next state function(次态方程): Next State = f(Inputs, State)
-     - Output function (Mealy): Outputs = g(Inputs, State)
-     - Output function (Moore): Outputs = h(State)
+    - 现代复杂电路设计大多使用同步
+    - Storage elements: Latches or Flip-Flops
+    - 组合逻辑：
+        - Implements a multiple-output switching function
+        - Inputs are signals from the outside.
+        - Outputs are signals to the outside.
+        - Other inputs, State or Present State are signals from storage elements.
+        - The remaining outputs,Next State are inputs to storage elements.
+    - Combinatorial Logic:
+        - Next state function(次态方程): Next State = f(Inputs, State)
+        - Output function (Mealy): Outputs = g(Inputs, State)
+        - Output function (Moore): Outputs = h(State)
 
 ## 时序电路分类
 
@@ -301,21 +301,21 @@ The circuit produces a 1 on Z after four clock periods and every five clock peri
 
 1. New Timing Components
 
-   - $t_p$ clock period - The interval between occurrences of a specific clock edge in a periodic clock
+      - $t_p$ clock period - The interval between occurrences of a specific clock edge in a periodic clock
 
-   - $t_{pd,COMB}$ :total delay of combinational logic along the path from flip-flop output to flip-flop input
+      - $t_{pd,COMB}$ :total delay of combinational logic along the path from flip-flop output to flip-flop input
 
-     组合逻辑在触发器输出到触发器输入路径上的总延迟
+        组合逻辑在触发器输出到触发器输入路径上的总延迟
 
-   - $t_{pd,FF}$：触发器总延迟
+      - $t_{pd,FF}$：触发器总延迟
 
-   - $t_{slack}$ ： extra time in the clock period in addition to the sum of the delays and setup time on a path
-     可以是正数，也可以是负数 所有路径上的必须大于或等于零才能正确操作
-     Must be greater than or equal to zero on all paths for correct operation
+      - $t_{slack}$ ： extra time in the clock period in addition to the sum of the delays and setup time on a path
+        可以是正数，也可以是负数 所有路径上的必须大于或等于零才能正确操作
+        Must be greater than or equal to zero on all paths for correct operation
 
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231123114223146.png" alt="image-20231123114223146" style="zoom: 50%;" /></div>
 
-2. Timing Equations：
+1. Timing Equations：
 
    $$
    t_p=t_{slack}+(t_{pd,FF}+t_{pd,COMB}+t_s)
@@ -329,7 +329,7 @@ The circuit produces a 1 on Z after four clock periods and every five clock peri
 
    for all paths from flip-flop output to flip-flop input
 
-3. Calculation of Allowable $t_{pd,COMB}$
+2. Calculation of Allowable $t_{pd,COMB}$
 
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231123114847350.png" alt="image-20231123114847350" style="zoom:40%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231123114859972.png" alt="image-20231123114859972" style="zoom:40%;" /></div><div align="center">
 
@@ -349,12 +349,12 @@ A state is an abstraction of the history of the past applied inputs to the circu
 
    To develop a sequence recognizer state diagram:
 
-- Begin in an initial state in which NONE of the initial portion of the sequence has occurred (typically “reset” state).
-- Add a state that recognizes that the first symbol has occurred.
-- Add states that recognize each successive symbol occurring.
-- The final state represents the input sequence (possibly less the final input value) occurrence.
-- Add state transition arcs which specify what happens when a symbol not in the proper sequence has occurred.
-- Add other arcs on non-sequence inputs which transition to states that represent the input subsequence that has occurred.
+      - Begin in an initial state in which NONE of the initial portion of the sequence has occurred (typically “reset” state).
+      - Add a state that recognizes that the first symbol has occurred.
+      - Add states that recognize each successive symbol occurring.
+      - The final state represents the input sequence (possibly less the final input value) occurrence.
+      - Add state transition arcs which specify what happens when a symbol not in the proper sequence has occurred.
+      - Add other arcs on non-sequence inputs which transition to states that represent the input subsequence that has occurred.
 
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231130100623709.png" alt="image-20231130100623709" style="zoom: 67%;" /></div>
 
@@ -371,26 +371,26 @@ $S_i$与$S_j$等效，$S_k$与$S_l$等效
 
 4. 隐含表化简
 
-   - 作隐含表
-   - 顺序比较，寻找等效状态对
-     - 状态对等效，打“√”；
-     - 状态对不等效，打“×”；
-     - 状态对是否等效需进一步检查，则标记次态对。 进一步检查指输出相同但不能判断次态是否相同
+      - 作隐含表
+      - 顺序比较，寻找等效状态对
+        - 状态对等效，打“√”；
+        - 状态对不等效，打“×”；
+        - 状态对是否等效需进一步检查，则标记次态对。 进一步检查指输出相同但不能判断次态是否相同
 
-   <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231130101638517.png" alt="image-20231130101638517" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231130101801189.png" alt="image-20231130101801189" style="zoom:50%;" /></div>
+      <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231130101638517.png" alt="image-20231130101638517" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231130101801189.png" alt="image-20231130101801189" style="zoom:50%;" /></div>
 
-   - 进行关联比较，确定等效状态对
-     - 由于 CD、DE 不等效，所以 DG 不等效，画斜线标志
-     - <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231130101949997.png" alt="image-20231130101949997" style="zoom:33%;" />处于循环链中的每一个状态都是等效状态对
+      - 进行关联比较，确定等效状态对
+        - 由于 CD、DE 不等效，所以 DG 不等效，画斜线标志
+        - <img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231130101949997.png" alt="image-20231130101949997" style="zoom:33%;" />处于循环链中的每一个状态都是等效状态对
 
 ### 状态分配
 
 1. 基本原则：一般情况下，第一条原则较为重要，需优先考虑，其次要考虑由前三条原则得到的应分配相邻代码的状态对出现的次数，次数多的状态对应优先分配相邻的二进制代码。
 
-- 在相同输入条件下具有相同次态的现态，应尽可能分配相邻的二进制代码 （**较为重要**）
-- 在相邻输入条件，同一现态的次态应尽可能分配相邻的二进制代码
-- 输出完全相同的现态应尽可能分配相邻的二进制代码
-- 最小化状态表中出现次数最多的状态或初始状态应分配逻辑 0
+      - 在相同输入条件下具有相同次态的现态，应尽可能分配相邻的二进制代码 （**较为重要**）
+      - 在相邻输入条件，同一现态的次态应尽可能分配相邻的二进制代码
+      - 输出完全相同的现态应尽可能分配相邻的二进制代码
+      - 最小化状态表中出现次数最多的状态或初始状态应分配逻辑 0
 
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231130104325316.png" alt="image-20231130104325316" style="zoom:50%;" /></div>
 

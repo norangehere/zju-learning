@@ -1,0 +1,20 @@
+﻿/* Friend links / external link blocks */
+.flink,
+.flink-wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.85rem;
+}
+
+.flink-item,
+.flink a {
+  display: block;
+  padding: 0.8rem 0.95rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.flink-item a,
+.flink a:hover {
+  color: #f5c879;
+}

@@ -73,7 +73,7 @@
   - 优点：multi-threading is efficient and low-overhead.
   - 缺点：内核只有一个线程，无法发挥 multi-core 的优势；一旦一个线程被阻塞，其他线程也会被阻塞。
 
-  <div align="center"><img src="https://cdn.hobbitqia.cc/20231031103409.png" alt="img" style="zoom:33%;" />
+  <div align="center"><img src="https://cdn.hobbitqia.cc/20231031103409.png" alt="img" style="zoom:33%;" /></div>
 
 - One-to-One Model
 
@@ -81,19 +81,19 @@
 
   缺点：**overhead**大
 
-  <div align="center"><img src="https://cdn.hobbitqia.cc/20231031103523.png" alt="img" style="zoom:33%;" />
+  <div align="center"><img src="https://cdn.hobbitqia.cc/20231031103523.png" alt="img" style="zoom:33%;" /></div>
 
 - Many-to-Many Model
 
   m to n 线程，折中。缺点是太复杂。
 
-  <div align="center"><img src="https://cdn.hobbitqia.cc/20231031103647.png" alt="img" style="zoom:33%;" />
+  <div align="center"><img src="https://cdn.hobbitqia.cc/20231031103647.png" alt="img" style="zoom:33%;" /></div>
 
 - Two-Level Model
 
 可以选择 many to many 或者 one to one。
 
-<div align="center"><img src="https://cdn.hobbitqia.cc/20231031103741.png" alt="img" style="zoom:33%;" />
+<div align="center"><img src="https://cdn.hobbitqia.cc/20231031103741.png" alt="img" style="zoom:33%;" /></div>
 
 1. implementation
 

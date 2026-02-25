@@ -1,0 +1,18 @@
+﻿/* Shared tweaks and utility polish */
+.md-typeset hr {
+  border-bottom-color: rgba(132, 156, 207, 0.28);
+}
+
+.md-typeset img {
+  border-radius: 12px;
+  box-shadow: 0 12px 26px rgba(5, 14, 35, 0.22);
+}
+
+.md-typeset kbd {
+  border: 1px solid rgba(134, 160, 209, 0.35);
+  background: rgba(11, 22, 44, 0.4);
+}
+
+[data-md-color-scheme="default"] .md-typeset kbd {
+  background: rgba(245, 250, 255, 0.95);
+}

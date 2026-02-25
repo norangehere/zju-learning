@@ -1,0 +1,35 @@
+.card.file-block {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 1em;
+    margin: 1em 0;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+  }
+  
+  .file-icon {
+    margin-right: 1em;
+  }
+  
+  .file-body {
+    flex: 1;
+  }
+  
+  .file-title {
+    font-weight: bold;
+    margin-bottom: 0.3em;
+  }
+  
+  .file-meta {
+    font-size: 0.9em;
+    color: #666;
+  }
+  
+  .down-button {
+    text-decoration: none;
+    color: #fff;
+    background-color: #4870ac;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+  }

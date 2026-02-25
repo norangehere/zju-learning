@@ -10,13 +10,13 @@
 
 1. 方式一：直接加或门
 
-<div align="center"><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/96.png" alt="img"  /></div>
+    <div align="center"><img src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/96.png" alt="img"  /></div>
 
-然而，在门控时钟技术中，由于添加了一个额外的逻辑门，时钟脉冲到达 Control 的时候会出现额外的传播延时，即时钟偏移(clock skew)。而这微小的延时会导致在整个同步系统中，不同组件得到的时钟脉冲有偏差，而这是我们所不希望看到的。所以在实际设计中，我们应当避免或尽可能缩小时钟偏移。
+    然而，在门控时钟技术中，由于添加了一个额外的逻辑门，时钟脉冲到达 Control 的时候会出现额外的传播延时，即时钟偏移(clock skew)。而这微小的延时会导致在整个同步系统中，不同组件得到的时钟脉冲有偏差，而这是我们所不希望看到的。所以在实际设计中，我们应当避免或尽可能缩小时钟偏移。
 
 2. 另外一个做法是，在不希望它修改的时候，不断将它的输入载入，也就是保持不变。我们可以通过一个二选一多路复用器实现。
 
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231207112040627.png" alt="image-20231207112040627" style="zoom:50%;" /></div>
+    <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231207112040627.png" alt="image-20231207112040627" style="zoom:50%;" /></div>
 
 ## Register Cell Design
 
@@ -107,8 +107,8 @@ The 3-input MUX can be replaced by a 3-state node (bus) and 3-state buffers. Cos
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214104642254.png" alt="image-20231214104642254" style="zoom:67%;" /></div>
 
 2. 右移+并行输入 Parallel Load Shift Registers
-   - shift=0 并行输入
-   - shift=1 移位
+      - shift=0 并行输入
+      - shift=1 移位
 
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214104741844.png" alt="image-20231214104741844" style="zoom:67%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214105012908.png" alt="image-20231214105012908" style="zoom: 50%;" /></div>
 
@@ -133,6 +133,7 @@ The 3-input MUX can be replaced by a 3-state node (bus) and 3-state buffers. Cos
 1. B频率是A一半。A输出取反作为B的时钟信号。 可以用做时钟分频。
 
 2. 上图中，下一个 FF 的时钟来自于上一个 FF 的输出取反，也就是对于上升沿触发的 FF 来说，下一个 FF 会在上一个 FF 的输出从 1 到 0 时自反，所以是正向计时(Upward Counting)；
+   
    反之，如果下一个 FF 的时钟来自于上一个 FF 的直接输出，也就是对于上升沿触发的 FF 来说，下一个 FF 会在上一个 FF 的输出从 0 到 1 时自反，所以是逆向输出(Downward Counting)；
 3. 缺点：每一个时钟信号传递都有延时，同时不能作为同步计数器。简单但不安全。
 
@@ -197,13 +198,13 @@ symbol：
 
 1. 二进制计数器基础上，采取同步/异步清零
 
-- 异步，通过clear（异步复位脚），计数达到N实时清零即可
+      - 异步，通过clear（异步复位脚），计数达到N实时清零即可
 
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214114143431.png" alt="image-20231214114143431" style="zoom:67%;" /></div>
+      <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214114143431.png" alt="image-20231214114143431" style="zoom:67%;" /></div>
 
-- 同步，N-1时reset为1，在下一个上升沿清零 `better choice`
+      - 同步，N-1时reset为1，在下一个上升沿清零 `better choice`
 
-<div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214114241739.png" alt="image-20231214114241739" style="zoom:67%;" /></div>
+      <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20231214114241739.png" alt="image-20231214114241739" style="zoom:67%;" /></div>
 
 2. 多位寄存器，分开设计，如设计时间，低位为模 10 计数器，高位为模 6 计时器，低位的 `Carry Output` 既作为低位的同步清零信号，又是高位的 `Enable` 信号.
 

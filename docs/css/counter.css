@@ -1,0 +1,25 @@
+﻿/* Counter / metadata bar */
+#busuanzi_container_page_pv,
+#busuanzi_container_site_pv,
+#busuanzi_container_site_uv {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-right: 0.55rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(132, 164, 226, 0.4);
+  background: rgba(13, 24, 46, 0.5);
+}
+
+#__comments {
+  margin-top: 2.2rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid rgba(131, 157, 211, 0.26);
+}
+
+[data-md-color-scheme="default"] #busuanzi_container_page_pv,
+[data-md-color-scheme="default"] #busuanzi_container_site_pv,
+[data-md-color-scheme="default"] #busuanzi_container_site_uv {
+  background: rgba(255, 255, 255, 0.88);
+}

@@ -34,7 +34,7 @@
 
    $$ =\arg\max\limits_p\{n_h\log p+(n-n_h)\log(1-p)\} $$
 
-   $$=> \frac{n_h}{\hat{p}}-\frac{n-n_h}{1-\hat{p}}=0 $$
+   $$ => \frac{n_h}{\hat{p}}-\frac{n-n_h}{1-\hat{p}}=0 $$
 
    $$ => \hat{p}=\frac{n_h}{n} $$
 
@@ -487,13 +487,13 @@ $$
   - X is conditionally independent of Y given Z:
     probability distribution governing X is independent of the value of Y, given the value of Z
 
-    $(\forall x,y,z)P(X=x|Y=y,Z=z)=P(X=x|Z=z)$
+    $$(\forall x,y,z)P(X=x|Y=y,Z=z)=P(X=x|Z=z)$$
 
     即$P(X,Y|Z)=P(X|Z)P(Y|Z)$
 
 ### Logistic Regression
 
-$P(Y=1|X)=\frac{1}{1+\exp(w_0+\sum_i w_iX_I)}$
+$$P(Y=1|X)=\frac{1}{1+\exp(w_0+\sum_i w_iX_I)}$$
 
 <div align="center"><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240504100838638.png" alt="image-20240504100838638" style="zoom:50%;" /><img src="https://pixe1ran9e.oss-cn-hangzhou.aliyuncs.com/image-20240504100854676.png" alt="image-20240504100854676" style="zoom:67%;" /></div>
 
