@@ -78,11 +78,13 @@ extra_css:
   - css/tasklist.css
   - css/flink.css
   - css/file-block.css
+  - css/music-module.css
 
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js
   - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js
   - js/katex-v2.js
+  - js/music-module.js
 
 extra:
   social:
