@@ -77,22 +77,30 @@ button,
 
 .md-header__title,
 .md-header__topic,
-.md-tabs__link,
 .md-source,
 .md-source__repository,
 .md-header .md-icon {
   color: var(--fd-header-text);
 }
 
-.md-source__facts,
-.md-tabs__link {
+.md-source__facts {
   color: var(--fd-header-muted);
 }
 
-.md-tabs__link:hover,
-.md-tabs__link:focus-visible,
-.md-tabs__link--active {
-  color: var(--fd-accent);
+.md-tabs .md-tabs__link {
+  color: var(--fd-header-muted) !important;
+}
+
+.md-tabs .md-tabs__link:hover,
+.md-tabs .md-tabs__link:focus-visible {
+  color: var(--fd-accent) !important;
+}
+
+.md-tabs .md-tabs__item--active > .md-tabs__link,
+.md-tabs .md-tabs__link[aria-current="page"],
+.md-tabs .md-tabs__link--active {
+  color: var(--fd-header-text) !important;
+  font-weight: 700;
   opacity: 1;
 }
 

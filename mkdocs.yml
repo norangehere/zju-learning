@@ -1,10 +1,9 @@
-site_name: Ran9E的笔记本
+﻿site_name: Ran9E的笔记本
 site_url: https://norangehere.github.io/zju-learning/
-repo_name: PiXe1Ran9E/notebook #存储库名称，一般自动设置
-repo_url: https://github.com/norangehere/zju-learning/ #存储库URL
-# edit_uri: tree/master/docs  #每个文档的顶部显示一个编辑按钮，""则隐藏
+repo_name: PiXe1Ran9E/notebook
+repo_url: https://github.com/norangehere/zju-learning/
 site_description: Ran9E的笔记本
-copyright: Copyright &copy; 2022 <a href="https://github.com/norangehere/zju-learning/"  target="_blank" rel="noopener">PiXe1Ran9E</a>
+copyright: Copyright &copy; 2022 <a href="https://github.com/norangehere/zju-learning/" target="_blank" rel="noopener">PiXe1Ran9E</a>
 
 theme:
   name: material
@@ -21,21 +20,19 @@ theme:
   font:
     text: LXGW WenKai Screen
     code: JetBrains Mono
-  palette: #切换昼夜模式的颜色，审美差就用默认，专业点就自定义
+  palette:
     - media: "(prefers-color-scheme: light)"
-      scheme: default #配色方案：浅色模式
+      scheme: default
       primary: grey
       accent: grey
       toggle:
-        icon: material/weather-sunny #图标，太阳
+        icon: material/weather-sunny
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
-      scheme: slate #配色方案：深色模式
-      # primary: Brown  #原色，默认蓝，用于标题、侧边栏、文本链接和其他几个组件
+      scheme: slate
       toggle:
-        icon: material/weather-night #图标，月亮
+        icon: material/weather-night
         name: Switch to light mode
-
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
@@ -57,7 +54,7 @@ markdown_extensions:
   - pymdownx.magiclink
   - pymdownx.superfences
   - pymdownx.inlinehilite
-  - pymdownx.smartsymbols #智能符号
+  - pymdownx.smartsymbols #鏅鸿兘绗﹀彿
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -73,7 +70,7 @@ extra_css:
   - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
   - https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
   - https://unpkg.com/katex@0/dist/katex.min.css
-  - css/fantasy-depth.css
+  - css/fantasy-depth-v2.css
   - css/custom.css
   - css/card.css
   - css/tasklist.css
@@ -110,10 +107,10 @@ plugins:
 nav:
   - Home:
       - index.md
-      # - 更新记录: changelog.md
-      # - 友链: link.md
+      # - 鏇存柊璁板綍: changelog.md
+      # - 鍙嬮摼: link.md
   - System:
-      - 计算机逻辑设计基础:
+      - 璁＄畻鏈洪€昏緫璁捐鍩虹:
           - CLDF/index.md
           - Logic and Digital System: CLDF/CLDF1.md
           - Combinational Logic Circuits: CLDF/CLDF2.md
@@ -143,10 +140,10 @@ nav:
       - 高级数据结构与算法分析:
           - ADS/index.md
           - Review: ADS/review.md
-          - 错题: ADS/collection.md
-      - 理论计算机设计基础:
+          - 閿欓: ADS/collection.md
+      - 鐞嗚璁＄畻鏈鸿璁″熀纭€:
           - TCS/index.md
-      - 计算机图形学:
+      - 璁＄畻鏈哄浘褰㈠:
           - CG/index.md
           - What is Computer Graphics?: CG/cg1.md
           - 2D Graphics: CG/cg2.md
@@ -165,18 +162,18 @@ nav:
       - 机器学习与数据分析:
           - MLDA/index.md
           - Note: MLDA/review.md
-      - 多智能体强化学习:
+      - 澶氭櫤鑳戒綋寮哄寲瀛︿範:
           - MARL/index.md
           - 1 Dynamic Programming: MARL/Lec1.md
           - 2 Value Estimation: MARL/Lec2.md
           - 3 Introduction to Deep Learning: MARL/Lec3.md
           - 4 Deep Q Network: MARL/Lec4.md
           - 5 Policy Gradient: MARL/Lec5.md
-          - 6 策略学习高级技巧与连续控制: MARL/Lec6.md
+          - 6 绛栫暐瀛︿範楂樼骇鎶€宸т笌杩炵画鎺у埗: MARL/Lec6.md
           - 7 MARL with Factored Value Functions: MARL/Lec7.md
           - 9 MARL with A-C: MARL/Lec9.md
 
-      - 机器学习:
+      - 鏈哄櫒瀛︿範:
           - ML/index.md
           - Introduction: ML/ml1.md
           - Linear Regression: ML/ml2.md
@@ -191,7 +188,7 @@ nav:
           - Dimensionality Reduction: ML/ml11.md
           - Clustering: ML/ml12.md
           - Reinforcement Learning: ML/ml13.md
-          - 特征选择和稀疏学习: ML/ml14.md
+          - Feature Selection and Sparsity: ML/ml14.md
       - 计算机视觉导论:
           - CV/index.md
           - Linear Algebra: CV/cv1.md
@@ -206,7 +203,8 @@ nav:
           - 3D Deep Learning: CV/cv11.md
           - Computational Photography: CV/cv12.md
 
-  - 杂项:
+  - 鏉傞」:
     - OpenGL:
         - OpenGL/learnopengl.md
         
+
