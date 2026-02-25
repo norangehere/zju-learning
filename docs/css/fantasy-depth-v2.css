@@ -236,6 +236,7 @@ button,
 
 .md-tabs .md-tabs__link {
   color: var(--fd-header-muted) !important;
+  opacity: 0.88 !important;
 }
 
 .md-tabs .md-tabs__link:hover,
@@ -249,6 +250,16 @@ button,
   color: var(--fd-header-text) !important;
   font-weight: 700;
   opacity: 1;
+}
+
+/* Material may keep `hidden` on tabs; prevent non-active links from becoming fully transparent */
+.md-tabs[hidden] .md-tabs__link {
+  opacity: 0.88 !important;
+  transform: none !important;
+}
+
+.md-tabs[hidden] .md-tabs__item--active > .md-tabs__link {
+  opacity: 1 !important;
 }
 
 .md-search__form,
